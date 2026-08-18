@@ -1,0 +1,90 @@
+---
+title: "Insights"
+pagetitle: "Insights — EKIO"
+page-layout: full
+toc: false
+listing:
+  # Multiple listings: the split is by metadata (featured), not by position —
+  # Quarto listings have no offset, so a post is promoted by setting
+  # `featured: "true"` in its own front matter.
+  - id: destaque
+    contents: posts
+    include:
+      featured: "true"
+    sort: "date desc"
+    type: custom
+    template: destaque-template.ejs
+    fields: [title, date, description, categories, image]
+    date-format: "MMM/YYYY"
+
+  - id: grade
+    contents: posts
+    exclude:
+      featured: "true"
+    sort: "date desc"
+    type: custom
+    template: grade-template.ejs
+    max-items: 12
+    fields: [title, date, description, categories, image]
+    date-format: "MMM/YYYY"
+---
+
+::: {.page-header}
+::: {.container}
+
+::: {.page-header-main}
+[Insights]{.section-label}
+
+# Notas sobre economia, cidade e dados {.page-header-title}
+:::
+
+::: {.page-header-aside}
+[Análises originais, comentários de dados e pesquisa aplicada em economia, mercado imobiliário e ciência de dados.]{.page-header-desc}
+:::
+
+:::
+:::
+
+<!-- ============ Destaque ============ -->
+::: {.band .band-light}
+::: {.container}
+
+::: {#destaque}
+:::
+
+:::
+:::
+
+<!-- ============ Grade ============ -->
+::: {.band .band-light .band-flush}
+::: {.container}
+
+::: {#grade}
+:::
+
+::: {style="margin-top: 4rem;"}
+[Ver todos os posts](arquivo.qmd){.link-rule-sm}
+:::
+
+:::
+:::
+
+<!-- ============ CTA ============ -->
+::: {.band .band-cta}
+::: {.container}
+::: {.cta-row}
+
+::: {.cta-text}
+## Quer este nível de análise aplicado ao seu negócio? {.cta-heading}
+
+[As mesmas ferramentas usadas nestas análises — econometria, ciência de dados e inteligência espacial — podem responder às perguntas do seu negócio. A consulta inicial é gratuita.]{.cta-desc}
+:::
+
+::: {.cta-actions}
+[contact@ekio.io](mailto:contact@ekio.io?subject=Insights%20-%20EKIO){.link-rule-light}
+[Formulário de contato](../contato.qmd){.link-rule-light}
+:::
+
+:::
+:::
+:::

@@ -1,0 +1,40 @@
+---
+title: "Arquivo — Insights"
+pagetitle: "Arquivo — EKIO Insights"
+page-layout: full
+toc: false
+listing:
+  id: arquivo-grid
+  contents: posts
+  sort: "date desc"
+  type: grid
+  grid-columns: 3
+  page-size: 12
+  fields: [title, date, description, categories, image]
+  image-height: 200px
+---
+
+::: {.page-header}
+::: {.container}
+
+::: {.page-header-main}
+[← Insights](/insights/){.section-label}
+
+# Todos os posts {.page-header-title}
+:::
+
+::: {.page-header-aside}
+[Arquivo completo de análises, comentários de dados e pesquisa publicados no EKIO Insights.]{.page-header-desc}
+:::
+
+:::
+:::
+
+::: {.band .band-light}
+::: {.container}
+
+::: {#arquivo-grid}
+:::
+
+:::
+:::

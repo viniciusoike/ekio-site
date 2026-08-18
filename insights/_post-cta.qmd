@@ -1,0 +1,10 @@
+::: {.post-cta}
+
+**Precisa deste tipo de análise para o seu negócio?**
+
+A EKIO combina economia, ciência de dados e inteligência espacial para apoiar decisões de empresas e governos. A consulta inicial é gratuita.
+
+[contact@ekio.io](mailto:contact@ekio.io?subject=Insights%20-%20EKIO){.link-rule-sm}
+[Conhecer os serviços](/servicos.html){.link-rule-sm style="margin-left: 2rem;"}
+
+:::

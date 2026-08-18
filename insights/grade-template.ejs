@@ -1,0 +1,68 @@
+<%
+// NOTE: every emitted line must start at column 0 — Pandoc reads indented
+// output as a code block.
+
+function fmtDate(d) {
+if (!d) return '';
+// Quarto formats the date via the listing's date-format (MMM/YYYY).
+var s = String(d);
+return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
+// Posts carry several categories; the card shows only the first.
+function cat(item) {
+if (!item.categories) return '';
+var c = Array.isArray(item.categories) ? item.categories : [item.categories];
+return c.length ? c[0] : '';
+}
+
+function itemHref(item) {
+return (item.path || '').replace(/\.qmd$/, '.html');
+}
+
+function mediaStyle(item) {
+if (item.image) return "background-image: url('" + item.image + "');";
+return 'background: repeating-linear-gradient(135deg,#F2F0EC 0 7px,#EAE7E1 7px 14px);';
+}
+
+// Row densities cycle 2-up / 3-up so the page reads as varied rather than a
+// uniform grid. Derived from the item count, so publishing a post reflows the
+// page on its own. A row that would leave a single orphan absorbs it instead
+// (up to 4 across); a genuine leftover of one renders as a wide card.
+function rowSizes(n) {
+var cycle = [2, 3];
+var sizes = [];
+var left = n;
+var i = 0;
+while (left > 0) {
+var s = cycle[i % cycle.length];
+if (s > left) s = left;
+if (left - s === 1 && left <= 4) s = left;
+if (s > left) s = left;
+sizes.push(s);
+left -= s;
+i++;
+}
+return sizes;
+}
+
+var sizes = rowSizes(items.length);
+var cursor = 0;
+%>
+<div class="ins-rows">
+<% sizes.forEach(function(size) { %>
+<% var rowItems = items.slice(cursor, cursor + size); cursor += size; %>
+<div class="ins-row ins-row--<%= size %>">
+<% rowItems.forEach(function(item) { var d = fmtDate(item.date); var c = cat(item); %>
+<article class="ins-card<%= size === 1 ? ' ins-card--wide' : '' %>">
+<div class="ins-media" style="<%= mediaStyle(item) %>"></div>
+<div class="ins-body">
+<p class="ins-meta"><%= d %><% if (c) { %> · <span class="ins-cat"><%= c %></span><% } %></p>
+<h3 class="ins-title"><a class="stretched-link" href="<%= itemHref(item) %>"><%= item.title %></a></h3>
+<p class="ins-excerpt"><%= item.description %></p>
+</div>
+</article>
+<% }); %>
+</div>
+<% }); %>
+</div>

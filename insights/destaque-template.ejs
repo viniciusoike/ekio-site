@@ -1,0 +1,49 @@
+<%
+// NOTE: every emitted line must start at column 0 — Pandoc reads indented
+// output as a code block.
+
+function fmtDate(d) {
+if (!d) return '';
+// Quarto formats the date via the listing's date-format (MMM/YYYY).
+var s = String(d);
+return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
+// Posts carry several categories; the card shows only the first.
+function cat(item) {
+if (!item.categories) return '';
+var c = Array.isArray(item.categories) ? item.categories : [item.categories];
+return c.length ? c[0] : '';
+}
+
+function itemHref(item) {
+return (item.path || '').replace(/\.qmd$/, '.html');
+}
+
+function mediaStyle(item) {
+if (item.image) return "background-image: url('" + item.image + "');";
+return 'background: repeating-linear-gradient(135deg,#F2F0EC 0 7px,#EAE7E1 7px 14px);';
+}
+
+function metaLine(item) {
+var parts = [];
+var d = fmtDate(item.date);
+if (d) parts.push(d);
+var c = cat(item);
+return { date: d, cat: c };
+}
+%>
+<div class="ins-rows">
+<% items.forEach(function(item) { var m = metaLine(item); %>
+<div class="ins-row ins-row--1">
+<article class="ins-card ins-card--wide ins-card--feature">
+<div class="ins-media" style="<%= mediaStyle(item) %>"></div>
+<div class="ins-body">
+<p class="ins-meta"><span class="ins-flag">Em destaque</span><% if (m.date) { %> · <%= m.date %><% } %><% if (m.cat) { %> · <span class="ins-cat"><%= m.cat %></span><% } %></p>
+<h2 class="ins-title"><a class="stretched-link" href="<%= itemHref(item) %>"><%= item.title %></a></h2>
+<p class="ins-excerpt"><%= item.description %></p>
+</div>
+</article>
+</div>
+<% }); %>
+</div>

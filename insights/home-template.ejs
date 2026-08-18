@@ -1,0 +1,59 @@
+<%
+// NOTE: every emitted line must start at column 0 — Pandoc reads indented
+// output as a code block.
+var MESES = ['janeiro','fevereiro','março','abril','maio','junho',
+'julho','agosto','setembro','outubro','novembro','dezembro'];
+
+function fmtDate(d) {
+if (!d) return '';
+var s = String(d);
+// Quarto already formats the date via the listing's date-format; only fall
+// back to manual formatting if a raw ISO string comes through.
+var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(s);
+if (m) {
+var mes = MESES[parseInt(m[2], 10) - 1] || '';
+s = mes + ' de ' + m[1];
+}
+return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
+function getCats(item) {
+if (!item.categories) return [];
+return Array.isArray(item.categories) ? item.categories : [item.categories];
+}
+
+function itemHref(item) {
+return (item.path || '').replace(/\.qmd$/, '.html');
+}
+
+function mediaStyle(item) {
+if (item.image) return "background-image: url('" + item.image + "');";
+return 'background: repeating-linear-gradient(135deg,#F2F0EC 0 7px,#EAE7E1 7px 14px);';
+}
+
+var lead = items[0] || null;
+var side = items.slice(1, 3);
+%>
+<div class="work-grid">
+<% if (lead) { %>
+<article class="work-lead">
+<div class="work-media work-media--lead" style="<%= mediaStyle(lead) %>"></div>
+<div>
+<p class="work-cat"><%= getCats(lead).length ? getCats(lead)[0] : 'Insight' %></p>
+<h3 class="work-title work-title--lead"><a class="stretched-link" href="<%= itemHref(lead) %>"><%= lead.title %></a></h3>
+<p class="work-excerpt"><%= lead.description %></p>
+<p class="work-date"><%= fmtDate(lead.date) %></p>
+</div>
+</article>
+<% } %>
+<div class="work-side">
+<% side.forEach(function(item) { %>
+<article class="work-item">
+<div class="work-media work-media--side" style="<%= mediaStyle(item) %>"></div>
+<p class="work-cat"><%= getCats(item).length ? getCats(item)[0] : 'Insight' %></p>
+<h3 class="work-title"><a class="stretched-link" href="<%= itemHref(item) %>"><%= item.title %></a></h3>
+<p class="work-date"><%= fmtDate(item.date) %></p>
+</article>
+<% }); %>
+</div>
+</div>
