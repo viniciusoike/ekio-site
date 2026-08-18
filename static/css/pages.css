@@ -1,0 +1,616 @@
+/* ═══════════════════════════════════════════════════════════════
+   EKIO — page-specific CSS (loaded after the SCSS theme)
+   Layouts Quarto's listing system doesn't produce on its own.
+   Tokens come from :root in custom.scss.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ════════════════════════════════════════════════════════════
+   INSIGHTS — card component + variable-density grid
+
+   One card component serves every listing. Row density is chosen by
+   the EJS template from the item count, so adding a post reflows the
+   grid without touching markup.
+   ════════════════════════════════════════════════════════════ */
+
+.ins-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.ins-row {
+    display: grid;
+    gap: 2.5rem;
+}
+
+.ins-row--2 { grid-template-columns: repeat(2, 1fr); }
+.ins-row--3 { grid-template-columns: repeat(3, 1fr); }
+.ins-row--4 { grid-template-columns: repeat(4, 1fr); }
+.ins-row--1 { grid-template-columns: 1fr; }
+
+/* ── Card ── */
+.ins-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--ekio-rule-strong);
+    padding-top: 1.25rem;
+}
+
+.ins-card:hover .ins-title a {
+    color: var(--ekio-navy);
+}
+
+.ins-media {
+    background-color: var(--ekio-paper-sunk);
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 1.25rem;
+}
+
+.ins-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.ins-meta {
+    font-size: 0.6875rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ekio-ink-300);
+    margin: 0 0 0.75rem;
+}
+
+.ins-cat {
+    color: var(--ekio-navy);
+}
+
+.ins-title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    line-height: 1.25;
+    color: var(--ekio-ink);
+    margin: 0 0 0.625rem;
+}
+
+.ins-title a {
+    color: inherit;
+}
+
+/* Whole card is the click target. */
+.ins-card .stretched-link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.ins-excerpt {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--ekio-ink-500);
+    margin: 0;
+}
+
+/* ── Density-dependent scale ── */
+.ins-row--2 .ins-media { height: 300px; }
+.ins-row--3 .ins-media { height: 220px; }
+.ins-row--4 .ins-media { height: 170px; }
+
+.ins-row--2 .ins-title { font-size: 1.75rem; }
+.ins-row--3 .ins-title { font-size: 1.375rem; }
+.ins-row--4 .ins-title { font-size: 1.1875rem; }
+
+/* Clamp the denser rows so uneven description lengths don't leave the row
+   ragged; the whole card is a link, so nothing is lost. */
+.ins-row--3 .ins-excerpt {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.ins-row--4 .ins-excerpt {
+    font-size: 0.875rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ── Wide card (a lone leftover, and the featured post) ── */
+.ins-card--wide {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.ins-card--wide .ins-media {
+    height: 100%;
+    min-height: 340px;
+    margin-bottom: 0;
+}
+
+.ins-card--wide .ins-title {
+    font-size: 2rem;
+    max-width: 24ch;
+}
+
+.ins-card--wide .ins-excerpt {
+    max-width: 54ch;
+}
+
+/* ── Featured ── */
+.ins-card--feature {
+    border-top-color: var(--ekio-navy);
+    padding-top: 1.5rem;
+}
+
+.ins-card--feature .ins-media { min-height: 420px; }
+
+.ins-card--feature .ins-title {
+    font-size: clamp(1.9rem, 3.5vw, 2.85rem);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+}
+
+.ins-card--feature .ins-excerpt {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--ekio-ink-600);
+}
+
+.ins-flag {
+    color: var(--ekio-navy);
+}
+
+/* ════════════════════════════════════════════════════════════
+   HOME — selected work (lead article + two stacked)
+   ════════════════════════════════════════════════════════════ */
+
+.work-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 2.5rem;
+}
+
+.work-lead {
+    display: flex;
+    flex-direction: column;
+    gap: 1.375rem;
+    position: relative;
+}
+
+.work-side {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.work-item {
+    position: relative;
+}
+
+.work-media {
+    background-color: var(--ekio-paper-sunk);
+    background-size: cover;
+    background-position: center;
+}
+
+.work-media--lead {
+    height: 420px;
+}
+
+.work-media--side {
+    height: 210px;
+    margin-bottom: 1.125rem;
+}
+
+.work-cat {
+    font-size: 0.6875rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ekio-ink-300);
+    margin: 0 0 0.75rem;
+}
+
+.work-title {
+    font-family: var(--font-display);
+    font-size: 1.375rem;
+    font-weight: 400;
+    line-height: 1.3;
+    color: var(--ekio-ink);
+    margin: 0;
+}
+
+.work-title--lead {
+    font-size: 2rem;
+    line-height: 1.25;
+    max-width: 26ch;
+    margin-bottom: 0.75rem;
+}
+
+.work-title a {
+    color: inherit;
+}
+
+.work-title a:hover {
+    color: var(--ekio-navy);
+}
+
+.work-excerpt {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--ekio-ink-500);
+    margin: 0;
+    max-width: 52ch;
+}
+
+.work-date {
+    font-size: 0.8125rem;
+    color: var(--ekio-ink-300);
+    margin: 0.875rem 0 0;
+}
+
+/* ════════════════════════════════════════════════════════════
+   INSIGHTS — archive grid (arquivo.qmd, Quarto default listing)
+   ════════════════════════════════════════════════════════════ */
+
+.quarto-listing-cols-3 {
+    gap: 2.5rem !important;
+}
+
+.quarto-grid-item.card {
+    background: var(--ekio-paper);
+    border: none;
+    border-top: 1px solid var(--ekio-rule-strong);
+    border-radius: 0;
+    box-shadow: none;
+    padding-top: 1.25rem;
+}
+
+.quarto-grid-item .card-img-top {
+    border-radius: 0;
+    margin-bottom: 1rem;
+}
+
+.quarto-grid-item .card-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.25;
+    color: var(--ekio-ink);
+}
+
+.quarto-grid-item .card-text {
+    font-size: 0.875rem;
+    line-height: 1.65;
+    color: var(--ekio-ink-500);
+}
+
+.quarto-grid-item .listing-categories .listing-category {
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border: 1px solid var(--ekio-rule-strong);
+    border-radius: 0;
+    color: var(--ekio-ink-500);
+    opacity: 1;
+    padding: 0.25rem 0.6rem;
+}
+
+/* ════════════════════════════════════════════════════════════
+   CONTACT
+   ════════════════════════════════════════════════════════════ */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.25fr;
+    gap: 5rem;
+    align-items: start;
+}
+
+.contact-info-item {
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--ekio-rule);
+}
+
+.contact-info-item:last-child {
+    border-bottom: 1px solid var(--ekio-rule);
+}
+
+.contact-info-label {
+    display: block;
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ekio-ink-300);
+    margin-bottom: 0.5rem;
+}
+
+.contact-info-value {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--ekio-ink);
+    line-height: 1.4;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ekio-ink-400);
+    margin-bottom: 0.5rem;
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+    width: 100%;
+    padding: 0.85rem 0;
+    border: none;
+    border-bottom: 1px solid var(--ekio-rule-strong);
+    border-radius: 0;
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    color: var(--ekio-ink);
+    background: transparent;
+    transition: border-color 0.2s;
+    margin-bottom: 1.75rem;
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+    outline: none;
+    border-bottom-color: var(--ekio-navy);
+    box-shadow: none;
+}
+
+.form-textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-intro {
+    margin-bottom: 3rem;
+}
+
+.form-intro-lead {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--ekio-ink);
+    margin-bottom: 1.125rem;
+}
+
+.form-intro-note {
+    display: block;
+    font-size: 0.8125rem;
+    color: var(--ekio-ink-300);
+    margin-top: 1.25rem;
+}
+
+.form-legal {
+    display: block;
+    font-size: 0.75rem;
+    line-height: 1.6;
+    color: var(--ekio-ink-300);
+    margin-top: 1.5rem;
+    max-width: 52ch;
+}
+
+/* ── Pull quote ── */
+.pull-quote {
+    margin-top: 3rem;
+    padding-left: 1.5rem;
+    border-left: 1px solid var(--ekio-navy);
+}
+
+.pull-quote p {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--ekio-ink-700);
+    margin: 0;
+}
+
+.pull-quote-attr {
+    display: block;
+    font-family: var(--font-sans);
+    font-style: normal;
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ekio-ink-300);
+    margin-top: 1rem;
+}
+
+/* ════════════════════════════════════════════════════════════
+   CASE STUDIES (casos.qmd — currently out of the render)
+   ════════════════════════════════════════════════════════════ */
+
+.cases-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+}
+
+.case-card {
+    display: block;
+    background: transparent;
+    border: none;
+    border-top: 1px solid var(--ekio-rule-strong);
+    border-radius: 0;
+    padding-top: 1.5rem;
+    color: inherit;
+}
+
+.case-image {
+    height: 240px;
+    background-color: var(--ekio-paper-sunk);
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 1.25rem;
+}
+
+.case-content {
+    padding: 0;
+}
+
+.case-category {
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ekio-navy);
+    margin-bottom: 0.75rem;
+}
+
+.case-title {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 400;
+    line-height: 1.25;
+    color: var(--ekio-ink);
+    margin-bottom: 0.75rem;
+}
+
+.case-excerpt {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--ekio-ink-500);
+    margin-bottom: 1.25rem;
+}
+
+.case-metrics {
+    display: flex;
+    gap: 2.5rem;
+    border-top: 1px solid var(--ekio-rule);
+    padding-top: 1rem;
+}
+
+.case-metric-value {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--ekio-navy);
+    line-height: 1.2;
+}
+
+.case-metric-label {
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ekio-ink-300);
+}
+
+/* ════════════════════════════════════════════════════════════
+   POST FOOTER CTA
+   ════════════════════════════════════════════════════════════ */
+
+.post-cta {
+    margin-top: 4rem;
+    padding: 2.5rem 0 0;
+    border-top: 1px solid var(--ekio-navy);
+}
+
+.post-cta p {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--ekio-ink-500);
+}
+
+.post-cta strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--ekio-ink);
+    margin-bottom: 0.75rem;
+}
+
+/* ════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════════════════════════════════ */
+
+@media (max-width: 991px) {
+    .work-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .work-media--lead {
+        height: 280px;
+    }
+
+    /* Collapse every density to two columns, then the wide card to one. */
+    .ins-row--3,
+    .ins-row--4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ins-row--3 .ins-media,
+    .ins-row--4 .ins-media {
+        height: 200px;
+    }
+
+    .ins-row--3 .ins-title,
+    .ins-row--4 .ins-title {
+        font-size: 1.25rem;
+    }
+
+    .ins-card--wide {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .ins-card--wide .ins-media,
+    .ins-card--feature .ins-media {
+        min-height: 0;
+        height: 240px;
+        margin-bottom: 0;
+    }
+
+    .ins-card--wide .ins-title {
+        font-size: 1.75rem;
+    }
+
+    .contact-grid,
+    .cases-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .ins-rows { gap: 2.5rem; }
+
+    .ins-row,
+    .ins-row--2,
+    .ins-row--3,
+    .ins-row--4 {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .ins-row--2 .ins-media,
+    .ins-row--3 .ins-media,
+    .ins-row--4 .ins-media {
+        height: 220px;
+    }
+
+    .ins-row--2 .ins-title,
+    .ins-row--3 .ins-title,
+    .ins-row--4 .ins-title,
+    .ins-card--wide .ins-title {
+        font-size: 1.375rem;
+    }
+}

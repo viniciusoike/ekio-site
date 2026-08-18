@@ -1,0 +1,1363 @@
+/*-- scss:defaults --*/
+
+// ═══════════════════════════════════════════════════════════════
+// EKIO — editorial theme
+// Old-style display (EB Garamond), grotesque body (Public Sans),
+// condensed accents (Roboto Condensed). Hairline rules instead of
+// cards; paper background instead of white.
+// ═══════════════════════════════════════════════════════════════
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Public+Sans:wght@300;400;500;600&family=Roboto+Condensed:wght@400;500;600&display=swap');
+
+// ── Surfaces ──
+$paper:        #FAF9F7;  // page
+$paper-sunk:   #F4F2EE;  // recessed band
+$canvas:       #E8E6E1;  // outside the frame
+$rule:         #E6E3DC;  // hairline
+$rule-strong:  #D8D5CE;  // tag borders, frame edge
+
+// ── Ink ──
+$ink:          #0A0A0A;
+$ink-700:      #3A3733;
+$ink-600:      #4A4640;
+$ink-500:      #5A5650;
+$ink-400:      #7A766E;
+$ink-300:      #8C8880;
+
+// ── Accent ──
+$navy:         #1E3A5F;
+$navy-deep:    #16304F;
+$navy-tint:    #EEF1F5;
+
+// Legacy aliases — older markup and post pages still reference these.
+$ekio-blue-900: $navy-deep;
+$ekio-blue-800: $navy;
+$ekio-blue-700: $navy;
+$ekio-blue-600: $navy;
+$ekio-blue-500: $navy;
+$ekio-blue-400: #4A6E96;
+$ekio-blue-300: #8FA6BE;
+$ekio-blue-200: #B9C7D6;
+$ekio-blue-100: #D9E1EA;
+$ekio-blue-50:  $navy-tint;
+$ekio-gray-900: $ink;
+$ekio-gray-800: $ink-700;
+$ekio-gray-700: $ink-600;
+$ekio-gray-600: $ink-500;
+$ekio-gray-500: $ink-300;
+$ekio-gray-400: $ink-400;
+$ekio-gray-300: $rule-strong;
+$ekio-gray-200: $rule;
+$ekio-gray-100: $paper-sunk;
+$ekio-gray-50:  $paper;
+$ekio-orange:   #B85C2E;
+$ekio-teal:     #2C6E6F;
+$ekio-amber:    #B98B22;
+$ekio-red:      #A83232;
+$ekio-green:    #35785A;
+$ekio-purple:   #6B54A3;
+
+// ── Font stacks ──
+$font-display: 'EB Garamond', 'Adobe Garamond Pro', Garamond, Georgia, 'Times New Roman', serif;
+$font-sans:    'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+$font-cond:    'Roboto Condensed', 'Public Sans', sans-serif;
+$font-mono:    ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+$font-serif:   $font-display;  // legacy alias
+
+// ── Bootstrap overrides ──
+$body-bg:    $paper;
+$body-color: $ink-600;
+$font-family-sans-serif: $font-sans;
+$font-family-monospace:  $font-mono;
+$headings-font-family:   $font-display;
+$headings-color:         $ink;
+$headings-font-weight:   400;
+
+$font-size-base:   1rem;
+$line-height-base: 1.7;
+
+$link-color:       $navy;
+$link-hover-color: $ink;
+$link-decoration:  none;
+
+$primary:   $navy;
+$secondary: $ink-400;
+$success:   $ekio-green;
+$info:      $ekio-blue-400;
+$warning:   $ekio-amber;
+$danger:    $ekio-red;
+
+$border-color:  $rule;
+$border-radius: 0;
+
+$navbar-bg: $paper;
+$navbar-fg: $ink-700;
+
+$code-color: $navy;
+$code-bg:    $paper-sunk;
+
+/*-- scss:rules --*/
+
+// ═══════════════════════════════════════════════════════════════
+// Tokens exposed to plain CSS (pages.css, inline styles, EJS)
+// ═══════════════════════════════════════════════════════════════
+
+:root {
+  --ekio-paper:       #{$paper};
+  --ekio-paper-sunk:  #{$paper-sunk};
+  --ekio-rule:        #{$rule};
+  --ekio-rule-strong: #{$rule-strong};
+  --ekio-ink:         #{$ink};
+  --ekio-ink-700:     #{$ink-700};
+  --ekio-ink-600:     #{$ink-600};
+  --ekio-ink-500:     #{$ink-500};
+  --ekio-ink-400:     #{$ink-400};
+  --ekio-ink-300:     #{$ink-300};
+  --ekio-navy:        #{$navy};
+  --font-display:     #{$font-display};
+  --font-sans:        #{$font-sans};
+  --font-cond:        #{$font-cond};
+  --font-mono:        #{$font-mono};
+  --font-serif:       #{$font-display};
+}
+
+// Hatched placeholder — stands in for artwork that does not exist yet.
+@mixin hatch {
+  background: repeating-linear-gradient(135deg, #F2F0EC 0 7px, #EAE7E1 7px 14px);
+}
+
+// ═══════════════════════════════════════════════════════════════
+// Global
+// ═══════════════════════════════════════════════════════════════
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+}
+
+h1, h2, h3, h4 {
+  font-family: $font-display;
+  font-weight: 400;
+  // EB Garamond is an old-style face; it wants neutral tracking, unlike the
+  // didone it replaced.
+  letter-spacing: 0;
+  text-wrap: pretty;
+  // Quarto rules h2 by default; this system uses rules on containers instead.
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+p { text-wrap: pretty; }
+
+// ── Pandoc wrapping ──
+// A bracketed span on its own line becomes <p><span>…</span></p>. The span
+// carries the styling, so the paragraph must not add its own spacing.
+p:has(> .section-label:only-child),
+p:has(> .hero-label:only-child),
+p:has(> .hero-note:only-child),
+p:has(> .service-num:only-child),
+p:has(> .service-detail-num:only-child),
+p:has(> .process-number:only-child),
+p:has(> .package-disciplines:only-child),
+p:has(> .about-role:only-child),
+p:has(> .credential-label:only-child),
+p:has(> .credential-value:only-child),
+p:has(> .contact-info-label:only-child),
+p:has(> .contact-info-value:only-child),
+p:has(> .form-intro-lead:only-child),
+p:has(> .sector-name:only-child),
+p:has(> .package-meta:only-child) {
+  margin: 0;
+}
+
+// These are authored as spans but behave as text blocks; without block display
+// their vertical margins are dropped.
+.hero-subtitle,
+.page-header-desc,
+.section-desc,
+.cta-desc,
+.featured-desc,
+.service-desc,
+.service-detail-desc,
+.package-desc,
+.about-bio,
+.ins-excerpt {
+  display: block;
+}
+
+// Where a wrapper is a flex/grid container, let its paragraph dissolve so the
+// inline children become the actual flex items.
+.hero-actions > p,
+.cta-actions > p,
+.methodology-tags > p,
+.label-ruled > p,
+.ins-meta-row > p {
+  display: contents;
+}
+
+.section-head-row > p { margin: 0; }
+
+// Marketing pages supply their own headers; suppress Quarto's title block.
+.page-layout-full {
+  main.content { padding-top: 0; }
+
+  #title-block-header { display: none; }
+
+  > .band,
+  > .hero,
+  > .page-header { max-width: none; }
+}
+
+// ── Measure ──
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
+.container-narrow {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// Navbar
+// ═══════════════════════════════════════════════════════════════
+
+.navbar {
+  background: $paper !important;
+  border-bottom: 1px solid $rule;
+  padding: 0;
+  min-height: 78px;
+
+  > .container-fluid,
+  > .container {
+    max-width: 1440px;
+    padding: 0 4rem;
+  }
+
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 1.5rem 0;
+
+    img, svg {
+      height: 30px;
+      width: auto;
+    }
+
+    // Wordmark rendered next to the logo mark.
+    &::after {
+      content: 'EKIO';
+      font-family: $font-sans;
+      font-size: 1.19rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      color: $navy;
+    }
+  }
+
+  .navbar-nav {
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .nav-link {
+    font-family: $font-sans;
+    font-size: 0.8125rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $ink-700 !important;
+    padding: 0 0 3px !important;
+    border-bottom: 1px solid transparent;
+    transition: color 0.18s, border-color 0.18s;
+
+    &:hover,
+    &:focus-visible {
+      color: $navy !important;
+      border-bottom-color: $navy;
+    }
+
+    &.active {
+      color: $navy !important;
+      border-bottom-color: $navy;
+    }
+  }
+
+  .navbar-toggler {
+    border: none;
+    padding: 0;
+    &:focus { box-shadow: none; }
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// Footer
+// ═══════════════════════════════════════════════════════════════
+
+.footer,
+#quarto-footer,
+.nav-footer {
+  background: $ink !important;
+  border-top: none;
+  padding: 2.125rem 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: $ink-300;
+
+  .nav-footer-left,
+  .nav-footer-center,
+  .nav-footer-right {
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .nav-footer-right {
+    justify-content: flex-end;
+  }
+
+  // Footer links come through as a <ul>; that is the real flex container.
+  .footer-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-item { margin: 0; }
+
+  // Quarto wraps each footer label in a <p>.
+  p { margin: 0; }
+
+  a {
+    color: $ink-300;
+    transition: color 0.18s;
+    &:hover { color: $paper; }
+  }
+
+  .nav-link {
+    padding: 0 !important;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+  }
+}
+
+.footer-brand {
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: $ink-300;
+}
+
+// Legacy footer classes.
+.footer-logo-text {
+  font-family: $font-sans;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  color: $ink-300;
+}
+
+.footer-sub {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: $ink-300;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// Links and buttons
+// ═══════════════════════════════════════════════════════════════
+
+// The primary call to action in this system is a ruled link, not a filled box.
+.link-rule {
+  display: inline-block;
+  font-family: $font-cond;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: $navy;
+  border-bottom: 1px solid $navy;
+  padding-bottom: 5px;
+  white-space: nowrap;
+  transition: color 0.18s, border-color 0.18s;
+
+  &:hover {
+    color: $ink;
+    border-bottom-color: $ink;
+  }
+}
+
+.link-rule-sm {
+  @extend .link-rule;
+  font-size: 0.8125rem;
+  letter-spacing: 0.14em;
+}
+
+.link-rule-light {
+  @extend .link-rule;
+  color: $paper;
+  border-bottom-color: rgba($paper, 0.5);
+
+  &:hover {
+    color: $paper;
+    border-bottom-color: $paper;
+  }
+}
+
+// Buttons kept for forms and legacy markup, restyled as squared rules.
+.btn-ekio {
+  display: inline-block;
+  font-family: $font-cond;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.9rem 1.9rem;
+  border-radius: 0;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s, border-color 0.18s;
+}
+
+.btn-primary-ekio {
+  @extend .btn-ekio;
+  background: $navy;
+  color: $paper;
+
+  &:hover {
+    background: $ink;
+    color: $paper;
+  }
+}
+
+.btn-ghost-ekio {
+  @extend .btn-ekio;
+  background: transparent;
+  color: $navy;
+  border-color: $rule-strong;
+
+  &:hover {
+    border-color: $navy;
+    color: $navy;
+    background: transparent;
+  }
+}
+
+.btn-ghost-light,
+.btn-ghost-light-ekio {
+  @extend .btn-ekio;
+  background: transparent;
+  color: $paper;
+  border-color: rgba($paper, 0.4);
+
+  &:hover {
+    background: rgba($paper, 0.08);
+    color: $paper;
+    border-color: $paper;
+  }
+}
+
+.btn-lg,
+.btn-lg-ekio {
+  padding: 1rem 2.25rem;
+  font-size: 0.9375rem;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// Section scaffolding
+// ═══════════════════════════════════════════════════════════════
+
+.band {
+  padding: 6rem 0;
+  border-bottom: 1px solid $rule;
+}
+
+.band-light  { background: $paper; }
+.band-muted  { background: $paper-sunk; }
+
+.band-dark {
+  background: $navy;
+  color: rgba($paper, 0.86);
+  border-bottom: none;
+
+  h1, h2, h3 { color: $paper; }
+  .section-label { color: rgba($paper, 0.6); }
+}
+
+.band-flush { padding-top: 0; }
+.band-tight { padding: 4rem 0; }
+
+// ── Eyebrow ──
+.section-label {
+  display: block;
+  font-family: $font-sans;
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: $ink-300;
+  margin-bottom: 2.25rem;
+}
+
+.section-label-light { color: rgba($paper, 0.6); }
+
+// ── Rule-and-label pair (Sobre) ──
+.label-ruled {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 3.25rem;
+
+  span:first-child {
+    font-family: $font-cond;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: $navy;
+  }
+
+  &::after {
+    content: '';
+    width: 44px;
+    height: 1px;
+    background: $navy;
+    display: block;
+  }
+}
+
+h1.section-heading,
+h2.section-heading,
+h3.section-heading {
+  font-family: $font-display;
+  font-size: clamp(2rem, 2.8vw, 2.5rem);
+  font-weight: 400;
+  color: $ink;
+  line-height: 1.2;
+  margin: 0 0 1rem;
+}
+
+h1.section-heading-light,
+h2.section-heading-light { color: $paper; }
+
+.section-desc {
+  font-size: 1.0625rem;
+  color: $ink-600;
+  max-width: 60ch;
+  line-height: 1.75;
+  margin-bottom: 3.5rem;
+}
+
+// Heading on the left, a ruled link on the right.
+.section-head-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 3.5rem;
+
+  .section-heading { margin-bottom: 0; }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// Page header (interior pages)
+// ═══════════════════════════════════════════════════════════════
+
+.page-header {
+  background: $paper;
+  border-bottom: 1px solid $rule;
+  padding: 6rem 0 5rem;
+
+  // Pages that supply an aside get the split rule; the rest stay single-column.
+  &:has(.page-header-aside) {
+    padding: 0;
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 0;
+    }
+  }
+}
+
+.page-header-main {
+  padding: 6rem 4rem 5rem;
+}
+
+.page-header-aside {
+  padding: 6rem 4rem 5rem;
+  border-left: 1px solid $rule;
+  display: flex;
+  align-items: flex-end;
+}
+
+h1.page-header-title {
+  font-family: $font-display;
+  font-size: clamp(2.6rem, 4.8vw, 4rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: $ink;
+  margin: 0;
+  max-width: 15ch;
+}
+
+.page-header-desc {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: $ink-600;
+  margin: 0;
+  max-width: 48ch;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// Home hero
+// ═══════════════════════════════════════════════════════════════
+
+.hero {
+  border-bottom: 1px solid $rule;
+  padding: 0;
+  margin: 0;
+  max-width: none;
+}
+
+// Single full-width column; matches .container's measure and gutters.
+.hero-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 7.5rem 4rem 6.5rem;
+}
+
+.hero-label {
+  display: block;
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: $ink-300;
+  margin-bottom: 2.75rem;
+}
+
+h1.hero-title {
+  font-family: $font-display;
+  font-size: clamp(2.8rem, 5.7vw, 5.25rem);
+  font-weight: 400;
+  line-height: 1.06;
+  color: $ink;
+  margin: 0;
+  max-width: 20ch;
+}
+
+// Subtitle and CTA sit on a shared baseline at the foot of the hero.
+.hero-foot {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 3rem;
+  margin-top: 4.5rem;
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: $ink-600;
+  max-width: 46ch;
+  margin: 0;
+}
+
+.hero-note {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: $ink-300;
+  margin-top: 1.25rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+// ── Right panel: credential stack ──
+// Currently unused — the hero sidebar markup is disabled in index.qmd in favour
+// of a cleaner full-width header. Kept so the panel can be restored in markup.
+.hero-visual {
+  border-left: 1px solid $rule;
+  background: $paper-sunk;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3.5rem 3.25rem;
+  min-height: 620px;
+}
+
+.hero-stat-grid {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-stat {
+  padding: 1.75rem 0;
+  border-top: 1px solid $rule-strong;
+
+  &:last-child { border-bottom: 1px solid $rule-strong; }
+
+  p { margin: 0; }
+}
+
+// Number and label share one paragraph; block display stacks them.
+.hero-stat-number {
+  display: block;
+  font-family: $font-display;
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1;
+  color: $navy;
+}
+
+.hero-stat-label {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $ink-400;
+  margin-top: 0.65rem;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// Service teaser grid (hairline-separated cells)
+// ═══════════════════════════════════════════════════════════════
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: $rule;
+  border-top: 1px solid $rule;
+  border-bottom: 1px solid $rule;
+}
+
+.service-card {
+  background: $paper;
+  padding: 2.375rem 2.125rem 2.875rem;
+  display: flex;
+  flex-direction: column;
+  color: inherit;
+  transition: background 0.2s;
+
+  &:hover { background: $paper-sunk; }
+
+  h3 {
+    font-family: $font-display;
+    font-size: 1.8125rem;
+    font-weight: 400;
+    line-height: 1.2;
+    color: $ink;
+    margin: 0 0 1rem;
+  }
+
+  p {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: $ink-500;
+    margin: 0;
+  }
+
+  // The trailing link paragraph is pushed to the foot of the cell.
+  > p:last-child {
+    margin-top: auto;
+    padding-top: 1.75rem;
+  }
+}
+
+// Numeral replaces the icon in the editorial system.
+.service-num {
+  font-family: $font-mono;
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  color: $navy;
+  margin-bottom: 1.625rem;
+}
+
+.service-icon {
+  color: $navy;
+  margin-bottom: 1.5rem;
+}
+
+.service-link {
+  font-family: $font-cond;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $navy;
+  border-bottom: 1px solid $navy;
+  padding-bottom: 4px;
+
+  &:hover {
+    color: $ink;
+    border-bottom-color: $ink;
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// Method tags
+// ═══════════════════════════════════════════════════════════════
+
+.method-tag {
+  display: inline-block;
+  font-family: $font-sans;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: $ink-700;
+  border: 1px solid $rule-strong;
+  padding: 0.5rem 0.875rem;
+  background: transparent;
+}
+
+.methodology-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  margin-top: 2.125rem;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// CTA band
+// ═══════════════════════════════════════════════════════════════
+
+.band-cta {
+  background: $navy;
+  color: $paper;
+  padding: 6.5rem 0;
+  border-bottom: none;
+  text-align: left;
+}
+
+.cta-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4rem;
+  align-items: end;
+}
+
+h2.cta-heading {
+  font-family: $font-display;
+  font-size: clamp(2.15rem, 3.9vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: $paper;
+  margin: 0;
+  max-width: 20ch;
+}
+
+.cta-desc {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: rgba($paper, 0.72);
+  margin: 1.5rem 0 0;
+  max-width: 54ch;
+}
+
+.cta-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+  flex-shrink: 0;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// Service detail rows (servicos.qmd)
+// ═══════════════════════════════════════════════════════════════
+
+.service-detail {
+  display: grid;
+  grid-template-columns: 120px 1fr 420px;
+  gap: 3.5rem;
+  padding: 5rem 0;
+  border-bottom: 1px solid $rule;
+  align-items: start;
+
+  &:last-child { border-bottom: none; }
+}
+
+.service-detail-num {
+  font-family: $font-mono;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: $navy;
+}
+
+h2.service-detail-title {
+  font-family: $font-display;
+  font-size: clamp(1.9rem, 3.2vw, 2.7rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: $ink;
+  margin: 0 0 1.375rem;
+}
+
+.service-detail-desc {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: $ink-600;
+  margin: 0 0 2.125rem;
+  max-width: 56ch;
+}
+
+.service-detail-visual {
+  align-self: start;
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid $rule;
+  }
+}
+
+// ── Offerings list ──
+.service-offerings {
+  margin: 0 0 0.5rem;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1.5rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid $rule;
+    font-family: $font-sans;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: $ink-600;
+
+    &:last-child { border-bottom: none; }
+  }
+}
+
+.offering-timeline {
+  font-family: $font-mono;
+  font-size: 0.75rem;
+  color: $ink-300;
+  white-space: nowrap;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// Principles / packages / sectors
+// ═══════════════════════════════════════════════════════════════
+
+.principles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3.5rem;
+}
+
+.principle {
+  border-top: 1px solid $navy;
+  padding-top: 1.625rem;
+
+  h3 {
+    font-family: $font-display;
+    font-size: 1.75rem;
+    font-weight: 400;
+    line-height: 1.25;
+    color: $ink;
+    margin: 0 0 0.875rem;
+  }
+
+  p {
+    font-size: 0.9375rem;
+    line-height: 1.75;
+    color: $ink-500;
+    margin: 0;
+  }
+}
+
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: $rule;
+  border-top: 1px solid $rule;
+  border-bottom: 1px solid $rule;
+}
+
+.package-card {
+  background: $paper;
+  padding: 2.375rem 2.125rem 2.75rem;
+}
+
+h3.package-title {
+  font-family: $font-display;
+  font-size: 1.75rem;
+  font-weight: 400;
+  line-height: 1.25;
+  color: $ink;
+  margin: 0 0 0.5rem;
+}
+
+.package-disciplines {
+  display: block;
+  font-family: $font-cond;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $navy;
+  margin-bottom: 1.25rem;
+}
+
+.package-desc {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: $ink-500;
+  margin-bottom: 1.5rem;
+}
+
+.package-meta {
+  font-family: $font-mono;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: $ink-300;
+  padding-top: 1.125rem;
+  border-top: 1px solid $rule;
+}
+
+.sectors-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: $rule;
+  border-top: 1px solid $rule;
+  border-bottom: 1px solid $rule;
+
+  // Three focused sectors carry this section on their own, so they are set
+  // larger than a plain list would be.
+  .sector-item {
+    background: $paper;
+    padding: 2.5rem 2rem;
+    font-family: $font-display;
+    font-size: 1.5rem;
+    line-height: 1.3;
+    color: $ink;
+  }
+}
+
+.sector-name { display: block; }
+
+// ═══════════════════════════════════════════════════════════════
+// Process steps
+// ═══════════════════════════════════════════════════════════════
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem;
+  text-align: left;
+}
+
+.process-step {
+  border-top: 1px solid $rule-strong;
+  padding-top: 1.5rem;
+  text-align: left;
+}
+
+.process-number,
+.process-step-number {
+  font-family: $font-mono;
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  color: $navy;
+  margin-bottom: 1.25rem;
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  background: transparent;
+  display: block;
+}
+
+h3.process-title {
+  font-family: $font-display;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: $ink;
+  margin: 0 0 0.625rem;
+}
+
+.process-step p {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: $ink-500;
+  margin: 0;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// Featured block (image + text, home)
+// ═══════════════════════════════════════════════════════════════
+
+.featured-insight {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.featured-chart img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid rgba($paper, 0.14);
+}
+
+.featured-desc {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: rgba($paper, 0.78);
+  margin-bottom: 2rem;
+  max-width: 52ch;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// Sobre
+// ═══════════════════════════════════════════════════════════════
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 6rem;
+  align-items: start;
+}
+
+.about-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;
+  object-fit: cover;
+  filter: grayscale(1);
+  transition: filter 0.4s;
+
+  &:hover { filter: grayscale(0); }
+}
+
+h2.about-name {
+  font-family: $font-display;
+  font-size: clamp(2.15rem, 3.7vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.14;
+  color: $navy;
+  margin: 0 0 0.5rem;
+  max-width: 14ch;
+}
+
+.about-role {
+  display: block;
+  font-family: $font-cond;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $ink-400;
+  margin-bottom: 2.5rem;
+}
+
+.about-bio {
+  display: block;
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: $ink-600;
+  margin-bottom: 2.125rem;
+  max-width: 66ch;
+}
+
+.credentials-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.25rem 3rem;
+  margin-top: 3rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid $rule;
+}
+
+.credential {
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+}
+
+.credential-label {
+  display: block;
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $ink-300;
+  margin-bottom: 0.5rem;
+}
+
+.credential-value {
+  display: block;
+  font-family: $font-display;
+  font-size: 1.1875rem;
+  font-weight: 400;
+  color: $ink;
+  line-height: 1.4;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// Responsive
+// ═══════════════════════════════════════════════════════════════
+
+@media (max-width: 1200px) {
+  .service-detail { grid-template-columns: 80px 1fr 300px; gap: 2.5rem; }
+}
+
+@media (max-width: 991px) {
+  .container,
+  .container-narrow { padding: 0 2rem; }
+
+  .navbar {
+    > .container-fluid,
+    > .container { padding: 0 2rem; }
+
+    .navbar-nav {
+      gap: 0.25rem;
+      align-items: flex-start;
+      padding: 1rem 0 1.5rem;
+    }
+
+    .nav-link { padding: 0.5rem 0 !important; }
+  }
+
+  .hero-inner { padding: 4.5rem 2rem 3.5rem; }
+
+  .hero-foot {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .hero-visual {
+    border-left: none;
+    border-top: 1px solid $rule;
+    min-height: 0;
+    padding: 2.5rem 2rem;
+  }
+
+  .page-header .container { grid-template-columns: 1fr; }
+
+  .page-header-main { padding: 4rem 2rem 2rem; }
+
+  .page-header-aside {
+    padding: 0 2rem 3.5rem;
+    border-left: none;
+  }
+
+  .band { padding: 4rem 0; }
+
+  .services-grid,
+  .packages-grid,
+  .principles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .service-detail {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    padding: 3.5rem 0;
+  }
+
+  .about-grid,
+  .featured-insight {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .about-photo { max-width: 320px; }
+
+  .cta-row {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .sectors-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .section-label { margin-bottom: 1.5rem; }
+  .process-grid,
+  .sectors-grid,
+  .credentials-grid { grid-template-columns: 1fr; }
+  .section-head-row { margin-bottom: 2.5rem; }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// Article pages (insights posts)
+// ═══════════════════════════════════════════════════════════════
+
+.quarto-title-block {
+  .quarto-title h1.title {
+    font-family: $font-display;
+    font-weight: 400;
+    font-size: clamp(2.15rem, 4.3vw, 3.25rem);
+    line-height: 1.12;
+    color: $ink;
+  }
+
+  .quarto-categories .quarto-category {
+    font-family: $font-sans;
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border: 1px solid $rule-strong;
+    border-radius: 0;
+    background: transparent;
+    color: $ink-500;
+    opacity: 1;
+  }
+}
+
+#quarto-margin-sidebar {
+  .sidebar-title {
+    font-family: $font-cond;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: $ink-400;
+  }
+
+  .nav-link {
+    font-size: 0.8125rem;
+    color: $ink-500;
+    &.active { color: $navy; }
+  }
+}
+
+.quarto-listing .listing-title {
+  font-family: $font-display;
+  font-weight: 400;
+  color: $ink;
+}
