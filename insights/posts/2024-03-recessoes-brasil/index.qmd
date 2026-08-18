@@ -4,6 +4,7 @@ author: "Vinicius Oike Reginatto"
 date: "2024-03-01"
 categories: ["Economia", "Visualização de Dados", "Brasil"]
 description: "Neste post, exploro as recessões econômicas mais recentes na histórica econômica do Brasil. Mostro como comparar as recessões de diferentes maneiras e construo uma tabela informativa."
+image: "/static/images/art/thumb-recessoes.webp"
 format:
   html:
     code-tools: true

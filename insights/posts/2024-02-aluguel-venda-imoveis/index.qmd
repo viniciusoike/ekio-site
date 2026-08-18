@@ -4,6 +4,7 @@ author: "Vinicius Oike Reginatto"
 date: "2024-02-21"
 categories: ["Imóveis", "Visualização de Dados", "Brasil"]
 description: "Os mercados de aluguel e de venda de imóveis são interligados e deve existir algum tipo de equilíbrio entre eles. Neste post exploro macrotendências destes mercados usando a série do FipeZap. Os resultados indicam a possibilidade um novo ciclo de aluguel, uma quebra na tendência histórica entre os mercados."
+image: "/static/images/art/thumb-aluguel-venda.webp"
 execute:
   message: false
   warning: false

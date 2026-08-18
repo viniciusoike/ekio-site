@@ -45,6 +45,9 @@ listing:
 :::
 :::
 
+::: {.art-strip .art-strip-sm style="background-image: url(/static/images/art/faixa-malha-sp.webp);" role="img" aria-label="Composição abstrata da malha viária de São Paulo com gráficos"}
+:::
+
 <!-- ============ Destaque ============ -->
 ::: {.band .band-light}
 ::: {.container}
@@ -70,7 +73,7 @@ listing:
 :::
 
 <!-- ============ CTA ============ -->
-::: {.band .band-cta}
+::: {.band .band-cta .band-cta-art style="background-image: url(/static/images/art/fundo-cta-sp.webp);"}
 ::: {.container}
 ::: {.cta-row}
 

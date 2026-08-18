@@ -1361,3 +1361,60 @@ h2.about-name {
   font-weight: 400;
   color: $ink;
 }
+
+// ═══════════════════════════════════════════════════════════════
+// Editorial artwork
+// Abstract compositions in the brand palette. Decorative only — the
+// analytical figures on servicos.qmd and the featured insight stay real.
+// ═══════════════════════════════════════════════════════════════
+
+// Full-bleed strip. Sits between bands and carries no text.
+.art-strip {
+  width: 100%;
+  height: clamp(200px, 23vw, 340px);
+  background-color: $paper-sunk;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-bottom: 1px solid $rule;
+}
+
+// Shorter variant for page headers, where the art trails the title block.
+.art-strip-sm { height: clamp(150px, 15vw, 220px); }
+
+// Navy wash over art so the CTA copy keeps its contrast. The gradient is
+// opaque at the left, where the heading sits, and thins toward the artwork.
+.band-cta.band-cta-art {
+  position: relative;
+  background-position: center right;
+  background-size: cover;
+  background-repeat: no-repeat;
+  isolation: isolate;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    // Deep enough on the right that the artwork's own map labels stay texture
+    // rather than reading as a second set of type behind the CTA links.
+    background: linear-gradient(
+      100deg,
+      rgba($navy, 0.98) 0%,
+      rgba($navy, 0.96) 45%,
+      rgba($navy, 0.90) 75%,
+      rgba($navy, 0.84) 100%
+    );
+  }
+}
+
+@media (max-width: 991px) {
+  .art-strip    { height: 190px; }
+  .art-strip-sm { height: 140px; }
+
+  // Narrow viewports crop the art too hard to read; drop back to flat navy.
+  .band-cta.band-cta-art {
+    background-image: none !important;
+    &::before { background: $navy; }
+  }
+}

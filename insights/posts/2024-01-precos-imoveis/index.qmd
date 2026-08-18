@@ -4,6 +4,7 @@ author: "Vinicius Oike Reginatto"
 date: "2024-01-28"
 categories: ["Imóveis", "Visualização de Dados", "Brasil"]
 description: "Existe uma impressão generalizada de que o preço dos imóveis no Brasil cresceu muito nos últimos anos. Neste post mostro como, em termos reais, o preço médio dos imóveis no Brasil andou de lado; na prática, os preços atuais estão abaixo dos valores observados em 2010."
+image: "/static/images/art/thumb-precos-imoveis.webp"
 execute:
   message: false
   warning: false
