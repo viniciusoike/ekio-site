@@ -1,0 +1,17 @@
+{
+  "hash": "c30461b91e8feb2c00f3c0695985c4e2",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Preços de Imóveis no Brasil\"\nauthor: \"Vinicius Oike Reginatto\"\ndate: \"2024-01-28\"\ncategories: [\"Imóveis\", \"Visualização de Dados\", \"Brasil\"]\ndescription: \"Existe uma impressão generalizada de que o preço dos imóveis no Brasil cresceu muito nos últimos anos. Neste post mostro como, em termos reais, o preço médio dos imóveis no Brasil andou de lado; na prática, os preços atuais estão abaixo dos valores observados em 2010.\"\nexecute:\n  message: false\n  warning: false\n  echo: false\nfreeze: true\n---\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell layout-align=\"center\"}\n\n:::\n\n\n\n::: {.cell layout-align=\"center\"}\n\n:::\n\n\n\n::: {.cell layout-align=\"center\"}\n\n:::\n\n\n\n::: {.cell layout-align=\"center\"}\n\n:::\n\n\n\n::: {.cell layout-align=\"center\"}\n\n:::\n\n\n# Preços de Imóveis no Brasil\n\nExiste uma percepção generalizada na população de que os preços dos imóveis no Brasil são muito caros. Isto pode ser resultado tanto de uma ignorância sobre a dinâmica do mercado como do [excesso de notícias sobre recordes de preços que se vê na imprensa](https://g1.globo.com/economia/noticia/2024/01/16/preco-do-aluguel-residencial-sobe-16percent-em-2023-tres-vezes-mais-que-a-inflacao-mostra-fipezap.ghtml). Também não faltam casos de regiões ou mesmo de ruas que, após significativo processo de revitalização, [apresentaram aumentos de preços muito acima da inflação](https://extra.globo.com/economia-e-financas/imoveis-usados-no-rio-precos-explodiram-em-2009-mostra-pesquisa-do-secovi-89071.html). De maneira geral, contudo, os dados apontam que [os preços dos imóveis no Brasil andaram de lado](https://einvestidor.estadao.com.br/investimentos/investir-em-imoveis-vale-a-pena/): em termos reais, isto é, descontando a inflação, o nível atual do preço dos imóveis está praticamente idêntico ao que se observava em 2010.\n\n### Preços do Brasil x Mundo\n\n\n::: {.cell layout-align=\"center\"}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-7-1.png){fig-align='center' width=100%}\n:::\n:::\n\n\n### Preços do Brasil x Países Desenvolvidos\n\n\n::: {.cell layout-align=\"center\"}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-8-1.png){fig-align='center' width=100%}\n:::\n:::\n\n\n### Preços do Brasil x Países LATAM\n\n\n::: {.cell layout-align=\"center\"}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-9-1.png){fig-align='center' width=100%}\n:::\n:::\n\n\n::: {.post-cta style=\"margin-top: 3rem; padding: 2rem; background: #EEF5FA; border-radius: 8px; border-left: 3px solid #3A6EA5; text-align: center;\"}\n\n**Precisa deste tipo de análise para o seu negócio?**\n\nA EKIO combina economia, ciência de dados e inteligência espacial para apoiar decisões de empresas e governos. A consulta inicial é gratuita.\n\n[Enviar um Email](mailto:contact@ekio.io?subject=Insights%20-%20EKIO){.btn .btn-primary-ekio}\n[Conhecer os Serviços](/servicos.html){.btn .btn-ghost-ekio}\n\n:::\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

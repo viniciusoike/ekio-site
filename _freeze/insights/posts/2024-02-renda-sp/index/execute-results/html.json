@@ -1,0 +1,17 @@
+{
+  "hash": "b32b9dfd512f53911dd308c320ffe24b",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Distribuição de Renda em São Paulo\"\nauthor: \"Vinicius Oike Reginatto\"\ndate: \"2024-02-07\"\ncategories: [\"São Paulo\", \"Mapas\", \"Análise Espacial\"]\ndescription: \"Um mapa coroplético que apresenta a distribuição de renda em São Paulo. Os dados são importados do projeto Acesso a Oportunidades do IPEA e apresentados no padrão H3 da Uber.\"\nformat:\n  html:\n    code-tools: true\nexecute:\n  echo: false\n  warning: false\n  message: false\nfreeze: true\n---\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n# Renda Familiar em São Paulo\n\nO mapa abaixo mostra o rendimento domiciliar em grupos de decis em São Paulo. Divide-se toda a população, do mais pobre ao mais rico, em dez grupos de igual tamanho; assim, os hexágonos em azul estão no top 10% da distribuição de renda (10% mais ricos); já os hexágonos em vermelho estão no bottom 10% da distribuição (10% mais pobres).\n\nO grid hexagonal segue o padrão H3, em resolução 9. Os dados de renda provém do Censo Demográfico do IBGE a nível setor censitário. Usa-se uma técnica de interpolação espacial para converter os dados para o padrão hexagonal.\n\nApesar dos dados brutos do Censo estarem defasados, é improvável que a sua distribuição espacial tenha se alterado significativamente na última década. Grosso modo, as maiores rendas se concentram no Centro Expandido e no Quadrante Sudoeste da cidade. As duas exceções são a região de Santana-Tucuruvi e o eixo Tatuapé - Jardim Anália Franco.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-3-1.svg){width=100% height=900px}\n:::\n:::\n\n\n-   Dados: IPEA ([Acesso a Oportunidades](https://www.ipea.gov.br/acessooportunidades/)) acessado via [`aopdata`](https://github.com/ipeaGIT/aopdata)\n\n-   Tipografia: [Lato](https://fonts.google.com/specimen/Lato)\n\n-   Paleta: `Spectral` ([ColorBrewer](https://colorbrewer2.org/#type=diverging&scheme=Spectral&n=10))\n\n::: {.post-cta style=\"margin-top: 3rem; padding: 2rem; background: #EEF5FA; border-radius: 8px; border-left: 3px solid #3A6EA5; text-align: center;\"}\n\n**Precisa deste tipo de análise para o seu negócio?**\n\nA EKIO combina economia, ciência de dados e inteligência espacial para apoiar decisões de empresas e governos. A consulta inicial é gratuita.\n\n[Enviar um Email](mailto:contact@ekio.io?subject=Insights%20-%20EKIO){.btn .btn-primary-ekio}\n[Conhecer os Serviços](/servicos.html){.btn .btn-ghost-ekio}\n\n:::\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
