@@ -1,0 +1,19 @@
+# Shared defaults for every post in insights/posts/ (Quarto cascades this file).
+# New posts only need: title, date, description, categories, image.
+# (execute echo/warning/message = false is already set globally in _quarto.yml.)
+
+# Layout
+page-layout: article
+toc: true
+toc-location: right
+title-block-style: default
+section-divs: true
+anchor-sections: true
+grid:
+  body-width: 760px
+  margin-width: 200px
+  sidebar-width: 0px
+
+# Authoring defaults
+author: "Vinicius Oike Reginatto"
+freeze: true   # posts are static once published; override per-post if needed

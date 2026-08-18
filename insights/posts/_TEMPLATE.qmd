@@ -1,0 +1,18 @@
+---
+# Copy this folder to insights/posts/YYYY-MM-slug/index.qmd and fill in below.
+# author, freeze, toc/layout, and execute (echo/warning/message off) are
+# inherited from insights/posts/_metadata.yml + _quarto.yml — don't repeat them.
+title: "Título do Post"
+date: "2025-01-01"
+description: "Uma ou duas frases que resumem a análise. Aparece no card da listagem e no <meta description>."
+categories: ["Imóveis", "São Paulo"]   # Title-Case PT: Imóveis, Mapas, Análise Espacial, Economia, Demografia, Censo, Visualização de Dados
+image: "/static/images/thumbnails/SLUG.png"   # card thumbnail; put the file in static/images/thumbnails/
+# featured: "true"   # uncomment on exactly ONE post to make it the hero
+# draft: true        # while WIP; remove to publish
+---
+
+Texto de abertura.
+
+```{r}
+# análise…
+```
