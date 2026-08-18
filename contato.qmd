@@ -1,0 +1,121 @@
+---
+title: "Contato"
+pagetitle: "Contato — EKIO"
+page-layout: full
+toc: false
+---
+
+::: {.page-header}
+::: {.container}
+
+::: {.page-header-main}
+[Iniciar uma conversa]{.section-label}
+
+# Contato {.page-header-title}
+:::
+
+::: {.page-header-aside}
+[Conte sobre o seu desafio. Você recebe uma resposta em até 24 horas, com reflexões iniciais sobre como a EKIO pode ajudar.]{.page-header-desc}
+:::
+
+:::
+:::
+
+::: {.band .band-light}
+::: {.container}
+
+::: {.contact-grid}
+
+::: {.contact-col}
+
+::: {.contact-info-item}
+[Email]{.contact-info-label}
+
+[[contact@ekio.io](mailto:contact@ekio.io?subject=Contato%20-%20EKIO)]{.contact-info-value}
+:::
+
+::: {.contact-info-item}
+[Localização]{.contact-info-label}
+
+[São Paulo, SP — Brasil]{.contact-info-value}
+:::
+
+::: {.contact-info-item}
+[LinkedIn]{.contact-info-label}
+
+[[linkedin.com/in/viniciusoike](https://linkedin.com/in/viniciusoike)]{.contact-info-value}
+:::
+
+::: {.contact-info-item}
+[Tempo de resposta]{.contact-info-label}
+
+[Em até 24 horas]{.contact-info-value}
+:::
+
+::: {.pull-quote}
+*Todo projeto começa com uma conversa. Seja com um problema totalmente definido ou uma intuição de que dados poderiam ajudar — entre em contato. A consulta inicial é sempre gratuita.*
+
+[— Vinicius Oike Reginatto, Fundador]{.pull-quote-attr}
+:::
+
+:::
+
+::: {.contact-col}
+
+::: {.form-intro}
+[Prefere ir direto ao ponto?]{.form-intro-lead}
+
+[contact@ekio.io](mailto:contact@ekio.io?subject=Consulta%20-%20EKIO){.link-rule}
+
+[ou preencha o formulário abaixo]{.form-intro-note}
+:::
+
+<form class="contact-form" name="contato" method="POST" action="/obrigado.html" data-netlify="true" netlify-honeypot="bot-field">
+
+<input type="hidden" name="form-name" value="contato">
+<p style="display: none;"><label>Não preencha este campo: <input name="bot-field"></label></p>
+
+::: {.form-group}
+[Nome]{.form-label}
+<input type="text" class="form-input" name="name" placeholder="Seu nome" required>
+:::
+
+::: {.form-group}
+[Email]{.form-label}
+<input type="email" class="form-input" name="email" placeholder="seu@email.com" required>
+:::
+
+::: {.form-group}
+[Organização]{.form-label}
+<input type="text" class="form-input" name="organization" placeholder="Empresa ou instituição">
+:::
+
+::: {.form-group}
+[Área de interesse]{.form-label}
+<select class="form-select" name="service">
+<option value="">Selecione uma área de serviço</option>
+<option value="economics">Economia & Estratégia</option>
+<option value="datascience">Dados & Analytics</option>
+<option value="spatial">Imóveis & Inteligência Espacial</option>
+<option value="integrated">Integrado / Multidisciplinar</option>
+<option value="other">Outro / Não tenho certeza</option>
+</select>
+:::
+
+::: {.form-group}
+[Sobre o seu projeto]{.form-label}
+<textarea class="form-textarea" name="message" placeholder="Descreva brevemente seu desafio, cronograma e qualquer contexto relevante..."></textarea>
+:::
+
+<button type="submit" class="btn btn-primary-ekio btn-lg">Enviar mensagem</button>
+
+[Os dados enviados por este formulário são usados exclusivamente para responder ao seu contato e não são compartilhados com terceiros, conforme a LGPD.]{.form-legal}
+
+</form>
+
+:::
+
+:::
+
+:::
+:::

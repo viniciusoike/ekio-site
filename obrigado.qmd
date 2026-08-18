@@ -1,0 +1,31 @@
+---
+title: "Mensagem Enviada"
+pagetitle: "Obrigado — EKIO"
+page-layout: full
+toc: false
+---
+
+::: {.page-header}
+::: {.container}
+
+[Contato]{.section-label}
+
+# Mensagem enviada com sucesso {.page-header-title}
+
+[Obrigado pelo contato. Você recebe uma resposta em até 24 horas, com reflexões iniciais sobre como a EKIO pode ajudar.]{.page-header-desc}
+
+:::
+:::
+
+::: {.band .band-light}
+::: {.container}
+
+[Enquanto isso, conheça as análises mais recentes do EKIO Insights.]{.section-desc}
+
+::: {.cta-actions style="flex-direction: row; gap: 2.5rem;"}
+[Ver insights](insights/index.qmd){.link-rule}
+[Voltar ao início](index.qmd){.link-rule-sm}
+:::
+
+:::
+:::

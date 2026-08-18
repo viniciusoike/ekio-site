@@ -1,0 +1,29 @@
+---
+title: "Página não encontrada"
+pagetitle: "Página não encontrada — EKIO"
+page-layout: full
+toc: false
+---
+
+::: {.page-header}
+::: {.container}
+
+[Erro 404]{.section-label}
+
+# Página não encontrada {.page-header-title}
+
+[A página que você procura não existe ou foi movida.]{.page-header-desc}
+
+:::
+:::
+
+::: {.band .band-light}
+::: {.container}
+
+::: {.cta-actions style="flex-direction: row; gap: 2.5rem;"}
+[Voltar ao início](/index.qmd){.link-rule}
+[Ver insights](/insights/index.qmd){.link-rule-sm}
+:::
+
+:::
+:::

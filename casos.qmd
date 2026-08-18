@@ -1,0 +1,138 @@
+---
+title: "Casos"
+pagetitle: "Estudos de Caso — EKIO"
+page-layout: full
+toc: false
+---
+
+::: {.page-header}
+::: {.container}
+
+[Nosso Trabalho]{.section-label}
+
+# Estudos de Caso {.page-header-title}
+
+[Projetos selecionados que demonstram como combinamos economia, ciência de dados e análise espacial para entregar resultados mensuráveis.]{.page-header-desc}
+
+:::
+:::
+
+::: {.section .section-light}
+::: {.container}
+
+::: {.cases-grid}
+
+::: {.case-card}
+::: {.case-image style="background: linear-gradient(135deg, #D4E8F5, #EEF5FA);"}
+[Mapa coroplético placeholder]
+:::
+::: {.case-content}
+[Espacial + Economia]{.case-category}
+
+### Estratégia de Expansão para Rede de Varejo {.case-title}
+
+[Identificamos 12 localidades de alto potencial no estado de São Paulo usando modelos gravitacionais, análise demográfica e mapeamento de densidade competitiva.]{.case-excerpt}
+
+::: {.case-metrics}
+::: {}
+[12]{.case-metric-value}
+[Sites Identificados]{.case-metric-label}
+:::
+::: {}
+[+23%]{.case-metric-value}
+[Receita Projetada]{.case-metric-label}
+:::
+:::
+:::
+:::
+
+::: {.case-card}
+::: {.case-image style="background: linear-gradient(135deg, #E2E8F0, #F7FAFC);"}
+[Dashboard mockup placeholder]
+:::
+::: {.case-content}
+[Ciência de Dados]{.case-category}
+
+### Dashboard de Analytics em Tempo Real para Fintech {.case-title}
+
+[Construímos um dashboard interativo de KPIs integrando 15+ fontes de dados, reduzindo o tempo de geração de relatórios de 3 dias para insights automatizados em tempo real.]{.case-excerpt}
+
+::: {.case-metrics}
+::: {}
+[15+]{.case-metric-value}
+[Fontes Integradas]{.case-metric-label}
+:::
+::: {}
+[-95%]{.case-metric-value}
+[Tempo de Relatório]{.case-metric-label}
+:::
+:::
+:::
+:::
+
+::: {.case-card}
+::: {.case-image style="background: linear-gradient(135deg, #E6FFFA, #B2F5EA);"}
+[Diagrama de impacto econômico placeholder]
+:::
+::: {.case-content}
+[Economia]{.case-category}
+
+### Avaliação de Impacto Econômico para Projeto de Infraestrutura {.case-title}
+
+[Quantificamos o impacto econômico regional de um grande corredor logístico usando modelagem insumo-produto e análise de multiplicadores para submissão ao BNDES.]{.case-excerpt}
+
+::: {.case-metrics}
+::: {}
+[R$2,1B]{.case-metric-value}
+[Impacto Econômico Total]{.case-metric-label}
+:::
+::: {}
+[4.200]{.case-metric-value}
+[Empregos Gerados]{.case-metric-label}
+:::
+:::
+:::
+:::
+
+::: {.case-card}
+::: {.case-image style="background: linear-gradient(135deg, #EEF5FA, white);"}
+[Modelo de preços hedônicos placeholder]
+:::
+::: {.case-content}
+[Espacial + Ciência de Dados]{.case-category}
+
+### Modelo de Avaliação Imobiliária para Incorporadora {.case-title}
+
+[Desenvolvemos um modelo de preços hedônicos incorporando regressão espacial e 50+ variáveis de vizinhança para avaliar um portfólio residencial de 2.000 unidades.]{.case-excerpt}
+
+::: {.case-metrics}
+::: {}
+[2.000]{.case-metric-value}
+[Imóveis Avaliados]{.case-metric-label}
+:::
+::: {}
+[R²=0,87]{.case-metric-value}
+[Precisão do Modelo]{.case-metric-label}
+:::
+:::
+:::
+:::
+
+:::
+
+:::
+:::
+
+<!-- CTA -->
+::: {.section .section-cta}
+::: {.container .container-narrow}
+
+## Tem um desafio semelhante? {.cta-heading}
+
+[Cada projeto começa com a compreensão do seu contexto específico. Vamos explorar como podemos ajudar.]{.cta-desc}
+
+[Enviar um Email](mailto:contact@ekio.io?subject=Projeto%20-%20EKIO){.btn .btn-primary-ekio .btn-lg}
+[Formulário de Contato](contato.qmd){.btn .btn-ghost-light .btn-lg}
+
+:::
+:::
