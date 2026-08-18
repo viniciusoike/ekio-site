@@ -1,0 +1,19 @@
+# Quarto build output
+/_site/
+/.quarto/
+
+# Quarto keeps computed results in /_freeze, which IS tracked so the site
+# renders without re-running R.
+
+# R
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+
+# Claude Code local overrides (shared settings would live in .claude/settings.json)
+.claude/settings.local.json
+
+# macOS
+.DS_Store
+**/.DS_Store

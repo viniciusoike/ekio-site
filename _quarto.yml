@@ -1,0 +1,89 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - "**/*.qmd"
+    - "!casos.qmd"   # fora do ar até haver casos reais publicáveis
+
+website:
+  title: "EKIO"
+  description: "Consultoria econômica, ciência de dados e inteligência espacial"
+  site-url: "https://ekio.io"
+  favicon: static/images/favicon.svg
+  image: static/images/og-card.png
+  open-graph: true
+  twitter-card: true
+  # TODO: criar propriedade GA4 em analytics.google.com e inserir o ID G-XXXXXXX
+  # google-analytics: "G-XXXXXXX"
+
+  # Navigation — seal at left, uppercase links right (wordmark comes from CSS)
+  navbar:
+    logo: static/images/logo-seal.svg
+    logo-alt: "EKIO"
+    logo-href: index.qmd
+    background: "#FAF9F7"
+    foreground: "#3A3733"
+    title: false
+    collapse-below: lg
+    right:
+      - text: "Início"
+        href: index.qmd
+      - text: "Serviços"
+        href: servicos.qmd
+      - text: "Sobre"
+        href: sobre.qmd
+      - text: "Insights"
+        href: insights/index.qmd
+      - text: "Contato"
+        href: contato.qmd
+
+  # Footer
+  page-footer:
+    background: "#0A0A0A"
+    foreground: "#8C8880"
+    left: |
+      <span class="footer-brand">EKIO · Consultoria em economia e dados</span>
+    right:
+      - text: "Serviços"
+        href: servicos.qmd
+      - text: "Sobre"
+        href: sobre.qmd
+      - text: "Insights"
+        href: insights/index.qmd
+      - text: "LinkedIn"
+        href: "https://linkedin.com/in/viniciusoike"
+
+  # Sidebar (disabled for main pages)
+  sidebar: false
+
+  # Page navigation (prev/next — disabled for main pages)
+  page-navigation: false
+
+lang: pt
+
+# Format
+format:
+  html:
+    theme:
+      - cosmo
+      - static/css/custom.scss
+    css: static/css/pages.css
+    toc: false
+    page-layout: full
+    # Marketing pages drive their own headers; posts re-enable this in
+    # insights/posts/_metadata.yml.
+    title-block-style: none
+    # Flat headings — section wrappers break the grid/flex layouts below.
+    section-divs: false
+    anchor-sections: false
+    grid:
+      sidebar-width: 0px
+      body-width: 1440px
+      margin-width: 0px
+
+# Execute
+execute:
+  freeze: auto
+  echo: false
+  warning: false
+  message: false
