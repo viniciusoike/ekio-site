@@ -1384,10 +1384,13 @@ h2.about-name {
 
 // Navy wash over art so the CTA copy keeps its contrast. The gradient is
 // opaque at the left, where the heading sits, and thins toward the artwork.
+// The compositions top out around 600 px wide, so stretching one across the
+// full band would upscale it near 3x. Fitting it to the band height instead
+// keeps it at or below native size and lets it bleed in from the right edge.
 .band-cta.band-cta-art {
   position: relative;
-  background-position: center right;
-  background-size: cover;
+  background-position: right center;
+  background-size: auto 100%;
   background-repeat: no-repeat;
   isolation: isolate;
 
@@ -1396,14 +1399,15 @@ h2.about-name {
     position: absolute;
     inset: 0;
     z-index: -1;
-    // Deep enough on the right that the artwork's own map labels stay texture
-    // rather than reading as a second set of type behind the CTA links.
+    // Opaque under the heading, thinner over the artwork. These compositions
+    // carry no lettering of their own, so the wash only has to protect the
+    // copy — it does not have to bury a second typeface.
     background: linear-gradient(
       100deg,
-      rgba($navy, 0.98) 0%,
-      rgba($navy, 0.96) 45%,
-      rgba($navy, 0.90) 75%,
-      rgba($navy, 0.84) 100%
+      rgba($navy, 1) 0%,
+      rgba($navy, 1) 40%,
+      rgba($navy, 0.86) 62%,
+      rgba($navy, 0.66) 100%
     );
   }
 }

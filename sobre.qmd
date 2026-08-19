@@ -129,7 +129,7 @@ Entregáveis acionáveis — não relatórios para gaveta. Entrego código repro
 :::
 
 <!-- ============ CTA ============ -->
-::: {.band .band-cta .band-cta-art style="background-image: url(/static/images/art/faixa-skyline-mapa.webp);"}
+::: {.band .band-cta .band-cta-art style="background-image: url(/static/images/art/fundo-cta-skyline.webp);"}
 ::: {.container}
 ::: {.cta-row}
 

@@ -45,7 +45,7 @@ listing:
 :::
 
 <!-- ============ Faixa editorial ============ -->
-::: {.art-strip style="background-image: url(/static/images/art/faixa-skyline-larga.webp);" role="img" aria-label="Composição abstrata de skyline urbano, gráficos de barras e séries temporais nas cores da EKIO"}
+::: {.art-strip style="background-image: url(/static/images/art/faixa-paulista.webp);" role="img" aria-label="Colagem editorial da Avenida Paulista ao anoitecer, com mapa do metrô e série temporal sobrepostos"}
 :::
 
 <!-- ============ O que fazemos ============ -->
@@ -159,7 +159,7 @@ listing:
 :::
 
 <!-- ============ CTA ============ -->
-::: {.band .band-cta .band-cta-art style="background-image: url(/static/images/art/fundo-cta-sp.webp);"}
+::: {.band .band-cta .band-cta-art style="background-image: url(/static/images/art/fundo-cta-paulista.webp);"}
 ::: {.container}
 ::: {.cta-row}
 
