@@ -135,29 +135,6 @@ listing:
 :::
 :::
 
-<!-- ============ Setores ============ -->
-::: {.band .band-light}
-::: {.container}
-
-[Setores de atuação]{.section-label}
-
-## Expertise profunda em diversos setores {.section-heading}
-
-::: {.sectors-grid}
-::: {.sector-item}
-[Mercado Imobiliário]{.sector-name}
-:::
-::: {.sector-item}
-[Governo & Políticas Públicas]{.sector-name}
-:::
-::: {.sector-item}
-[Mobilidade Urbana]{.sector-name}
-:::
-:::
-
-:::
-:::
-
 <!-- ============ CTA ============ -->
 ::: {.band .band-cta .band-cta-art style="background-image: url(/static/images/art/fundo-cta-paulista.webp);"}
 ::: {.container}

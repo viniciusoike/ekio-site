@@ -13,10 +13,10 @@ legenda ou número solto. Número na arte é alegação sobre o mercado, e o sit
 só sustenta alegação vinda de análise da EKIO. Os gráficos reais moram em
 servicos.qmd e no insight em destaque; esses sim levam legenda e fonte.
 
-Por esse critério o site usa só as pranchas 06 e 07. As outras cinco repetem
-as mesmas composições com percentuais de valorização, preço por m² e
-coeficientes de correlação cravados na imagem. Ver "Artes descartadas" no fim
-deste arquivo.
+Por esse critério o site usa as pranchas 06 e 07 inteiras, mais um painel da
+04. As demais repetem as mesmas composições com percentuais de valorização,
+preço por m² e coeficientes de correlação cravados na imagem. Ver "Artes
+descartadas" no fim deste arquivo.
 
 Para conferir uma prancha nova antes de adotá-la:
 
@@ -61,6 +61,7 @@ PANELS = {
     "03c": ("ekio_editorial_03_XL.png", (0, 500, 485, 1024)),
     "03d": ("ekio_editorial_03_XL.png", (527, 500, 1011, 1024)),
     "03e": ("ekio_editorial_03_XL.png", (1055, 500, 1536, 1024)),
+    "04b": ("ekio_editorial_04_XL.png", (426, 0, 1100, 299)),
     "05a": ("ekio_editorial_05_XL.png", (0, 0, 426, 551)),
     "05b": ("ekio_editorial_05_XL.png", (433, 0, 1142, 551)),
     "05c": ("ekio_editorial_05_XL.png", (1170, 0, 1536, 551)),
@@ -84,6 +85,8 @@ PANELS = {
 PICKS = [
     ("07b", "faixa-paulista", 2200),        # faixa da home
     ("06b", "faixa-metro-sp", 2200),        # faixa do cabeçalho de insights
+    ("04b", "faixa-metro-skyline", 2200),   # faixa do cabeçalho de serviços
+    ("07c", "faixa-estaiada", 2200),        # faixa do cabeçalho de sobre
     ("07e", "fundo-cta-paulista", 1600),    # fundo do CTA da home
     ("06c", "fundo-cta-skyline", 1600),     # fundo do CTA de insights e de sobre
     ("06a", "thumb-precos-imoveis", 1200),
@@ -96,7 +99,8 @@ PICKS = [
 
 # ── Artes descartadas ──
 # 01, 02, 03 e 05 repetem as mesmas composições de 06 e 07 com legendas e
-# números sobrepostos. Os números são inventados e aparecem legíveis:
+# números sobrepostos, e o mesmo vale para quatro dos cinco painéis da 04 —
+# só o 04b sai limpo. Os números são inventados e aparecem legíveis:
 #   03a  +12,4% valorização · +8,7% demanda · +5,3% oferta
 #   03c  +18,6% preço médio/m² · +9,2% absorção · -3,4% vacância
 #   03e  correlações 0,78 · 0,60 · 0,42

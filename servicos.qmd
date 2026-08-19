@@ -14,11 +14,10 @@ toc: false
 # Serviços {.page-header-title}
 :::
 
-::: {.page-header-aside}
-[A EKIO combina economia, ciência de dados e inteligência espacial para ajudar empresas e governos a tomar decisões melhores. O trabalho de maior impacto acontece na interseção dessas disciplinas.]{.page-header-desc}
+:::
 :::
 
-:::
+::: {.art-strip .art-strip-sm style="background-image: url(/static/images/art/faixa-metro-skyline.webp);" role="img" aria-label="Colagem editorial do centro de São Paulo com a rede de metrô e séries sobrepostas"}
 :::
 
 <!-- ============ Detalhamento dos serviços ============ -->
