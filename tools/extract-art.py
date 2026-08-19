@@ -6,10 +6,25 @@ pranchas de contato: cada PNG reúne cinco composições separadas por uma calha
 branca. PANELS registra o recorte de cada composição sobre a versão XL; PICKS
 diz qual composição virou qual arquivo do site.
 
-O site usa só as pranchas 06 e 07. As outras cinco trazem legendas e números
-cravados na arte — percentuais de valorização, preço por m², coeficientes de
-correlação — que nenhuma análise da EKIO produziu. Ver a seção "Artes
-descartadas" no fim deste arquivo.
+Critério de escolha: a arte é plano de fundo. Ela sugere a conexão entre
+dados, cidade, território e análise, e nada além disso. Gráfico dentro da
+arte entra como forma — linha, barra, malha, mancha — nunca com eixo rotulado,
+legenda ou número solto. Número na arte é alegação sobre o mercado, e o site
+só sustenta alegação vinda de análise da EKIO. Os gráficos reais moram em
+servicos.qmd e no insight em destaque; esses sim levam legenda e fonte.
+
+Por esse critério o site usa só as pranchas 06 e 07. As outras cinco repetem
+as mesmas composições com percentuais de valorização, preço por m² e
+coeficientes de correlação cravados na imagem. Ver "Artes descartadas" no fim
+deste arquivo.
+
+Para conferir uma prancha nova antes de adotá-la:
+
+    python3 tools/extract-art.py --panels /tmp/panels
+    tesseract /tmp/panels/07b.png - -l por --psm 11
+
+Fachada e barra de gráfico viram caracteres soltos no OCR; o que reprova a
+composição é palavra legível ou número.
 
 Uso:
     python3 tools/extract-art.py [--src CAMINHO] [--panels DESTINO]
