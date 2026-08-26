@@ -21,8 +21,8 @@ library(sf)
 library(showtext)
 
 # Fonts
-font_add_google("Playfair Display", "Playfair Display")
-font_add_google("Roboto Condensed", "Roboto Condensed")
+font_add_google("Lora", "Lora")
+font_add_google("Lato", "Lato")
 showtext_auto()
 
 # Dados vendorizados junto ao post (relativo ao diretório do .qmd)
@@ -55,7 +55,7 @@ p_map <- ggplot(affordability) +
     title = "Housing Affordability",
     subtitle = "Distribuição do Price-Income Ratio em São Paulo"
   ) +
-  ggthemes::theme_map(base_family = "Playfair Display") +
+  ggthemes::theme_map(base_family = "Lato") +
   theme(
     legend.position = "top",
     legend.justification = 0.5,
@@ -64,7 +64,7 @@ p_map <- ggplot(affordability) +
     legend.text = element_text(size = 12),
     legend.margin = margin(),
     plot.margin = margin(10, 5, 5, 10),
-    plot.title = element_text(size = 32, hjust = 0.5),
+    plot.title = element_text(family = "Lora", size = 32, hjust = 0.5),
     plot.subtitle = element_text(size = 10, hjust = 0.5)
   )
 ```
@@ -89,7 +89,7 @@ p_map
 
 -   Dados: [Acesso à moradia em São Paulo: visão geral e mensuração](https://lares.architexturez.net/system/files/4DRB.pdf)
 
--   Tipografia: [Playfair Display](https://fonts.google.com/specimen/Playfair+Display)
+-   Tipografia: [Lora](https://fonts.google.com/specimen/Lora) e [Lato](https://fonts.google.com/specimen/Lato)
 
 -   Paleta: `Reds` ([ColorBrewer](https://colorbrewer2.org/#type=sequential&scheme=Reds&n=9))
 

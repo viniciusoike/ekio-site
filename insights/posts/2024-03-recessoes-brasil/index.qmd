@@ -23,35 +23,30 @@ library(dplyr)
 library(tidyr)
 library(ggplot2)
 library(GetBCBData)
-library(MetBrewer)
-library(showtext)
+library(ekioplot)
 
-font_add_google("Roboto", "Roboto")
-showtext_auto()
 ```
 
 ```{r theme-plot}
-theme_series <- theme_minimal(base_size = 10, base_family = "Roboto") +
-  theme(
-    text = element_text(colour = "gray15"),
-    plot.title = element_text(size = 14),
-    plot.subtitle = element_text(size = 12, colour = "gray30"),
-    plot.caption = element_text(size = 7, colour = "gray30"),
-    legend.title.align = 0.5,
-    legend.title = element_text(size = 8, colour = "gray15"),
-    
-    panel.grid.minor = element_blank(),
-    legend.position = "bottom",
-    panel.background = element_rect(fill = "white", colour = "white"),
-    plot.background = element_rect(fill = "white", colour = "white"),
-    legend.box.margin = margin(0),
-    legend.margin = margin(0)
-  )
+source("../_ekio-style.R")
 ```
 
 ```{r import-series}
+# Post published 2024-03-01. Quarterly GDP carries roughly a two-month
+# publication lag, so the figures use only what was available at the time.
+data_cutoff <- as.Date("2024-02-01")
+
+# Quarterly GDP is stamped at the quarter's start, so a point dated 2024-01-01
+# covers all of Q1 and only lands once the quarter has closed. Require the
+# whole quarter to sit before the cutoff.
+quarter_cutoff <- seq(data_cutoff, by = "-3 months", length.out = 2)[2]
+
 code_series <- 22109
-pib <- gbcbd_get_series(code_series, first.date = as.Date("1995-01-01"))
+pib <- gbcbd_get_series(
+  code_series,
+  first.date = as.Date("1995-01-01"),
+  last.date = quarter_cutoff
+)
 
 pib <- pib %>%
   mutate(
@@ -134,12 +129,13 @@ p_pib <- ggplot() +
     data = pib,
     aes(x = ref.date, y = value),
     lwd = 0.9,
-    color = met.brewer("Cross", n = 5)[5]
+    color = ekio_pal("full")[[1]]
   ) +
   geom_rect(
     data = codace,
     aes(xmin = rec_start, xmax = rec_end, ymin = -Inf, ymax = Inf, group = label),
-    alpha = 0.4
+    fill = ekio_pal("gray")[["300"]],
+    alpha = 0.45
   ) +
   labs(
     title = "PIB e ciclos de recessão",
@@ -147,12 +143,12 @@ p_pib <- ggplot() +
     x = NULL,
     y = "Índice (100 = 1996)"
   ) +
-  theme_series
+  theme_ekio_site()
 ```
 
 ```{r plot-recessions}
 p1 <- ggplot(rec_comp, aes(x = period, y = new_index * 100)) +
-  geom_hline(yintercept = 100) +
+  geom_hline(yintercept = 100, color = ekio_rule_color, linewidth = 0.4) +
   geom_line(aes(colour = rec_full)) +
   geom_point(aes(colour = rec_full)) +
   geom_text(
@@ -160,31 +156,28 @@ p1 <- ggplot(rec_comp, aes(x = period, y = new_index * 100)) +
                       y = 92,
                       label = "A recessão do Covid\nfoi a maior queda relativa\ndo PIB na história recente."),
     aes(x = x, y = y, label = label),
-    family = "Roboto",
+    family = "Lato",
     size = 3,
-    colour = met.brewer("Cross", n = 6)[5]
+    colour = ekio_pal("full")[[6]]
   ) +
   geom_text(
     data = data.frame(x = 9, y = 94, label = "A recessão do 2º governo\nDilma foi a mais longa no\n período registrado"),
     aes(x = x, y = y, label = label),
-    family = "Roboto",
+    family = "Lato",
     size = 3,
-    colour = met.brewer("Cross", n = 5)[4]
+    colour = ekio_pal("full")[[5]]
   ) +
-  scale_colour_manual(
-    name = "Início/fim\nda recessão",
-    values = met.brewer("Cross", n = 6) 
-  ) +
+  scale_colour_ekio_d("full", name = "Início/fim\nda recessão") +
   labs(
     title = "Ciclos de Recessão no Brasil (1995-2021)",
     x = "Trimestres desde início da recessão",
     y = "Índice normalizado",
     subtitle = "Índice normalizado ao valor do PIB (a preços de mercado) imediatamente anterior ao início da recessão.\nA datação das recessões segue o CODACE (FGV).",
-    caption = "Fonte: IBGE e CODACE. Cores: MetBrewer (Cross). Autor: @viniciusoike"
+    caption = "Fonte: IBGE e CODACE. Autor: @viniciusoike"
   ) +
   scale_y_continuous(breaks = seq(80, 100, 1)) +
   scale_x_continuous(breaks = seq(0, 20, 1)) +
-  theme_series
+  theme_ekio_site()
 ```
 
 ```{r compute-cycles}
@@ -228,38 +221,35 @@ cycles <- cycles %>%
 
 ```{r plot-cycles}
 p2 <- ggplot(data = cycles, aes(x = period, y = new_index * 100)) +
-  geom_hline(yintercept = 100) +
+  geom_hline(yintercept = 100, color = ekio_rule_color, linewidth = 0.4) +
   geom_line(aes(colour = recession)) +
   geom_point(aes(colour = recession)) +
   geom_text(
     data = data.frame(x = 14, y = 101, label = "A economia brasileira levou 2 anos para\nse recuperar totalmente da Crise de 1998."),
     aes(x = x, y = y, label = label),
-    family = "Roboto",
+    family = "Lato",
     size = 3,
-    colour = met.brewer("Cross", n = 6)[1]
+    colour = ekio_pal("full")[[1]]
   ) +
   geom_text(
     data = data.frame(x = 14, y = 90, label = "Foi necessário mais de 8 anos para a\neconomia voltar ao patamar pré-Crise de 2014."),
     aes(x = x, y = y, label = label),
-    family = "Roboto",
+    family = "Lato",
     size = 3,
-    colour = met.brewer("Cross", n = 6)[5]
+    colour = ekio_pal("full")[[5]]
   ) +
-  scale_colour_manual(
-    name = "Início/fim\nda recessão",
-    values = met.brewer("Cross", n = 6) 
-  ) +
+  scale_colour_ekio_d("full", name = "Início/fim\nda recessão") +
   labs(
     title = "Recessão e Recuperação (1996-2021)",
     x = "Trimestres após início da recessão",
     y = "Índice normalizado",
     subtitle = "Índice normalizado ao valor do PIB (a preços de mercado) imediatamente anterior ao início da recessão.\nA datação das recessões segue o CODACE (FGV).",
-    caption = "Fonte: IBGE e CODACE. Cores: MetBrewer (Cross). Autor: @viniciusoike"
+    caption = "Fonte: IBGE e CODACE. Autor: @viniciusoike"
   ) +
   scale_y_continuous(breaks = seq(80, 102, 1),
                      limits = c(86, 102)) +
   scale_x_continuous(breaks = seq(0, 40, 1)) +
-  theme_series
+  theme_ekio_site()
 
 ```
 
@@ -295,7 +285,6 @@ A tabela final abaixo resume alguns fatos sobre as recessões econômicas mais r
 
 ```{r}
 library(gt)
-library(gtExtras)
 
 col_names <- c(
   "Período",
@@ -320,7 +309,7 @@ gt(tbl_recession) %>%
   tab_footnote(
     footnote = "(**) - Crescimento trimestral médio anualizado"
     ) %>%
-  gt_theme_538()
+  gt_theme_ekio()
 ```
 
 {{< include ../../_post-cta.qmd >}}
