@@ -45,8 +45,17 @@ listing:
 :::
 
 <!-- ============ Faixa editorial ============ -->
-::: {.art-strip style="background-image: url(/static/images/art/faixa-paulista.webp);" role="img" aria-label="Colagem editorial da Avenida Paulista ao anoitecer, com mapa do metrô e série temporal sobrepostos"}
-:::
+```{=html}
+<div class="art-strip art-strip-img">
+  <img src="/static/images/art/finished/banner-1600.webp"
+       srcset="/static/images/art/finished/banner-800.webp 800w,
+               /static/images/art/finished/banner-1600.webp 1600w,
+               /static/images/art/finished/banner-2400.webp 2400w,
+               /static/images/art/finished/banner-3200.webp 3200w"
+       sizes="100vw"
+       alt="Colagem editorial de São Paulo com silhueta de torres, malha viária, série de barras e um grafo de conexões">
+</div>
+```
 
 <!-- ============ O que fazemos ============ -->
 ::: {.band .band-light #services}

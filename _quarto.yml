@@ -25,8 +25,8 @@ website:
     logo: static/images/logo-seal.svg
     logo-alt: "EKIO"
     logo-href: index.qmd
-    background: "#FAF9F7"
-    foreground: "#3A3733"
+    background: "#FEFEFE"
+    foreground: "#373A3D"
     title: false
     collapse-below: lg
     right:
@@ -43,8 +43,8 @@ website:
 
   # Footer
   page-footer:
-    background: "#0A0A0A"
-    foreground: "#8C8880"
+    background: "#191A1C"
+    foreground: "#AEB1B5"
     left: |
       <span class="footer-brand">EKIO · Consultoria em economia e dados</span>
     right:
