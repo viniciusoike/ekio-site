@@ -4,6 +4,7 @@ author: "Vinicius Oike Reginatto"
 date: "2024-02-25"
 categories: ["Imóveis", "Economia", "Brasil"]
 description: "Neste post discuto a teoria sobre índices de preços imobiliários e apresento os principais índices disponíveis no Brasil. Pela discussão teórica deve ficar claro as principais limitações de cada índice."
+image: "/static/images/art/thumb-indices.webp"
 execute:
   message: false
   warning: false
@@ -27,42 +28,24 @@ library(dplyr)
 library(tidyr)
 library(ggplot2)
 library(patchwork)
-library(showtext)
 library(stringr)
 library(rbcb)
 library(gt)
-library(gtExtras)
 library(ragg)
+library(ekioplot)
 ```
 
 ```{r theme-colors}
-colors <- c("#287271", "#2A9D8F", "#8AB17D", "#F4A261", "#E76F51")
-col_offwhite <- "#fefefe"
-
-theme_vini <- theme_minimal(base_family = "Lato", base_size = 11) +
-  theme(
-    panel.grid.minor = element_blank(),
-    panel.background = element_rect(fill = col_offwhite, color = col_offwhite),
-    plot.background = element_rect(fill = col_offwhite, color = col_offwhite),
-    legend.position = "bottom",
-    plot.title = element_text(size = 14),
-    plot.subtitle = element_text(
-      size = 9,
-      color = "gray30"
-    ),
-    plot.caption = element_text(
-      size = 8,
-      color = "gray50",
-      hjust = 0,
-      margin = margin(t = 8)
-    ),
-    plot.margin = margin(10, 10, 10, 10)
-  )
+source("../_ekio-style.R")
 ```
 
 ```{r import rppi-sale}
+# Post published 2024-02-25. Source series carry roughly a two-month
+# publication lag, so the figures use only what was available at the time.
+data_cutoff <- as.Date("2024-01-01")
+
 sale <- get_dataset("rppi", table = "sale")
-sale <- subset(sale, date <= as.Date("2023-12-31"))
+sale <- subset(sale, date < data_cutoff)
 ```
 
 ```{r import-price-series}
@@ -73,7 +56,7 @@ mts <- ts.intersect(ipca, incc, dframe = TRUE)
 tbl_prices <- tibble(date = zoo::as.Date.ts(incc), mts)
 
 tbl_prices <- tbl_prices |>
-  filter(date <= as.Date("2023-12-31")) |>
+  filter(date < data_cutoff) |>
   mutate(
     acum_ipca = c(NA, (cumprod(1 + ipca[-1] / 100) - 1) * 100),
     index_ipca = if_else(date == first(date), 100, 100 + acum_ipca),
@@ -145,18 +128,15 @@ tab_rppi <- rppi_chg |>
     values_from = "acum_year"
   ) |>
   arrange(year) |>
-  filter(year >= 2003, year < 2024)
+  filter(year >= 2003, year < lubridate::year(data_cutoff))
 ```
 
 ```{r plot-comp}
 p_rppi_comp <- ggplot(rppi_comp, aes(date, new_index, color = source)) +
-  geom_hline(yintercept = 100) +
+  geom_hline(yintercept = 100, color = ekio_rule_color, linewidth = 0.4) +
   geom_line(lwd = 0.8) +
   scale_x_date(date_labels = "%Y") +
-  scale_color_manual(
-    name = "",
-    values = colors[c(1:3)]
-  ) +
+  scale_color_ekio_d("full", name = "") +
   labs(
     title = "Inflação supera valorização imobiliária nos últimos dez anos",
     subtitle = str_wrap(
@@ -167,12 +147,12 @@ p_rppi_comp <- ggplot(rppi_comp, aes(date, new_index, color = source)) +
     y = "Índice (2019 = 100)",
     caption = "Fonte: IVG-R (BCB), FipeZap (Fipe), IGMI-R (Abecip)"
   ) +
-  theme_vini
+  theme_ekio_site()
 ```
 
 ```{r vecm-analysis}
 tbl_rppi = rppi_comp |>
-  filter(date >= as.Date("2014-01-01"), date < as.Date("2024-01-01")) |>
+  filter(date >= as.Date("2014-01-01"), date < data_cutoff) |>
   pivot_wider(
     id_cols = "date",
     names_from = "source",
@@ -198,20 +178,17 @@ vecm = cajorls(johan, r = 2)
 ```{r data-comp-recent}
 # Recent comparison (all indexes based in 2014/1)
 rppi_recent <- rppi_indexes |>
-  filter(date >= as.Date("2014-01-01"), date < as.Date("2024-01-01")) |>
+  filter(date >= as.Date("2014-01-01"), date < data_cutoff) |>
   mutate(new_index = index / first(index) * 100, .by = "source")
 
 p_rppi_brasil <- ggplot(
   filter(rppi_recent, !(source %in% c("IPCA", "INCC"))),
   aes(x = date, y = new_index, color = source)
 ) +
-  geom_hline(yintercept = 100) +
+  geom_hline(yintercept = 100, color = ekio_rule_color, linewidth = 0.4) +
   geom_line(lwd = 0.8) +
   scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
-  scale_color_manual(
-    name = "",
-    values = colors[c(1:3)]
-  ) +
+  scale_color_ekio_d("full", name = "") +
   labs(
     title = "Índices de Preços Imobiliários no Brasil",
     subtitle = str_wrap(
@@ -222,20 +199,17 @@ p_rppi_brasil <- ggplot(
     y = "Índice (jan/14 = 100)",
     caption = "Fonte: IVG-R (BCB), FipeZap (Fipe), IGMI-R (Abecip)"
   ) +
-  theme_vini
+  theme_ekio_site()
 
 p_rppi_ipca <-
   ggplot(
     filter(rppi_recent, source != "INCC"),
     aes(x = date, y = new_index, color = source)
   ) +
-  geom_hline(yintercept = 100) +
+  geom_hline(yintercept = 100, color = ekio_rule_color, linewidth = 0.4) +
   geom_line(lwd = 0.8) +
   scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
-  scale_color_manual(
-    name = "",
-    values = colors[c(1:3, 5)]
-  ) +
+  scale_color_ekio_d("full", name = "") +
   labs(
     title = "Inflação supera valorização imobiliária nos últimos dez anos",
     subtitle = str_wrap(
@@ -246,20 +220,17 @@ p_rppi_ipca <-
     y = "Índice (jan/14 = 100)",
     caption = "Fonte: IVG-R (BCB), IPCA (IBGE), FipeZap (Fipe), IGMI-R (Abecip)"
   ) +
-  theme_vini
+  theme_ekio_site()
 
 p_rppi_incc <-
   ggplot(
     filter(rppi_recent, source != "IPCA"),
     aes(x = date, y = new_index, color = source)
   ) +
-  geom_hline(yintercept = 100) +
+  geom_hline(yintercept = 100, color = ekio_rule_color, linewidth = 0.4) +
   geom_line(lwd = 0.8) +
   scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
-  scale_color_manual(
-    name = "",
-    values = colors[c(1:3, 5)]
-  ) +
+  scale_color_ekio_d("full", name = "") +
   labs(
     title = "Inflação de Custos supera valorização imobiliária nos últimos dez anos",
     subtitle = str_wrap(
@@ -270,14 +241,14 @@ p_rppi_incc <-
     y = "Índice (jan/14 = 100)",
     caption = "Fonte: IVG-R (BCB), INCC (FGV), FipeZap (Fipe), IGMI-R (Abecip)"
   ) +
-  theme_vini
+  theme_ekio_site()
 ```
 
 ```{r}
 ivgr_comp <- rppi_indexes |>
   filter(
     date >= as.Date("2001-03-01"),
-    date < as.Date("2024-01-01"),
+    date < data_cutoff,
     source %in% c("IPCA", "INCC", "IVG-R")
   ) |>
   mutate(new_index = index / first(index) * 100, .by = "source")
@@ -286,12 +257,9 @@ p_ivgr_ipca <- ggplot(
   ivgr_comp,
   aes(x = date, y = new_index, color = source)
 ) +
-  geom_hline(yintercept = 100) +
+  geom_hline(yintercept = 100, color = ekio_rule_color, linewidth = 0.4) +
   geom_line(lwd = 0.8) +
-  scale_color_manual(
-    name = "",
-    values = colors[c(3, 4, 5)]
-  ) +
+  scale_color_ekio_d("full", name = "") +
   labs(
     title = "Preço de Imóveis aumenta mais de seis vezes no longo prazo",
     subtitle = str_wrap(
@@ -302,7 +270,7 @@ p_ivgr_ipca <- ggplot(
     y = "Índice (mar/01 = 100)",
     caption = "Fonte: IVG-R (BCB), INCC (FGV), IPCA (IBGE)."
   ) +
-  theme_vini
+  theme_ekio_site()
 ```
 
 ```{r plot-rppi-function}
@@ -318,28 +286,28 @@ plot_rppi <- function(name) {
   }
 
   p_index <- ggplot(filter(rppi_sale, source == name), aes(date, index)) +
-    geom_line(lwd = 0.8, color = colors[1]) +
-    geom_hline(yintercept = 100) +
+    geom_line(lwd = 0.8, color = ekio_pal("full")[[1]]) +
+    geom_hline(yintercept = 100, color = ekio_rule_color, linewidth = 0.4) +
     labs(x = NULL, y = "Índice", subtitle = "Índice") +
-    theme_vini
+    theme_ekio_site()
 
   p_12m <- ggplot(filter(rppi_sale, source == name), aes(date, acum12m)) +
-    geom_line(lwd = 0.8, color = colors[1]) +
-    geom_hline(yintercept = 0) +
+    geom_line(lwd = 0.8, color = ekio_pal("full")[[1]]) +
+    geom_hline(yintercept = 0, color = ekio_rule_color, linewidth = 0.4) +
     scale_y_continuous(labels = scales::label_percent()) +
     labs(x = NULL, y = "% (acum. 12 meses)", subtitle = "Acumulado 12 meses") +
-    theme_vini
+    theme_ekio_site()
 
   p_chg <- ggplot(filter(rppi_sale, source == name), aes(date, chg)) +
-    geom_line(lwd = 0.8, color = colors[1]) +
-    geom_hline(yintercept = 0) +
+    geom_line(lwd = 0.8, color = ekio_pal("full")[[1]]) +
+    geom_hline(yintercept = 0, color = ekio_rule_color, linewidth = 0.4) +
     scale_y_continuous(labels = scales::label_percent()) +
     labs(x = NULL, y = "%", subtitle = "Variação Mensal") +
-    theme_vini
+    theme_ekio_site()
 
   panel <- p_index / p_12m / p_chg
 
-  panel <- panel + plot_annotation(title = name) & theme_vini
+  panel <- panel + plot_annotation(title = name) & theme_ekio_site()
 
   return(panel)
 }
@@ -475,7 +443,7 @@ gt(tab_rppi) |>
   gt::cols_label(year = "Ano") |>
   fmt_number(2:6, decimals = 2) |>
   sub_missing() |>
-  gt_theme_538()
+  gt_theme_ekio()
 ```
 
 ### Gráficos
@@ -509,7 +477,7 @@ p_rppi_incc
 Em termos mais técnicos, pode-se ver que as séries naturalmente são correlacionadas, visto que elas estão tentando mensurar a mesma variável. Assim, não deve ser surpreendente que as séries tenham autocorrelação cruzada e que sejam cointegradas. O gráfico abaixo mostra a função de autocorrelação entre as séries após se tomar uma diferença simples e uma diferença sazonal.
 
 ```{r}
-ggAcf(sdd) + theme_vini
+ggAcf(sdd) + theme_ekio_site()
 ```
 
 Mais a título de curiosidade reporta-se as estimativas dos coeficientes dos termos de ajustamento do modelo de correção de erros, normalizadas segundo a série do IGMI.
@@ -522,7 +490,8 @@ tab = tibble(
   )
 
 gt(tab, rowname_col = "variable") %>%
-  fmt_number(decimals = 4)
+  fmt_number(decimals = 4) %>%
+  gt_theme_ekio()
 ```
 
 ### Longo Prazo

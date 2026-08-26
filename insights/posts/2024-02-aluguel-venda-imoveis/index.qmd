@@ -4,6 +4,7 @@ author: "Vinicius Oike Reginatto"
 date: "2024-02-21"
 categories: ["Imóveis", "Visualização de Dados", "Brasil"]
 description: "Os mercados de aluguel e de venda de imóveis são interligados e deve existir algum tipo de equilíbrio entre eles. Neste post exploro macrotendências destes mercados usando a série do FipeZap. Os resultados indicam a possibilidade um novo ciclo de aluguel, uma quebra na tendência histórica entre os mercados."
+image: "/static/images/art/thumb-aluguel-venda.webp"
 execute:
   message: false
   warning: false
@@ -24,54 +25,52 @@ library(realestatebr)
 library(dplyr)
 library(tidyr)
 library(ggplot2)
-library(showtext)
 library(stringr)
 library(patchwork)
-font_add_google("IBM Plex Sans", "IBM Plex Sans")
-showtext_auto()
+library(ekioplot)
 
-theme_series = theme_minimal(base_family = "IBM Plex Sans", base_size = 12) +
-  theme(
-    panel.grid.minor = element_blank(),
-    legend.position = "bottom"
-  )
+source("../_ekio-style.R")
 ```
 
 ```{r import-data}
-fipezap = get_dataset("rppi", table = "fipezap")
+# Post published 2024-02-21. Source series carry roughly a two-month
+# publication lag, so the figures use only what was available at the time.
+data_cutoff <- as.Date("2024-01-01")
 
-fipezap = fipezap |>
+fipezap <- get_dataset("rppi", table = "fipezap")
+
+fipezap <- fipezap |>
   filter(
     name_muni == "Brazil",
     market == "residential",
     variable == "index",
     rooms == "total",
-    date < as.Date("2024-01-01")
+    date < data_cutoff
   ) |>
   select(date, rent_sale, value)
 
-base = fipezap |>
+base <- fipezap |>
   mutate(ano = lubridate::year(date)) |>
   summarise(base_index = mean(value), .by = c("ano", "rent_sale")) |>
   filter(ano == 2019) |>
   select(-ano)
 
-fipezap = fipezap |>
+fipezap <- fipezap |>
   left_join(base, by = c("rent_sale")) |>
   mutate(new_index = value / base_index * 100)
 ```
 
 ```{r data-and-viz}
-dbreaks = as.character(c(2008, 2010, 2015, 2020, 2024))
-dbreaks = readr::parse_date(dbreaks, format = "%Y")
+dbreaks <- as.character(c(2008, 2010, 2015, 2020, 2024))
+dbreaks <- readr::parse_date(dbreaks, format = "%Y")
 
-p1 = ggplot(fipezap, aes(x = date, y = new_index, color = rent_sale)) +
+p1 <- ggplot(fipezap, aes(x = date, y = new_index, color = rent_sale)) +
   geom_line(lwd = 1) +
-  geom_hline(yintercept = 100) +
+  geom_hline(yintercept = 100, color = ekio_rule_color, linewidth = 0.4) +
   scale_x_date(breaks = dbreaks, date_labels = "%Y") +
-  scale_color_manual(
+  scale_color_ekio_d(
+    "full",
     name = "",
-    values = c("#83c5be", "#006d77"),
     labels = c("Aluguel", "Venda")
   ) +
   labs(
@@ -81,18 +80,18 @@ p1 = ggplot(fipezap, aes(x = date, y = new_index, color = rent_sale)) +
     y = "Índice (100 = 2019)",
     caption = "Fonte: FipeZap"
   ) +
-  theme_series
+  theme_ekio_site()
 
-fipezap = fipezap |>
+fipezap <- fipezap |>
   mutate(acum = value / first(value) * 100, .by = "rent_sale")
 
-p2 = ggplot(fipezap, aes(date, acum, color = rent_sale)) +
+p2 <- ggplot(fipezap, aes(date, acum, color = rent_sale)) +
   geom_line(lwd = 1) +
-  geom_hline(yintercept = 100) +
+  geom_hline(yintercept = 100, color = ekio_rule_color, linewidth = 0.4) +
   scale_x_date(breaks = dbreaks, date_labels = "%Y") +
-  scale_color_manual(
+  scale_color_ekio_d(
+    "full",
     name = "",
-    values = c("#83c5be", "#006d77"),
     labels = c("Aluguel", "Venda")
   ) +
   labs(
@@ -101,9 +100,9 @@ p2 = ggplot(fipezap, aes(date, acum, color = rent_sale)) +
     title = "Valorização Acumulada Aluguel/Venda",
     subtitle = "Variação acumulada "
   ) +
-  theme_series
+  theme_ekio_site()
 
-fipe_changes = fipezap |>
+fipe_changes <- fipezap |>
   group_by(rent_sale) |>
   mutate(
     chg = new_index / lag(new_index) - 1,
@@ -126,55 +125,49 @@ fipe_changes = fipezap |>
     ))
   )
 
-p3 = ggplot(
+p3 <- ggplot(
   fipe_changes,
   aes(x = chg_sale, y = chg_rent)
 ) +
   geom_point(aes(color = cycle)) +
-  geom_smooth(method = "gam", se = FALSE) +
-  geom_hline(yintercept = 0) +
-  geom_vline(xintercept = 0) +
+  geom_smooth(method = "gam", se = FALSE, color = ekio_pal("full")[[1]]) +
+  geom_hline(yintercept = 0, color = ekio_rule_color, linewidth = 0.4) +
+  geom_vline(xintercept = 0, color = ekio_rule_color, linewidth = 0.4) +
   labs(
     x = "Venda (var. %)",
     y = "Aluguel (var. %)",
     title = "Variação entre Aluguel e Preço de Venda",
     subtitle = "Cores dos círculos ressaltam ciclos econômicos. "
   ) +
-  scale_color_manual(
-    name = "Ciclo Economico",
-    values = c("#2FB1A2", "#e9c46a", "#264653", "#e76f51")
-  ) +
-  theme_series
+  scale_color_ekio_d("full", name = "Ciclo Economico") +
+  theme_ekio_site()
 
-p4 = ggplot(
+p4 <- ggplot(
   fipe_changes,
   aes(x = chg_sale, y = chg_rent, color = cycle)
 ) +
   geom_point(alpha = 0.8) +
   geom_smooth(method = "lm", se = FALSE) +
-  geom_hline(yintercept = 0) +
-  geom_vline(xintercept = 0) +
+  geom_hline(yintercept = 0, color = ekio_rule_color, linewidth = 0.4) +
+  geom_vline(xintercept = 0, color = ekio_rule_color, linewidth = 0.4) +
   labs(
     x = "Venda (var. %)",
     y = "Aluguel (var. %)",
     title = "Variação entre Aluguel e Preço de Venda",
     subtitle = "Cores dos círculos ressaltam ciclos econômicos. "
   ) +
-  scale_color_manual(
-    name = "Ciclo Economico",
-    values = c("#2FB1A2", "#e9c46a", "#264653", "#e76f51")
-  ) +
-  theme_series
+  scale_color_ekio_d("full", name = "Ciclo Economico") +
+  theme_ekio_site()
 
-tbl_fipe = fipezap |>
+tbl_fipe <- fipezap |>
   pivot_wider(
     id_cols = "date",
     names_from = "rent_sale",
     values_from = "new_index"
   )
 
-p_rent_bp = ggplot(tbl_fipe, aes(date, rent)) +
-  geom_line(lwd = 1, color = "#264653") +
+p_rent_bp <- ggplot(tbl_fipe, aes(date, rent)) +
+  geom_line(lwd = 1, color = ekio_pal("full")[[1]]) +
   geom_vline(xintercept = as.Date("2020-10-01"), linetype = 2) +
   labs(
     title = "Preços de Aluguel",
@@ -182,10 +175,10 @@ p_rent_bp = ggplot(tbl_fipe, aes(date, rent)) +
     x = NULL,
     y = "Índice (100 = 2019)"
   ) +
-  theme_series
+  theme_ekio_site()
 
-p_sale_bp = ggplot(tbl_fipe, aes(date, sale)) +
-  geom_line(lwd = 1, color = "#264653") +
+p_sale_bp <- ggplot(tbl_fipe, aes(date, sale)) +
+  geom_line(lwd = 1, color = ekio_pal("full")[[1]]) +
   geom_vline(
     xintercept = c(
       as.Date("2010-07-01"),
@@ -200,23 +193,23 @@ p_sale_bp = ggplot(tbl_fipe, aes(date, sale)) +
     x = NULL,
     y = "Índice (100 = 2019)"
   ) +
-  theme_series
+  theme_ekio_site()
 
-fipe_changes = fipe_changes |>
+fipe_changes <- fipe_changes |>
   mutate(
     bp = factor(if_else(date >= as.Date("2020-10-01"), 1L, 0L))
   )
 
-p_changes = ggplot(fipe_changes, aes(chg_rent, chg_sale, color = bp)) +
+p_changes <- ggplot(fipe_changes, aes(chg_rent, chg_sale, color = bp)) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE) +
   scale_x_continuous() +
   scale_y_continuous() +
-  geom_hline(yintercept = 0) +
-  geom_vline(xintercept = 0) +
-  scale_color_manual(
+  geom_hline(yintercept = 0, color = ekio_rule_color, linewidth = 0.4) +
+  geom_vline(xintercept = 0, color = ekio_rule_color, linewidth = 0.4) +
+  scale_color_ekio_d(
+    "full",
     name = "Ciclos",
-    values = c("#264653", "#F4A261"),
     labels = c("Normal", "Pós-Covid")
   ) +
   labs(
@@ -225,35 +218,35 @@ p_changes = ggplot(fipe_changes, aes(chg_rent, chg_sale, color = bp)) +
     title = "Variação entre Aluguel e Preço de Venda",
     subtitle = "Cores dos círculos ressaltam ciclos econômicos. "
   ) +
-  theme_series
+  theme_ekio_site()
 
-ivar = get_dataset("rppi", table = "ivar")
+ivar <- get_dataset("rppi", table = "ivar")
 
-ivar = ivar |>
+ivar <- ivar |>
   filter(
     is.na(name_muni),
-    date < as.Date("2024-12-01")
+    date < data_cutoff
   ) |>
   dplyr::select(date, ivar = index)
 
-fipe = fipezap |>
+fipe <- fipezap |>
   filter(rent_sale == "rent") |>
   dplyr::select(date, fipezap = value)
 
-indexes = left_join(ivar, fipe, by = "date")
+indexes <- left_join(ivar, fipe, by = "date")
 
-indexes = indexes |>
+indexes <- indexes |>
   pivot_longer(cols = -date, names_to = "name_series", values_to = "index") |>
   mutate(index = index / first(index) * 100, .by = "name_series")
 
-p_fipe_ivar = ggplot(indexes, aes(date, index, color = name_series)) +
+p_fipe_ivar <- ggplot(indexes, aes(date, index, color = name_series)) +
   geom_line(lwd = 1) +
-  geom_hline(yintercept = 100) +
+  geom_hline(yintercept = 100, color = ekio_rule_color, linewidth = 0.4) +
   scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
   scale_y_continuous(breaks = seq(90, 160, 10)) +
-  scale_color_manual(
+  scale_color_ekio_d(
+    "full",
     name = "Índices",
-    values = c("#264653", "#F4A261"),
     labels = c("FipeZap", "IVAR (FGV)")
   ) +
   labs(
@@ -263,7 +256,7 @@ p_fipe_ivar = ggplot(indexes, aes(date, index, color = name_series)) +
     subtitle = "Variação mensal do FipeZap (aluguel residencial) e IVAR (FGV) desde janeiro de 2019.",
     caption = "Fonte: FipeZap, FGV"
   ) +
-  theme_series
+  theme_ekio_site()
 ```
 
 # Aluguel e Venda

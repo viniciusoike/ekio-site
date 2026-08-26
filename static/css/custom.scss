@@ -2,43 +2,49 @@
 
 // ═══════════════════════════════════════════════════════════════
 // EKIO — editorial theme
-// Old-style display (EB Garamond), grotesque body (Public Sans),
-// condensed accents (Roboto Condensed). Hairline rules instead of
-// cards; paper background instead of white.
+// Lora display, Lato body and accents, Fira Code monospace. Hairline rules
+// instead of cards; paper background instead of white.
 // ═══════════════════════════════════════════════════════════════
 
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Public+Sans:wght@300;400;500;600&family=Roboto+Condensed:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Lato:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap');
 
-// ── Surfaces ──
-$paper:        #FAF9F7;  // page
-$paper-sunk:   #F4F2EE;  // recessed band
-$canvas:       #E8E6E1;  // outside the frame
-$rule:         #E6E3DC;  // hairline
-$rule-strong:  #D8D5CE;  // tag borders, frame edge
+// ── Website surfaces (Hokusai-inspired) ──
+$alabaster:    #D4DED9;
+$soft-linen:   #EFE8DC;
+$soft-linen-2: #F2EDE2;
+$baltic-blue:  #225A7E;
+$air-force-blue: #517A90;
+
+$paper:        #FEFEFE;       // ekioplot basic.offwhite
+$paper-sunk:   $soft-linen-2; // recessed band
+$canvas:       $soft-linen;   // outside the frame
+$rule:         $alabaster;    // hairline
+$rule-strong:  #B4B0AB;       // ekioplot stone.300
 
 // ── Ink ──
-$ink:          #0A0A0A;
-$ink-700:      #3A3733;
-$ink-600:      #4A4640;
-$ink-500:      #5A5650;
-$ink-400:      #7A766E;
-$ink-300:      #8C8880;
+$ink:          #191A1C; // ekioplot gray.900
+$ink-700:      #28292C; // ekioplot gray.800
+$ink-600:      #373A3D; // ekioplot gray.700
+$ink-500:      #52555A; // ekioplot gray.600
+$ink-400:      #6E7378; // ekioplot gray.500; AA on $paper
+$ink-300:      #6E7378; // lightest accessible small-text neutral
+$ink-inverse-muted: #AEB1B5; // ekioplot gray.300 on dark surfaces
 
 // ── Accent ──
 $navy:         #1E3A5F;
-$navy-deep:    #16304F;
-$navy-tint:    #EEF1F5;
+$navy-deep:    #152A44; // ekioplot blue.800
+$navy-tint:    #E8F6FF; // ekioplot blue.100
 
 // Legacy aliases — older markup and post pages still reference these.
-$ekio-blue-900: $navy-deep;
-$ekio-blue-800: $navy;
+$ekio-blue-900: #0D1B2A;
+$ekio-blue-800: $navy-deep;
 $ekio-blue-700: $navy;
-$ekio-blue-600: $navy;
-$ekio-blue-500: $navy;
-$ekio-blue-400: #4A6E96;
-$ekio-blue-300: #8FA6BE;
-$ekio-blue-200: #B9C7D6;
-$ekio-blue-100: #D9E1EA;
+$ekio-blue-600: #305687;
+$ekio-blue-500: #3E76AC;
+$ekio-blue-400: #5597CC;
+$ekio-blue-300: #84B8DD;
+$ekio-blue-200: #B1D8F2;
+$ekio-blue-100: $navy-tint;
 $ekio-blue-50:  $navy-tint;
 $ekio-gray-900: $ink;
 $ekio-gray-800: $ink-700;
@@ -50,18 +56,17 @@ $ekio-gray-300: $rule-strong;
 $ekio-gray-200: $rule;
 $ekio-gray-100: $paper-sunk;
 $ekio-gray-50:  $paper;
-$ekio-orange:   #B85C2E;
-$ekio-teal:     #2C6E6F;
-$ekio-amber:    #B98B22;
-$ekio-red:      #A83232;
-$ekio-green:    #35785A;
-$ekio-purple:   #6B54A3;
+$ekio-orange:   #D3742A; // ekioplot orange.400
+$ekio-teal:     #006261; // ekioplot teal.600
+$ekio-amber:    #B88715; // ekioplot gold.mid
+$ekio-red:      #B44D47; // ekioplot red.500
+$ekio-green:    #448255; // ekioplot green.500
 
 // ── Font stacks ──
-$font-display: 'EB Garamond', 'Adobe Garamond Pro', Garamond, Georgia, 'Times New Roman', serif;
-$font-sans:    'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-$font-cond:    'Roboto Condensed', 'Public Sans', sans-serif;
-$font-mono:    ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+$font-display: 'Lora', Georgia, 'Times New Roman', serif;
+$font-sans:    'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+$font-cond:    $font-sans;
+$font-mono:    'Fira Code', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
 $font-serif:   $font-display;  // legacy alias
 
 // ── Bootstrap overrides ──
@@ -114,6 +119,11 @@ $code-bg:    $paper-sunk;
   --ekio-ink-400:     #{$ink-400};
   --ekio-ink-300:     #{$ink-300};
   --ekio-navy:        #{$navy};
+  --ekio-baltic-blue: #{$baltic-blue};
+  --ekio-air-force-blue: #{$air-force-blue};
+  --ekio-alabaster:   #{$alabaster};
+  --ekio-soft-linen:  #{$soft-linen};
+  --ekio-soft-linen-2: #{$soft-linen-2};
   --font-display:     #{$font-display};
   --font-sans:        #{$font-sans};
   --font-cond:        #{$font-cond};
@@ -139,8 +149,6 @@ body {
 h1, h2, h3, h4 {
   font-family: $font-display;
   font-weight: 400;
-  // EB Garamond is an old-style face; it wants neutral tracking, unlike the
-  // didone it replaced.
   letter-spacing: 0;
   text-wrap: pretty;
   // Quarto rules h2 by default; this system uses rules on containers instead.
@@ -166,7 +174,6 @@ p:has(> .credential-value:only-child),
 p:has(> .contact-info-label:only-child),
 p:has(> .contact-info-value:only-child),
 p:has(> .form-intro-lead:only-child),
-p:has(> .sector-name:only-child),
 p:has(> .package-meta:only-child) {
   margin: 0;
 }
@@ -307,7 +314,7 @@ p:has(> .package-meta:only-child) {
   padding: 2.125rem 0;
   font-size: 0.75rem;
   letter-spacing: 0.1em;
-  color: $ink-300;
+  color: $ink-inverse-muted;
 
   .nav-footer-left,
   .nav-footer-center,
@@ -335,7 +342,7 @@ p:has(> .package-meta:only-child) {
   p { margin: 0; }
 
   a {
-    color: $ink-300;
+    color: $ink-inverse-muted;
     transition: color 0.18s;
     &:hover { color: $paper; }
   }
@@ -351,7 +358,7 @@ p:has(> .package-meta:only-child) {
   font-size: 0.75rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: $ink-300;
+  color: $ink-inverse-muted;
 }
 
 // Legacy footer classes.
@@ -360,13 +367,13 @@ p:has(> .package-meta:only-child) {
   font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.16em;
-  color: $ink-300;
+  color: $ink-inverse-muted;
 }
 
 .footer-sub {
   font-size: 0.75rem;
   letter-spacing: 0.1em;
-  color: $ink-300;
+  color: $ink-inverse-muted;
 }
 
 // ═══════════════════════════════════════════════════════════════
@@ -587,7 +594,14 @@ h2.section-heading-light { color: $paper; }
   }
 }
 
+// The split header pads its own two columns. Without an aside the header is a
+// single column and takes its spacing from .page-header and .container, so the
+// wrapper must not add a second layer.
 .page-header-main {
+  padding: 0;
+}
+
+.page-header:has(.page-header-aside) .page-header-main {
   padding: 6rem 4rem 5rem;
 }
 
@@ -961,7 +975,7 @@ h2.service-detail-title {
 }
 
 // ═══════════════════════════════════════════════════════════════
-// Principles / packages / sectors
+// Principles / packages
 // ═══════════════════════════════════════════════════════════════
 
 .principles-grid {
@@ -1040,28 +1054,6 @@ h3.package-title {
   padding-top: 1.125rem;
   border-top: 1px solid $rule;
 }
-
-.sectors-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: $rule;
-  border-top: 1px solid $rule;
-  border-bottom: 1px solid $rule;
-
-  // Three focused sectors carry this section on their own, so they are set
-  // larger than a plain list would be.
-  .sector-item {
-    background: $paper;
-    padding: 2.5rem 2rem;
-    font-family: $font-display;
-    font-size: 1.5rem;
-    line-height: 1.3;
-    color: $ink;
-  }
-}
-
-.sector-name { display: block; }
 
 // ═══════════════════════════════════════════════════════════════
 // Process steps
@@ -1301,14 +1293,11 @@ h2.about-name {
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
-
-  .sectors-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 640px) {
   .section-label { margin-bottom: 1.5rem; }
   .process-grid,
-  .sectors-grid,
   .credentials-grid { grid-template-columns: 1fr; }
   .section-head-row { margin-bottom: 2.5rem; }
 }
@@ -1360,4 +1349,191 @@ h2.about-name {
   font-family: $font-display;
   font-weight: 400;
   color: $ink;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// Post figures and tables
+// Charts come from ekioplot via insights/posts/_ekio-style.R, which
+// paints them on $paper. These rules place them on the page; they do
+// not recolor the data. Keep the tokens here in sync with that file.
+// ═══════════════════════════════════════════════════════════════
+
+#quarto-document-content {
+  .cell-output-display {
+    margin: 2.25rem 0;
+
+    > img,
+    > svg,
+    figure.figure img,
+    figure.figure svg {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin-inline: auto;
+    }
+  }
+
+  // Figures carry their own canvas, so a border would double the edge.
+  // A hairline above and below seats them in the column instead.
+  figure.figure {
+    margin: 2.5rem 0;
+    border-top: 1px solid $rule;
+    border-bottom: 1px solid $rule;
+    padding: 1.25rem 0;
+    background: $paper;
+  }
+
+  figcaption,
+  .figure-caption {
+    font-family: $font-cond;
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+    color: $ink-400;
+    text-align: left;
+    margin-top: 0.875rem;
+  }
+
+  // ── gt tables ──
+  // gt emits its own scoped block as `#<id> .gt_table`, which ties with a
+  // single-id-single-class selector and then wins on source order, since that
+  // block sits in the body. Adding .cell-output-display outranks it outright.
+  // Structure and rules come from gt_theme_ekio(); what tab_options() cannot
+  // express is set here.
+  .cell-output-display .gt_table {
+    min-width: 100%;
+    width: auto;
+    margin-inline: 0;
+    font-family: $font-sans;
+    font-variant-numeric: tabular-nums;
+
+    // Quarto tags gt output with Bootstrap's .table-striped whatever
+    // data-quarto-bootstrap says, and .table-striped shades rows with an inset
+    // box-shadow rather than a background, so zeroing the background does
+    // nothing. Kill the shadow and the variable behind it.
+    --bs-table-striped-bg: transparent;
+    --bs-table-accent-bg: transparent;
+
+    > :not(caption) > * > * { box-shadow: none; }
+
+    .gt_col_heading,
+    .gt_column_spanner {
+      font-family: $font-cond;
+      letter-spacing: 0.16em;
+      line-height: 1.3;
+      vertical-align: bottom;
+    }
+
+    // Numeric columns read as a column only when the figures line up.
+    .gt_right { font-variant-numeric: tabular-nums; }
+
+    // A wrapped figure stops being a figure. Data cells hold one line and
+    // the wrapper scrolls if the columns genuinely outrun the measure;
+    // column labels still wrap, since they carry the long words.
+    tbody td { white-space: nowrap; }
+
+    .gt_sourcenote,
+    .gt_footnote {
+      font-family: $font-cond;
+      color: $ink-400;
+      padding-top: 0.75rem;
+    }
+
+    .gt_heading,
+    .gt_title {
+      font-family: $font-display;
+      color: $ink;
+    }
+
+    .gt_subtitle {
+      font-family: $font-sans;
+      color: $ink-400;
+    }
+  }
+
+  // gt already wraps each table in a div with overflow-x: auto, so a wide
+  // table scrolls there rather than forcing the article column open.
+}
+
+@media (max-width: 640px) {
+  #quarto-document-content {
+    figure.figure { padding: 0.875rem 0; margin: 1.75rem 0; }
+    .gt_table { font-size: 0.75rem; }
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// Editorial artwork
+// Abstract compositions in the brand palette. Decorative only — the
+// analytical figures on servicos.qmd and the featured insight stay real.
+// ═══════════════════════════════════════════════════════════════
+
+// Full-bleed strip. Sits between bands and carries no text.
+.art-strip {
+  width: 100%;
+  height: clamp(200px, 23vw, 340px);
+  background-color: $paper-sunk;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-bottom: 1px solid $rule;
+}
+
+// Shorter variant for page headers, where the art trails the title block.
+.art-strip-sm { height: clamp(150px, 15vw, 220px); }
+
+// Variante servida por <img srcset>, para o navegador escolher a largura de
+// origem. A caixa continua sendo a mesma; quem recorta agora é object-fit.
+.art-strip-img {
+  overflow: hidden;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+// Navy wash over art so the CTA copy keeps its contrast. The gradient is
+// opaque at the left, where the heading sits, and thins toward the artwork.
+// The compositions top out around 600 px wide, so stretching one across the
+// full band would upscale it near 3x. Fitting it to the band height instead
+// keeps it at or below native size and lets it bleed in from the right edge.
+.band-cta.band-cta-art {
+  position: relative;
+  background-position: right center;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  isolation: isolate;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    // Opaque under the heading, thinner over the artwork. These compositions
+    // carry no lettering of their own, so the wash only has to protect the
+    // copy — it does not have to bury a second typeface.
+    background: linear-gradient(
+      100deg,
+      rgba($navy, 1) 0%,
+      rgba($navy, 1) 40%,
+      rgba($navy, 0.86) 62%,
+      rgba($navy, 0.66) 100%
+    );
+  }
+}
+
+@media (max-width: 991px) {
+  .art-strip    { height: 190px; }
+  .art-strip-sm { height: 140px; }
+
+  // Narrow viewports crop the art too hard to read; drop back to flat navy.
+  .band-cta.band-cta-art {
+    background-image: none !important;
+    &::before { background: $navy; }
+  }
 }

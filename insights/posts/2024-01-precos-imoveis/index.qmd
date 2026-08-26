@@ -4,6 +4,7 @@ author: "Vinicius Oike Reginatto"
 date: "2024-01-28"
 categories: ["Imóveis", "Visualização de Dados", "Brasil"]
 description: "Existe uma impressão generalizada de que o preço dos imóveis no Brasil cresceu muito nos últimos anos. Neste post mostro como, em termos reais, o preço médio dos imóveis no Brasil andou de lado; na prática, os preços atuais estão abaixo dos valores observados em 2010."
+image: "/static/images/art/thumb-precos-imoveis.webp"
 execute:
   message: false
   warning: false
@@ -24,23 +25,23 @@ library(dplyr)
 library(ggplot2)
 library(ragg)
 library(stringr)
+library(ekioplot)
 ```
 
 ```{r}
-colors <- c("#287271", "#2A9D8F", "#8AB17D", "#F4A261", "#E76F51")
-
-theme_vini <- theme_minimal(base_family = "Lato", base_size = 10) +
-  theme(
-    panel.grid.minor = element_blank(),
-    panel.background = element_rect(fill = "#FBFBF8", color = "#FBFBF8"),
-    plot.background = element_rect(fill = "#FBFBF8", color = "#FBFBF8"),
-    legend.position = "bottom",
-    plot.subtitle = element_text(size = 8, color = "gray30")
-  )
+source("../_ekio-style.R")
 ```
 
 ```{r}
-sale <- get_dataset(name = "rppi", table = "sale")
+# Post published 2024-01-28. Source series carry roughly a two-month
+# publication lag, so the figures use only what was available at the time.
+data_cutoff <- as.Date("2023-12-01")
+
+# The BIS stamps each quarter at its start, so a point dated 2023-10-01 covers
+# all of Q4 and only lands once the quarter has closed. Require the whole
+# quarter to sit before the cutoff.
+quarter_cutoff <- seq(data_cutoff, by = "-3 months", length.out = 2)[2]
+
 bis <- get_dataset(name = "rppi_bis")
 
 bis <- bis %>%
@@ -57,6 +58,7 @@ bis <- bis %>%
 rppi <- bis %>%
   filter(
     date >= as.Date("2000-01-01"),
+    date <= quarter_cutoff,
     unit == "index",
     is_nominal == FALSE
   )
@@ -77,9 +79,9 @@ rppi_comp <- rppi %>%
 
 p_bis_geral <- ggplot(rppi_comp, aes(x = date, y = value)) +
   geom_line(aes(color = name_country), linewidth = 1) +
-  geom_hline(yintercept = 100) +
+  geom_hline(yintercept = 100, color = ekio_rule_color, linewidth = 0.4) +
   scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
-  scale_color_manual(name = "", values = colors) +
+  scale_color_ekio_d("full", name = "") +
   labs(
     x = NULL,
     y = "Índice (2010 = 100)",
@@ -90,7 +92,7 @@ p_bis_geral <- ggplot(rppi_comp, aes(x = date, y = value)) +
     ),
     caption = "Fonte: BIS. @viniciusoike"
   ) +
-  theme_vini
+  theme_ekio_site()
 ```
 
 ```{r}
@@ -102,10 +104,10 @@ rppi_latam <- rppi %>%
 
 p_bis_latam <-
   ggplot(rppi_latam, aes(x = date, y = value, color = name_country)) +
-  geom_hline(yintercept = 100) +
+  geom_hline(yintercept = 100, color = ekio_rule_color, linewidth = 0.4) +
   geom_line(linewidth = 1) +
   scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
-  scale_color_manual(name = "", values = colors) +
+  scale_color_ekio_d("full", name = "") +
   labs(
     x = NULL,
     y = "Índice (2010 = 100)",
@@ -115,7 +117,7 @@ p_bis_latam <-
       111
     )
   ) +
-  theme_vini +
+  theme_ekio_site() +
   theme(axis.text.x = element_text(angle = 90))
 ```
 
@@ -128,10 +130,10 @@ rppi_rich <- rppi %>%
 
 p_bis_rich <-
   ggplot(rppi_rich, aes(x = date, y = value, color = name_country)) +
-  geom_hline(yintercept = 100) +
+  geom_hline(yintercept = 100, color = ekio_rule_color, linewidth = 0.4) +
   geom_line(linewidth = 1) +
   scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
-  scale_color_manual(name = "", values = colors) +
+  scale_color_ekio_d("full", name = "") +
   labs(
     x = NULL,
     y = "Índice (2010 = 100)",
@@ -141,7 +143,7 @@ p_bis_rich <-
       111
     )
   ) +
-  theme_vini +
+  theme_ekio_site() +
   theme(axis.text.x = element_text(angle = 90))
 ```
 

@@ -14,11 +14,10 @@ toc: false
 # Sobre a EKIO {.page-header-title}
 :::
 
-::: {.page-header-aside}
-[Rigor acadêmico aliado a visão de negócios. A EKIO constrói a ponte entre teoria econômica e tomada de decisão prática.]{.page-header-desc}
+:::
 :::
 
-:::
+::: {.art-strip .art-strip-sm style="background-image: url(/static/images/art/faixa-estaiada.webp);" role="img" aria-label="Colagem editorial da Ponte Estaiada com a malha viária e uma mancha de densidade"}
 :::
 
 <!-- ============ Fundador ============ -->
@@ -129,7 +128,7 @@ Entregáveis acionáveis — não relatórios para gaveta. Entrego código repro
 :::
 
 <!-- ============ CTA ============ -->
-::: {.band .band-cta}
+::: {.band .band-cta .band-cta-art style="background-image: url(/static/images/art/fundo-cta-skyline.webp);"}
 ::: {.container}
 ::: {.cta-row}
 

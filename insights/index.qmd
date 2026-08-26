@@ -45,6 +45,9 @@ listing:
 :::
 :::
 
+::: {.art-strip .art-strip-sm style="background-image: url(/static/images/art/faixa-metro-sp.webp);" role="img" aria-label="Colagem editorial da rede de metrô de São Paulo sobre a silhueta da cidade"}
+:::
+
 <!-- ============ Destaque ============ -->
 ::: {.band .band-light}
 ::: {.container}
@@ -70,7 +73,7 @@ listing:
 :::
 
 <!-- ============ CTA ============ -->
-::: {.band .band-cta}
+::: {.band .band-cta .band-cta-art style="background-image: url(/static/images/art/fundo-cta-skyline.webp);"}
 ::: {.container}
 ::: {.cta-row}
 
