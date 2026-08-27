@@ -132,7 +132,7 @@ toc: false
 
 ### Escopo {.process-title}
 
-Definimos juntos a pergunta, as necessidades de dados e os critérios de sucesso. Consulta inicial gratuita.
+Definimos juntos a pergunta, as necessidades de dados e os critérios de sucesso.
 :::
 
 ::: {.process-step}
@@ -171,7 +171,7 @@ Suporte contínuo, opções de retainer e transferência de conhecimento para su
 ::: {.cta-text}
 ## Vamos discutir o seu projeto {.cta-heading}
 
-[A consulta inicial é gratuita. Conte sobre o seu desafio e receba uma sugestão de abordagem sob medida.]{.cta-desc}
+[Conte sobre o seu desafio e receba uma sugestão de abordagem sob medida.]{.cta-desc}
 :::
 
 ::: {.cta-actions}

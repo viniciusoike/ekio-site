@@ -30,7 +30,6 @@ listing:
 ::: {.hero-copy}
 [A EKIO combina análise econômica rigorosa, ciência de dados avançada e inteligência espacial para ajudar empresas e governos brasileiros a tomar decisões melhores.]{.hero-subtitle}
 
-[Consulta inicial gratuita · Resposta em até 24h]{.hero-note}
 :::
 
 ::: {.hero-actions}
@@ -152,7 +151,7 @@ listing:
 ::: {.cta-text}
 ## Pronto para decisões orientadas por dados? {.cta-heading}
 
-[Seja para entrar em um novo mercado, avaliar um investimento ou construir uma estratégia de dados — a EKIO pode ajudar. A consulta inicial é gratuita.]{.cta-desc}
+[Seja para entrar em um novo mercado, avaliar um investimento ou construir uma estratégia de dados — a EKIO pode ajudar.]{.cta-desc}
 :::
 
 ::: {.cta-actions}

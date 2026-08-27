@@ -15,7 +15,7 @@ toc: false
 :::
 
 ::: {.page-header-aside}
-[Conte sobre o seu desafio. Você recebe uma resposta em até 24 horas, com reflexões iniciais sobre como a EKIO pode ajudar.]{.page-header-desc}
+[Conte sobre o seu desafio e explique como a EKIO pode ajudar.]{.page-header-desc}
 :::
 
 :::
@@ -46,14 +46,8 @@ toc: false
 [[linkedin.com/in/viniciusoike](https://linkedin.com/in/viniciusoike)]{.contact-info-value}
 :::
 
-::: {.contact-info-item}
-[Tempo de resposta]{.contact-info-label}
-
-[Em até 24 horas]{.contact-info-value}
-:::
-
 ::: {.pull-quote}
-*Todo projeto começa com uma conversa. Seja com um problema totalmente definido ou uma intuição de que dados poderiam ajudar — entre em contato. A consulta inicial é sempre gratuita.*
+*Todo projeto começa com uma conversa. Seja com um problema totalmente definido ou uma intuição de que dados poderiam ajudar — entre em contato.*
 
 [— Vinicius Oike Reginatto, Fundador]{.pull-quote-attr}
 :::

@@ -80,7 +80,7 @@ listing:
 ::: {.cta-text}
 ## Quer este nível de análise aplicado ao seu negócio? {.cta-heading}
 
-[As mesmas ferramentas usadas nestas análises — econometria, ciência de dados e inteligência espacial — podem responder às perguntas do seu negócio. A consulta inicial é gratuita.]{.cta-desc}
+[As mesmas ferramentas usadas nestas análises — econometria, ciência de dados e inteligência espacial — podem responder às perguntas do seu negócio.]{.cta-desc}
 :::
 
 ::: {.cta-actions}
