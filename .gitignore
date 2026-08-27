@@ -18,4 +18,5 @@
 .DS_Store
 **/.DS_Store
 
+# Quarto notebook intermediates
 **/*.quarto_ipynb

@@ -1,0 +1,15 @@
+# Normalize text files across operating systems.
+* text=auto eol=lf
+
+# Preserve binary assets.
+*.gif binary
+*.jpeg binary
+*.jpg binary
+*.png binary
+*.rds binary
+*.woff binary
+*.woff2 binary
+
+# Keep generated Quarto results out of GitHub language statistics.
+_freeze/** linguist-generated=true
+_site/** linguist-generated=true
