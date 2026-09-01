@@ -1,6 +1,6 @@
 ---
-title: "EKIO — Consultoria Econômica"
-pagetitle: "EKIO — Consultoria Econômica"
+title: "Consultoria econômica e ciência de dados"
+description: "A EKIO combina análise econômica, ciência de dados e inteligência espacial para apoiar decisões de empresas e governos no Brasil."
 image: /static/images/og-card.png
 page-layout: full
 toc: false
@@ -108,7 +108,7 @@ listing:
 ::: {.featured-insight}
 
 ::: {.featured-chart}
-![Mapa da distribuição espacial de renda em São Paulo, elaborado pela EKIO](static/images/services/espacial-renda-sp.png)
+![Mapa da distribuição espacial de renda em São Paulo, elaborado pela EKIO](static/images/services/espacial-renda-sp.png){fig-alt="Mapa coroplético de São Paulo com a renda domiciliar por decil em grade hexagonal H3; os decis mais altos se concentram no quadrante sudoeste da cidade."}
 :::
 
 ::: {.featured-text}

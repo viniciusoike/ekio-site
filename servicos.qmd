@@ -1,6 +1,6 @@
 ---
 title: "Serviços"
-pagetitle: "Serviços — EKIO"
+description: "Avaliação imobiliária, geomarketing, dimensionamento de mercado, previsão econômica, dashboards e modelagem preditiva."
 page-layout: full
 toc: false
 ---
@@ -50,7 +50,7 @@ toc: false
 :::
 
 ::: {.service-detail-visual}
-![Mapa da distribuição espacial de renda em São Paulo, elaborado pela EKIO](static/images/services/espacial-renda-sp.png)
+![Mapa da distribuição espacial de renda em São Paulo, elaborado pela EKIO](static/images/services/espacial-renda-sp.png){fig-alt="Mapa coroplético de São Paulo com a renda domiciliar por decil em grade hexagonal H3; os decis mais altos se concentram no quadrante sudoeste da cidade."}
 :::
 
 :::
@@ -77,7 +77,7 @@ toc: false
 :::
 
 ::: {.service-detail-visual}
-![Previsão de inflação com bandas de cenário, elaborada pela EKIO](static/images/services/economia-previsao.png)
+![Previsão de inflação com bandas de cenário, elaborada pela EKIO](static/images/services/economia-previsao.png){fig-alt="Série de inflação com a projeção à direita aberta em bandas de cenário sombreadas."}
 :::
 
 :::
@@ -109,7 +109,7 @@ toc: false
 :::
 
 ::: {.service-detail-visual}
-![Detecção automática de anomalias em série econômica, elaborada pela EKIO](static/images/services/dados-anomalias.png)
+![Detecção automática de anomalias em série econômica, elaborada pela EKIO](static/images/services/dados-anomalias.png){fig-alt="Série econômica mensal com faixa de variação esperada; os pontos fora da faixa aparecem destacados em vermelho."}
 :::
 
 :::
