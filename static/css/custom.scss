@@ -248,22 +248,16 @@ p:has(> .package-meta:only-child) {
   .navbar-brand {
     display: flex;
     align-items: center;
-    gap: 0.7rem;
     padding: 1.5rem 0;
 
+    // Horizontal lockup — monogram and wordmark in one file. Clear space
+    // reserves the monogram circle on every side, and the circle is 43 of the
+    // lockup's 47px, so a 78px navbar caps the mark at 27px. max-height is
+    // there to beat Quarto's own 24px cap on .navbar-logo.
     img, svg {
-      height: 30px;
+      height: 26px;
+      max-height: 26px;
       width: auto;
-    }
-
-    // Wordmark rendered next to the logo mark.
-    &::after {
-      content: 'EKIO';
-      font-family: $font-sans;
-      font-size: 1.19rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      color: $navy;
     }
   }
 
@@ -300,6 +294,33 @@ p:has(> .package-meta:only-child) {
     padding: 0;
     &:focus { box-shadow: none; }
   }
+
+  // Below the collapse breakpoint Quarto centres the brand, which leaves the
+  // mark 11px from the toggler — inside the clear space the mark reserves.
+  // Mark at the gutter, controls clustered at the far side. The auto margin
+  // does the pushing, so the container must not also distribute the slack.
+  @media (max-width: 991px) {
+    .navbar-container {
+      justify-content: flex-start;
+    }
+
+    .navbar-brand-container {
+      order: -1;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+
+    // Quarto puts margin-left:auto on both the toggler and search, so the
+    // slack splits between them. Only the toggler should absorb it.
+    .navbar-toggler {
+      margin-left: auto !important;
+      margin-right: 0 !important;
+    }
+
+    #quarto-search {
+      margin-left: 1.25rem !important;
+    }
+  }
 }
 
 // ═══════════════════════════════════════════════════════════════
@@ -316,6 +337,10 @@ p:has(> .package-meta:only-child) {
   letter-spacing: 0.1em;
   color: $ink-inverse-muted;
 
+  // Quarto aligns the three footer columns on a baseline. The left column now
+  // leads with the wordmark, which has no baseline to share with the links.
+  align-items: center;
+
   .nav-footer-left,
   .nav-footer-center,
   .nav-footer-right {
@@ -325,6 +350,13 @@ p:has(> .package-meta:only-child) {
 
   .nav-footer-right {
     justify-content: flex-end;
+  }
+
+  // Quarto wraps the mark and the line beside it in one <p>; centring the
+  // boxes reads truer than aligning them on a baseline the mark does not have.
+  .nav-footer-left > p {
+    display: flex;
+    align-items: center;
   }
 
   // Footer links come through as a <ul>; that is the real flex container.
@@ -352,6 +384,15 @@ p:has(> .package-meta:only-child) {
     font-size: 0.75rem;
     letter-spacing: 0.1em;
   }
+}
+
+// White-plate wordmark on the near-black footer — the mark's third approved
+// pairing.
+.footer-mark {
+  height: 22px;
+  width: auto;
+  margin-right: 1.25rem;
+  flex-shrink: 0;
 }
 
 .footer-brand {

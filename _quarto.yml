@@ -8,21 +8,24 @@ project:
   # resource discovery, so the directory is declared explicitly.
   resources:
     - static/images/art/
+    # Fallback card for a post that ships without its own figure. Referenced
+    # only from post front matter, so Quarto cannot discover it either.
+    - static/images/insight-placeholder.svg
 
 website:
   title: "EKIO"
   description: "Consultoria econômica, ciência de dados e inteligência espacial"
   site-url: "https://ekio.io"
-  favicon: static/images/favicon.svg
-  image: static/images/og-card.png
+  favicon: static/images/brand/monogram-navy.svg
+  image: /static/images/og-card.png
   open-graph: true
   twitter-card: true
   # TODO: criar propriedade GA4 em analytics.google.com e inserir o ID G-XXXXXXX
   # google-analytics: "G-XXXXXXX"
 
-  # Navigation — seal at left, uppercase links right (wordmark comes from CSS)
+  # Navigation — horizontal lockup at left, uppercase links right
   navbar:
-    logo: static/images/logo-seal.svg
+    logo: static/images/brand/lockup-navy.svg
     logo-alt: "EKIO"
     logo-href: index.qmd
     background: "#FEFEFE"
@@ -46,7 +49,8 @@ website:
     background: "#191A1C"
     foreground: "#AEB1B5"
     left: |
-      <span class="footer-brand">EKIO · Consultoria em economia e dados</span>
+      <img class="footer-mark" src="/static/images/brand/wordmark-light.svg" alt="EKIO">
+      <span class="footer-brand">Consultoria em economia e dados</span>
     right:
       - text: "Serviços"
         href: servicos.qmd
@@ -72,6 +76,7 @@ format:
       - cosmo
       - static/css/custom.scss
     css: static/css/pages.css
+    include-in-header: static/head.html
     toc: false
     page-layout: full
     # Marketing pages drive their own headers; posts re-enable this in
