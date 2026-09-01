@@ -140,7 +140,7 @@ p_rppi_comp <- ggplot(rppi_comp, aes(date, new_index, color = source)) +
   labs(
     title = "Inflação supera valorização imobiliária nos últimos dez anos",
     subtitle = str_wrap(
-      "Comaparação de índices de preços imobiliários e inflação geral. Todos índices normalizados para jan/2014.",
+      "Comparação de índices de preços imobiliários e inflação geral. Todos índices normalizados para jan/2014.",
       111
     ),
     x = NULL,
@@ -192,7 +192,7 @@ p_rppi_brasil <- ggplot(
   labs(
     title = "Índices de Preços Imobiliários no Brasil",
     subtitle = str_wrap(
-      "Comaparação de índices de preços imobiliários no Brasil. Todos índices normalizados para jan/2014.",
+      "Comparação de índices de preços imobiliários no Brasil. Todos índices normalizados para jan/2014.",
       111
     ),
     x = NULL,
@@ -213,7 +213,7 @@ p_rppi_ipca <-
   labs(
     title = "Inflação supera valorização imobiliária nos últimos dez anos",
     subtitle = str_wrap(
-      "Comaparação de índices de preços imobiliários e inflação geral. Todos índices normalizados para jan/2014.",
+      "Comparação de índices de preços imobiliários e inflação geral. Todos índices normalizados para jan/2014.",
       111
     ),
     x = NULL,
@@ -234,7 +234,7 @@ p_rppi_incc <-
   labs(
     title = "Inflação de Custos supera valorização imobiliária nos últimos dez anos",
     subtitle = str_wrap(
-      "Comaparação de índices de preços imobiliários e o INCC (Índice Nacional de Custos da Construção Civil). Todos índices normalizados para jan/2014.",
+      "Comparação de índices de preços imobiliários e o INCC (Índice Nacional de Custos da Construção Civil). Todos índices normalizados para jan/2014.",
       111
     ),
     x = NULL,
@@ -263,7 +263,7 @@ p_ivgr_ipca <- ggplot(
   labs(
     title = "Preço de Imóveis aumenta mais de seis vezes no longo prazo",
     subtitle = str_wrap(
-      "Comaparação de índices de preços: IVGR, INCC e IPCA. Todos índices normalizados para mar/2001.",
+      "Comparação de índices de preços: IVGR, INCC e IPCA. Todos índices normalizados para mar/2001.",
       111
     ),
     x = NULL,
@@ -323,7 +323,7 @@ $$
 I_{t} = \frac{p_{t}}{p_{t-1}}\times 100
 $$
 
-Tipicamente, nosso interesse é de acompanhar uma cesta de bens. No caso do IPCA, indicador oficial da inflação, por exemplo, acomapanha-se um conjunto de bens que representa o "consumidor típico". Assim temos $i$ bens diferentes cada um com um preço $p_{i, t}$. Neste post, vamos ignorar o problema (bastante complexo) de como agregar estes diferentes bens num índice único. Para todos efeitos vamos imaginar que existam pesos $w_i$ imutáveis que representam o quão importante cada bem é para o "consumidor típico". Assim temos: $$
+Tipicamente, nosso interesse é de acompanhar uma cesta de bens. No caso do IPCA, indicador oficial da inflação, por exemplo, acompanha-se um conjunto de bens que representa o "consumidor típico". Assim temos $i$ bens diferentes cada um com um preço $p_{i, t}$. Neste post, vamos ignorar o problema (bastante complexo) de como agregar estes diferentes bens num índice único. Para todos efeitos vamos imaginar que existam pesos $w_i$ imutáveis que representam o quão importante cada bem é para o "consumidor típico". Assim temos: $$
 I_{t} = \frac{\sum_{i \in I}w_{i}p_{i,t}}{\sum_{i \in I}w_i p_{i, t-1}}
 $$
 
@@ -343,7 +343,7 @@ Abaixo entro em mais detalhes sobre estes pontos. Uma revisão geral sobre a lit
 
 ### Imóveis são heterogêneos
 
-Em economia, há bens homogêneos (ou *commodities*) e bens heterogêneos. Pode-se pensar em bens homogêneos como bens em que é fácil encontrar um substituto; já bens heterogêneos são aqueles em que é muito difícil encontrar um substituto. **Imóveis são um caso limite de bens heterogêneos**. Quando se considera a localização como parte de seus atributos, cada imóvel é literalmente único, não existe nenhum outro equivalente no mundo. Mesmo quando se constroi apartamentos com plantas idênticas num mesmo prédio, pode-se ainda encontrar diferenças entre as unidades (seja o andar, a posição solar, etc.).
+Em economia, há bens homogêneos (ou *commodities*) e bens heterogêneos. Pode-se pensar em bens homogêneos como bens em que é fácil encontrar um substituto; já bens heterogêneos são aqueles em que é muito difícil encontrar um substituto. **Imóveis são um caso limite de bens heterogêneos**. Quando se considera a localização como parte de seus atributos, cada imóvel é literalmente único, não existe nenhum outro equivalente no mundo. Mesmo quando se constroem apartamentos com plantas idênticas num mesmo prédio, pode-se ainda encontrar diferenças entre as unidades (seja o andar, a posição solar, etc.).
 
 O preço de bens heterogêneos reflete diferenças de qualidade. No caso de imóveis, pode-se pensar nos seus atributos estruturais (metragem, número de dormitórios, etc.) e locacionais (rua, bairro, proximidade a pontos de interesse, etc.). Faz sentido que a maior ou menor disponibilidade destes atributos influencie o preço do imóvel.
 
@@ -361,7 +361,7 @@ Uma maneira de contornar isto é usando modelagem hedônica para precificar os i
 
 ### Imóveis operam em submercados
 
-Isto é outra maneira de dizer que nem todos os imóveis competem entre si. O mercado de imóveis se comporta similarmente a um *mercado de mathcing* onde as demandas dos clientes limitam a oferta relevante. Uma família de quatro pessoas dificilmente vai estar interessada em comprar um studio ou apartamento de 1 dormitório, qualquer que seja o seu preço. Na prática, isto significa que há vários mercados imobiliários; é possível que o mercado de casas de 4 dormitórios esteja em alta enquanto o mercado de apartamentos de 1d esteja em baixa. Similarmente, o mercado imobiliário da capital pode seguir um processo distinto do mercado imobiliário do interior.
+Isto é outra maneira de dizer que nem todos os imóveis competem entre si. O mercado de imóveis se comporta similarmente a um *mercado de matching* onde as demandas dos clientes limitam a oferta relevante. Uma família de quatro pessoas dificilmente vai estar interessada em comprar um studio ou apartamento de 1 dormitório, qualquer que seja o seu preço. Na prática, isto significa que há vários mercados imobiliários; é possível que o mercado de casas de 4 dormitórios esteja em alta enquanto o mercado de apartamentos de 1d esteja em baixa. Similarmente, o mercado imobiliário da capital pode seguir um processo distinto do mercado imobiliário do interior.
 
 Novamente, uma estratégia para resolver isto é usar a modelagem hedônica. Outra estratégia é estratificar o índice para criar subíndices. Esta é uma prática bastante comum. Tipicamente, cria-se subíndices segundo algum critério estrutural (número de dormitórios ou tipologia) ou regional (capital x região metropolitana, interior).
 

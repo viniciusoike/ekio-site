@@ -271,7 +271,7 @@ Por fim, a literatura empírica do tema não é unânime sobre a relação entre
 
 ## Os dados
 
-As fontes de dados para verificar a dinâmica destes mercados é limitada no Brasil. O FipeZap oferece a série de aluguel e de venda mais extensa. Este índice coleta todos os anúncios online de imóveis publicados no sistema ZapImóveis e constroi um índice de mediana. Os dados são estratificados por número de dormitórios e territorialmente, usando regiões que se baseam nas áreas de ponderação do IBGE.
+As fontes de dados para verificar a dinâmica destes mercados são limitadas no Brasil. O FipeZap oferece a série de aluguel e de venda mais extensa. Este índice coleta todos os anúncios online de imóveis publicados no sistema ZapImóveis e constrói um índice de mediana. Os dados são estratificados por número de dormitórios e territorialmente, usando regiões que se baseiam nas áreas de ponderação do IBGE.
 
 O gráfico abaixo mostra as séries de aluguel e de venda (residenciais) a nível nacional, agregadas por tipologia. Como se vê, o comportamento das séries é muito similar no périodo 2008-2015. Durante a Crise Econômica, o mercado de aluguel parece sofrer mais do que o mercado de venda. Durante e após a pandemia do Covid-19 ambos os mercados se recuperam com força, mas o mercado de aluguel parece crescer mais.
 

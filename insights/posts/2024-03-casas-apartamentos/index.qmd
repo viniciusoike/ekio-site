@@ -88,7 +88,7 @@ A vasta maioria dos domicílios residenciais no Brasil são casas[^1]. De fato, 
 
 [^1]: Vale notar que os dados refletem o número total de domicílios e não o número total de pessoas morando em domicílios (por tipo de domicílio).
 
-A tabela abaixo resume os dados para as vinte cidade mais "verticalizadas" do Brasil.
+A tabela abaixo resume os dados para as vinte cidades mais "verticalizadas" do Brasil.
 
 ```{r}
 tab_geral |>
