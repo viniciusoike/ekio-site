@@ -1,6 +1,6 @@
 ---
 title: "Contato"
-pagetitle: "Contato — EKIO"
+description: "Fale com a EKIO sobre um projeto de economia, ciência de dados ou inteligência espacial."
 page-layout: full
 toc: false
 ---
@@ -40,18 +40,6 @@ toc: false
 [São Paulo, SP — Brasil]{.contact-info-value}
 :::
 
-::: {.contact-info-item}
-[LinkedIn]{.contact-info-label}
-
-[[linkedin.com/in/viniciusoike](https://linkedin.com/in/viniciusoike)]{.contact-info-value}
-:::
-
-::: {.pull-quote}
-*Todo projeto começa com uma conversa. Seja com um problema totalmente definido ou uma intuição de que dados poderiam ajudar — entre em contato.*
-
-[— Vinicius Oike Reginatto, Fundador]{.pull-quote-attr}
-:::
-
 :::
 
 ::: {.contact-col}
@@ -88,11 +76,11 @@ toc: false
 [Área de interesse]{.form-label}
 <select class="form-select" name="service">
 <option value="">Selecione uma área de serviço</option>
-<option value="economics">Economia & Estratégia</option>
-<option value="datascience">Dados & Analytics</option>
-<option value="spatial">Imóveis & Inteligência Espacial</option>
-<option value="integrated">Integrado / Multidisciplinar</option>
-<option value="other">Outro / Não tenho certeza</option>
+<option value="Economia &amp; Estratégia">Economia & Estratégia</option>
+<option value="Dados &amp; Analytics">Dados & Analytics</option>
+<option value="Imóveis &amp; Inteligência Espacial">Imóveis & Inteligência Espacial</option>
+<option value="Integrado / Multidisciplinar">Integrado / Multidisciplinar</option>
+<option value="Outro / Não tenho certeza">Outro / Não tenho certeza</option>
 </select>
 :::
 
