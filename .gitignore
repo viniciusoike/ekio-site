@@ -20,3 +20,6 @@
 
 # Quarto notebook intermediates
 **/*.quarto_ipynb
+
+# Quarto knit intermediates
+**/*.knit.md
