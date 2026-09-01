@@ -1,6 +1,5 @@
 ---
-title: "Mensagem Enviada"
-pagetitle: "Obrigado — EKIO"
+title: "Mensagem enviada"
 page-layout: full
 toc: false
 ---

@@ -1,6 +1,6 @@
 ---
-title: "Arquivo — Insights"
-pagetitle: "Arquivo — EKIO Insights"
+title: "Arquivo de insights"
+description: "Arquivo completo das análises publicadas no EKIO Insights."
 page-layout: full
 toc: false
 listing:

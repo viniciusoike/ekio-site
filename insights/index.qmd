@@ -1,6 +1,6 @@
 ---
 title: "Insights"
-pagetitle: "Insights — EKIO"
+description: "Análises originais, comentários de dados e pesquisa aplicada em economia, mercado imobiliário e ciência de dados."
 page-layout: full
 toc: false
 listing:
