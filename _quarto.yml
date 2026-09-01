@@ -7,10 +7,13 @@ project:
   # Art referenced only from a `style` attribute is invisible to Quarto's
   # resource discovery, so the directory is declared explicitly.
   resources:
-    - static/images/art/
+    # `reference/` guarda os originais de trabalho e fica fora da publicação.
+    - static/images/art/*.webp
+    - static/images/art/finished/
     # Fallback card for a post that ships without its own figure. Referenced
     # only from post front matter, so Quarto cannot discover it either.
     - static/images/insight-placeholder.svg
+    - robots.txt
 
 website:
   title: "EKIO"
