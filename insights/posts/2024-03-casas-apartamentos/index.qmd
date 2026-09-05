@@ -2,7 +2,8 @@
 title: "Casas e Apartamentos"
 author: "Vinicius Oike Reginatto"
 date: "2024-03-19"
-description: "Neste post exploro os dados recentes do Censo sobre tipos de domicílios nas cidades brasileiras."
+description: "O Censo mostra como casas e apartamentos se distribuem entre as cidades brasileiras."
+draft: true
 image: "/static/images/art/thumb-casas-apto.webp"
 categories: ["Imóveis", "Censo", "Brasil"]
 format:

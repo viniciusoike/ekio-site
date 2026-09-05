@@ -3,7 +3,8 @@ title: "Recessões no Brasil"
 author: "Vinicius Oike Reginatto"
 date: "2024-03-01"
 categories: ["Economia", "Visualização de Dados", "Brasil"]
-description: "Neste post, exploro as recessões econômicas mais recentes na histórica econômica do Brasil. Mostro como comparar as recessões de diferentes maneiras e construo uma tabela informativa."
+description: "As recessões mais recentes da história econômica do Brasil, comparadas de várias maneiras."
+draft: true
 image: "/static/images/art/thumb-recessoes.webp"
 format:
   html:

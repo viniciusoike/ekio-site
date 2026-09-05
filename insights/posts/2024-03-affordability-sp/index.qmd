@@ -2,7 +2,8 @@
 title: "Housing Affordability em São Paulo"
 date: "2024-03-07"
 categories: ["São Paulo", "Imóveis", "Análise Espacial"]
-description: "O aumento dos preços dos imóveisacesso à moradia nas cidades brasileiras "
+description: "O aumento dos preços dos imóveis e o acesso à moradia nas cidades brasileiras."
+draft: true
 image: "/static/images/thumbnails/spo_pir_map-1200.png"
 ---
 

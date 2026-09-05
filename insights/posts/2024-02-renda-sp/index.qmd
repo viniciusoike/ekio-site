@@ -3,7 +3,8 @@ title: "Distribuição de Renda em São Paulo"
 author: "Vinicius Oike Reginatto"
 date: "2024-02-07"
 categories: ["São Paulo", "Mapas", "Análise Espacial"]
-description: "Um mapa coroplético que apresenta a distribuição de renda em São Paulo. Os dados são importados do projeto Acesso a Oportunidades do IPEA e apresentados no padrão H3 da Uber."
+description: "A renda em São Paulo se concentra no quadrante sudoeste da cidade. O mapa usa dados do projeto Acesso a Oportunidades (IPEA) na grade hexagonal H3."
+draft: true
 image: "/static/images/services/espacial-renda-sp.png"
 featured: "true"
 format:

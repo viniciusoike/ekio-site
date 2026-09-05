@@ -3,7 +3,8 @@ title: "Índices de Preços Imobiliários no Brasil"
 author: "Vinicius Oike Reginatto"
 date: "2024-02-25"
 categories: ["Imóveis", "Economia", "Brasil"]
-description: "Neste post discuto a teoria sobre índices de preços imobiliários e apresento os principais índices disponíveis no Brasil. Pela discussão teórica deve ficar claro as principais limitações de cada índice."
+description: "O Brasil tem vários índices de preços imobiliários e cada um mede uma coisa diferente. Este post apresenta os principais e explica as limitações de cada método."
+draft: true
 image: "/static/images/art/thumb-indices.webp"
 execute:
   message: false

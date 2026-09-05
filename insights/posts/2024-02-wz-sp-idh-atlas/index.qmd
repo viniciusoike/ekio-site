@@ -2,7 +2,7 @@
 title: "IDH por região em São Paulo"
 date: "2024-02-21"
 categories: ["São Paulo", "Mapas", "Análise Espacial"]
-description: "Um mapa coroplético que apresenta a distribuição do IDH por regiões em São Paulo. Os dados são importados do projeto Atlas Brasil e estão a nível de UDH (Unidade de Desenvolvimento Humano)."
+description: "Um mapa do IDH por região em São Paulo, com dados do Atlas Brasil agregados por UDH (Unidade de Desenvolvimento Humano)."
 image: "/static/images/art/thumb-idh-sp.webp"
 draft: true
 format:
