@@ -1,6 +1,6 @@
 ---
 title: "Insights"
-description: "Análises originais, comentários de dados e pesquisa aplicada em economia, mercado imobiliário e ciência de dados."
+description: "Análises de economia, mercado imobiliário e dados, publicadas com o código que as gerou."
 page-layout: full
 toc: false
 listing:
@@ -39,7 +39,7 @@ listing:
 :::
 
 ::: {.page-header-aside}
-[Análises originais, comentários de dados e pesquisa aplicada em economia, mercado imobiliário e ciência de dados.]{.page-header-desc}
+[Análises de economia, mercado imobiliário e dados, publicadas com o código que as gerou.]{.page-header-desc}
 :::
 
 :::
@@ -78,9 +78,9 @@ listing:
 ::: {.cta-row}
 
 ::: {.cta-text}
-## Quer este nível de análise aplicado ao seu negócio? {.cta-heading}
+## As mesmas perguntas, aplicadas ao seu caso {.cta-heading}
 
-[As mesmas ferramentas usadas nestas análises — econometria, ciência de dados e inteligência espacial — podem responder às perguntas do seu negócio.]{.cta-desc}
+[Estas análises usam econometria, ciência de dados e inteligência espacial. As perguntas do seu negócio se respondem do mesmo jeito.]{.cta-desc}
 :::
 
 ::: {.cta-actions}

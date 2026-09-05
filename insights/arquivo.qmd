@@ -1,6 +1,6 @@
 ---
 title: "Arquivo de insights"
-description: "Arquivo completo das análises publicadas no EKIO Insights."
+description: "Todas as análises publicadas, da mais recente à mais antiga."
 page-layout: full
 toc: false
 listing:
@@ -24,7 +24,7 @@ listing:
 :::
 
 ::: {.page-header-aside}
-[Arquivo completo de análises, comentários de dados e pesquisa publicados no EKIO Insights.]{.page-header-desc}
+[Todas as análises publicadas, da mais recente à mais antiga.]{.page-header-desc}
 :::
 
 :::

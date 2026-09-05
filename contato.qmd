@@ -15,7 +15,7 @@ toc: false
 :::
 
 ::: {.page-header-aside}
-[Conte sobre o seu desafio e explique como a EKIO pode ajudar.]{.page-header-desc}
+[Conte sobre o seu desafio. Nós desenhamos a solução.]{.page-header-desc}
 :::
 
 :::
@@ -35,22 +35,14 @@ toc: false
 :::
 
 ::: {.contact-info-item}
-[Localização]{.contact-info-label}
+[Endereço]{.contact-info-label}
 
-[São Paulo, SP — Brasil]{.contact-info-value}
+[Avenida Paulista, 777, Sala 102<br>Bela Vista, São Paulo]{.contact-info-value}
 :::
 
 :::
 
 ::: {.contact-col}
-
-::: {.form-intro}
-[Prefere ir direto ao ponto?]{.form-intro-lead}
-
-[contact@ekio.io](mailto:contact@ekio.io?subject=Consulta%20-%20EKIO){.link-rule}
-
-[ou preencha o formulário abaixo]{.form-intro-note}
-:::
 
 <form class="contact-form" name="contato" method="POST" action="/obrigado.html" data-netlify="true" netlify-honeypot="bot-field">
 
@@ -76,23 +68,21 @@ toc: false
 ::: {.form-group}
 [Área de interesse]{.form-label}
 <select class="form-select" name="service">
-<option value="">Selecione uma área de serviço</option>
-<option value="Economia &amp; Estratégia">Economia & Estratégia</option>
-<option value="Dados &amp; Analytics">Dados & Analytics</option>
-<option value="Imóveis &amp; Inteligência Espacial">Imóveis & Inteligência Espacial</option>
-<option value="Integrado / Multidisciplinar">Integrado / Multidisciplinar</option>
-<option value="Outro / Não tenho certeza">Outro / Não tenho certeza</option>
+<option value="">Selecione uma área</option>
+<option value="Economia e estratégia">Economia e estratégia</option>
+<option value="Dados e analytics">Dados e analytics</option>
+<option value="Imóveis e inteligência espacial">Imóveis e inteligência espacial</option>
+<option value="Mais de uma área">Mais de uma área</option>
+<option value="Ainda não sei">Ainda não sei</option>
 </select>
 :::
 
 ::: {.form-group}
 [Sobre o seu projeto]{.form-label}
-<textarea class="form-textarea" name="message" placeholder="Descreva brevemente seu desafio, cronograma e qualquer contexto relevante..."></textarea>
+<textarea class="form-textarea" name="message" placeholder="Descreva o desafio, o prazo e os dados que você já tem."></textarea>
 :::
 
 <button type="submit" class="btn btn-primary-ekio btn-lg">Enviar mensagem</button>
-
-[Os dados enviados por este formulário são usados exclusivamente para responder ao seu contato e não são compartilhados com terceiros, conforme a LGPD.]{.form-legal}
 
 </form>
 

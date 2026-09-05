@@ -1,8 +1,8 @@
 ::: {.post-cta}
 
-**Precisa deste tipo de análise para o seu negócio?**
+**Precisa desse tipo de análise no seu negócio?**
 
-A EKIO combina economia, ciência de dados e inteligência espacial para apoiar decisões de empresas e governos.
+Trabalhamos com empresas e entidades governamentais em questões de mercado, investimento e localização.
 
 [contact@ekio.io](mailto:contact@ekio.io?subject=Insights%20-%20EKIO){.link-rule-sm}
 [Conhecer os serviços](/servicos.html){.link-rule-sm style="margin-left: 2rem;"}

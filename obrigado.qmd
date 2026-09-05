@@ -9,9 +9,9 @@ toc: false
 
 [Contato]{.section-label}
 
-# Mensagem enviada com sucesso {.page-header-title}
+# Mensagem enviada {.page-header-title}
 
-[Obrigado pelo contato. Sua mensagem foi recebida.]{.page-header-desc}
+[Obrigado pelo contato. Respondemos em breve.]{.page-header-desc}
 
 :::
 :::
@@ -19,7 +19,7 @@ toc: false
 ::: {.band .band-light}
 ::: {.container}
 
-[Enquanto isso, conheça as análises mais recentes do EKIO Insights.]{.section-desc}
+[Enquanto isso, conheça nossas análises mais recentes.]{.section-desc}
 
 ::: {.cta-actions style="flex-direction: row; gap: 2.5rem;"}
 [Ver insights](insights/index.qmd){.link-rule}

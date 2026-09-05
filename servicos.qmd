@@ -9,7 +9,7 @@ toc: false
 ::: {.container}
 
 ::: {.page-header-main}
-[Expertise]{.section-label}
+[Áreas de atuação]{.section-label}
 
 # Serviços {.page-header-title}
 :::
@@ -29,23 +29,23 @@ toc: false
 [01]{.service-detail-num}
 
 ::: {.service-detail-body}
-## Imóveis & Inteligência Espacial {.service-detail-title}
+## Imóveis e inteligência espacial {.service-detail-title}
 
-[Localização é uma das variáveis mais poderosas nos negócios — mas frequentemente a menos rigorosamente analisada. A EKIO combina GIS, econometria espacial e modelagem demográfica para responder às perguntas "onde": onde investir, onde construir, onde expandir e como a geografia influencia o valor.]{.service-detail-desc}
+[Localização determina boa parte do valor de um negócio e costuma ser a variável menos analisada. Combinamos GIS, econometria espacial e modelagem demográfica para responder onde investir, onde construir e onde expandir.]{.service-detail-desc}
 
 ::: {.service-offerings}
-- Avaliação Imobiliária & Modelos de Preços Hedônicos [4–8 semanas]{.offering-timeline}
-- Análise de Mercado Imobiliário & Viabilidade [6–10 semanas]{.offering-timeline}
-- Seleção de Sites & Inteligência Locacional [3–6 semanas]{.offering-timeline}
-- Geomarketing & Estudos de Área de Influência [3–6 semanas]{.offering-timeline}
-- Economia Urbana & Análise de Uso do Solo [8–16 semanas]{.offering-timeline}
+- Avaliação imobiliária e modelos de preços hedônicos
+- Análise de mercado imobiliário e viabilidade
+- Seleção de pontos e inteligência locacional
+- Geomarketing e estudos de área de influência
+- Economia urbana e análise de uso do solo
 :::
 
 ::: {.methodology-tags}
 [GIS / QGIS]{.method-tag}
-[Preços Hedônicos]{.method-tag}
-[Regressão Espacial]{.method-tag}
-[Modelagem Demográfica]{.method-tag}
+[Preços hedônicos]{.method-tag}
+[Regressão espacial]{.method-tag}
+[Modelagem demográfica]{.method-tag}
 :::
 :::
 
@@ -60,18 +60,18 @@ toc: false
 [02]{.service-detail-num}
 
 ::: {.service-detail-body}
-## Economia & Estratégia {.service-detail-title}
+## Economia e estratégia {.service-detail-title}
 
-[Análise econômica rigorosa para tomada de decisões estratégicas. Do dimensionamento de mercado aos estudos de viabilidade, métodos econométricos e análise de cenários quantificam incertezas, avaliam riscos e constroem a base de evidências para decisões de alto impacto.]{.service-detail-desc}
+[Do dimensionamento de mercado aos estudos de viabilidade, usamos econometria e análise de cenários para quantificar a incerteza e medir o risco de uma decisão antes que ela seja tomada.]{.service-detail-desc}
 
 ::: {.service-offerings}
-- Dimensionamento de Mercado & Previsão de Demanda [4–8 semanas]{.offering-timeline}
-- Business Case & Estudos de Viabilidade [6–10 semanas]{.offering-timeline}
+- Dimensionamento de mercado e previsão de demanda
+- Business cases e estudos de viabilidade
 :::
 
 ::: {.methodology-tags}
 [Econometria]{.method-tag}
-[Análise de Cenários]{.method-tag}
+[Análise de cenários]{.method-tag}
 [VPL / TIR]{.method-tag}
 :::
 :::
@@ -87,24 +87,22 @@ toc: false
 [03]{.service-detail-num}
 
 ::: {.service-detail-body}
-## Dados & Analytics {.service-detail-title}
+## Dados e analytics {.service-detail-title}
 
-[De planilhas a inteligência acionável. A EKIO ajuda empresas presas em rotinas manuais de Excel a modernizar seus fluxos de análise: relatórios manuais viram pipelines reproduzíveis, planilhas viram dashboards interativos e as decisões passam a ser sustentadas por modelos estatísticos sólidos.]{.service-detail-desc}
+[Ajudamos empresas presas em rotinas manuais de Excel a modernizar seus fluxos de análise. Relatórios manuais viram pipelines reproduzíveis, planilhas viram dashboards interativos e o que hoje é refeito toda semana passa a rodar sozinho.]{.service-detail-desc}
 
 ::: {.service-offerings}
-- Modernização de Fluxos Analíticos — do Excel a relatórios automatizados [3–8 semanas]{.offering-timeline}
-- Dashboards & Visualização de Dados [4–8 semanas]{.offering-timeline}
-- Modelagem Preditiva & Machine Learning [6–12 semanas]{.offering-timeline}
-- Análise Estatística & Testes de Hipóteses [2–6 semanas]{.offering-timeline}
+- Modernização de fluxos analíticos, do Excel a relatórios automatizados
+- Dashboards e visualização de dados
+- Modelagem preditiva e machine learning
+- Análise estatística e testes de hipóteses
 :::
 
 ::: {.methodology-tags}
 [R / Python]{.method-tag}
 [Quarto / Shiny]{.method-tag}
-[Modelagem Estatística]{.method-tag}
-[Machine Learning]{.method-tag}
-[Detecção de Anomalias]{.method-tag}
-[BI & Visualização]{.method-tag}
+[Machine learning]{.method-tag}
+[Detecção de anomalias]{.method-tag}
 :::
 :::
 
@@ -117,61 +115,15 @@ toc: false
 :::
 :::
 
-<!-- ============ Processo ============ -->
-::: {.band .band-light}
-::: {.container}
-
-[Processo]{.section-label}
-
-## Como funciona cada engajamento {.section-heading}
-
-::: {.process-grid}
-
-::: {.process-step}
-[01]{.process-number}
-
-### Escopo {.process-title}
-
-Definimos juntos a pergunta, as necessidades de dados e os critérios de sucesso.
-:::
-
-::: {.process-step}
-[02]{.process-number}
-
-### Análise {.process-title}
-
-Metodologia rigorosa — a ferramenta certa para a pergunta certa, com check-ins regulares.
-:::
-
-::: {.process-step}
-[03]{.process-number}
-
-### Entrega {.process-title}
-
-Narrativas claras, visualizações acionáveis e código reprodutível — não relatórios para gaveta.
-:::
-
-::: {.process-step}
-[04]{.process-number}
-
-### Suporte {.process-title}
-
-Suporte contínuo, opções de retainer e transferência de conhecimento para sua equipe.
-:::
-
-:::
-:::
-:::
-
 <!-- ============ CTA ============ -->
 ::: {.band .band-cta}
 ::: {.container}
 ::: {.cta-row}
 
 ::: {.cta-text}
-## Vamos discutir o seu projeto {.cta-heading}
+## Qual desses resolve o seu problema? {.cta-heading}
 
-[Conte sobre o seu desafio e receba uma sugestão de abordagem sob medida.]{.cta-desc}
+[Boa parte dos projetos combina mais de uma área. Descreva o caso e conversamos sobre o escopo.]{.cta-desc}
 :::
 
 ::: {.cta-actions}

@@ -39,24 +39,24 @@ toc: false
 
 [Fundador & Consultor Principal]{.about-role}
 
-[Com mestrado em Economia pela Universidade de São Paulo (USP) e mais de 8 anos de experiência em consultoria empresarial, fundei a EKIO para preencher uma lacuna que via repetidamente no mercado brasileiro: a desconexão entre análise econômica rigorosa, ciência de dados moderna e inteligência espacial.]{.about-bio}
+[Fundei a EKIO para trabalhar na interseção entre economia, ciência de dados e análise espacial, um cruzamento que o mercado brasileiro raramente cobre.]{.about-bio}
 
-[A maioria das consultorias se destaca em uma disciplina, mas tem dificuldade em integrar entre domínios. A EKIO foi construída desde o início para operar nessas interseções — combinando modelagem econométrica com machine learning, sobrepondo análise espacial a previsões econômicas e traduzindo dados complexos em insights claros e acionáveis para tomadores de decisão.]{.about-bio}
+[Começo todo projeto entendendo o problema antes de escolher a ferramenta. Faço perguntas difíceis antes de escrever a primeira linha de código.]{.about-bio}
 
-[Minha abordagem é enraizada na crença de que decisões orientadas por dados são decisões melhores, mas somente quando a metodologia subjacente é sólida. Todo projeto na EKIO começa com a compreensão profunda do problema antes de recorrer às ferramentas.]{.about-bio}
+[Os resultados vão para uma sala de diretoria ou para uma equipe de planejamento municipal, e o formato muda conforme o público.]{.about-bio}
 
 ::: {.credentials-grid}
 
 ::: {.credential}
 [Formação]{.credential-label}
 
-[MSc Economia — USP]{.credential-value}
+[Mestrado em Economia, USP]{.credential-value}
 :::
 
 ::: {.credential}
 [Experiência]{.credential-label}
 
-[8+ anos em consultoria]{.credential-value}
+[Mais de 8 anos em consultoria]{.credential-value}
 :::
 
 ::: {.credential}
@@ -78,55 +78,6 @@ toc: false
 :::
 :::
 
-<!-- ============ Abordagem ============ -->
-::: {.band .band-muted}
-::: {.container}
-
-[Abordagem]{.section-label}
-
-## Como eu trabalho {.section-heading}
-
-[Todo projeto segue uma metodologia estruturada, projetada para entregar clareza e rigor, independentemente da complexidade do desafio.]{.section-desc}
-
-::: {.process-grid}
-
-::: {.process-step}
-[01]{.process-number}
-
-### Compreender {.process-title}
-
-Mergulho profundo no contexto do negócio, cenário de dados e necessidades de decisão. Faço perguntas difíceis antes de escrever uma linha de código.
-:::
-
-::: {.process-step}
-[02]{.process-number}
-
-### Analisar {.process-title}
-
-Seleção e execução rigorosa de metodologia. Econometria, ML, análise espacial — a ferramenta certa para a pergunta certa.
-:::
-
-::: {.process-step}
-[03]{.process-number}
-
-### Comunicar {.process-title}
-
-Resultados traduzidos em narrativas claras com visualizações de dados projetadas para seu público — seja uma sala de diretoria ou uma equipe de planejamento municipal.
-:::
-
-::: {.process-step}
-[04]{.process-number}
-
-### Implementar {.process-title}
-
-Entregáveis acionáveis — não relatórios para gaveta. Entrego código reprodutível, ferramentas interativas e suporte contínuo.
-:::
-
-:::
-
-:::
-:::
-
 <!-- ============ CTA ============ -->
 ::: {.band .band-cta .band-cta-art style="background-image: url(/static/images/art/fundo-cta-skyline.webp);"}
 ::: {.container}
@@ -135,7 +86,7 @@ Entregáveis acionáveis — não relatórios para gaveta. Entrego código repro
 ::: {.cta-text}
 ## Vamos trabalhar juntos {.cta-heading}
 
-[Seja você uma empresa buscando inteligência de mercado ou uma agência governamental planejando o futuro — adoraria ouvir sobre seu desafio.]{.cta-desc}
+[O primeiro passo é sempre uma conversa sobre o problema, antes de qualquer proposta.]{.cta-desc}
 :::
 
 ::: {.cta-actions}
