@@ -17,7 +17,7 @@ project:
 
 website:
   title: "EKIO"
-  description: "Consultoria econômica, ciência de dados e inteligência espacial"
+  description: "Consultoria em Economia e Dados"
   site-url: "https://ekio.io"
   favicon: static/images/brand/monogram-navy.svg
   image: /static/images/og-card.png
@@ -28,16 +28,16 @@ website:
 
   # Navigation — horizontal lockup at left, uppercase links right
   navbar:
+    pinned: true
     logo: static/images/brand/lockup-navy.svg
     logo-alt: "EKIO"
     logo-href: index.qmd
     background: "#FEFEFE"
     foreground: "#373A3D"
     title: false
+    search: false
     collapse-below: lg
     right:
-      - text: "Início"
-        href: index.qmd
       - text: "Serviços"
         href: servicos.qmd
       - text: "Sobre"
@@ -52,8 +52,8 @@ website:
     background: "#191A1C"
     foreground: "#AEB1B5"
     left: |
-      <img class="footer-mark" src="/static/images/brand/wordmark-light.svg" alt="EKIO">
-      <span class="footer-brand">Consultoria em economia e dados</span>
+      <img class="footer-mark" src="/static/images/brand/banner-light.svg" alt="EKIO">
+      <span class="footer-brand">Consultoria em Economia e Dados</span>
     right:
       - text: "Serviços"
         href: servicos.qmd

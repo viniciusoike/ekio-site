@@ -1,5 +1,5 @@
 ---
-title: "Consultoria econômica e ciência de dados"
+title: "Consultoria em Economia e Dados"
 description: "A EKIO combina análise econômica, ciência de dados e inteligência espacial para apoiar decisões de empresas e governos no Brasil."
 image: /static/images/og-card.png
 page-layout: full
@@ -16,45 +16,31 @@ listing:
 ---
 
 <!-- ============ Hero ============ -->
-::: {.hero}
-::: {.hero-inner}
-
-::: {.hero-head}
-[Consultoria Econômica · Ciência de Dados · Inteligência Espacial]{.hero-label}
-
-# Insights econômicos orientados por dados para decisões mais inteligentes {.hero-title}
-:::
-
-::: {.hero-foot}
-
-::: {.hero-copy}
-[A EKIO combina análise econômica rigorosa, ciência de dados avançada e inteligência espacial para ajudar empresas e governos brasileiros a tomar decisões melhores.]{.hero-subtitle}
-
-:::
-
-::: {.hero-actions}
-[Fale conosco](mailto:contact@ekio.io?subject=Consulta%20inicial%20-%20EKIO){.link-rule}
-[Conheça os serviços](servicos.qmd){.link-rule-sm}
-:::
-
-:::
-
-:::
-
-:::
-
-<!-- ============ Faixa editorial ============ -->
+::: {.home-cover .column-screen}
 ```{=html}
-<div class="art-strip art-strip-img">
-  <img src="/static/images/art/finished/banner-1600.webp"
-       srcset="/static/images/art/finished/banner-800.webp 800w,
-               /static/images/art/finished/banner-1600.webp 1600w,
-               /static/images/art/finished/banner-2400.webp 2400w,
-               /static/images/art/finished/banner-3200.webp 3200w"
-       sizes="100vw"
-       alt="Colagem editorial de São Paulo com silhueta de torres, malha viária, série de barras e um grafo de conexões">
-</div>
+<img class="home-cover-image"
+     src="static/images/art/hero-geometry-hokusai.webp"
+     sizes="(max-width: 640px) 100vw, 91vw"
+     width="1862" height="845"
+     alt="" fetchpriority="high" loading="eager">
 ```
+
+::: {.home-cover-content}
+::: {.home-cover-label}
+Consultoria em Economia e Dados
+:::
+
+# Economia e dados aplicados a mercados, cidades e real estate. {.home-cover-title}
+
+[Conheça nossos serviços](servicos.qmd){.home-cover-link}
+:::
+:::
+
+::: {.home-intro}
+Atendemos empresas e entidades governamentais em questões de mercado, investimento e localização.
+
+[Fale conosco](mailto:contact@ekio.io?subject=Consulta%20inicial%20-%20EKIO){.link-rule}
+:::
 
 <!-- ============ O que fazemos ============ -->
 ::: {.band .band-light #services}
@@ -71,9 +57,9 @@ listing:
 ::: {.service-card}
 [01]{.service-num}
 
-### Imóveis & Inteligência Espacial {.service-title}
+### Imóveis e inteligência espacial {.service-title}
 
-[Avaliação imobiliária, geomarketing, seleção de sites e análise de mercado com GIS e econometria espacial.]{.service-desc}
+[Avaliação imobiliária, geomarketing, seleção de pontos e análise de mercado com GIS e econometria espacial.]{.service-desc}
 
 [Saiba mais](servicos.qmd#spatial){.service-link}
 :::
@@ -81,9 +67,9 @@ listing:
 ::: {.service-card}
 [02]{.service-num}
 
-### Economia & Estratégia {.service-title}
+### Economia e estratégia {.service-title}
 
-[Dimensionamento de mercado, previsão econômica e desenvolvimento de business cases fundamentados em rigor econométrico.]{.service-desc}
+[Dimensionamento de mercado, previsão econômica e business cases.]{.service-desc}
 
 [Saiba mais](servicos.qmd#economics){.service-link}
 :::
@@ -91,9 +77,9 @@ listing:
 ::: {.service-card}
 [03]{.service-num}
 
-### Dados & Analytics {.service-title}
+### Dados e analytics {.service-title}
 
-[Modernização de fluxos analíticos — do Excel a relatórios automatizados — dashboards interativos e modelos preditivos.]{.service-desc}
+[Do Excel a relatórios automatizados, dashboards interativos e modelos preditivos.]{.service-desc}
 
 [Saiba mais](servicos.qmd#datascience){.service-link}
 :::
@@ -117,7 +103,7 @@ listing:
 
 ## Distribuição de renda em São Paulo {.section-heading .section-heading-light}
 
-[Um mapa coroplético em alta resolução revela como a renda se concentra no quadrante sudoeste da capital paulista. A análise usa dados do projeto Acesso a Oportunidades (IPEA) agregados na grade hexagonal H3 — o mesmo tipo de inteligência espacial aplicada em projetos de geomarketing e avaliação imobiliária.]{.featured-desc}
+[A renda em São Paulo se concentra no quadrante sudoeste da cidade. O mapa usa dados do projeto Acesso a Oportunidades (IPEA) na grade hexagonal H3, a mesma inteligência espacial que aplicamos em geomarketing e avaliação imobiliária.]{.featured-desc}
 
 [Ler a análise completa](insights/posts/2024-02-renda-sp/index.qmd){.link-rule-light}
 
@@ -149,9 +135,9 @@ listing:
 ::: {.cta-row}
 
 ::: {.cta-text}
-## Pronto para decisões orientadas por dados? {.cta-heading}
+## Comece por uma conversa {.cta-heading}
 
-[Seja para entrar em um novo mercado, avaliar um investimento ou construir uma estratégia de dados — a EKIO pode ajudar.]{.cta-desc}
+[Entrar em um novo mercado, avaliar um investimento ou montar uma estratégia de dados. Conte o seu caso e desenhamos a abordagem.]{.cta-desc}
 :::
 
 ::: {.cta-actions}
