@@ -23,3 +23,9 @@
 
 # Quarto knit intermediates
 **/*.knit.md
+
+# Local Netlify folder
+.netlify
+
+# Quarto render output ao lado do .qmd (as figuras ficam em /_freeze)
+**/index_files/
