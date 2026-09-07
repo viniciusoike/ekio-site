@@ -3,7 +3,7 @@ title: "Recessões no Brasil"
 author: "Vinicius Oike Reginatto"
 date: "2024-03-01"
 categories: ["Economia", "Visualização de Dados", "Brasil"]
-description: "As recessões mais recentes da história econômica do Brasil, comparadas de várias maneiras."
+description: "Desde 1996, o Brasil teve seis recessões, a maioria com dois a cinco trimestres de duração. A da Covid foi a queda mais profunda; a de 2014–16, a mais longa — o PIB só voltou ao patamar pré-crise em 2022."
 image: "/static/images/art/hokusai-series-2026-09/insight-market-cycles.webp"
 image-alt: "Ilustração de séries cíclicas sobre uma grade sem rótulos"
 execute:
@@ -141,7 +141,7 @@ p_pib <- ggplot() +
   geom_line(
     data = pib,
     aes(x = ref.date, y = value),
-    lwd = 0.8,
+    linewidth = 0.8,
     color = ekio_pal("full")[[1]]
   ) +
   labs(
@@ -156,13 +156,13 @@ p_pib <- ggplot() +
 ```{r plot-recessions}
 p1 <- ggplot(rec_comp, aes(x = period, y = new_index * 100)) +
   geom_hline(yintercept = 100, color = ekio_pal("gray")[5], linewidth = 0.4) +
-  geom_line(aes(colour = rec_full)) +
+  geom_line(aes(colour = rec_full), linewidth = 0.8) +
   geom_point(aes(colour = rec_full)) +
   geom_text(
     data = data.frame(
       x = 3.5,
       y = 92,
-      label = "A recessão do Covid\nfoi a maior queda relativa\ndo PIB na história recente."
+      label = "A recessão da Covid\nfoi a maior queda relativa\ndo PIB na história recente."
     ),
     aes(x = x, y = y, label = label),
     family = "Lato",
@@ -173,7 +173,7 @@ p1 <- ggplot(rec_comp, aes(x = period, y = new_index * 100)) +
     data = data.frame(
       x = 9,
       y = 94,
-      label = "A recessão do 2º governo\nDilma foi a mais longa no\n período registrado"
+      label = "A recessão do 2º governo\nDilma foi a mais longa no\nperíodo registrado"
     ),
     aes(x = x, y = y, label = label),
     family = "Lato",
@@ -183,10 +183,10 @@ p1 <- ggplot(rec_comp, aes(x = period, y = new_index * 100)) +
   scale_colour_ekio_d("full", name = "Início/fim\nda recessão") +
   labs(
     title = "Ciclos de Recessão no Brasil (1995-2021)",
-    x = "Trimestres desde início da recessão",
+    x = "Trimestres desde o início da recessão",
     y = "Índice normalizado",
     subtitle = stringr::str_wrap(
-      "Índice normalizado ao valor do PIB (a preços de mercado) imediatamente anterior ao início da recessão.A datação das recessões segue o CODACE (FGV).",
+      "Índice normalizado ao valor do PIB (a preços de mercado) imediatamente anterior ao início da recessão. A datação das recessões segue o CODACE (FGV).",
       101
     ),
     caption = "Fonte: IBGE e CODACE. Autor: @viniciusoike"
@@ -243,7 +243,7 @@ cycles <- cycles |>
 ```{r plot-cycles}
 p2 <- ggplot(data = cycles, aes(x = period, y = new_index * 100)) +
   geom_hline(yintercept = 100, color = ekio_pal("gray")[5], linewidth = 0.4) +
-  geom_line(aes(colour = recession)) +
+  geom_line(aes(colour = recession), linewidth = 0.8) +
   geom_point(aes(colour = recession)) +
   geom_text(
     data = data.frame(
@@ -260,7 +260,7 @@ p2 <- ggplot(data = cycles, aes(x = period, y = new_index * 100)) +
     data = data.frame(
       x = 14,
       y = 90,
-      label = "Foi necessário mais de 8 anos para a\neconomia voltar ao patamar pré-Crise de 2014."
+      label = "Foram necessários mais de 8 anos para a\neconomia voltar ao patamar pré-Crise de 2014."
     ),
     aes(x = x, y = y, label = label),
     family = "Lato",
@@ -270,7 +270,7 @@ p2 <- ggplot(data = cycles, aes(x = period, y = new_index * 100)) +
   scale_colour_ekio_d("full", name = "Início/fim\nda recessão") +
   labs(
     title = "Recessão e Recuperação (1996-2021)",
-    x = "Trimestres após início da recessão",
+    x = "Trimestres após o início da recessão",
     y = "Índice normalizado",
     subtitle = "Índice normalizado ao valor do PIB (a preços de mercado) imediatamente anterior ao início da recessão.\nA datação das recessões segue o CODACE (FGV).",
     caption = "Fonte: IBGE e CODACE. Autor: @viniciusoike"
@@ -286,16 +286,15 @@ Ciclos econômicos são flutuações recorrentes observadas empiricamente na ati
 
 No Brasil, a datação dos ciclos econômicos é feita pela CODACE[^1]. Desde 1996, houve 6 recessões. A maioria das recessões foi relativamente curta, durando de 2 a 5 trimestres. A recessão mais longa foi a da Crise Econômica no segundo governo Dilma; oficialmente, a recessão começou no segundo trimestre de 2014 e foi até o quarto trimestre de 2016.
 
-[^1]: O Comitê de Datação de Ciclos Econômicos (CODACE) organizado pela Fundação Getúlio Vargas (FGV) se reúne periodicamente para datar os ciclos econômicos brasileiros. Para mais informações veja o [site](https://portalibre.fgv.br/codace).
+[^1]: O Comitê de Datação de Ciclos Econômicos (CODACE) organizado pela Fundação Getúlio Vargas (FGV) se reúne periodicamente para datar os ciclos econômicos brasileiros. Para mais informações, veja o [site](https://portalibre.fgv.br/codace).
 
-O gráfico abaixo mostra a série trimestral do PIB, dessazonalizada, em número índice. A base do índice é a média de 1996. Nota-se que os períodos de expansão são mais frequentes do que os períodos de recessão: no período da amostra houve 87 trimestres de expansão contra 25 trimestres de recessão. Grosso modo, 1 a cada quatro trimestres apresentou uma recessão.
+O gráfico abaixo mostra a série trimestral do PIB, dessazonalizada, em número-índice. A base do índice é a média de 1996. Nota-se que os períodos de expansão são mais frequentes do que os períodos de recessão: no período da amostra houve 87 trimestres de expansão contra 25 trimestres de recessão. Grosso modo, um em cada quatro trimestres apresentou uma recessão.
 
 ```{r}
-#| out-width: 90%
 p_pib
 ```
 
-O gráfico abaixo normaliza o valor do PIB em cada uma das recessões ao valor pré-crise, isto é, ao valor observado no trimestre imediatamente anterior ao do início da recessão. Comparativamente, a maior queda relativa registrada aconteceu na Crise do Covid, na primeira metade de 2020. Ao todo a queda foi de quase 11%.
+O gráfico abaixo normaliza o valor do PIB em cada uma das recessões ao valor pré-crise, isto é, ao valor observado no trimestre imediatamente anterior ao do início da recessão. Comparativamente, a maior queda relativa registrada aconteceu na Crise da Covid, na primeira metade de 2020. Ao todo, a queda foi de quase 11%.
 
 ```{r}
 #| out-width: 100%
@@ -304,9 +303,9 @@ O gráfico abaixo normaliza o valor do PIB em cada uma das recessões ao valor p
 p1
 ```
 
-O período de recessão termina, grosso modo, quando a economia para de diminuir. Isto é, o final da recessão não implica que a economia já está operando no mesmo nível que estava antes da crise. É preciso alguns trimestres a mais de crescimento simplesmente para recuperar o que foi perdido, em termos de PIB.
+O período de recessão termina, grosso modo, quando a economia para de diminuir. Isto é, o final da recessão não implica que a economia já está operando no mesmo nível que estava antes da crise. São precisos alguns trimestres a mais de crescimento simplesmente para recuperar o que foi perdido, em termos de PIB.
 
-O segundo gráfico mostra justamente o esforço necessário para voltar ao patamar pré-crise. Na maioria dos casos, foi necessário mais 2-3 trimestres para que a economia recuperasse o que foi perdido na recessão. A exceção notável foi a crise de 2014-16: foi necessário mais de 5 anos, após o final da recessão, para que a economia voltasse ao mesmo nível que estava antes da crise. Isto é, apenas no segundo trimestre de 2022 a economia brasileira apresentou PIB acima do observado no primeiro trimestre de 2014.
+O segundo gráfico mostra justamente o esforço necessário para voltar ao patamar pré-crise. Na maioria dos casos, foram necessários mais 2-3 trimestres para que a economia recuperasse o que foi perdido na recessão. A exceção notável foi a crise de 2014-16: foram necessários mais de 5 anos, após o final da recessão, para que a economia voltasse ao mesmo nível que estava antes da crise. Isto é, apenas no segundo trimestre de 2022 a economia brasileira apresentou PIB acima do observado no primeiro trimestre de 2014.
 
 ```{r}
 #| out-width: 100%
@@ -325,8 +324,8 @@ col_names <- c(
   "Início",
   "Fim",
   "Recuperação",
-  "Duração Recessão",
-  "Tempo até Recuperação*",
+  "Duração da Recessão",
+  "Tempo até a Recuperação*",
   "Crescimento Médio**",
   "Perda Total"
 )
