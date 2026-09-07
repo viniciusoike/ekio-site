@@ -1,5 +1,6 @@
 # Quarto build output
 /_site/
+/_site-art-review/
 /.quarto/
 
 # Quarto keeps computed results in /_freeze, which IS tracked so the site

@@ -17,7 +17,7 @@ toc: false
 :::
 :::
 
-::: {.art-strip .art-strip-sm style="background-image: url(/static/images/art/faixa-estaiada.webp);" role="img" aria-label="Colagem editorial da Ponte Estaiada com a malha viária e uma mancha de densidade"}
+::: {.art-strip .art-strip-sm style="background-image: url(/static/images/art/hokusai-series-2026-09/banner-sao-paulo-heritage.webp);" role="img" aria-label="Ilustração de arquitetura histórica de São Paulo em contraste com edifícios modernos"}
 :::
 
 <!-- ============ Fundador ============ -->
@@ -79,7 +79,7 @@ toc: false
 :::
 
 <!-- ============ CTA ============ -->
-::: {.band .band-cta .band-cta-art style="background-image: url(/static/images/art/fundo-cta-skyline.webp);"}
+::: {.band .band-cta .band-cta-art style="background-image: url(/static/images/art/hokusai-series-2026-09/hero-metropolitan-geometry.webp);"}
 ::: {.container}
 ::: {.cta-row}
 

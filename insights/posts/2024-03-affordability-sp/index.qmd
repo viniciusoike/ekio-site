@@ -4,7 +4,8 @@ date: "2024-03-07"
 categories: ["São Paulo", "Imóveis", "Análise Espacial"]
 description: "O aumento dos preços dos imóveis e o acesso à moradia nas cidades brasileiras."
 draft: true
-image: "/static/images/thumbnails/spo_pir_map-1200.png"
+image: "/static/images/art/hokusai-series-2026-09/insight-compact-housing.webp"
+image-alt: "Ilustração de casas compactas e sobrados justapostos"
 ---
 
 ```{r}

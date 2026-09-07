@@ -5,7 +5,8 @@ date: "2024-02-25"
 categories: ["Imóveis", "Economia", "Brasil"]
 description: "O Brasil tem vários índices de preços imobiliários e cada um mede uma coisa diferente. Este post apresenta os principais e explica as limitações de cada método."
 draft: true
-image: "/static/images/art/thumb-indices.webp"
+image: "/static/images/art/hokusai-series-2026-09/insight-office-towers.webp"
+image-alt: "Ilustração de torres de escritórios com fachadas em grade"
 execute:
   message: false
   warning: false

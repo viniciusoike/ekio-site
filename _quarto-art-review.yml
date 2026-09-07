@@ -1,0 +1,4 @@
+project:
+  output-dir: _site-art-review
+website:
+  draft-mode: visible

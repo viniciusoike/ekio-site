@@ -4,7 +4,8 @@ author: "Vinicius Oike Reginatto"
 date: "2024-03-19"
 description: "O Censo mostra como casas e apartamentos se distribuem entre as cidades brasileiras."
 draft: true
-image: "/static/images/art/thumb-casas-apto.webp"
+image: "/static/images/art/hokusai-series-2026-09/insight-houses-and-apartments.webp"
+image-alt: "Ilustração que contrasta casas baixas com edifícios de apartamentos"
 categories: ["Imóveis", "Censo", "Brasil"]
 format:
   html:

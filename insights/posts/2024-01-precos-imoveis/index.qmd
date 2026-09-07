@@ -5,7 +5,8 @@ date: "2024-01-28"
 categories: ["Imóveis", "Visualização de Dados", "Brasil"]
 description: "Existe uma impressão generalizada de que o preço dos imóveis no Brasil subiu muito. Em termos reais, o preço médio andou de lado e hoje está abaixo do nível de 2010."
 draft: true
-image: "/static/images/art/thumb-precos-imoveis.webp"
+image: "/static/images/art/hokusai-series-2026-09/insight-residential-houses.webp"
+image-alt: "Ilustração de casas residenciais em planos geométricos azuis e claros"
 execute:
   message: false
   warning: false

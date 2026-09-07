@@ -1,0 +1,182 @@
+[
+  {
+    "file": "hero-sao-paulo-modernism.webp",
+    "title": "São Paulo · modernismo",
+    "width": 1774,
+    "height": 887,
+    "bytes": 206012,
+    "prompt_file": "PROMPTS.md",
+    "prompt_heading": "hero-sao-paulo-modernism",
+    "original": "originals/hero-sao-paulo-modernism.png"
+  },
+  {
+    "file": "hero-metropolitan-geometry.webp",
+    "title": "Geometria metropolitana",
+    "width": 1774,
+    "height": 887,
+    "bytes": 154436,
+    "prompt_file": "PROMPTS.md",
+    "prompt_heading": "hero-metropolitan-geometry",
+    "original": "originals/hero-metropolitan-geometry.png"
+  },
+  {
+    "file": "banner-urban-data.webp",
+    "title": "Cidade e dados",
+    "width": 2172,
+    "height": 724,
+    "bytes": 215368,
+    "prompt_file": "PROMPTS.md",
+    "prompt_heading": "banner-urban-data",
+    "original": "originals/banner-urban-data.png"
+  },
+  {
+    "file": "banner-sao-paulo-heritage.webp",
+    "title": "Patrimônio de São Paulo",
+    "width": 1774,
+    "height": 887,
+    "bytes": 253068,
+    "prompt_file": "PROMPTS.md",
+    "prompt_heading": "banner-sao-paulo-heritage",
+    "original": "originals/banner-sao-paulo-heritage.png"
+  },
+  {
+    "file": "card-positive-correlation.webp",
+    "title": "Correlação positiva",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 174562,
+    "prompt_file": "PROMPTS.md",
+    "prompt_heading": "card-positive-correlation",
+    "original": "originals/card-positive-correlation.png"
+  },
+  {
+    "file": "card-vertical-city.webp",
+    "title": "Cidade vertical",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 315996,
+    "prompt_file": "PROMPTS.md",
+    "prompt_heading": "card-vertical-city",
+    "original": "originals/card-vertical-city.png"
+  },
+  {
+    "file": "insight-residential-houses.webp",
+    "title": "Casas residenciais",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 237810,
+    "prompt_file": "INSIGHT-PROMPTS.md",
+    "prompt_heading": "insight-residential-houses",
+    "original": "originals/insight-residential-houses.png"
+  },
+  {
+    "file": "insight-office-towers.webp",
+    "title": "Torres de escritórios",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 373632,
+    "prompt_file": "INSIGHT-PROMPTS.md",
+    "prompt_heading": "insight-office-towers",
+    "original": "originals/insight-office-towers.png"
+  },
+  {
+    "file": "insight-houses-and-apartments.webp",
+    "title": "Casas e apartamentos",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 319368,
+    "prompt_file": "INSIGHT-PROMPTS.md",
+    "prompt_heading": "insight-houses-and-apartments",
+    "original": "originals/insight-houses-and-apartments.png"
+  },
+  {
+    "file": "insight-old-and-new.webp",
+    "title": "Edifícios antigos e novos",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 324170,
+    "prompt_file": "INSIGHT-PROMPTS.md",
+    "prompt_heading": "insight-old-and-new",
+    "original": "originals/insight-old-and-new.png"
+  },
+  {
+    "file": "insight-apartment-balconies.webp",
+    "title": "Varandas residenciais",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 263560,
+    "prompt_file": "INSIGHT-PROMPTS.md",
+    "prompt_heading": "insight-apartment-balconies",
+    "original": "originals/insight-apartment-balconies.png"
+  },
+  {
+    "file": "insight-compact-housing.webp",
+    "title": "Casas compactas e sobrados",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 288712,
+    "prompt_file": "INSIGHT-PROMPTS.md",
+    "prompt_heading": "insight-compact-housing",
+    "original": "originals/insight-compact-housing.png"
+  },
+  {
+    "file": "insight-courtyard-housing.webp",
+    "title": "Habitação e pátios",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 340026,
+    "prompt_file": "INSIGHT-PROMPTS.md",
+    "prompt_heading": "insight-courtyard-housing",
+    "original": "originals/insight-courtyard-housing.png"
+  },
+  {
+    "file": "insight-commercial-facades.webp",
+    "title": "Fachadas comerciais",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 276110,
+    "prompt_file": "INSIGHT-PROMPTS.md",
+    "prompt_heading": "insight-commercial-facades",
+    "original": "originals/insight-commercial-facades.png"
+  },
+  {
+    "file": "insight-adaptive-reuse.webp",
+    "title": "Reuso de edifícios industriais",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 460362,
+    "prompt_file": "INSIGHT-PROMPTS.md",
+    "prompt_heading": "insight-adaptive-reuse",
+    "original": "originals/insight-adaptive-reuse.png"
+  },
+  {
+    "file": "insight-sao-paulo-copan.webp",
+    "title": "São Paulo · Copan",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 379524,
+    "prompt_file": "INSIGHT-PROMPTS.md",
+    "prompt_heading": "insight-sao-paulo-copan",
+    "original": "originals/insight-sao-paulo-copan.png"
+  },
+  {
+    "file": "insight-market-cycles.webp",
+    "title": "Ciclos econômicos",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 157782,
+    "prompt_file": "INSIGHT-PROMPTS.md",
+    "prompt_heading": "insight-market-cycles",
+    "original": "originals/insight-market-cycles.png"
+  },
+  {
+    "file": "insight-housing-distribution.webp",
+    "title": "Distribuição de habitação",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 147242,
+    "prompt_file": "INSIGHT-PROMPTS.md",
+    "prompt_heading": "insight-housing-distribution",
+    "original": "originals/insight-housing-distribution.png"
+  }
+]

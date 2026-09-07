@@ -10,6 +10,7 @@ project:
     # `reference/` guarda os originais de trabalho e fica fora da publicação.
     - static/images/art/*.webp
     - static/images/art/finished/
+    - static/images/art/hokusai-series-2026-09/*.webp
     # Fallback card for a post that ships without its own figure. Referenced
     # only from post front matter, so Quarto cannot discover it either.
     - static/images/insight-placeholder.svg
@@ -32,7 +33,9 @@ website:
     logo: static/images/brand/lockup-navy.svg
     logo-alt: "EKIO"
     logo-href: index.qmd
-    background: "#FEFEFE"
+    # custom.scss overrides this with $paper; the value here only paints the
+    # bar before the stylesheet loads. Keep it equal to $paper.
+    background: "#F9F8F3"
     foreground: "#373A3D"
     title: false
     search: false
@@ -49,6 +52,8 @@ website:
 
   # Footer
   page-footer:
+    # custom.scss paints the footer with $ink; this is the pre-stylesheet
+    # value only.
     background: "#191A1C"
     foreground: "#AEB1B5"
     left: |
@@ -71,6 +76,9 @@ website:
   page-navigation: false
 
 lang: pt
+
+filters:
+  - static/filters/post-cover.lua
 
 # Format
 format:

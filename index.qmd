@@ -19,9 +19,9 @@ listing:
 ::: {.home-cover .column-screen}
 ```{=html}
 <img class="home-cover-image"
-     src="static/images/art/hero-geometry-hokusai.webp"
+     src="/static/images/art/hokusai-series-2026-09/hero-sao-paulo-modernism.webp"
      sizes="(max-width: 640px) 100vw, 91vw"
-     width="1862" height="845"
+     width="1774" height="887"
      alt="" fetchpriority="high" loading="eager">
 ```
 
@@ -130,7 +130,7 @@ Atendemos empresas e entidades governamentais em questões de mercado, investime
 :::
 
 <!-- ============ CTA ============ -->
-::: {.band .band-cta .band-cta-art style="background-image: url(/static/images/art/fundo-cta-paulista.webp);"}
+::: {.band .band-cta .band-cta-art style="background-image: url(/static/images/art/hokusai-series-2026-09/hero-metropolitan-geometry.webp);"}
 ::: {.container}
 ::: {.cta-row}
 
