@@ -13,6 +13,23 @@ image: "/static/images/thumbnails/SLUG.png"   # card thumbnail; put the file in 
 
 Texto de abertura.
 
+```{r libs}
+library(ggplot2)
+library(dplyr)
+source(here::here("insights/posts/_ekio-style.R"))
+```
+
 ```{r}
 # análise…
 ```
+
+<!--
+Figuras — os padrões vêm de _ekio-style.R. Não repita opções de chunk aqui.
+
+  Gráfico padrão   sem opção nenhuma (7 x 4,5 in, out-width 90%, 1344 x 864 px)
+  Painel           fig-width/fig-height por chunk + out-width: "100%"
+  Mapa             o mesmo, mais fig-dpi: 72 (9 x 12 in -> 1296 x 1728 px)
+
+  geom_line(linewidth = 0.8) e geom_col(width = 0.8).
+  Tabelas: ekiotable::gt_theme_hokusai(stripe = TRUE).
+-->
