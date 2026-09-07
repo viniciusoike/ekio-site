@@ -68,7 +68,7 @@ dbreaks <- readr::parse_date(dbreaks, format = "%Y")
 
 p1 <- ggplot(fipezap, aes(x = date, y = new_index, color = rent_sale)) +
   geom_line(lwd = 1) +
-  geom_hline(yintercept = 100, color = ekio_rule_color, linewidth = 0.4) +
+  geom_hline(yintercept = 100, color = ekio_pal("gray")[5], linewidth = 0.4) +
   scale_x_date(breaks = dbreaks, date_labels = "%Y") +
   scale_color_ekio_d(
     "full",
@@ -89,7 +89,7 @@ fipezap <- fipezap |>
 
 p2 <- ggplot(fipezap, aes(date, acum, color = rent_sale)) +
   geom_line(lwd = 1) +
-  geom_hline(yintercept = 100, color = ekio_rule_color, linewidth = 0.4) +
+  geom_hline(yintercept = 100, color = ekio_pal("gray")[5], linewidth = 0.4) +
   scale_x_date(breaks = dbreaks, date_labels = "%Y") +
   scale_color_ekio_d(
     "full",
@@ -133,8 +133,8 @@ p3 <- ggplot(
 ) +
   geom_point(aes(color = cycle)) +
   geom_smooth(method = "gam", se = FALSE, color = ekio_pal("full")[[1]]) +
-  geom_hline(yintercept = 0, color = ekio_rule_color, linewidth = 0.4) +
-  geom_vline(xintercept = 0, color = ekio_rule_color, linewidth = 0.4) +
+  geom_hline(yintercept = 0, color = ekio_pal("gray")[5], linewidth = 0.4) +
+  geom_vline(xintercept = 0, color = ekio_pal("gray")[5], linewidth = 0.4) +
   labs(
     x = "Venda (var. %)",
     y = "Aluguel (var. %)",
@@ -150,8 +150,8 @@ p4 <- ggplot(
 ) +
   geom_point(alpha = 0.8) +
   geom_smooth(method = "lm", se = FALSE) +
-  geom_hline(yintercept = 0, color = ekio_rule_color, linewidth = 0.4) +
-  geom_vline(xintercept = 0, color = ekio_rule_color, linewidth = 0.4) +
+  geom_hline(yintercept = 0, color = ekio_pal("gray")[5], linewidth = 0.4) +
+  geom_vline(xintercept = 0, color = ekio_pal("gray")[5], linewidth = 0.4) +
   labs(
     x = "Venda (var. %)",
     y = "Aluguel (var. %)",
@@ -207,8 +207,8 @@ p_changes <- ggplot(fipe_changes, aes(chg_rent, chg_sale, color = bp)) +
   geom_smooth(method = "lm", se = FALSE) +
   scale_x_continuous() +
   scale_y_continuous() +
-  geom_hline(yintercept = 0, color = ekio_rule_color, linewidth = 0.4) +
-  geom_vline(xintercept = 0, color = ekio_rule_color, linewidth = 0.4) +
+  geom_hline(yintercept = 0, color = ekio_pal("gray")[5], linewidth = 0.4) +
+  geom_vline(xintercept = 0, color = ekio_pal("gray")[5], linewidth = 0.4) +
   scale_color_ekio_d(
     "full",
     name = "Ciclos",
@@ -243,7 +243,7 @@ indexes <- indexes |>
 
 p_fipe_ivar <- ggplot(indexes, aes(date, index, color = name_series)) +
   geom_line(lwd = 1) +
-  geom_hline(yintercept = 100, color = ekio_rule_color, linewidth = 0.4) +
+  geom_hline(yintercept = 100, color = ekio_pal("gray")[5], linewidth = 0.4) +
   scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
   scale_y_continuous(breaks = seq(90, 160, 10)) +
   scale_color_ekio_d(
