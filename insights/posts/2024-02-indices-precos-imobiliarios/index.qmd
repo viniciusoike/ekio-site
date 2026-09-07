@@ -4,7 +4,6 @@ author: "Vinicius Oike Reginatto"
 date: "2024-02-25"
 categories: ["Imóveis", "Economia", "Brasil"]
 description: "O Brasil tem vários índices de preços imobiliários e cada um mede uma coisa diferente. Este post apresenta os principais e explica as limitações de cada método."
-draft: true
 image: "/static/images/art/hokusai-series-2026-09/insight-office-towers.webp"
 image-alt: "Ilustração de torres de escritórios com fachadas em grade"
 execute:
@@ -17,9 +16,8 @@ freeze: true
 ```{r setup}
 knitr::opts_chunk$set(
   fig.align = "center",
-  fig.asp = 0.618,
   out.width = "90%",
-  fig.width = 7.5,
+  fig.width = 8,
   fig.dev = "png"
 )
 
@@ -38,7 +36,7 @@ library(ekioplot)
 ```
 
 ```{r theme-colors}
-source("../_ekio-style.R")
+source(here::here("insights/posts/_ekio-style.R"))
 ```
 
 ```{r import rppi-sale}
@@ -51,8 +49,8 @@ sale <- subset(sale, date < data_cutoff)
 ```
 
 ```{r import-price-series}
-ipca = get_series(433, start_date = as.Date("2000-01-01"), as = "ts")
-incc = get_series(192, start_date = as.Date("2000-12-01"), as = "ts")
+ipca <- get_series(433, start_date = as.Date("2000-01-01"), as = "ts")
+incc <- get_series(192, start_date = as.Date("2000-12-01"), as = "ts")
 
 mts <- ts.intersect(ipca, incc, dframe = TRUE)
 tbl_prices <- tibble(date = zoo::as.Date.ts(incc), mts)
@@ -135,7 +133,7 @@ tab_rppi <- rppi_chg |>
 
 ```{r plot-comp}
 p_rppi_comp <- ggplot(rppi_comp, aes(date, new_index, color = source)) +
-  geom_hline(yintercept = 100, color = ekio_rule_color, linewidth = 0.4) +
+  geom_hline(yintercept = 100, color = ekio_pal("gray")[5], linewidth = 0.4) +
   geom_line(lwd = 0.8) +
   scale_x_date(date_labels = "%Y") +
   scale_color_ekio_d("full", name = "") +
@@ -153,7 +151,7 @@ p_rppi_comp <- ggplot(rppi_comp, aes(date, new_index, color = source)) +
 ```
 
 ```{r vecm-analysis}
-tbl_rppi = rppi_comp |>
+tbl_rppi <- rppi_comp |>
   filter(date >= as.Date("2014-01-01"), date < data_cutoff) |>
   pivot_wider(
     id_cols = "date",
@@ -163,10 +161,10 @@ tbl_rppi = rppi_comp |>
 
 ts_rppi <- ts(tbl_rppi[, -1], start = c(2014, 1), frequency = 12)
 
-sd = diff(log(ts_rppi))
-sdd = diff(sd, 12)
+sd <- diff(log(ts_rppi))
+sdd <- diff(sd, 12)
 
-johan = ca.jo(
+johan <- ca.jo(
   ts_rppi,
   type = "eigen",
   ecdet = "trend",
@@ -174,7 +172,7 @@ johan = ca.jo(
   season = 12
 )
 
-vecm = cajorls(johan, r = 2)
+vecm <- cajorls(johan, r = 2)
 ```
 
 ```{r data-comp-recent}
@@ -187,7 +185,7 @@ p_rppi_brasil <- ggplot(
   filter(rppi_recent, !(source %in% c("IPCA", "INCC"))),
   aes(x = date, y = new_index, color = source)
 ) +
-  geom_hline(yintercept = 100, color = ekio_rule_color, linewidth = 0.4) +
+  geom_hline(yintercept = 100, color = ekio_pal("gray")[5], linewidth = 0.4) +
   geom_line(lwd = 0.8) +
   scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
   scale_color_ekio_d("full", name = "") +
@@ -208,7 +206,7 @@ p_rppi_ipca <-
     filter(rppi_recent, source != "INCC"),
     aes(x = date, y = new_index, color = source)
   ) +
-  geom_hline(yintercept = 100, color = ekio_rule_color, linewidth = 0.4) +
+  geom_hline(yintercept = 100, color = ekio_pal("gray")[5], linewidth = 0.4) +
   geom_line(lwd = 0.8) +
   scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
   scale_color_ekio_d("full", name = "") +
@@ -229,7 +227,7 @@ p_rppi_incc <-
     filter(rppi_recent, source != "IPCA"),
     aes(x = date, y = new_index, color = source)
   ) +
-  geom_hline(yintercept = 100, color = ekio_rule_color, linewidth = 0.4) +
+  geom_hline(yintercept = 100, color = ekio_pal("gray")[5], linewidth = 0.4) +
   geom_line(lwd = 0.8) +
   scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
   scale_color_ekio_d("full", name = "") +
@@ -259,7 +257,7 @@ p_ivgr_ipca <- ggplot(
   ivgr_comp,
   aes(x = date, y = new_index, color = source)
 ) +
-  geom_hline(yintercept = 100, color = ekio_rule_color, linewidth = 0.4) +
+  geom_hline(yintercept = 100, color = ekio_pal("gray")[5], linewidth = 0.4) +
   geom_line(lwd = 0.8) +
   scale_color_ekio_d("full", name = "") +
   labs(
@@ -276,7 +274,7 @@ p_ivgr_ipca <- ggplot(
 ```
 
 ```{r plot-rppi-function}
-plot_rppi <- function(name) {
+plot_rppi <- function(name, start_date = NULL) {
   av_names <- unique(rppi_sale$source)
 
   if (!any(name %in% av_names)) {
@@ -287,24 +285,33 @@ plot_rppi <- function(name) {
     )
   }
 
+  if (is.null(start_date)) {
+    start_date <- min(filter(rppi_sale, source == !!name)$date, na.rm = TRUE)
+    start_date <- format(start_date, "%Y/%b")
+  }
+
   p_index <- ggplot(filter(rppi_sale, source == name), aes(date, index)) +
     geom_line(lwd = 0.8, color = ekio_pal("full")[[1]]) +
-    geom_hline(yintercept = 100, color = ekio_rule_color, linewidth = 0.4) +
-    labs(x = NULL, y = "Índice", subtitle = "Índice") +
+    geom_hline(yintercept = 100, color = ekio_pal("gray")[5], linewidth = 0.4) +
+    labs(
+      x = NULL,
+      y = NULL,
+      subtitle = str_glue("Índice (100 = {start_date})")
+    ) +
     theme_ekio_site()
 
   p_12m <- ggplot(filter(rppi_sale, source == name), aes(date, acum12m)) +
     geom_line(lwd = 0.8, color = ekio_pal("full")[[1]]) +
-    geom_hline(yintercept = 0, color = ekio_rule_color, linewidth = 0.4) +
+    geom_hline(yintercept = 0, color = ekio_pal("gray")[5], linewidth = 0.4) +
     scale_y_continuous(labels = scales::label_percent()) +
-    labs(x = NULL, y = "% (acum. 12 meses)", subtitle = "Acumulado 12 meses") +
+    labs(x = NULL, y = NULL, subtitle = "Acumulado 12 meses") +
     theme_ekio_site()
 
   p_chg <- ggplot(filter(rppi_sale, source == name), aes(date, chg)) +
     geom_line(lwd = 0.8, color = ekio_pal("full")[[1]]) +
-    geom_hline(yintercept = 0, color = ekio_rule_color, linewidth = 0.4) +
+    geom_hline(yintercept = 0, color = ekio_pal("gray")[5], linewidth = 0.4) +
     scale_y_continuous(labels = scales::label_percent()) +
-    labs(x = NULL, y = "%", subtitle = "Variação Mensal") +
+    labs(x = NULL, y = NULL, subtitle = "Variação Mensal") +
     theme_ekio_site()
 
   panel <- p_index / p_12m / p_chg
@@ -371,7 +378,7 @@ Novamente, uma estratégia para resolver isto é usar a modelagem hedônica. Out
 
 Existe uma literatura considerável sobre a criação de índices de preços. Desde a Grande Crise Financeira de 2008, há um interesse renovado no monitoramento do preço dos imóveis[^3].
 
-[^3]: Uma lista de justificativas e usos de índices de preços imobiliários pode ser vista em ...
+[^3]: Uma lista de justificativas e usos de índices de preços imobiliários pode ser vista em Eurostat (2013).
 
 O atual consenso da literatura é de que um RPPI deve controlar pela qualidade dos imóveis observados (quality-adjusted index). Idealmente, a **melhor metodologia é construir um índice hedônico com alguma estratégia de estratificação e imputação dupla**. O único motivo para não usar um índice hedônico é quando não há informação suficiente para estimá-lo.
 
@@ -383,9 +390,9 @@ Enquanto um Índice de Fisher (ou Tornqvist) apresenta propriedades ideais, nem 
 
 No Brasil há três principais índices de preços imobiliários:
 
-1.  Índice de Valores de Garantia de Imóveis Residenciais Financiados (IVG-R)
-2.  Índice FipeZap (FZ)
-3.  Índice Geral do Mercado Imobiliário Residencial (IGMI-R)
+1.  Índice de Valores de Garantia de Imóveis Residenciais Financiados (IVG-R).
+2.  Índice FipeZap (FZ).
+3.  Índice Geral do Mercado Imobiliário Residencial (IGMI-R).
 
 Os dois primeiros são índices de mediana estratificados, enquanto o último é um índice hedônico. Vou comentar sobre estes índices em maior detalhe.
 
@@ -398,8 +405,8 @@ Em termos metodológicos o IVGR é um índice de mediana estratificado. Essencia
 Como resultado, o IVG-R é um índice bastante suave. O IVG-R é o mais próximo que existe de um índice "oficial" de preços de imóveis no Brasil. Ele é o índice utilizado pelo BIS na compilação de índices de preços imobiliários.
 
 ```{r}
-#| fig-width: 9
-#| fig-height: 9
+#| fig-width: 8
+#| fig-height: 11
 #| out-width: "100%"
 plot_rppi("IVG-R")
 ```
@@ -413,8 +420,8 @@ O Índice FipeZap é um índice de mediana estratificado construído a partir de
 3.  O custo de construção de um índice de anúncios é baixíssimo quando comparado com outros métodos de coleta de dados.
 
 ```{r}
-#| fig-width: 9
-#| fig-height: 9
+#| fig-width: 8
+#| fig-height: 11
 #| out-width: "100%"
 plot_rppi("FipeZap")
 ```
@@ -428,8 +435,8 @@ O IGMI-R foi desenvolvido pelo economista Paulo Pichetti, numa [parceria entre a
 A principal fragilidade do IGMI-R é o seu histórico curto. Além disso, o *timing* de criação do índice foi bastante infortuito, pois a série inicia em 2014. Nos seus breves 10 anos de história, o IGMI-R passou pela maior recessão econômica da história recente do país, uma pandemia global, dois ciclos de alta de juros e a menor taxa de juros da história.
 
 ```{r}
-#| fig-width: 9
-#| fig-height: 9
+#| fig-width: 8
+#| fig-height: 11
 #| out-width: "100%"
 plot_rppi("IGMI-R")
 ```
@@ -472,28 +479,6 @@ Por fim, compara-se a evolução dos índices com relação aos custos de constr
 
 ```{r}
 p_rppi_incc
-```
-
-### Correlação e Cointegração
-
-Em termos mais técnicos, pode-se ver que as séries naturalmente são correlacionadas, visto que elas estão tentando mensurar a mesma variável. Assim, não deve ser surpreendente que as séries tenham autocorrelação cruzada e que sejam cointegradas. O gráfico abaixo mostra a função de autocorrelação entre as séries após se tomar uma diferença simples e uma diferença sazonal.
-
-```{r}
-ggAcf(sdd) + theme_ekio_site()
-```
-
-Mais a título de curiosidade reporta-se as estimativas dos coeficientes dos termos de ajustamento do modelo de correção de erros, normalizadas segundo a série do IGMI.
-
-```{r}
-tab = tibble(
-  variable = rownames(vecm$beta),
-  ect1 = vecm$beta[, 1],
-  ect2 = vecm$beta[, 2]
-  )
-
-gt(tab, rowname_col = "variable") %>%
-  fmt_number(decimals = 4) %>%
-  gt_theme_ekio()
 ```
 
 ### Longo Prazo
