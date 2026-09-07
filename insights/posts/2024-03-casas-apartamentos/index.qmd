@@ -2,14 +2,11 @@
 title: "Casas e Apartamentos"
 author: "Vinicius Oike Reginatto"
 date: "2024-03-19"
-description: "O Censo mostra como casas e apartamentos se distribuem entre as cidades brasileiras."
+description: "Em apenas três das mais de cinco mil cidades brasileiras há mais apartamentos do que casas. Nem o tamanho da população nem a área do município explicam a verticalização."
 draft: true
 image: "/static/images/art/hokusai-series-2026-09/insight-houses-and-apartments.webp"
 image-alt: "Ilustração que contrasta casas baixas com edifícios de apartamentos"
 categories: ["Imóveis", "Censo", "Brasil"]
-format:
-  html:
-    fig-align: "center"
 execute:
   message: false
   warning: false
@@ -18,7 +15,6 @@ freeze: true
 ---
 
 ```{r}
-knitr::opts_chunk$set(fig.align = "center")
 library(dplyr)
 library(stringr)
 library(sf)
@@ -88,7 +84,7 @@ tab_geral <- left_join(tab_geral, total_houses, by = "code_muni")
 
 # Um país de casas
 
-A vasta maioria dos domicílios residenciais no Brasil são casas[^1]. De fato, em apenas 3, das mais de 5000 cidades brasileiras, o número de apartamentos é superior ao número de casas. Isto é, apenas em Santos, Balneário Camboriú e São Caetano do Sul, existe uma proporção maior de apartamentos do que de casas. Embora São Paulo seja famosa por seus prédios, os apartamentos representam apenas um terço das moradias na cidade.
+A vasta maioria dos domicílios residenciais no Brasil é formada por casas[^1]. De fato, em apenas 3 das mais de 5000 cidades brasileiras, o número de apartamentos é superior ao número de casas. Isto é, apenas em Santos, Balneário Camboriú e São Caetano do Sul, existe uma proporção maior de apartamentos do que de casas. Embora São Paulo seja famosa por seus prédios, os apartamentos representam apenas um terço das moradias na cidade.
 
 [^1]: Vale notar que os dados refletem o número total de domicílios e não o número total de pessoas morando em domicílios (por tipo de domicílio).
 
@@ -98,8 +94,8 @@ A tabela abaixo resume os dados para as vinte cidades mais "verticalizadas" do B
 tab_geral |>
   select(-code_muni) |>
   rename(
-    "Total Domicílios" = "total_houses",
-    "Nome Cidade" = "name_muni",
+    "Total de Domicílios" = "total_houses",
+    "Nome da Cidade" = "name_muni",
     "UF" = "abbrev_state"
   ) |>
   slice(1:20) |>
@@ -150,7 +146,7 @@ ggplot(sub, aes(x = log(total_houses), y = Apartamento)) +
   scale_fill_ekio_d(
     "full",
     name = "Região",
-    labels = c("Norte", "Nordeste", "Sudeste", "Sul", "Centro Oeste")
+    labels = c("Norte", "Nordeste", "Sudeste", "Sul", "Centro-Oeste")
   ) +
   labs(
     title = "Verticalização e Tamanho",
@@ -170,19 +166,19 @@ tab_geral |>
   arrange(desc(Apartamento)) |>
   select(name_muni, abbrev_state, Apartamento, total_houses) |>
   rename(
-    "Total Domicílios" = "total_houses",
-    "Nome Cidade" = "name_muni",
+    "Total de Domicílios" = "total_houses",
+    "Nome da Cidade" = "name_muni",
     "UF" = "abbrev_state"
   ) |>
   gt() |>
   fmt_percent(3, dec_mark = ",", decimals = 1) |>
   fmt_number(4, decimals = 0, sep_mark = ".") |>
-  gt_theme_ekio()
+  gt_theme_hokusai(stripe = TRUE)
 ```
 
-Comparando o share de apartamentos com o tamanho do município[^2], chega-se na mesma conclusão. O gráfico abaixo mostra o percentual de domicílios contra a área total do município. Seria intuitivo que municípios menores, onde há menos oferta de terra, exibissem maiores percentuais de apartamentos. Contudo, não parece haver relação entre as variáveis.
+Comparando o share de apartamentos com o tamanho do município[^2], chega-se à mesma conclusão. O gráfico abaixo mostra o percentual de domicílios contra a área total do município. Seria intuitivo que municípios menores, onde há menos oferta de terra, exibissem maiores percentuais de apartamentos. Contudo, não parece haver relação entre as variáveis.
 
-[^2]: Existe uma leve distorção no cálculo da área do município. Calculou-se a área total do perímetro municipal, o que penaliza cidades com muitas áreas verdes. Cidades como Campo Grande e Manaus, por exemplo, tem uma área total muito superior à área urbana. Conseguir o shapefile somente da área urbana da cidade, contudo, não é tarefa simples.
+[^2]: Existe uma leve distorção no cálculo da área do município. Calculou-se a área total do perímetro municipal, o que penaliza cidades com muitas áreas verdes. Cidades como Campo Grande e Manaus, por exemplo, têm uma área total muito superior à área urbana. Conseguir o shapefile somente da área urbana da cidade, contudo, não é tarefa simples.
 
 ```{r}
 cities <- geobr::read_municipality(year = 2022, showProgress = FALSE)
@@ -223,7 +219,7 @@ ggplot(sub, aes(x = log(area_ha), y = Apartamento)) +
   scale_fill_ekio_d(
     "full",
     name = "Região",
-    labels = c("Norte", "Nordeste", "Sudeste", "Sul", "Centro Oeste")
+    labels = c("Norte", "Nordeste", "Sudeste", "Sul", "Centro-Oeste")
   ) +
   labs(
     title = "Verticalização e Tamanho",
@@ -244,15 +240,15 @@ tab_geral |>
   arrange(desc(Apartamento)) |>
   select(name_muni, abbrev_state, Apartamento, total_houses, area_ha) |>
   rename(
-    "Total Domicílios" = "total_houses",
-    "Nome Cidade" = "name_muni",
+    "Total de Domicílios" = "total_houses",
+    "Nome da Cidade" = "name_muni",
     "UF" = "abbrev_state",
     "Área (ha.)" = "area_ha"
   ) |>
   gt() |>
   fmt_percent(3, dec_mark = ",", decimals = 1) |>
   fmt_number(4:5, decimals = 0, sep_mark = ".") |>
-  gt_theme_ekio()
+  gt_theme_hokusai(stripe = TRUE)
 ```
 
 ## Tabela completa
@@ -262,10 +258,10 @@ A lista completa dos dados pode ser acessada na tabela abaixo.
 ```{r}
 tab_geral |>
   rename(
-    "Nome Cidade" = name_muni,
+    "Nome da Cidade" = name_muni,
     "Código IBGE" = code_muni,
     "UF" = abbrev_state,
-    "Total Domicílios" = total_houses
+    "Total de Domicílios" = total_houses
   ) |>
   mutate(across(Casa:Outros, ~ round(.x * 100, 2))) |>
   datatable()
