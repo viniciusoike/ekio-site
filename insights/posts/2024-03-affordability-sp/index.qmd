@@ -2,7 +2,7 @@
 title: "Housing Affordability em São Paulo"
 date: "2024-03-07"
 categories: ["São Paulo", "Imóveis", "Análise Espacial"]
-description: "O aumento dos preços dos imóveis e o acesso à moradia nas cidades brasileiras."
+description: "O Price-Income Ratio de São Paulo ficou próximo de 20 em 2021 — o dobro do teto internacional de 5 a 10. A pandemia agravou o quadro: os preços acumulam alta de quase 80% desde 2020."
 draft: true
 image: "/static/images/art/hokusai-series-2026-09/insight-compact-housing.webp"
 image-alt: "Ilustração de casas compactas e sobrados justapostos"
@@ -16,14 +16,7 @@ library(sf)
 library(realestatebr)
 library(ekioplot)
 import::from(stringr, str_wrap)
-
-# knitr::opts_chunk$set(
-#   fig.width = 7,
-#   fig.height = 4.67,
-#   out.width = "100%",
-#   device = "png",
-#   dpi = 300
-# )
+source(here::here("insights/posts/_ekio-style.R"))
 
 # Dados vendorizados junto ao post (relativo ao diretório do .qmd)
 affordability <- st_read(
@@ -42,7 +35,7 @@ affordability <- affordability |>
 jenks <- BAMMtools::getJenksBreaks(affordability$pir_med_total, k = 8)
 
 p_map <- ggplot(affordability) +
-  geom_sf(aes(fill = pir_med_total), lwd = 0.15, color = "white") +
+  geom_sf(aes(fill = pir_med_total), linewidth = 0.15, color = "white") +
   scale_fill_fermenter(
     name = "",
     palette = "Reds",
@@ -73,16 +66,14 @@ p_map <- ggplot(affordability) +
 
 O mapa abaixo apresenta o Price-Income-Ratio (PIR) por Zona OD na cidade de São Paulo. Os dados são de 2021 e provêm do artigo [Acesso à moradia em São Paulo: visão geral e mensuração](https://lares.architexturez.net/system/files/4DRB.pdf), publicado na LARES 2021.
 
-O PIR é um indicador simples que mensura a acessibilidade financeira à moradia numa região: sua interpretação é do tipo "quanto maior, pior", isto é, quanto maior for o valor do PIR, pior é a acessibilidade financeira à moradia. Especificamente, ele mede a razão entre os preços dos imóveis disponíveis eu uma região (preços de anúncios) em relação à renda média das famílias na cidade.
+O PIR é um indicador simples que mensura a acessibilidade financeira à moradia numa região: sua interpretação é do tipo "quanto maior, pior", isto é, quanto maior for o valor do PIR, pior é a acessibilidade financeira à moradia. Especificamente, ele mede a razão entre os preços dos imóveis disponíveis em uma região (preços de anúncios) e a renda média das famílias na cidade.
 
 O mapa abaixo compara o preço médio dos imóveis disponíveis nestas regiões com a renda média familiar bruta de São Paulo. Regiões centrais como Jardins e Alto de Pinheiros apresentam os piores indicadores de acessibilidade.
 
 ```{r}
 #| out-width: "100%"
-#| out-height: 900px
 #| fig-width: 9
 #| fig-height: 12
-#| fig-format: svg
 #| fig-dpi: 72
 
 p_map
@@ -92,13 +83,13 @@ p_map
 
 O PIR é uma razão simples entre o preço médio/mediano dos imóveis e a renda média/mediana anual das famílias:
 
-$$\text{PIR} = \frac{\text{Precos}}{\text{Renda Anual}}$$
+$$\text{PIR} = \frac{\text{Preços}}{\text{Renda Anual}}$$
 
-O PIR indica, grosso modo, a quantidade de "anos de trabalho" que uma família típica precisa investir de renda para comprar um imóvel típico. A principal vantagem do PIR é a sua simplicidade de cálculo, o que facilita comparações entre diferentes regiões. A principal desvantagem do PIR é de ignorar as condições de financiamento disponíveis para a população. Supondo que a renda anual média das famílias seja $R\$30.000$ e que o preço médio dos imóveis seja $R\$270.000$. Então o valor do PIR seria:
+O PIR indica, grosso modo, a quantidade de "anos de trabalho" que uma família típica precisa investir de renda para comprar um imóvel típico. A principal vantagem do PIR é a sua simplicidade de cálculo, o que facilita comparações entre diferentes regiões. A principal desvantagem do PIR é ignorar as condições de financiamento disponíveis para a população. Supondo que a renda anual média das famílias seja $R\$30.000$ e que o preço médio dos imóveis seja $R\$270.000$. Então o valor do PIR seria:
 
 $$\text{PIR} = \frac{R\$270.000}{R\$30.000} = 9$$
 
-Na literatura internacional, valores de PIR na faixa de 5-10 indicam baixa acessibilidade financeira. Estudos feitos em países em desenvolvimento e subdesenvolvidos, contudo, apontam valores de PIR muito mais elevados do que este intervalo, devido tanto à **baixa renda média da população como também às condições limitadas de acesso ao crédito**. Neste sentido, talvez uma comparação mais justa seja com as megacidades chinesas que tem PIR na faixa de 10-15. No artigo [Acesso à moradia em São Paulo: visão geral e mensuração](https://lares.architexturez.net/system/files/4DRB.pdf), escrito por Vinicius Oike, em parceria com outros colegas, estima-se que o PIR de São Paulo em 2021 era próximo de 19-20. O site [Numbeo apresenta o PIR](https://www.numbeo.com/property-investment/rankings.jsp?title=2021) para um amplo grupo de cidades no mundo: em 2021, segundo o site, o PIR de São Paulo era de 17,8.
+Na literatura internacional, valores de PIR na faixa de 5-10 indicam baixa acessibilidade financeira. Estudos feitos em países em desenvolvimento e subdesenvolvidos, contudo, apontam valores de PIR muito mais elevados do que este intervalo, devido tanto à **baixa renda média da população como também às condições limitadas de acesso ao crédito**. Neste sentido, talvez uma comparação mais justa seja com as megacidades chinesas que têm PIR na faixa de 10-15. No artigo [Acesso à moradia em São Paulo: visão geral e mensuração](https://lares.architexturez.net/system/files/4DRB.pdf), escrito por Vinicius Oike, em parceria com outros colegas, estima-se que o PIR de São Paulo em 2021 era próximo de 19-20. O site [Numbeo apresenta o PIR](https://www.numbeo.com/property-investment/rankings.jsp?title=2021) para um amplo grupo de cidades no mundo: em 2021, segundo o site, o PIR de São Paulo era de 17,8.
 
 ## Preços dos imóveis
 
@@ -142,7 +133,7 @@ color_palette <- c(ekio_pal("blue")[c(5, 7)], ekio_pal("accent_blue")[2])
 color_palette <- unname(color_palette)
 
 p_acum12m <- ggplot(subdat, aes(date, acum12m)) +
-  geom_line(aes(color = name_series), lwd = 0.7) +
+  geom_line(aes(color = name_series), linewidth = 0.8) +
   geom_hline(yintercept = 0) +
   scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
   scale_y_continuous(labels = scales::label_percent()) +
@@ -151,9 +142,9 @@ p_acum12m <- ggplot(subdat, aes(date, acum12m)) +
     values = color_palette
   ) +
   labs(
-    title = "Aceleração do preços dos imóveis após a Pandemia",
+    title = "Aceleração dos preços dos imóveis após a Pandemia",
     subtitle = str_wrap(
-      "Variação acumulada em 12 meses dos preços dos imóveis  residenciais em São Paulo e no Brasil comparados com o IPCA.",
+      "Variação acumulada em 12 meses dos preços dos imóveis residenciais em São Paulo e no Brasil comparados com o IPCA.",
       81
     ),
     caption = "Fonte: IGMI-R (Abecip/FGV); IPCA (IBGE) • EKIO",
@@ -176,7 +167,7 @@ aux_label <- subdat_index |>
   )
 
 p_index <- ggplot(subdat_index, aes(date, acum, group = name_series)) +
-  geom_line(aes(color = name_series), lwd = 0.7) +
+  geom_line(aes(color = name_series), linewidth = 0.8) +
   geom_label(
     data = aux_label,
     aes(x = pos_x, label = label),
@@ -196,7 +187,7 @@ p_index <- ggplot(subdat_index, aes(date, acum, group = name_series)) +
   labs(
     title = "Aumento de quase 80% em SP desde a Pandemia",
     subtitle = str_wrap(
-      "Variação acumulada do preços dos imóveis residenciais em São Paulo e no Brasil comparados com o IPCA.",
+      "Variação acumulada dos preços dos imóveis residenciais em São Paulo e no Brasil comparados com o IPCA.",
       81
     ),
     caption = "Fonte: IGMI-R (Abecip/FGV); IPCA (IBGE) • EKIO",
@@ -207,19 +198,15 @@ p_index <- ggplot(subdat_index, aes(date, acum, group = name_series)) +
 ```
 
 
-A Pandemia do Covid-19 alterou acelerou o aumento dos preços no Brasil. O preço dos imóveis residenciais começou a se recuperar em 2017 dos efeitos da recessão econômica. Em 2
+A pandemia de Covid-19 acelerou o aumento dos preços no Brasil. O preço dos imóveis residenciais começou a se recuperar em 2017 dos efeitos da recessão econômica.
 
 ```{r}
-#| fig-width: 7
-#| fig-height: 4.67
 p_acum12m
 ```
 
-A pandemia criou um boom imobiliário
+A pandemia criou um boom imobiliário.
 
 ```{r}
-#| fig-width: 7
-#| fig-height: 4.67
 p_index
 ```
 
