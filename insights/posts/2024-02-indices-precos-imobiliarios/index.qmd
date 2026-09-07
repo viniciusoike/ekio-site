@@ -215,7 +215,9 @@ p_rppi_incc <-
   scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
   scale_color_ekio_d("full", name = "") +
   labs(
-    title = "Inflação de Custos supera valorização imobiliária nos últimos dez anos",
+    # Measures 8.2 in at 18pt Lora, wider than the 7.85 in an 8 in canvas
+    # leaves. Wrapped rather than cut.
+    title = "Inflação de Custos supera valorização\nimobiliária nos últimos dez anos",
     subtitle = str_wrap(
       "Comparação de índices de preços imobiliários e do INCC (Índice Nacional de Custos da Construção Civil). Todos os índices normalizados para jan/2014.",
       111

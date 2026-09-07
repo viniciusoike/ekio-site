@@ -96,7 +96,7 @@ p_bis_latam <-
   labs(
     x = NULL,
     y = "Índice (2010 = 100)",
-    title = "Preços no Brasil não acompanham outros países latino-americanos.",
+    title = "Preços no Brasil não acompanham outros países latino-americanos",
     subtitle = str_wrap(
       "Índices de preços imobiliários reais (ajustados pela inflação local) indexados aos valores médios de 2010. Comparação do Brasil com outros países selecionados.",
       111
