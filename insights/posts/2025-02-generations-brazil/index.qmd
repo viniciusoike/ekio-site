@@ -2,7 +2,7 @@
 title: "Generations in Brazil"
 date: "2024-05-05"
 categories: ['brazil', 'demographics', 'data-visualization', 'ggplot2', 'english']
-description: "Brazil has an enormous 'young' population that will both boost its labor force in the years to come. Failures in the education system and unequal access to opportunities, however, may dampen this potential economic gain. Recent statistics indicate that Brazil has one of the largest NEET populations in the world."
+description: "O Brasil tem uma enorme população jovem que deve impulsionar sua força de trabalho nos próximos anos. Falhas na educação e o acesso desigual a oportunidades, porém, podem amortecer esse ganho: o país tem uma das maiores populações NEET do mundo."
 draft: true
 image: "/static/images/art/hokusai-series-2026-09/insight-apartment-balconies.webp"
 image-alt: "Ilustração de varandas e terraços em edifícios residenciais"
@@ -24,6 +24,7 @@ library(ekioplot)
 library(gtExtras)
 import::from(sidrar, get_sidra)
 import::from(forcats, fct_reorder)
+source(here::here("insights/posts/_ekio-style.R"))
 ```
 
 ```{r}
@@ -126,7 +127,8 @@ p_col <- ggplot() +
   geom_col(
     data = gen_share,
     aes(age, share, fill = generation),
-    color = "white"
+    color = "white",
+    width = 0.8
   ) +
   geom_label(
     data = tbl_text,
@@ -217,7 +219,7 @@ ekblue <- unname(ekioplot::ekio_pal("blue", n = 36))
 ekred <- unname(ekioplot::ekio_pal("red", n = 36))
 
 p_unemp <- ggplot(tbl_unemp, aes(date, value, color = age_group)) +
-  geom_line() +
+  geom_line(linewidth = 0.8) +
   geom_point() +
   geom_label(
     data = filter(tbl_unemp, date == max(date)),
@@ -253,8 +255,6 @@ p_unemp <- ggplot(tbl_unemp, aes(date, value, color = age_group)) +
 Like many other countries, Brazil is aging rapidly. The combination of increasing life expectancy and declining fertility rates means that, in the long run, the proportion of elderly people in the population will rise, while the share of young people will decline. Despite this long-term trend, the current demographic outlook reveals the largest contingent of teens and young adults in Brazilian history. Nearly 100 million people, close to half of the population, belong to Gen Z and Gen Y (Millennials), ranging in age from 12 to 43.
 
 ```{r}
-#| out-width: "80%"
-#| fig-align: "center"
 p_col
 ```
 
@@ -265,15 +265,12 @@ The cut-offs for each generation cohort, in the plot above, followed directly [B
 This should be the last great young population for Brazil which means the country should try to make the best of it. As this population begins to age, dependency ratios will increase rapidly pressuring the already fragile public pension system. This is particularly true of cities in the [South and Southeast of Brazil](https://restateinsight.com/posts/general-posts/2023-11-wz-census-ages/).
 
 ```{r}
-#| fig-align: "center"
 gt_gen
 ```
 
 A worrying trend is the rising number of unemployed and uneducated among the Brazilian youth. Recent unemployment numbers from PNAD still show a big gap in unemployment rates, specially for the Gen Z's who are entering the labor market.
 
 ```{r}
-#| out-width: "80%"
-#| fig-align: "center"
 p_unemp
 ```
 
