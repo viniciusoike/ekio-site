@@ -80,8 +80,8 @@ rppi_comp <- rppi %>%
   )
 
 p_bis_geral <- ggplot(rppi_comp, aes(x = date, y = value)) +
-  geom_line(aes(color = name_country), linewidth = 1) +
-  geom_hline(yintercept = 100, color = ekio_rule_color, linewidth = 0.4) +
+  geom_line(aes(color = name_country), linewidth = 0.8) +
+  geom_hline(yintercept = 100, color = ekio_pal("gray")[5], linewidth = 0.4) +
   scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
   scale_color_ekio_d("full", name = "") +
   labs(
@@ -106,8 +106,8 @@ rppi_latam <- rppi %>%
 
 p_bis_latam <-
   ggplot(rppi_latam, aes(x = date, y = value, color = name_country)) +
-  geom_hline(yintercept = 100, color = ekio_rule_color, linewidth = 0.4) +
-  geom_line(linewidth = 1) +
+  geom_hline(yintercept = 100, color = ekio_pal("gray")[5], linewidth = 0.4) +
+  geom_line(linewidth = 0.8) +
   scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
   scale_color_ekio_d("full", name = "") +
   labs(
@@ -132,8 +132,8 @@ rppi_rich <- rppi %>%
 
 p_bis_rich <-
   ggplot(rppi_rich, aes(x = date, y = value, color = name_country)) +
-  geom_hline(yintercept = 100, color = ekio_rule_color, linewidth = 0.4) +
-  geom_line(linewidth = 1) +
+  geom_hline(yintercept = 100, color = ekio_pal("gray")[5], linewidth = 0.4) +
+  geom_line(linewidth = 0.8) +
   scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
   scale_color_ekio_d("full", name = "") +
   labs(
@@ -145,8 +145,7 @@ p_bis_rich <-
       111
     )
   ) +
-  theme_ekio_site() +
-  theme(axis.text.x = element_text(angle = 90))
+  theme_ekio_site()
 ```
 
 # Preços de Imóveis no Brasil
@@ -154,6 +153,8 @@ p_bis_rich <-
 Existe uma percepção generalizada na população de que os preços dos imóveis no Brasil são muito caros. Isto pode ser resultado tanto de uma ignorância sobre a dinâmica do mercado como do [excesso de notícias sobre recordes de preços que se vê na imprensa](https://g1.globo.com/economia/noticia/2024/01/16/preco-do-aluguel-residencial-sobe-16percent-em-2023-tres-vezes-mais-que-a-inflacao-mostra-fipezap.ghtml). Também não faltam casos de regiões ou mesmo de ruas que, após significativo processo de revitalização, [apresentaram aumentos de preços muito acima da inflação](https://extra.globo.com/economia-e-financas/imoveis-usados-no-rio-precos-explodiram-em-2009-mostra-pesquisa-do-secovi-89071.html). De maneira geral, contudo, os dados apontam que [os preços dos imóveis no Brasil andaram de lado](https://einvestidor.estadao.com.br/investimentos/investir-em-imoveis-vale-a-pena/): em termos reais, isto é, descontando a inflação, o nível atual do preço dos imóveis está praticamente idêntico ao que se observava em 2010.
 
 ### Preços do Brasil x Mundo
+
+Segundo os dados do Bank for International Settlements (BIS).
 
 ```{r}
 p_bis_geral
