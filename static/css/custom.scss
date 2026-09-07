@@ -6,100 +6,116 @@
 // instead of cards; paper background instead of white.
 // ═══════════════════════════════════════════════════════════════
 
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Lato:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Host+Grotesk:wght@400;500;600;700&family=Lato:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap');
 
-// ── Website surfaces (Hokusai-inspired) ──
-$alabaster:    #D4DED9;
-$soft-linen:   #EFE8DC;
+// ═══════════════════════════════════════════════════════════════
+// Color
+// Ordered by dependency: pigments read off the artwork, then the paper
+// ramp built from them, then the switch that picks a rung, then every
+// surface derived from that pick. insights/posts/_ekio-style.R mirrors
+// this palette so figures sit on the same paper — edit both together.
+// ═══════════════════════════════════════════════════════════════
+
+// ── 1. Pigments ──
+// Sampled from the Hokusai plates in static/images/art/reference.
+$alabaster: #D4DED9;
+$soft-linen: #EFE8DC;
 $soft-linen-2: #F2EDE2;
-$baltic-blue:  #225A7E;
+$baltic-blue: #225A7E;
 $air-force-blue: #517A90;
 
-$paper:        #FEFEFE;       // ekioplot basic.offwhite
-$paper-sunk:   $soft-linen-2; // recessed band
-$canvas:       $soft-linen;   // outside the frame
-$rule:         $alabaster;    // hairline
-$rule-strong:  #B4B0AB;       // ekioplot stone.300
+// ── 2. Paper ramp ──
+// The plates' paper lifted to screen lightness: hue held, chroma scaled
+// with the headroom left to white. $ink-400 needs 4.5:1 and the ramp
+// loses it below L*97, so the darker rungs are for bands, not the page.
+$linen-98: #FCFBF8; // L*98.5; ink-400 4.63
+$linen-97: #F9F8F3; // L*97.5; ink-400 4.50 — floor for body text
+$linen-97-warm: #FAF8F3; // L*97.5, Inume only; ink-400 4.51
+$linen-96: #F7F5EE; // L*96.5; ink-400 4.40 — bands only
+$linen-95: #F5F2E9; // L*95.5; ink-400 4.28 — bands only
+$linen-94: #F3EFE4; // L*94.5; ink-400 4.17 — bands only
+$linen-old-1: #FAF9F7; // pre-Hokusai page color; ink-400 4.55
+$linen-old-2: #F2EDE2; // Soft Linen 2; ink-400 4.10
 
-// ── Ink ──
-$ink:          #191A1C; // ekioplot gray.900
-$ink-700:      #28292C; // ekioplot gray.800
-$ink-600:      #373A3D; // ekioplot gray.700
-$ink-500:      #52555A; // ekioplot gray.600
-$ink-400:      #6E7378; // ekioplot gray.500; AA on $paper
-$ink-300:      #6E7378; // lightest accessible small-text neutral
+// Paper as measured, before lifting. Reference only.
+$paper-inume: #F3EEE2; // L*94.2
+$paper-suwa: #DDD5BA; // L*85.3
+
+// ── 3. The switch ──
+// These two lines set every surface on the site. Keep them in step with
+// ekio_surface in insights/posts/_ekio-style.R so figures match the page.
+$paper: $linen-97-warm; // page
+$paper-sunk: $linen-94; // recessed band
+
+// ── 4. Derived surfaces ──
+$canvas: $soft-linen; // outside the frame
+$rule: $alabaster; // hairline
+$rule-strong: #B4B0AB; // ekioplot stone.300
+
+// ── 5. Ink ──
+$ink: #191A1C; // ekioplot gray.900
+$ink-700: #28292C; // ekioplot gray.800
+$ink-600: #373A3D; // ekioplot gray.700
+$ink-500: #52555A; // ekioplot gray.600
+$ink-400: #6E7378; // ekioplot gray.500; AA on $paper
+$ink-300: #6E7378; // lightest accessible small-text neutral
 $ink-inverse-muted: #AEB1B5; // ekioplot gray.300 on dark surfaces
 
-// ── Accent ──
-$navy:         #1E3A5F;
-$navy-deep:    #152A44; // ekioplot blue.800
-$navy-tint:    #E8F6FF; // ekioplot blue.100
+// ── 6. Accent ──
+$navy: #1E3A5F;
+$navy-deep: #152A44; // ekioplot blue.800
+$navy-tint: #E8F6FF; // ekioplot blue.100
 
-// Legacy aliases — older markup and post pages still reference these.
-$ekio-blue-900: #0D1B2A;
-$ekio-blue-800: $navy-deep;
-$ekio-blue-700: $navy;
-$ekio-blue-600: #305687;
-$ekio-blue-500: #3E76AC;
-$ekio-blue-400: #5597CC;
-$ekio-blue-300: #84B8DD;
-$ekio-blue-200: #B1D8F2;
-$ekio-blue-100: $navy-tint;
-$ekio-blue-50:  $navy-tint;
-$ekio-gray-900: $ink;
-$ekio-gray-800: $ink-700;
-$ekio-gray-700: $ink-600;
-$ekio-gray-600: $ink-500;
-$ekio-gray-500: $ink-300;
-$ekio-gray-400: $ink-400;
-$ekio-gray-300: $rule-strong;
-$ekio-gray-200: $rule;
-$ekio-gray-100: $paper-sunk;
-$ekio-gray-50:  $paper;
-$ekio-orange:   #D3742A; // ekioplot orange.400
-$ekio-teal:     #006261; // ekioplot teal.600
-$ekio-amber:    #B88715; // ekioplot gold.mid
-$ekio-red:      #B44D47; // ekioplot red.500
-$ekio-green:    #448255; // ekioplot green.500
+// ── 7. Data colors ──
+// ekioplot owns these; they reach the page only through Bootstrap's
+// semantic slots below and through figures.
+$ekio-orange: #D3742A; // ekioplot orange.400
+$ekio-teal: #006261; // ekioplot teal.600
+$ekio-amber: #B88715; // ekioplot gold.mid
+$ekio-red: #B44D47; // ekioplot red.500
+$ekio-green: #448255; // ekioplot green.500
+
+$info-blue: #5597CC; // ekioplot blue.400; Bootstrap's $info
 
 // ── Font stacks ──
 $font-display: 'Lora', Georgia, 'Times New Roman', serif;
-$font-sans:    'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-$font-cond:    $font-sans;
-$font-mono:    'Fira Code', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
-$font-serif:   $font-display;  // legacy alias
+$font-sans: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+$font-host-grotesk: 'Host Grotesk', $font-sans;
+$font-cond: $font-host-grotesk;
+$font-mono: 'Fira Code', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+$font-serif: $font-display; // legacy alias
 
 // ── Bootstrap overrides ──
-$body-bg:    $paper;
+$body-bg: $paper;
 $body-color: $ink-600;
 $font-family-sans-serif: $font-sans;
-$font-family-monospace:  $font-mono;
-$headings-font-family:   $font-display;
-$headings-color:         $ink;
-$headings-font-weight:   400;
+$font-family-monospace: $font-mono;
+$headings-font-family: $font-display;
+$headings-color: $ink;
+$headings-font-weight: 400;
 
-$font-size-base:   1rem;
+$font-size-base: 1rem;
 $line-height-base: 1.7;
 
-$link-color:       $navy;
+$link-color: $navy;
 $link-hover-color: $ink;
-$link-decoration:  none;
+$link-decoration: none;
 
-$primary:   $navy;
+$primary: $navy;
 $secondary: $ink-400;
-$success:   $ekio-green;
-$info:      $ekio-blue-400;
-$warning:   $ekio-amber;
-$danger:    $ekio-red;
+$success: $ekio-green;
+$info: $info-blue;
+$warning: $ekio-amber;
+$danger: $ekio-red;
 
-$border-color:  $rule;
+$border-color: $rule;
 $border-radius: 0;
 
 $navbar-bg: $paper;
 $navbar-fg: $ink-700;
 
 $code-color: $navy;
-$code-bg:    $paper-sunk;
+$code-bg: $paper-sunk;
 
 /*-- scss:rules --*/
 
@@ -108,32 +124,22 @@ $code-bg:    $paper-sunk;
 // ═══════════════════════════════════════════════════════════════
 
 :root {
-  --ekio-paper:       #{$paper};
-  --ekio-paper-sunk:  #{$paper-sunk};
-  --ekio-rule:        #{$rule};
+  --ekio-paper: #{$paper};
+  --ekio-paper-sunk: #{$paper-sunk};
+  --ekio-rule: #{$rule};
   --ekio-rule-strong: #{$rule-strong};
-  --ekio-ink:         #{$ink};
-  --ekio-ink-700:     #{$ink-700};
-  --ekio-ink-600:     #{$ink-600};
-  --ekio-ink-500:     #{$ink-500};
-  --ekio-ink-400:     #{$ink-400};
-  --ekio-ink-300:     #{$ink-300};
-  --ekio-navy:        #{$navy};
-  --ekio-baltic-blue: #{$baltic-blue};
-  --ekio-air-force-blue: #{$air-force-blue};
-  --ekio-alabaster:   #{$alabaster};
-  --ekio-soft-linen:  #{$soft-linen};
-  --ekio-soft-linen-2: #{$soft-linen-2};
-  --font-display:     #{$font-display};
-  --font-sans:        #{$font-sans};
-  --font-cond:        #{$font-cond};
-  --font-mono:        #{$font-mono};
-  --font-serif:       #{$font-display};
-}
-
-// Hatched placeholder — stands in for artwork that does not exist yet.
-@mixin hatch {
-  background: repeating-linear-gradient(135deg, #F2F0EC 0 7px, #EAE7E1 7px 14px);
+  --ekio-ink: #{$ink};
+  --ekio-ink-700: #{$ink-700};
+  --ekio-ink-600: #{$ink-600};
+  --ekio-ink-500: #{$ink-500};
+  --ekio-ink-400: #{$ink-400};
+  --ekio-ink-300: #{$ink-300};
+  --ekio-navy: #{$navy};
+  --font-display: #{$font-display};
+  --font-sans: #{$font-sans};
+  --font-cond: #{$font-cond};
+  --font-mono: #{$font-mono};
+  --font-serif: #{$font-display};
 }
 
 // ═══════════════════════════════════════════════════════════════
@@ -146,7 +152,10 @@ body {
   font-weight: 400;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: $font-display;
   font-weight: 400;
   letter-spacing: 0;
@@ -156,7 +165,9 @@ h1, h2, h3, h4 {
   padding-bottom: 0;
 }
 
-p { text-wrap: pretty; }
+p {
+  text-wrap: pretty;
+}
 
 // ── Pandoc wrapping ──
 // A bracketed span on its own line becomes <p><span>…</span></p>. The span
@@ -166,14 +177,12 @@ p:has(> .hero-label:only-child),
 p:has(> .hero-note:only-child),
 p:has(> .service-num:only-child),
 p:has(> .service-detail-num:only-child),
-p:has(> .process-number:only-child),
 p:has(> .package-disciplines:only-child),
 p:has(> .about-role:only-child),
 p:has(> .credential-label:only-child),
 p:has(> .credential-value:only-child),
 p:has(> .contact-info-label:only-child),
 p:has(> .contact-info-value:only-child),
-p:has(> .form-intro-lead:only-child),
 p:has(> .package-meta:only-child) {
   margin: 0;
 }
@@ -195,25 +204,33 @@ p:has(> .package-meta:only-child) {
 
 // Where a wrapper is a flex/grid container, let its paragraph dissolve so the
 // inline children become the actual flex items.
-.hero-actions > p,
-.cta-actions > p,
-.methodology-tags > p,
-.label-ruled > p,
-.ins-meta-row > p {
+.hero-actions>p,
+.cta-actions>p,
+.methodology-tags>p,
+.label-ruled>p,
+.ins-meta-row>p {
   display: contents;
 }
 
-.section-head-row > p { margin: 0; }
+.section-head-row>p {
+  margin: 0;
+}
 
 // Marketing pages supply their own headers; suppress Quarto's title block.
 .page-layout-full {
-  main.content { padding-top: 0; }
+  main.content {
+    padding-top: 0;
+  }
 
-  #title-block-header { display: none; }
+  #title-block-header {
+    display: none;
+  }
 
-  > .band,
-  > .hero,
-  > .page-header { max-width: none; }
+  >.band,
+  >.hero,
+  >.page-header {
+    max-width: none;
+  }
 }
 
 // ── Measure ──
@@ -237,10 +254,10 @@ p:has(> .package-meta:only-child) {
   background: $paper !important;
   border-bottom: 1px solid $rule;
   padding: 0;
-  min-height: 78px;
+  min-height: 80px;
 
-  > .container-fluid,
-  > .container {
+  >.container-fluid,
+  >.container {
     max-width: 1440px;
     padding: 0 4rem;
   }
@@ -248,22 +265,13 @@ p:has(> .package-meta:only-child) {
   .navbar-brand {
     display: flex;
     align-items: center;
-    gap: 0.7rem;
-    padding: 1.5rem 0;
+    padding: 1rem 0;
 
-    img, svg {
-      height: 30px;
+    img,
+    svg {
+      height: 45px;
+      max-height: 45px;
       width: auto;
-    }
-
-    // Wordmark rendered next to the logo mark.
-    &::after {
-      content: 'EKIO';
-      font-family: $font-sans;
-      font-size: 1.19rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      color: $navy;
     }
   }
 
@@ -273,14 +281,14 @@ p:has(> .package-meta:only-child) {
   }
 
   .nav-link {
-    font-family: $font-sans;
-    font-size: 0.8125rem;
+    font-family: $font-cond;
+    font-size: 0.9rem;
     font-weight: 400;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+    --letter-spacing: 0.12em;
+    text-transform: none;
     color: $ink-700 !important;
     padding: 0 0 3px !important;
-    border-bottom: 1px solid transparent;
+    border-bottom: 1.5px solid transparent;
     transition: color 0.18s, border-color 0.18s;
 
     &:hover,
@@ -298,7 +306,37 @@ p:has(> .package-meta:only-child) {
   .navbar-toggler {
     border: none;
     padding: 0;
-    &:focus { box-shadow: none; }
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  // Below the collapse breakpoint Quarto centres the brand, which leaves the
+  // mark 11px from the toggler — inside the clear space the mark reserves.
+  // Mark at the gutter, controls clustered at the far side. The auto margin
+  // does the pushing, so the container must not also distribute the slack.
+  @media (max-width: 991px) {
+    .navbar-container {
+      justify-content: flex-start;
+    }
+
+    .navbar-brand-container {
+      order: -1;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+
+    // Quarto puts margin-left:auto on both the toggler and search, so the
+    // slack splits between them. Only the toggler should absorb it.
+    .navbar-toggler {
+      margin-left: auto !important;
+      margin-right: 0 !important;
+    }
+
+    #quarto-search {
+      margin-left: 1.25rem !important;
+    }
   }
 }
 
@@ -316,6 +354,10 @@ p:has(> .package-meta:only-child) {
   letter-spacing: 0.1em;
   color: $ink-inverse-muted;
 
+  // Quarto aligns the three footer columns on a baseline. The left column now
+  // leads with the wordmark, which has no baseline to share with the links.
+  align-items: center;
+
   .nav-footer-left,
   .nav-footer-center,
   .nav-footer-right {
@@ -327,6 +369,13 @@ p:has(> .package-meta:only-child) {
     justify-content: flex-end;
   }
 
+  // Quarto wraps the mark and the line beside it in one <p>; centring the
+  // boxes reads truer than aligning them on a baseline the mark does not have.
+  .nav-footer-left>p {
+    display: flex;
+    align-items: center;
+  }
+
   // Footer links come through as a <ul>; that is the real flex container.
   .footer-items {
     display: flex;
@@ -336,15 +385,22 @@ p:has(> .package-meta:only-child) {
     padding: 0;
   }
 
-  .nav-item { margin: 0; }
+  .nav-item {
+    margin: 0;
+  }
 
   // Quarto wraps each footer label in a <p>.
-  p { margin: 0; }
+  p {
+    margin: 0;
+  }
 
   a {
     color: $ink-inverse-muted;
     transition: color 0.18s;
-    &:hover { color: $paper; }
+
+    &:hover {
+      color: $paper;
+    }
   }
 
   .nav-link {
@@ -352,6 +408,16 @@ p:has(> .package-meta:only-child) {
     font-size: 0.75rem;
     letter-spacing: 0.1em;
   }
+}
+
+// The katakana banner on the near-black footer, white plate on black — the
+// mark's third approved pairing. The plate is vertical, so it needs more
+// height than the wordmark did to keep the glyphs legible.
+.footer-mark {
+  height: 52px;
+  width: auto;
+  margin-right: 1.25rem;
+  flex-shrink: 0;
 }
 
 .footer-brand {
@@ -386,8 +452,8 @@ p:has(> .package-meta:only-child) {
   font-family: $font-cond;
   font-weight: 500;
   font-size: 0.9375rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  --letter-spacing: 0.16em;
+  --text-transform: uppercase;
   color: $navy;
   border-bottom: 1px solid $navy;
   padding-bottom: 5px;
@@ -403,7 +469,7 @@ p:has(> .package-meta:only-child) {
 .link-rule-sm {
   @extend .link-rule;
   font-size: 0.8125rem;
-  letter-spacing: 0.14em;
+  --letter-spacing: 0.14em;
 }
 
 .link-rule-light {
@@ -424,7 +490,7 @@ p:has(> .package-meta:only-child) {
   font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: 0.14em;
-  text-transform: uppercase;
+  --text-transform: uppercase;
   padding: 0.9rem 1.9rem;
   border-radius: 0;
   border: 1px solid transparent;
@@ -485,20 +551,37 @@ p:has(> .package-meta:only-child) {
   border-bottom: 1px solid $rule;
 }
 
-.band-light  { background: $paper; }
-.band-muted  { background: $paper-sunk; }
+.band-light {
+  background: $paper;
+}
+
+.band-muted {
+  background: $paper-sunk;
+}
 
 .band-dark {
   background: $navy;
   color: rgba($paper, 0.86);
   border-bottom: none;
 
-  h1, h2, h3 { color: $paper; }
-  .section-label { color: rgba($paper, 0.6); }
+  h1,
+  h2,
+  h3 {
+    color: $paper;
+  }
+
+  .section-label {
+    color: rgba($paper, 0.6);
+  }
 }
 
-.band-flush { padding-top: 0; }
-.band-tight { padding: 4rem 0; }
+.band-flush {
+  padding-top: 0;
+}
+
+.band-tight {
+  padding: 4rem 0;
+}
 
 // ── Eyebrow ──
 .section-label {
@@ -507,12 +590,14 @@ p:has(> .package-meta:only-child) {
   font-size: 0.6875rem;
   font-weight: 400;
   letter-spacing: 0.22em;
-  text-transform: uppercase;
+  --text-transform: uppercase;
   color: $ink-300;
   margin-bottom: 2.25rem;
 }
 
-.section-label-light { color: rgba($paper, 0.6); }
+.section-label-light {
+  color: rgba($paper, 0.6);
+}
 
 // ── Rule-and-label pair (Sobre) ──
 .label-ruled {
@@ -526,7 +611,7 @@ p:has(> .package-meta:only-child) {
     font-weight: 600;
     font-size: 1rem;
     letter-spacing: 0.14em;
-    text-transform: uppercase;
+    --text-transform: uppercase;
     color: $navy;
   }
 
@@ -551,7 +636,9 @@ h3.section-heading {
 }
 
 h1.section-heading-light,
-h2.section-heading-light { color: $paper; }
+h2.section-heading-light {
+  color: $paper;
+}
 
 .section-desc {
   font-size: 1.0625rem;
@@ -570,7 +657,9 @@ h2.section-heading-light { color: $paper; }
   flex-wrap: wrap;
   margin-bottom: 3.5rem;
 
-  .section-heading { margin-bottom: 0; }
+  .section-heading {
+    margin-bottom: 0;
+  }
 }
 
 // ═══════════════════════════════════════════════════════════════
@@ -653,7 +742,7 @@ h1.page-header-title {
   font-size: 0.6875rem;
   font-weight: 400;
   letter-spacing: 0.22em;
-  text-transform: uppercase;
+  --text-transform: uppercase;
   color: $ink-300;
   margin-bottom: 2.75rem;
 }
@@ -723,9 +812,13 @@ h1.hero-title {
   padding: 1.75rem 0;
   border-top: 1px solid $rule-strong;
 
-  &:last-child { border-bottom: 1px solid $rule-strong; }
+  &:last-child {
+    border-bottom: 1px solid $rule-strong;
+  }
 
-  p { margin: 0; }
+  p {
+    margin: 0;
+  }
 }
 
 // Number and label share one paragraph; block display stacks them.
@@ -768,7 +861,9 @@ h1.hero-title {
   color: inherit;
   transition: background 0.2s;
 
-  &:hover { background: $paper-sunk; }
+  &:hover {
+    background: $paper-sunk;
+  }
 
   h3 {
     font-family: $font-display;
@@ -787,7 +882,7 @@ h1.hero-title {
   }
 
   // The trailing link paragraph is pushed to the foot of the cell.
-  > p:last-child {
+  >p:last-child {
     margin-top: auto;
     padding-top: 1.75rem;
   }
@@ -903,7 +998,9 @@ h2.cta-heading {
   border-bottom: 1px solid $rule;
   align-items: start;
 
-  &:last-child { border-bottom: none; }
+  &:last-child {
+    border-bottom: none;
+  }
 }
 
 .service-detail-num {
@@ -963,16 +1060,12 @@ h2.service-detail-title {
     line-height: 1.5;
     color: $ink-600;
 
-    &:last-child { border-bottom: none; }
+    &:last-child {
+      border-bottom: none;
+    }
   }
 }
 
-.offering-timeline {
-  font-family: $font-mono;
-  font-size: 0.75rem;
-  color: $ink-300;
-  white-space: nowrap;
-}
 
 // ═══════════════════════════════════════════════════════════════
 // Principles / packages
@@ -1056,52 +1149,6 @@ h3.package-title {
 }
 
 // ═══════════════════════════════════════════════════════════════
-// Process steps
-// ═══════════════════════════════════════════════════════════════
-
-.process-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2.5rem;
-  text-align: left;
-}
-
-.process-step {
-  border-top: 1px solid $rule-strong;
-  padding-top: 1.5rem;
-  text-align: left;
-}
-
-.process-number,
-.process-step-number {
-  font-family: $font-mono;
-  font-size: 0.6875rem;
-  letter-spacing: 0.1em;
-  color: $navy;
-  margin-bottom: 1.25rem;
-  width: auto;
-  height: auto;
-  border-radius: 0;
-  background: transparent;
-  display: block;
-}
-
-h3.process-title {
-  font-family: $font-display;
-  font-size: 1.5rem;
-  font-weight: 400;
-  color: $ink;
-  margin: 0 0 0.625rem;
-}
-
-.process-step p {
-  font-size: 0.9375rem;
-  line-height: 1.7;
-  color: $ink-500;
-  margin: 0;
-}
-
-// ═══════════════════════════════════════════════════════════════
 // Featured block (image + text, home)
 // ═══════════════════════════════════════════════════════════════
 
@@ -1147,7 +1194,9 @@ h3.process-title {
   filter: grayscale(1);
   transition: filter 0.4s;
 
-  &:hover { filter: grayscale(0); }
+  &:hover {
+    filter: grayscale(0);
+  }
 }
 
 h2.about-name {
@@ -1220,16 +1269,25 @@ h2.about-name {
 // ═══════════════════════════════════════════════════════════════
 
 @media (max-width: 1200px) {
-  .service-detail { grid-template-columns: 80px 1fr 300px; gap: 2.5rem; }
+  .service-detail {
+    grid-template-columns: 80px 1fr 300px;
+    gap: 2.5rem;
+  }
 }
 
 @media (max-width: 991px) {
+
   .container,
-  .container-narrow { padding: 0 2rem; }
+  .container-narrow {
+    padding: 0 2rem;
+  }
 
   .navbar {
-    > .container-fluid,
-    > .container { padding: 0 2rem; }
+
+    >.container-fluid,
+    >.container {
+      padding: 0 2rem;
+    }
 
     .navbar-nav {
       gap: 0.25rem;
@@ -1237,10 +1295,14 @@ h2.about-name {
       padding: 1rem 0 1.5rem;
     }
 
-    .nav-link { padding: 0.5rem 0 !important; }
+    .nav-link {
+      padding: 0.5rem 0 !important;
+    }
   }
 
-  .hero-inner { padding: 4.5rem 2rem 3.5rem; }
+  .hero-inner {
+    padding: 4.5rem 2rem 3.5rem;
+  }
 
   .hero-foot {
     flex-direction: column;
@@ -1256,16 +1318,22 @@ h2.about-name {
     padding: 2.5rem 2rem;
   }
 
-  .page-header .container { grid-template-columns: 1fr; }
+  .page-header .container {
+    grid-template-columns: 1fr;
+  }
 
-  .page-header-main { padding: 4rem 2rem 2rem; }
+  .page-header-main {
+    padding: 4rem 2rem 2rem;
+  }
 
   .page-header-aside {
     padding: 0 2rem 3.5rem;
     border-left: none;
   }
 
-  .band { padding: 4rem 0; }
+  .band {
+    padding: 4rem 0;
+  }
 
   .services-grid,
   .packages-grid,
@@ -1273,7 +1341,6 @@ h2.about-name {
     grid-template-columns: 1fr;
   }
 
-  .process-grid { grid-template-columns: repeat(2, 1fr); }
 
   .service-detail {
     grid-template-columns: 1fr;
@@ -1287,7 +1354,9 @@ h2.about-name {
     gap: 2.5rem;
   }
 
-  .about-photo { max-width: 320px; }
+  .about-photo {
+    max-width: 320px;
+  }
 
   .cta-row {
     grid-template-columns: 1fr;
@@ -1296,10 +1365,17 @@ h2.about-name {
 }
 
 @media (max-width: 640px) {
-  .section-label { margin-bottom: 1.5rem; }
-  .process-grid,
-  .credentials-grid { grid-template-columns: 1fr; }
-  .section-head-row { margin-bottom: 2.5rem; }
+  .section-label {
+    margin-bottom: 1.5rem;
+  }
+
+  .credentials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-head-row {
+    margin-bottom: 2.5rem;
+  }
 }
 
 // ═══════════════════════════════════════════════════════════════
@@ -1341,7 +1417,10 @@ h2.about-name {
   .nav-link {
     font-size: 0.8125rem;
     color: $ink-500;
-    &.active { color: $navy; }
+
+    &.active {
+      color: $navy;
+    }
   }
 }
 
@@ -1362,8 +1441,8 @@ h2.about-name {
   .cell-output-display {
     margin: 2.25rem 0;
 
-    > img,
-    > svg,
+    >img,
+    >svg,
     figure.figure img,
     figure.figure svg {
       display: block;
@@ -1415,7 +1494,9 @@ h2.about-name {
     --bs-table-striped-bg: transparent;
     --bs-table-accent-bg: transparent;
 
-    > :not(caption) > * > * { box-shadow: none; }
+    > :not(caption)>*>* {
+      box-shadow: none;
+    }
 
     .gt_col_heading,
     .gt_column_spanner {
@@ -1426,12 +1507,16 @@ h2.about-name {
     }
 
     // Numeric columns read as a column only when the figures line up.
-    .gt_right { font-variant-numeric: tabular-nums; }
+    .gt_right {
+      font-variant-numeric: tabular-nums;
+    }
 
     // A wrapped figure stops being a figure. Data cells hold one line and
     // the wrapper scrolls if the columns genuinely outrun the measure;
     // column labels still wrap, since they carry the long words.
-    tbody td { white-space: nowrap; }
+    tbody td {
+      white-space: nowrap;
+    }
 
     .gt_sourcenote,
     .gt_footnote {
@@ -1458,8 +1543,14 @@ h2.about-name {
 
 @media (max-width: 640px) {
   #quarto-document-content {
-    figure.figure { padding: 0.875rem 0; margin: 1.75rem 0; }
-    .gt_table { font-size: 0.75rem; }
+    figure.figure {
+      padding: 0.875rem 0;
+      margin: 1.75rem 0;
+    }
+
+    .gt_table {
+      font-size: 0.75rem;
+    }
   }
 }
 
@@ -1481,7 +1572,9 @@ h2.about-name {
 }
 
 // Shorter variant for page headers, where the art trails the title block.
-.art-strip-sm { height: clamp(150px, 15vw, 220px); }
+.art-strip-sm {
+  height: clamp(150px, 15vw, 220px);
+}
 
 // Variante servida por <img srcset>, para o navegador escolher a largura de
 // origem. A caixa continua sendo a mesma; quem recorta agora é object-fit.
@@ -1517,23 +1610,29 @@ h2.about-name {
     // Opaque under the heading, thinner over the artwork. These compositions
     // carry no lettering of their own, so the wash only has to protect the
     // copy — it does not have to bury a second typeface.
-    background: linear-gradient(
-      100deg,
-      rgba($navy, 1) 0%,
-      rgba($navy, 1) 40%,
-      rgba($navy, 0.86) 62%,
-      rgba($navy, 0.66) 100%
-    );
+    background: linear-gradient(100deg,
+        rgba($navy, 1) 0%,
+        rgba($navy, 1) 40%,
+        rgba($navy, 0.86) 62%,
+        rgba($navy, 0.66) 100%);
   }
 }
 
 @media (max-width: 991px) {
-  .art-strip    { height: 190px; }
-  .art-strip-sm { height: 140px; }
+  .art-strip {
+    height: 190px;
+  }
+
+  .art-strip-sm {
+    height: 140px;
+  }
 
   // Narrow viewports crop the art too hard to read; drop back to flat navy.
   .band-cta.band-cta-art {
     background-image: none !important;
-    &::before { background: $navy; }
+
+    &::before {
+      background: $navy;
+    }
   }
 }

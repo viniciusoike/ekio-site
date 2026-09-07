@@ -1,5 +1,6 @@
 # Quarto build output
 /_site/
+/_site-art-review/
 /.quarto/
 
 # Quarto keeps computed results in /_freeze, which IS tracked so the site
@@ -20,3 +21,12 @@
 
 # Quarto notebook intermediates
 **/*.quarto_ipynb
+
+# Quarto knit intermediates
+**/*.knit.md
+
+# Local Netlify folder
+.netlify
+
+# Quarto render output ao lado do .qmd (as figuras ficam em /_freeze)
+**/index_files/

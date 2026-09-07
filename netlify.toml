@@ -1,0 +1,35 @@
+# Netlify build for the Quarto site.
+#
+# Netlify's images ship without Quarto, so the build downloads a pinned
+# release into $HOME and renders from there. Keep QUARTO_VERSION in step with
+# the local install used to write /_freeze.
+#
+# R is never installed here. Every post that runs code has its results in
+# /_freeze, and `freeze: auto` reuses them as long as the frozen output matches
+# the committed source. Render locally and commit /_freeze before pushing, or
+# the build fails looking for R.
+
+[build]
+  publish = "_site"
+  command = """
+    set -e
+    curl -sSL -o /tmp/quarto.tar.gz \
+      "https://github.com/quarto-dev/quarto-cli/releases/download/v${QUARTO_VERSION}/quarto-${QUARTO_VERSION}-linux-amd64.tar.gz"
+    mkdir -p "$HOME/opt/quarto"
+    tar -xzf /tmp/quarto.tar.gz -C "$HOME/opt/quarto" --strip-components=1
+    export PATH="$HOME/opt/quarto/bin:$PATH"
+    quarto --version
+    quarto render
+  """
+
+[build.environment]
+  QUARTO_VERSION = "1.9.37"
+
+# The contact form on /contato.html is a Netlify form. Detection happens when
+# the deploy is post-processed, so this only needs the built HTML to keep its
+# `data-netlify` attribute.
+#
+# The address that receives submissions lives in the Netlify UI, not here:
+# Project configuration > Notifications > Emails and webhooks >
+# Form submission notifications.
+# Current recipient: viniciusor@ekio.io

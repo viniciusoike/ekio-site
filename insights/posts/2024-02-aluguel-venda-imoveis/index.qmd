@@ -3,8 +3,10 @@ title: "Preços de Aluguel e de Venda de Imóveis"
 author: "Vinicius Oike Reginatto"
 date: "2024-02-21"
 categories: ["Imóveis", "Visualização de Dados", "Brasil"]
-description: "Os mercados de aluguel e de venda de imóveis são interligados e deve existir algum tipo de equilíbrio entre eles. Neste post exploro macrotendências destes mercados usando a série do FipeZap. Os resultados indicam a possibilidade um novo ciclo de aluguel, uma quebra na tendência histórica entre os mercados."
-image: "/static/images/art/thumb-aluguel-venda.webp"
+description: "Os mercados de aluguel e de venda de imóveis são interligados e tendem a um equilíbrio. As séries do FipeZap indicam uma quebra nessa tendência histórica e o começo de um novo ciclo de aluguel."
+draft: true
+image: "/static/images/art/hokusai-series-2026-09/card-positive-correlation.webp"
+image-alt: "Ilustração de dispersão com correlação positiva e uma reta ajustada"
 execute:
   message: false
   warning: false
@@ -271,7 +273,7 @@ Por fim, a literatura empírica do tema não é unânime sobre a relação entre
 
 ## Os dados
 
-As fontes de dados para verificar a dinâmica destes mercados é limitada no Brasil. O FipeZap oferece a série de aluguel e de venda mais extensa. Este índice coleta todos os anúncios online de imóveis publicados no sistema ZapImóveis e constroi um índice de mediana. Os dados são estratificados por número de dormitórios e territorialmente, usando regiões que se baseam nas áreas de ponderação do IBGE.
+As fontes de dados para verificar a dinâmica destes mercados são limitadas no Brasil. O FipeZap oferece a série de aluguel e de venda mais extensa. Este índice coleta todos os anúncios online de imóveis publicados no sistema ZapImóveis e constrói um índice de mediana. Os dados são estratificados por número de dormitórios e territorialmente, usando regiões que se baseiam nas áreas de ponderação do IBGE.
 
 O gráfico abaixo mostra as séries de aluguel e de venda (residenciais) a nível nacional, agregadas por tipologia. Como se vê, o comportamento das séries é muito similar no périodo 2008-2015. Durante a Crise Econômica, o mercado de aluguel parece sofrer mais do que o mercado de venda. Durante e após a pandemia do Covid-19 ambos os mercados se recuperam com força, mas o mercado de aluguel parece crescer mais.
 

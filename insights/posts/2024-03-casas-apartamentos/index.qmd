@@ -2,8 +2,10 @@
 title: "Casas e Apartamentos"
 author: "Vinicius Oike Reginatto"
 date: "2024-03-19"
-description: "Neste post exploro os dados recentes do Censo sobre tipos de domicílios nas cidades brasileiras."
-image: "/static/images/art/thumb-casas-apto.webp"
+description: "O Censo mostra como casas e apartamentos se distribuem entre as cidades brasileiras."
+draft: true
+image: "/static/images/art/hokusai-series-2026-09/insight-houses-and-apartments.webp"
+image-alt: "Ilustração que contrasta casas baixas com edifícios de apartamentos"
 categories: ["Imóveis", "Censo", "Brasil"]
 format:
   html:
@@ -88,7 +90,7 @@ A vasta maioria dos domicílios residenciais no Brasil são casas[^1]. De fato, 
 
 [^1]: Vale notar que os dados refletem o número total de domicílios e não o número total de pessoas morando em domicílios (por tipo de domicílio).
 
-A tabela abaixo resume os dados para as vinte cidade mais "verticalizadas" do Brasil.
+A tabela abaixo resume os dados para as vinte cidades mais "verticalizadas" do Brasil.
 
 ```{r}
 tab_geral |>
