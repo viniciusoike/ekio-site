@@ -1,17 +1,11 @@
 ---
 title: "Preços de Aluguel e de Venda de Imóveis"
-author: "Vinicius Oike Reginatto"
 date: "2024-02-21"
 categories: ["Imóveis", "Visualização de Dados", "Brasil"]
 description: "Os mercados de aluguel e de venda de imóveis são interligados e tendem a um equilíbrio. As séries do FipeZap indicam uma quebra nessa tendência histórica e o começo de um novo ciclo de aluguel."
 draft: true
 image: "/static/images/art/hokusai-series-2026-09/card-positive-correlation.webp"
 image-alt: "Ilustração de dispersão com correlação positiva e uma reta ajustada"
-execute:
-  message: false
-  warning: false
-  echo: false
-freeze: true
 ---
 
 ```{r setup}

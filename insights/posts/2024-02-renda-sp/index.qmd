@@ -1,6 +1,5 @@
 ---
 title: "Distribuição de Renda em São Paulo"
-author: "Vinicius Oike Reginatto"
 date: "2024-02-07"
 categories: ["São Paulo", "Mapas", "Análise Espacial"]
 description: "A renda em São Paulo se concentra no quadrante sudoeste da cidade. O mapa usa dados do projeto Acesso a Oportunidades (IPEA) na grade hexagonal H3."
@@ -11,11 +10,6 @@ featured: "true"
 format:
   html:
     code-tools: true
-execute:
-  echo: false
-  warning: false
-  message: false
-freeze: true
 ---
 
 ```{r}

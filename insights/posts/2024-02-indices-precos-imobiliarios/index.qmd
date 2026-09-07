@@ -1,16 +1,10 @@
 ---
 title: "Índices de Preços Imobiliários no Brasil"
-author: "Vinicius Oike Reginatto"
 date: "2024-02-25"
 categories: ["Imóveis", "Economia", "Brasil"]
 description: "Os três principais índices de preços imobiliários do Brasil divergem desde a pandemia: alta expressiva no IGMI-R, alta tímida no FipeZap e estagnação no IVG-R. O que cada um mede explica a diferença."
 image: "/static/images/art/hokusai-series-2026-09/insight-office-towers.webp"
 image-alt: "Ilustração de torres de escritórios com fachadas em grade"
-execute:
-  message: false
-  warning: false
-  echo: false
-freeze: true
 ---
 
 ```{r setup}
@@ -221,7 +215,9 @@ p_rppi_incc <-
   scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
   scale_color_ekio_d("full", name = "") +
   labs(
-    title = "Inflação de Custos supera valorização imobiliária nos últimos dez anos",
+    # Measures 8.2 in at 18pt Lora, wider than the 7.85 in an 8 in canvas
+    # leaves. Wrapped rather than cut.
+    title = "Inflação de Custos supera valorização\nimobiliária nos últimos dez anos",
     subtitle = str_wrap(
       "Comparação de índices de preços imobiliários e do INCC (Índice Nacional de Custos da Construção Civil). Todos os índices normalizados para jan/2014.",
       111

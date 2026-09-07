@@ -8,10 +8,15 @@ library(ekioplot)
 library(ekiotable)
 
 # Figure output ----
-# knitr renders at dpi * fig.retina and Quarto sets fig-retina: 2, so a 7 in
-# figure lands at 1344 px — about 2x the 684 px box it displays in. ragg
+# knitr renders at dpi * fig.retina and Quarto sets fig-retina: 2, so an 8 in
+# figure lands at 1536 px — about 2x the 684 px box it displays in. ragg
 # rather than the default device: it matches fonts by family name and shapes
 # text the same way on macOS and on the build box.
+#
+# 8 in, not 7. The titles and str_wrap() subtitles across these posts were
+# written against an 8 in canvas: at 18pt Lora the longest titles measure
+# 7.0-8.2 in, and str_wrap(111) at 12pt Lato runs to 7.8 in. A 7 in figure
+# leaves 6.85 in of usable width and clips both.
 #
 # A standard chart carries no chunk options and inherits everything here.
 # Panels override fig-width/fig-height and set out-width: "100%". Maps do the
@@ -21,8 +26,8 @@ knitr::opts_chunk$set(
   dev = "ragg_png",
   dpi = 96,
   fig.retina = 2,
-  fig.width = 7,
-  fig.height = 4.5,
+  fig.width = 8,
+  fig.height = 5,
   fig.align = "center",
   out.width = "90%"
 )
