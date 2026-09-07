@@ -1,0 +1,571 @@
+---
+title: "O impacto dos juros na demanda imobiliária"
+author: "Vinicius Oike Reginatto"
+date: "2023-08-17"
+categories: ["Imóveis", "Economia", "Brasil"]
+description: "Entre maio de 2021 e abril de 2023, a taxa média do financiamento habitacional subiu de 6,6% para 10,2% ao ano. O mesmo imóvel passou a exigir 34% mais renda para ser financiado — antes de contar a alta dos preços."
+image: "/static/images/art/hokusai-series-2026-09/insight-courtyard-housing.webp"
+image-alt: "Ilustração de edifícios residenciais em torno de um pátio interno"
+draft: true
+---
+
+```{r libs}
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(gt)
+library(realestatebr)
+library(GetBCBData)
+source(here::here("insights/posts/_ekio-style.R"))
+```
+
+```{r cutoffs}
+# Post published 2023-08-17. The BCB credit statistics and the IGMI-R carry
+# roughly a three-month publication lag, so April 2023 is the last month that
+# had been released. The SELIC target has no lag: the COPOM decision of
+# 2023-08-02 was public the same day.
+data_cutoff <- as.Date("2023-05-01")
+selic_cutoff <- as.Date("2023-08-18")
+```
+
+```{r financing-functions}
+# SAC (constant amortization): the debt is repaid in equal principal
+# installments and interest accrues on the outstanding balance, so the
+# payment falls every month. The first payment is the largest and is the one
+# banks test income against.
+sac_schedule <- function(price, ltv = 0.7, rate, n = 360) {
+  # BCB publishes contract rates as effective % per year, so the monthly rate
+  # is the geometric conversion, not the annual rate divided by 12.
+  monthly_rate <- (1 + rate / 100)^(1 / 12) - 1
+  debt <- price * ltv
+  amort <- debt / n
+  balance <- debt - amort * (seq_len(n) - 1)
+
+  tibble(
+    periodo = seq_len(n),
+    amort = amort,
+    juros = monthly_rate * balance,
+    parcela = amort + monthly_rate * balance,
+    divida = balance
+  )
+}
+
+# Minimum qualifying income: the first payment divided by the share of income
+# a lender allows it to take.
+required_income <- function(price, ltv = 0.7, rate, n = 360, share = 0.3) {
+  monthly_rate <- (1 + rate / 100)^(1 / 12) - 1
+  debt <- price * ltv
+  (debt / n + monthly_rate * debt) / share
+}
+```
+
+```{r import-data}
+bcb_series <- get_dataset("bcb_series", quiet = TRUE)
+bcb_re <- get_dataset("bcb_realestate", quiet = TRUE)
+
+# The cached bcb_series table carries only the aggregate mortgage rate. The
+# market/regulated split comes straight from the SGS.
+rate_split <- gbcbd_get_series(
+  c(mercado = 20772, regulado = 20773),
+  first.date = as.Date("2011-01-01"),
+  last.date = data_cutoff - 1,
+  use.memoise = FALSE
+)
+
+selic <- bcb_series |>
+  filter(
+    name_simplified == "selic",
+    date >= as.Date("2016-01-01"),
+    date <= selic_cutoff
+  )
+
+# The market/regulated comparison starts in 2011, so the SELIC line drawn
+# beside it has to reach back that far too.
+selic_long <- bcb_series |>
+  filter(
+    name_simplified == "selic",
+    date >= as.Date("2011-01-01"),
+    date < data_cutoff
+  )
+
+# taxa_fimob_pf_total: average contracted rate on housing credit to
+# individuals, weighted across the five credit lines by volume.
+mortgage_rate <- bcb_series |>
+  filter(name_simplified == "taxa_fimob_pf_total", date < data_cutoff) |>
+  select(date, rate = value)
+
+igmi <- get_dataset("rppi", table = "igmi", quiet = TRUE) |>
+  filter(
+    name_muni == "Brasil",
+    date >= as.Date("2018-01-01"),
+    date < data_cutoff
+  ) |>
+  mutate(est_price = 450000 * index / first(index))
+```
+
+```{r reference-figures}
+# Contract terms actually observed in April 2023, used to justify the
+# simulation's parameters instead of assuming them.
+ltv_observed <- bcb_re |>
+  filter(
+    date == as.Date("2023-04-30"),
+    category == "credito",
+    type == "contratacao",
+    v1 == "ltv",
+    v2 == "pf",
+    abbrev_state == "BR"
+  ) |>
+  select(linha = v3, ltv = value)
+
+prazo_medio <- bcb_series |>
+  filter(name_simplified == "prazo_fimob_pf_total", date < data_cutoff) |>
+  slice_max(date, n = 1) |>
+  pull(value)
+
+taxas_linha <- bcb_re |>
+  filter(
+    category == "credito",
+    type == "contratacao",
+    v1 == "taxa",
+    v2 == "pf",
+    abbrev_state == "BR",
+    date < data_cutoff
+  ) |>
+  select(date, linha = v3, value) |>
+  mutate(trend = RcppRoll::roll_mean(value, n = 3, fill = NA), .by = linha)
+
+# Share of new volume contracted with individuals by credit line.
+share_linha <- bcb_re |>
+  filter(
+    date == as.Date("2023-04-30"),
+    category == "credito",
+    type == "contratacao",
+    v1 == "contratado",
+    v2 == "pf",
+    abbrev_state == "BR"
+  ) |>
+  summarise(total = sum(value), .by = v3) |>
+  mutate(share = total / sum(total) * 100)
+```
+
+```{r simulation}
+price_ref <- 450000
+ltv_ref <- 0.7
+n_ref <- 360
+share_ref <- 0.3
+
+flux <- sac_schedule(price_ref, ltv = ltv_ref, rate = 10, n = n_ref)
+
+# Rate sensitivity at a fixed price: the article's central exercise.
+sens <- tibble(rate = seq(6, 14, 0.25)) |>
+  mutate(renda = required_income(price_ref, ltv_ref, rate, n_ref, share_ref))
+
+sens_table <- tibble(rate = seq(7, 12, 1)) |>
+  mutate(
+    renda = required_income(price_ref, ltv_ref, rate, n_ref, share_ref),
+    parcela = renda * share_ref
+  )
+
+# Required income month by month, holding the property nominally fixed at
+# R$450k, then letting its price follow the IGMI-R.
+afford <- igmi |>
+  select(date, est_price) |>
+  inner_join(mortgage_rate, by = "date") |>
+  mutate(
+    rmn = required_income(price_ref, ltv_ref, rate, n_ref, share_ref),
+    rmn_adj = required_income(est_price, ltv_ref, rate, n_ref, share_ref)
+  )
+
+rate_min <- mortgage_rate |> slice_min(rate, n = 1)
+rate_last <- mortgage_rate |> slice_max(date, n = 1)
+afford_last <- afford |> slice_max(date, n = 1)
+```
+
+```{r key-figures}
+# Scalars quoted in the prose, so the text cannot drift from the figures.
+brl <- function(x, digits = 0) {
+  formatC(round(x, digits), format = "f", digits = digits,
+          big.mark = ".", decimal.mark = ",")
+}
+pct <- function(x, digits = 2) {
+  formatC(x, format = "f", digits = digits, decimal.mark = ",")
+}
+
+renda_piso <- required_income(price_ref, ltv_ref, rate_min$rate)
+renda_topo <- required_income(price_ref, ltv_ref, rate_last$rate)
+renda_alta <- (renda_topo / renda_piso - 1) * 100
+
+ltv_sfh <- filter(ltv_observed, linha == "sfh")$ltv
+ltv_fgts <- filter(ltv_observed, linha == "fgts")$ltv
+share_regulada <- sum(filter(share_linha, v3 %in% c("fgts", "sfh"))$share)
+
+taxa_mensal_10 <- (1.1^(1 / 12) - 1) * 100
+parcela_10 <- flux$parcela[1]
+renda_10 <- parcela_10 / share_ref
+
+igmi_valorizacao <- (last(igmi$index) / first(igmi$index) - 1) * 100
+renda_jan18 <- first(afford$rmn)
+
+share_tr <- bcb_re |>
+  filter(
+    date == as.Date("2023-04-30"),
+    category == "credito",
+    type == "estoque",
+    v1 == "indexador",
+    v2 == "pf",
+    abbrev_state == "BR"
+  ) |>
+  summarise(total = sum(value), .by = v3) |>
+  mutate(share = total / sum(total) * 100) |>
+  filter(v3 == "tr") |>
+  pull(share)
+
+# Peak of the same series in the previous tightening cycle, for the
+# comparison the article makes against 2016.
+pico_2016 <- mortgage_rate |>
+  filter(date < as.Date("2018-01-01")) |>
+  slice_max(rate, n = 1)
+
+# Attribution over the IGMI window. Required income is price times a function
+# of the rate, so holding the price at its January 2018 level isolates the
+# rate; the rest of the increase is price, including the interaction.
+delta_total <- afford_last$rmn_adj - renda_jan18
+delta_juros <- afford_last$rmn - renda_jan18
+delta_preco <- delta_total - delta_juros
+
+# Spread between credit lines, quoted when the five-line chart is discussed.
+linha_range <- taxas_linha |>
+  summarise(min = min(value), max = max(value), .by = linha)
+fgts_range <- filter(linha_range, linha == "fgts")
+he_fgts_ratio <- taxas_linha |>
+  select(date, linha, value) |>
+  tidyr::pivot_wider(names_from = linha, values_from = value) |>
+  summarise(r = median(`home-equity` / fgts, na.rm = TRUE)) |>
+  pull(r)
+share_fgts <- filter(share_linha, v3 == "fgts")$share
+```
+
+```{r charts}
+p_selic <- ggplot(selic, aes(x = date, y = value)) +
+  geom_step(linewidth = 0.8, color = ekio_pal("full")[[1]]) +
+  scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(breaks = seq(0, 14, 2)) +
+  labs(
+    title = "Três anos de aperto monetário, revertidos em agosto",
+    subtitle = "Meta da taxa SELIC definida pelo COPOM, ao ano.",
+    x = NULL,
+    y = "% a.a.",
+    caption = "Fonte: Banco Central do Brasil (SGS 432)."
+  ) +
+  theme_ekio_site()
+
+p_flux <- flux |>
+  select(-divida) |>
+  pivot_longer(-periodo) |>
+  mutate(
+    name = factor(name, levels = c("parcela", "juros", "amort"))
+  ) |>
+  ggplot(aes(x = periodo, y = value, color = name)) +
+  geom_line(linewidth = 0.8) +
+  scale_x_continuous(breaks = c(0, 60, 120, 180, 240, 300, 360)) +
+  scale_y_continuous(
+    labels = scales::label_currency(prefix = "R$ ", big.mark = ".")
+  ) +
+  scale_color_ekio_d(
+    "full",
+    name = NULL,
+    labels = c("Parcela", "Juros", "Amortização")
+  ) +
+  labs(
+    title = "No SAC, a parcela começa alta e cai",
+    subtitle = "Imóvel de R$450 mil, LTV de 70%, 360 meses, juros de 10% a.a.",
+    x = "Mês do contrato",
+    y = NULL
+  ) +
+  theme_ekio_site()
+
+p_sens <- ggplot(sens, aes(x = rate, y = renda)) +
+  geom_line(linewidth = 0.8, color = ekio_pal("full")[[1]]) +
+  scale_x_continuous(breaks = seq(6, 14, 1), labels = ~ paste0(.x, "%")) +
+  scale_y_continuous(
+    labels = scales::label_currency(prefix = "R$ ", big.mark = ".")
+  ) +
+  labs(
+    title = "Cada ponto de juros custa cerca de R$800 de renda",
+    subtitle = "Renda mínima para financiar um imóvel de R$450 mil, por taxa contratada.",
+    x = "Taxa de juros (% a.a.)",
+    y = NULL,
+    caption = "LTV de 70%, prazo de 360 meses, comprometimento de 30% da renda."
+  ) +
+  theme_ekio_site()
+
+p_linhas <- ggplot(taxas_linha, aes(x = date, y = trend, color = linha)) +
+  geom_line(linewidth = 0.8) +
+  scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
+  scale_color_ekio_d(
+    "full",
+    name = NULL,
+    labels = c("Comercial", "FGTS", "Home equity", "Livre", "SFH")
+  ) +
+  labs(
+    title = "Cinco linhas, cinco preços para o mesmo crédito",
+    subtitle = "Taxa média contratada por pessoas físicas, média móvel de três meses.",
+    x = NULL,
+    y = "% a.a.",
+    caption = "Fonte: Banco Central do Brasil, estatísticas do mercado imobiliário."
+  ) +
+  theme_ekio_site()
+
+split <- rate_split |>
+  select(date = ref.date, series = series.name, value) |>
+  bind_rows(
+    selic_long |>
+      mutate(series = "selic") |>
+      select(date, series, value)
+  )
+
+p_split <- ggplot() +
+  geom_step(
+    data = filter(split, series == "selic"),
+    aes(x = date, y = value, color = series),
+    linewidth = 0.8
+  ) +
+  geom_line(
+    data = filter(split, series != "selic"),
+    aes(x = date, y = value, color = series),
+    linewidth = 0.8
+  ) +
+  scale_x_date(date_breaks = "2 years", date_labels = "%Y") +
+  scale_color_ekio_d(
+    "full",
+    name = NULL,
+    breaks = c("selic", "mercado", "regulado"),
+    labels = c("SELIC", "Taxas de mercado", "Taxas reguladas")
+  ) +
+  labs(
+    title = "A SELIC baliza, mas não determina",
+    subtitle = "Taxa média do financiamento habitacional a pessoas físicas e meta SELIC.",
+    x = NULL,
+    y = "% a.a.",
+    caption = "Fonte: Banco Central do Brasil (SGS 432, 20772, 20773)."
+  ) +
+  theme_ekio_site()
+
+p_rmn <- ggplot(afford, aes(x = date, y = rmn)) +
+  geom_line(linewidth = 0.8, color = ekio_pal("full")[[1]]) +
+  scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(
+    labels = scales::label_currency(prefix = "R$ ", big.mark = ".")
+  ) +
+  labs(
+    title = paste0(
+      "O mesmo imóvel, R$",
+      pct((renda_topo - renda_piso) / 1000, 1),
+      " mil de renda a mais"
+    ),
+    subtitle = "Renda mínima para financiar um imóvel de R$450 mil, sem ajuste de preço.",
+    x = NULL,
+    y = NULL,
+    caption = "Fonte: Banco Central do Brasil. LTV de 70%, 360 meses, 30% da renda."
+  ) +
+  theme_ekio_site()
+
+p_rmn_adj <- afford |>
+  select(date, rmn, rmn_adj) |>
+  pivot_longer(-date, names_to = "series") |>
+  ggplot(aes(x = date, y = value, color = series)) +
+  geom_line(linewidth = 0.8) +
+  scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(
+    labels = scales::label_currency(prefix = "R$ ", big.mark = ".")
+  ) +
+  scale_color_ekio_d(
+    "full",
+    name = NULL,
+    labels = c("Só juros", "Juros e preço")
+  ) +
+  labs(
+    title = "Depois de 2020, o preço pesa mais do que a taxa",
+    subtitle = "Renda mínima para financiar um imóvel que valia R$450 mil em janeiro de 2018.",
+    x = NULL,
+    y = NULL,
+    caption = "Fonte: Banco Central do Brasil e IGMI-R (Abrainc/FGV)."
+  ) +
+  theme_ekio_site()
+```
+
+Entre maio de 2021 e abril de 2023, a taxa média do financiamento habitacional passou de `r pct(rate_min$rate)`% para `r pct(rate_last$rate)`% ao ano. Nada mudou no imóvel, no prazo ou nas regras do banco. Ainda assim, a renda exigida para financiar um apartamento de R\$450 mil subiu de R\$`r brl(renda_piso)` para R\$`r brl(renda_topo)` — um aumento de `r round(renda_alta)`%.
+
+Essa é a parte do encarecimento da moradia que não aparece no preço anunciado. Este post reconstrói a conta do financiamento habitacional, mede quanto de renda cada ponto percentual de juros custa e separa o efeito dos juros do efeito da valorização dos imóveis.
+
+## A conta do financiamento
+
+O financiamento imobiliário é um empréstimo que a família contrai com um banco e repaga em parcelas mensais, com juros sobre o saldo devedor. Do preço $P$ do imóvel subtrai-se a entrada $E$, e o restante forma a dívida $D = P - E$. A razão entre dívida e preço é o *loan-to-value* (LTV): um LTV alto significa entrada baixa e dívida grande.
+
+A modalidade dominante no Brasil é o Sistema de Amortização Constante (SAC). O nome descreve a mecânica: a cada mês a família devolve a mesma fatia do principal, $A = D/N$, e paga juros sobre o que ainda deve. Como o saldo devedor cai todo mês, os juros caem junto e a parcela encolhe ao longo do contrato. **A primeira parcela é a maior**, e é contra ela que o banco compara a renda do candidato.
+
+Os parâmetros da simulação abaixo vêm do que os contratos brasileiros de fato registravam em abril de 2023. O LTV médio ficava em `r round(ltv_sfh)`% no SFH e `r round(ltv_fgts)`% na linha FGTS, então uso 70%. O prazo médio contratado era de `r round(prazo_medio)` meses, então uso 360. Para o comprometimento de renda, uso a regra de bolso mais comum do mercado: a primeira parcela não pode passar de 30% da renda bruta familiar.
+
+Num imóvel de R\$450 mil com LTV de 70%, a entrada é de R\$135 mil e a dívida, de R\$315 mil. A amortização mensal é fixa em R\$875. A uma taxa de 10% ao ano — equivalente a `r pct(taxa_mensal_10, 4)`% ao mês[^conversao] — a primeira parcela fica em R\$`r brl(parcela_10, 2)` e a renda exigida, em R\$`r brl(renda_10)`.
+
+[^conversao]: O Banco Central publica as taxas contratadas como taxas efetivas ao ano. A conversão para o mês é geométrica, $(1+i)^{1/12}-1$, e não a divisão por doze. A diferença importa: a divisão simples daria 0,8333% ao mês e superestimaria a parcela.
+
+```{r tabela-fluxo}
+new_names <- c("Mês", "Amortização", "Juros", "Parcela", "Saldo devedor")
+names(new_names) <- names(flux)
+
+flux |>
+  head(12) |>
+  gt() |>
+  cols_label(.list = new_names) |>
+  fmt_currency(
+    c(juros, parcela),
+    currency = "BRL",
+    decimals = 2,
+    sep_mark = ".",
+    dec_mark = ","
+  ) |>
+  fmt_currency(
+    c(amort, divida),
+    currency = "BRL",
+    decimals = 0,
+    sep_mark = ".",
+    dec_mark = ","
+  ) |>
+  tab_header(title = "Primeiro ano de um financiamento SAC") |>
+  tab_source_note(
+    "Imóvel de R$450 mil, LTV de 70%, 360 meses, juros de 10% ao ano."
+  ) |>
+  gt_theme_hokusai(
+    stripe = TRUE,
+    font_size = 11,
+    font_body = "host_grotesk",
+    font_numeric = "host_grotesk"
+  )
+```
+
+Ao longo dos 360 meses, a amortização não se move e os juros derretem. A parcela sai de R\$3.387 e termina em pouco mais de R\$880.
+
+```{r grafico-fluxo}
+p_flux
+```
+
+## Quanto custa um ponto de juros
+
+Repetindo a mesma simulação para taxas diferentes, aparece a relação que interessa: quanto de renda cada ponto percentual de juros exige. A resposta é aproximadamente linear na faixa relevante, em torno de R\$800 de renda por ponto.
+
+```{r grafico-sensibilidade}
+p_sens
+```
+
+```{r tabela-sensibilidade}
+sens_table |>
+  gt() |>
+  cols_label(
+    rate = "Juros (% a.a.)",
+    parcela = "Primeira parcela",
+    renda = "Renda mínima"
+  ) |>
+  cols_move(columns = renda, after = parcela) |>
+  fmt_number(rate, decimals = 1, dec_mark = ",") |>
+  fmt_currency(
+    c(parcela, renda),
+    currency = "BRL",
+    decimals = 0,
+    sep_mark = ".",
+    dec_mark = ","
+  ) |>
+  tab_header(title = "Renda exigida para o mesmo imóvel de R$450 mil") |>
+  tab_source_note("LTV de 70%, 360 meses, comprometimento de 30% da renda.") |>
+  gt_theme_hokusai(
+    stripe = TRUE,
+    font_size = 11,
+    font_body = "host_grotesk",
+    font_numeric = "host_grotesk"
+  )
+```
+
+A distância entre as pontas da tabela mede o problema. A 7% ao ano, uma família com R\$`r brl(first(sens_table$renda))` de renda financia o imóvel; a 12%, precisa de R\$`r brl(last(sens_table$renda))`. São R\$`r brl(last(sens_table$renda) - first(sens_table$renda))` de renda mensal separando as duas situações, sem que o imóvel tenha mudado.
+
+## A SELIC não é a taxa do financiamento
+
+A taxa que entra nessa conta não é a SELIC. O COPOM define a meta SELIC como instrumento de política monetária, tipicamente elevando-a quando a inflação acelera — foi o que fez em 2014-16 e de novo em 2021-23. Na reunião de 2 de agosto de 2023, o comitê reduziu a meta de 13,75% para 13,25% ao ano, a primeira queda depois de três anos de aperto.
+
+```{r grafico-selic}
+p_selic
+```
+
+Entre a SELIC e o contrato de financiamento há várias camadas. O Banco Central reconhece cinco linhas de crédito habitacional — comercial, livre, home equity, FGTS e SFH — e cada uma tem seu próprio preço. As duas mais representativas responderam por `r round(share_regulada)`% do volume contratado com pessoas físicas em abril de 2023.
+
+```{r grafico-linhas}
+p_linhas
+```
+
+O gráfico mostra por que a distinção importa. Todas as linhas sobem nos ciclos de alta da SELIC, mas em amplitudes muito diferentes. A taxa do FGTS é administrada e está vinculada ao programa habitacional, não ao mercado. Ela permanece sempre a mais barata e oscila numa faixa estreita, entre `r pct(fgts_range$min, 1)`% e `r pct(fgts_range$max, 1)`%. Na outra ponta, o home equity cobra cerca de `r pct(he_fgts_ratio, 1)` vezes a taxa do FGTS ao longo de quase toda a série. Nas quedas, como em 2020, as taxas livres cedem enquanto a do FGTS fica praticamente parada.
+
+Separando as taxas de mercado das reguladas, o gráfico seguinte mostra que a transmissão é lenta e incompleta. A distância entre os dois grupos encolheu ao longo da década, e os aumentos recentes da SELIC chegaram ao consumidor com defasagem de alguns meses.
+
+```{r grafico-split}
+p_split
+```
+
+Vale notar um ponto que contraria a leitura habitual. Apesar do aperto de 2021-23, a taxa média do financiamento habitacional em abril de 2023, de `r pct(rate_last$rate)`%, ainda estava abaixo do pico de `r pct(pico_2016$rate)`% atingido em julho de 2016. O crédito habitacional encareceu, mas partiu de um patamar melhor do que no ciclo anterior.
+
+## O que os juros fizeram com a acessibilidade
+
+Aplicando a taxa média observada em cada mês ao mesmo imóvel de R\$450 mil, a série da renda exigida acompanha o ciclo de juros de perto. No fundo do ciclo, em maio de 2021, bastavam R\$`r brl(renda_piso)`. Em abril de 2023, com a taxa em `r pct(rate_last$rate)`%, o mesmo imóvel exigia R\$`r brl(renda_topo)`.
+
+```{r grafico-rmn}
+p_rmn
+```
+
+Essa conta, porém, congela o preço do imóvel — e os preços não ficaram parados. Segundo o IGMI-R (Abrainc/FGV), os imóveis residenciais no Brasil valorizaram `r pct(igmi_valorizacao, 1)`% entre janeiro de 2018 e abril de 2023, com a aceleração concentrada a partir de 2020.
+
+```{r tabela-igmi}
+igmi |>
+  mutate(year = lubridate::year(date)) |>
+  summarise(total = prod(1 + chg) - 1, .by = year) |>
+  gt() |>
+  cols_label(year = "Ano", total = "Variação acumulada") |>
+  fmt_percent(total, dec_mark = ",") |>
+  tab_header(title = "Valorização residencial pelo IGMI-R") |>
+  tab_source_note("2023 cobre apenas janeiro a abril.") |>
+  gt_theme_hokusai(
+    stripe = TRUE,
+    font_size = 11,
+    font_body = "host_grotesk",
+    font_numeric = "host_grotesk"
+  )
+```
+
+Refazendo o exercício com o preço corrigido pelo índice, o imóvel que valia R\$450 mil em janeiro de 2018 valia cerca de R\$`r brl(round(afford_last$est_price / 1000) * 1000)` em abril de 2023. A renda exigida para financiá-lo passou de R\$`r brl(renda_jan18)` para R\$`r brl(afford_last$rmn_adj)` — quase o dobro.
+
+```{r grafico-rmn-adj}
+p_rmn_adj
+```
+
+A comparação entre as duas linhas separa as duas forças. Mantido o preço de janeiro de 2018, a alta dos juros responde por R\$`r brl(delta_juros)` da renda adicional exigida; a valorização do imóvel responde pelos outros R\$`r brl(delta_preco)`. O preço fez cerca de quatro quintos do trabalho, e quase tudo isso depois de 2020.
+
+O IGMI-R é um índice hedônico, isto é, ajustado por qualidade[^hedonico]. A valorização medida não reflete apenas uma mudança na composição dos imóveis vendidos.
+
+[^hedonico]: Um índice hedônico controla os atributos do imóvel — área, localização, padrão — de modo a estimar a variação de preço de um imóvel de características constantes.
+
+## O que a conta não inclui
+
+A simulação isola o efeito da taxa de juros e, por isso, omite deliberadamente vários custos e efeitos reais.
+
+O contrato típico não é prefixado. Cerca de `r round(share_tr)`% do estoque de financiamentos a pessoas físicas era indexado à Taxa Referencial (TR) em abril de 2023, com uma parcela pré-fixada somada a ela. A TR raramente passa de 0,2% ao mês, mas a conta acima não a inclui.
+
+Além disso, a parcela que o comprador efetivamente paga carrega seguros obrigatórios (MIP e DFI) e taxa de administração, e a compra em si tem ITBI e custos de registro. Nenhum deles entra aqui. A renda mínima calculada é, portanto, um piso.
+
+Dois outros fatores puxam no sentido contrário. O primeiro é o crescimento da renda das famílias, que ao longo de cinco anos compensa parte do encarecimento — a análise acima mantém a renda implícita constante e mede apenas quanto seria preciso ter. O segundo é o Minha Casa Minha Vida, que oferece taxas bem abaixo das de mercado conforme a renda da família e o preço do imóvel. O valor de R\$450 mil usado aqui supera o teto do programa e não seria elegível, o que torna a simulação representativa do mercado, não do segmento subsidiado.
+
+Por fim, as regras de aprovação variam entre instituições. Os 30% de comprometimento são uma convenção de mercado, não uma norma.
+
+## O que observar daqui em diante
+
+A decisão do COPOM de 2 de agosto encerrou o ciclo de alta, mas a análise acima mostra que a repercussão sobre o custo do financiamento habitacional não é automática nem imediata. Cerca de `r round(share_fgts)`% do volume contratado sai pela linha FGTS, cuja taxa se move por decisão administrativa e não acompanha a SELIC. O restante responde ao mercado, e com defasagem de meses.
+
+A acessibilidade à moradia depende de três variáveis, e este post mediu duas. Juros e preços explicam por que financiar o mesmo imóvel ficou quase duas vezes mais caro em cinco anos. A terceira, a renda das famílias, fica para uma análise seguinte.
+
+{{< include ../../_post-cta.qmd >}}
