@@ -1,10 +1,31 @@
 # Shared figure and table styling for the Insights posts.
-# Sourced from a post with: source("../_ekio-style.R")
+# Sourced from a post with:
+#   source(here::here("insights/posts/_ekio-style.R"))
 # The leading underscore keeps Quarto from treating this as an input file.
 
 library(ggplot2)
 library(ekioplot)
 library(ekiotable)
+
+# Figure output ----
+# knitr renders at dpi * fig.retina and Quarto sets fig-retina: 2, so a 7 in
+# figure lands at 1344 px — about 2x the 684 px box it displays in. ragg
+# rather than the default device: it matches fonts by family name and shapes
+# text the same way on macOS and on the build box.
+#
+# A standard chart carries no chunk options and inherits everything here.
+# Panels override fig-width/fig-height and set out-width: "100%". Maps do the
+# same and add fig-dpi: 72, since 9x12 in at the full 192 would rasterize to
+# 3456 px tall.
+knitr::opts_chunk$set(
+  dev = "ragg_png",
+  dpi = 96,
+  fig.retina = 2,
+  fig.width = 7,
+  fig.height = 4.5,
+  fig.align = "center",
+  out.width = "90%"
+)
 
 # Pigments ----
 # Read off the Hokusai plates in static/images/art/reference. Section 1 of
@@ -137,55 +158,5 @@ theme_ekio_site <- function(...) {
 
 # Table theme ----
 
-# DEPRECATED: use ekiotable::gt_theme_hokusai() instead
-# Rules carry structure, nothing is filled; column labels borrow
-# .section-label/.credential-label microtypography. Letter-spacing and
-# tabular figures come from custom.scss, not tab_options().
-# gt_theme_ekio <- function(data, accent = ekio_site$ink) {
-#   data |>
-#     gt::tab_options(
-#       # Width is left to the stylesheet; a wide table scrolls rather than
-#       # crushing columns to fit.
-#       table.align = "left",
-#       table.font.size = gt::px(14),
-#       table.font.weight = "400",
-#       table.font.color = ekio_site$ink_600,
-#       table.background.color = ekio_site$paper,
-
-#       # A rule opens and closes the table; the interior stays open.
-#       table.border.top.style = "solid",
-#       table.border.top.width = gt::px(1),
-#       table.border.top.color = accent,
-#       table.border.bottom.style = "solid",
-#       table.border.bottom.width = gt::px(1),
-#       table.border.bottom.color = accent,
-
-#       column_labels.background.color = ekio_site$paper,
-#       column_labels.font.size = gt::px(11),
-#       column_labels.font.weight = "400",
-#       column_labels.text_transform = "uppercase",
-#       column_labels.padding = gt::px(10),
-#       column_labels.border.top.style = "none",
-#       column_labels.border.bottom.style = "solid",
-#       column_labels.border.bottom.width = gt::px(1),
-#       column_labels.border.bottom.color = ekio_site$rule_strong,
-
-#       data_row.padding = gt::px(9),
-#       # No interior hairlines; they'd collapse into the header rule and
-#       # blur it into a plain row divider.
-#       table_body.border.top.style = "none",
-#       table_body.border.bottom.style = "none",
-#       table_body.hlines.style = "none",
-
-#       source_notes.font.size = gt::px(11),
-#       source_notes.background.color = ekio_site$paper,
-#       footnotes.font.size = gt::px(11),
-#       footnotes.background.color = ekio_site$paper,
-#       heading.background.color = ekio_site$paper,
-#       heading.align = "left"
-#     ) |>
-#     gt::tab_style(
-#       style = gt::cell_text(color = ekio_site$ink_300),
-#       locations = gt::cells_column_labels()
-#     )
-# }
+# Tables use ekiotable::gt_theme_hokusai(stripe = TRUE). Posts call it
+# directly; nothing here wraps it.

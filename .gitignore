@@ -30,3 +30,9 @@
 
 # Quarto render output ao lado do .qmd (as figuras ficam em /_freeze)
 **/index_files/
+
+# Notas de trabalho e planos locais (o `_` também mantém fora do render Quarto)
+/_plans/
+
+# Saída padrão do dispositivo gráfico do R
+/Rplots.pdf

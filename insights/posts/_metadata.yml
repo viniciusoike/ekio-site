@@ -18,3 +18,8 @@ grid:
 # Authoring defaults
 author: "Vinicius Oike Reginatto"
 freeze: true   # posts are static once published; override per-post if needed
+
+# Figures
+# Device, dpi and default size live in _ekio-style.R, which every post sources.
+# dev = "ragg_png" and out.width have no document-level equivalent here, so
+# keeping half the rules in this file would only invite drift.

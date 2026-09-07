@@ -21,7 +21,7 @@ freeze: true
 ```{r}
 library(aopdata)
 library(ggplot2)
-library(ragg)
+source(here::here("insights/posts/_ekio-style.R"))
 
 aop_censo <- aopdata::read_population(
   city = "spo",
@@ -72,17 +72,14 @@ map_renda_decil <- ggplot(aop_censo) +
 
 O mapa abaixo mostra o rendimento domiciliar em grupos de decis em São Paulo. Divide-se toda a população, do mais pobre ao mais rico, em dez grupos de igual tamanho; assim, os hexágonos em azul estão no top 10% da distribuição de renda (10% mais ricos); já os hexágonos em vermelho estão no bottom 10% da distribuição (10% mais pobres).
 
-O grid hexagonal segue o padrão H3, em resolução 9. Os dados de renda provém do Censo Demográfico do IBGE a nível setor censitário. Usa-se uma técnica de interpolação espacial para converter os dados para o padrão hexagonal.
+O grid hexagonal segue o padrão H3, em resolução 9. Os dados de renda provêm do Censo Demográfico do IBGE em nível de setor censitário. Usa-se uma técnica de interpolação espacial para converter os dados para o padrão hexagonal.
 
-Apesar dos dados brutos do Censo estarem defasados, é improvável que a sua distribuição espacial tenha se alterado significativamente na última década. Grosso modo, as maiores rendas se concentram no Centro Expandido e no Quadrante Sudoeste da cidade. As duas exceções são a região de Santana-Tucuruvi e o eixo Tatuapé - Jardim Anália Franco.
+Apesar de os dados brutos do Censo estarem defasados, é improvável que a sua distribuição espacial tenha se alterado significativamente na última década. Grosso modo, as maiores rendas se concentram no Centro Expandido e no Quadrante Sudoeste da cidade. As duas exceções são a região de Santana-Tucuruvi e o eixo Tatuapé - Jardim Anália Franco.
 
 ```{r}
 #| out-width: "100%"
-#| out-height: 900px
 #| fig-width: 9
 #| fig-height: 12
-#| fig-format: svg
-#| fig-showtext: true
 #| fig-dpi: 72
 map_renda_decil
 ```
