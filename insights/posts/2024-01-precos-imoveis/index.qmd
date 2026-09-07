@@ -15,23 +15,12 @@ freeze: true
 ---
 
 ```{r}
-knitr::opts_chunk$set(
-  fig.align = "center",
-  fig.asp = 0.618,
-  out.width = "100%",
-  fig.width = 8
-)
-
 library(realestatebr)
 library(dplyr)
 library(ggplot2)
-library(ragg)
 library(stringr)
 library(ekioplot)
-```
-
-```{r}
-source("../_ekio-style.R")
+source(here::here("insights/posts/_ekio-style.R"))
 ```
 
 ```{r}
@@ -51,7 +40,7 @@ bis <- bis %>%
     name_country = case_when(
       ref_area_name == "Emerging market economies (aggregate)" ~ "Emergentes",
       ref_area_name == "Advanced economies" ~ "Avançados",
-      ref_area_name == "World" ~ "Média Mundo",
+      ref_area_name == "World" ~ "Média Mundial",
       ref_area_name == "Brazil" ~ "Brasil",
       TRUE ~ ref_area_name
     )
@@ -67,7 +56,7 @@ rppi <- bis %>%
 ```
 
 ```{r}
-sel_agg <- c("Brasil", "Avançados", "Emergentes", "Média Mundo")
+sel_agg <- c("Brasil", "Avançados", "Emergentes", "Média Mundial")
 
 rppi_comp <- rppi %>%
   filter(
@@ -89,7 +78,7 @@ p_bis_geral <- ggplot(rppi_comp, aes(x = date, y = value)) +
     y = "Índice (2010 = 100)",
     title = "Preços no Brasil seguem abaixo de 2010",
     subtitle = str_wrap(
-      "Índices de preços imobiliários reais (ajustados pela inflação local) indexados nos valores médios de 2010. Definições de Avançados e Emergentes seguem convenções do BIS.",
+      "Índices de preços imobiliários reais (ajustados pela inflação local) indexados aos valores médios de 2010. As definições de Avançados e Emergentes seguem as convenções do BIS.",
       111
     ),
     caption = "Fonte: BIS. @viniciusoike"
@@ -113,9 +102,9 @@ p_bis_latam <-
   labs(
     x = NULL,
     y = "Índice (2010 = 100)",
-    title = "Preços no Brasil não acompanham outros países latinoamericanos.",
+    title = "Preços no Brasil não acompanham outros países latino-americanos.",
     subtitle = str_wrap(
-      "Índices de preços imobiliários reais (ajustados pela inflação local) indexados nos valores médios de 2010. Comparação do Brasil com outros países selecionados.",
+      "Índices de preços imobiliários reais (ajustados pela inflação local) indexados aos valores médios de 2010. Comparação do Brasil com outros países selecionados.",
       111
     )
   ) +
@@ -141,7 +130,7 @@ p_bis_rich <-
     y = "Índice (2010 = 100)",
     title = "Imóveis no Brasil dessincronizados com o resto do mundo",
     subtitle = str_wrap(
-      "Índices de preços imobiliários reais (ajustados pela inflação local) indexados nos valores médios de 2010. Comparação do Brasil com outros países selecionados.",
+      "Índices de preços imobiliários reais (ajustados pela inflação local) indexados aos valores médios de 2010. Comparação do Brasil com outros países selecionados.",
       111
     )
   ) +
@@ -154,7 +143,7 @@ Existe uma percepção generalizada na população de que os preços dos imóvei
 
 ### Preços do Brasil x Mundo
 
-Segundo os dados do Bank for International Settlements (BIS).
+Os dados são do Bank for International Settlements (BIS).
 
 ```{r}
 p_bis_geral
