@@ -333,16 +333,22 @@ col_names <- c(
 names(col_names) <- names(tbl_recession)
 
 gt(tbl_recession) |>
+  tab_header(
+    title = "Recessões: perdas e tempo até a recuperação"
+  ) |>
   cols_label(.list = col_names) |>
   fmt_date(3:5, date_style = "yQQQ") |>
   fmt_percent(8:9) |>
   tab_footnote(
     footnote = "(*) - Número de trimestres até a economia voltar ao patamar pré-crise"
   ) |>
-  tab_footnote(
-    footnote = "(**) - Crescimento trimestral médio anualizado"
-  ) |>
-  gt_theme_hokusai(stripe = TRUE, font_size = 12, font_body = "host_grotesk")
+  tab_footnote(footnote = "(**) - Crescimento trimestral médio anualizado") |>
+  gt_theme_hokusai(
+    stripe = TRUE,
+    font_size = 10,
+    font_body = "host_grotesk",
+    font_numeric = "host_grotesk"
+  )
 ```
 
 {{< include ../../_post-cta.qmd >}}
