@@ -9,10 +9,6 @@ image-alt: "Ilustração de varandas e terraços em edifícios residenciais"
 format:
   html:
     code-tools: true
-execute:
-  echo: false
-  message: false
-  warning: false
 ---
 
 ```{r}

@@ -1,6 +1,5 @@
 ---
 title: "O impacto dos juros na demanda imobiliária"
-author: "Vinicius Oike Reginatto"
 date: "2023-08-17"
 categories: ["Imóveis", "Economia", "Brasil"]
 description: "Entre maio de 2021 e abril de 2023, a taxa média do financiamento habitacional subiu de 6,6% para 10,2% ao ano. O mesmo imóvel passou a exigir 34% mais renda para ser financiado — antes de contar a alta dos preços."

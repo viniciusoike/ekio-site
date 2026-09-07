@@ -1,16 +1,10 @@
 ---
 title: "Recessões no Brasil"
-author: "Vinicius Oike Reginatto"
 date: "2024-03-01"
 categories: ["Economia", "Visualização de Dados", "Brasil"]
 description: "Desde 1996, o Brasil teve seis recessões, a maioria com dois a cinco trimestres de duração. A da Covid foi a queda mais profunda; a de 2014–16, a mais longa — o PIB só voltou ao patamar pré-crise em 2022."
 image: "/static/images/art/hokusai-series-2026-09/insight-market-cycles.webp"
 image-alt: "Ilustração de séries cíclicas sobre uma grade sem rótulos"
-execute:
-  echo: false
-  warning: false
-  message: false
-freeze: true
 ---
 
 ```{r libs}

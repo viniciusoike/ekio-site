@@ -1,16 +1,10 @@
 ---
 title: "Índices de Preços Imobiliários no Brasil"
-author: "Vinicius Oike Reginatto"
 date: "2024-02-25"
 categories: ["Imóveis", "Economia", "Brasil"]
 description: "Os três principais índices de preços imobiliários do Brasil divergem desde a pandemia: alta expressiva no IGMI-R, alta tímida no FipeZap e estagnação no IVG-R. O que cada um mede explica a diferença."
 image: "/static/images/art/hokusai-series-2026-09/insight-office-towers.webp"
 image-alt: "Ilustração de torres de escritórios com fachadas em grade"
-execute:
-  message: false
-  warning: false
-  echo: false
-freeze: true
 ---
 
 ```{r setup}
