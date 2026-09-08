@@ -246,7 +246,6 @@ p_fipe_ivar <- ggplot(indexes, aes(date, index, color = name_series)) +
   theme_ekio_site()
 ```
 
-# Aluguel e Venda
 
 ## Os mercados
 

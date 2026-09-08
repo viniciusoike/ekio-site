@@ -183,8 +183,13 @@ afford_last <- afford |> slice_max(date, n = 1)
 ```{r key-figures}
 # Scalars quoted in the prose, so the text cannot drift from the figures.
 brl <- function(x, digits = 0) {
-  formatC(round(x, digits), format = "f", digits = digits,
-          big.mark = ".", decimal.mark = ",")
+  formatC(
+    round(x, digits),
+    format = "f",
+    digits = digits,
+    big.mark = ".",
+    decimal.mark = ","
+  )
 }
 pct <- function(x, digits = 2) {
   formatC(x, format = "f", digits = digits, decimal.mark = ",")

@@ -131,11 +131,10 @@ p_bis_rich <-
   theme_ekio_site()
 ```
 
-# Preços de Imóveis no Brasil
 
 Existe uma percepção generalizada na população de que os preços dos imóveis no Brasil são muito caros. Isto pode ser resultado tanto de uma ignorância sobre a dinâmica do mercado como do [excesso de notícias sobre recordes de preços que se vê na imprensa](https://g1.globo.com/economia/noticia/2024/01/16/preco-do-aluguel-residencial-sobe-16percent-em-2023-tres-vezes-mais-que-a-inflacao-mostra-fipezap.ghtml). Também não faltam casos de regiões ou mesmo de ruas que, após significativo processo de revitalização, [apresentaram aumentos de preços muito acima da inflação](https://extra.globo.com/economia-e-financas/imoveis-usados-no-rio-precos-explodiram-em-2009-mostra-pesquisa-do-secovi-89071.html). De maneira geral, contudo, os dados apontam que [os preços dos imóveis no Brasil andaram de lado](https://einvestidor.estadao.com.br/investimentos/investir-em-imoveis-vale-a-pena/): em termos reais, isto é, descontando a inflação, o nível atual do preço dos imóveis está praticamente idêntico ao que se observava em 2010.
 
-### Preços do Brasil x Mundo
+## Preços do Brasil x Mundo
 
 Os dados são do Bank for International Settlements (BIS).
 
@@ -143,13 +142,13 @@ Os dados são do Bank for International Settlements (BIS).
 p_bis_geral
 ```
 
-### Preços do Brasil x Países Desenvolvidos
+## Preços do Brasil x Países Desenvolvidos
 
 ```{r}
 p_bis_rich
 ```
 
-### Preços do Brasil x Países LATAM
+## Preços do Brasil x Países LATAM
 
 ```{r}
 p_bis_latam

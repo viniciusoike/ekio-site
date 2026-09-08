@@ -307,7 +307,6 @@ plot_rppi <- function(name, start_date = NULL) {
 }
 ```
 
-# Índices de Preços Imobiliários
 
 ## A teoria
 
@@ -371,7 +370,7 @@ A estratégia de imputação dupla permite maior flexibilidade na escolha da for
 
 Enquanto um Índice de Fisher (ou Törnqvist) apresenta propriedades ideais, nem sempre existe informação disponível para calculá-los. Assim, é natural utilizar um índice de Laspeyres junto com informação censitária para ajustar os pesos. Infelizmente, o Brasil não dispõe de um Censo de Imóveis, assim é necessário adaptar os pesos a partir do Censo Demográfico.
 
-# Índices no Brasil
+## Índices no Brasil
 
 No Brasil há três principais índices de preços imobiliários:
 
@@ -476,7 +475,7 @@ A dinâmica de preços de imóveis no Brasil, em parte, reflete a própria econo
 p_ivgr_ipca
 ```
 
-# Referências
+## Referências
 
 -   Hill, R. J., & Melser, D. (2008). Hedonic imputation and the price index problem: an application to housing. *Economic Inquiry*, *46*(4), 593-609.
 
