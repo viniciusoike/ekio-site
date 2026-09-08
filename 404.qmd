@@ -1,5 +1,5 @@
 ---
-title: "Página não encontrada"
+pagetitle: "Página não encontrada"
 page-layout: full
 toc: false
 ---
