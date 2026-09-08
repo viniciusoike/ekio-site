@@ -6,9 +6,6 @@ description: "A renda em São Paulo se concentra no quadrante sudoeste da cidade
 image: "/static/images/art/hokusai-series-2026-09/insight-old-and-new.webp"
 image-alt: "Ilustração de arquitetura histórica em contraste com arranha-céus"
 featured: "true"
-format:
-  html:
-    code-tools: true
 toc: false   # uma seção só; o painel "Nesta página" não ajuda
 ---
 

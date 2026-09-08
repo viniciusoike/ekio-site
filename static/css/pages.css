@@ -270,12 +270,15 @@ h1.home-cover-title {
 }
 
 /* ── Featured ── */
+/* The body starts level with the top of the cover, so the flag and the title
+   sit as high in the card as the image does. */
 .ins-card--feature {
     border-top-color: var(--ekio-navy);
     padding-top: 1.5rem;
+    align-items: start;
 }
 
-.ins-card--feature .ins-media { min-height: 420px; }
+.ins-card--feature .ins-media { min-height: 380px; }
 
 .ins-card--feature .ins-title {
     font-size: clamp(1.9rem, 3.5vw, 2.85rem);

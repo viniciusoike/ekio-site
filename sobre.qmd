@@ -114,7 +114,7 @@ format:
 [Ver todos os insights](insights/index.qmd){.link-rule-sm}
 :::
 
-[Publico análises com os dados e o código que as geraram. É o material mais próximo do trabalho que entrego em projeto.]{.section-desc}
+[Publico análises com as fontes e o método descritos. É o material mais próximo do trabalho que entrego em projeto.]{.section-desc}
 
 ::: {#sobre-insights}
 :::
