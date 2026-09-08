@@ -325,6 +325,14 @@ p:has(> .package-meta:only-child) {
       order: -1;
       margin-left: 0 !important;
       margin-right: 0 !important;
+      // Quarto reserves room here for a search box. Search is off, so the
+      // reserve only squeezes the lockup, which .navbar-brand then clips.
+      max-width: none;
+    }
+
+    .navbar-brand {
+      flex: 0 0 auto;
+      overflow: visible;
     }
 
     // Quarto puts margin-left:auto on both the toggler and search, so the
@@ -1383,6 +1391,13 @@ h2.about-name {
 // ═══════════════════════════════════════════════════════════════
 
 .quarto-title-block {
+  // Quarto puts the title and the source-code button in one flex row. The
+  // button has no shrink room, so on narrow screens it drops to its own line
+  // instead of pushing past the edge.
+  >div {
+    flex-wrap: wrap;
+  }
+
   .quarto-title h1.title {
     font-family: $font-display;
     font-weight: 400;
