@@ -382,53 +382,6 @@ h1.home-cover-title {
 }
 
 /* ════════════════════════════════════════════════════════════
-   INSIGHTS — archive grid (arquivo.qmd, Quarto default listing)
-   ════════════════════════════════════════════════════════════ */
-
-.quarto-listing-cols-3 {
-    gap: 2.5rem !important;
-}
-
-.quarto-grid-item.card {
-    background: var(--ekio-paper);
-    border: none;
-    border-top: 1px solid var(--ekio-rule-strong);
-    border-radius: 0;
-    box-shadow: none;
-    padding-top: 1.25rem;
-}
-
-.quarto-grid-item .card-img-top {
-    border-radius: 0;
-    margin-bottom: 1rem;
-}
-
-.quarto-grid-item .card-title {
-    font-family: var(--font-display);
-    font-size: 1.25rem;
-    font-weight: 400;
-    line-height: 1.25;
-    color: var(--ekio-ink);
-}
-
-.quarto-grid-item .card-text {
-    font-size: 0.875rem;
-    line-height: 1.65;
-    color: var(--ekio-ink-500);
-}
-
-.quarto-grid-item .listing-categories .listing-category {
-    font-size: 0.6875rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    border: 1px solid var(--ekio-rule-strong);
-    border-radius: 0;
-    color: var(--ekio-ink-500);
-    opacity: 1;
-    padding: 0.25rem 0.6rem;
-}
-
-/* ════════════════════════════════════════════════════════════
    CONTACT
    ════════════════════════════════════════════════════════════ */
 
@@ -631,8 +584,24 @@ h1.home-cover-title {
     font-family: var(--font-display);
     font-size: 1.5rem;
     font-weight: 400;
+    line-height: 1.25;
     color: var(--ekio-ink);
     margin-bottom: 0.75rem;
+    /* The line is two balanced clauses; balance breaks it at the period. */
+    text-wrap: balance;
+}
+
+/* Each link is its own paragraph, so the row is a flex container that can
+   break: the rule links are nowrap and would otherwise overflow on mobile. */
+.post-cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem 2rem;
+    margin-top: 1.5rem;
+}
+
+.post-cta-actions p {
+    margin: 0;
 }
 
 /* ════════════════════════════════════════════════════════════
