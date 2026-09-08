@@ -1,5 +1,5 @@
 ---
-title: "Contato"
+pagetitle: "Contato"
 description: "Fale com a EKIO sobre um projeto de economia, ciência de dados ou inteligência espacial."
 page-layout: full
 toc: false
@@ -21,6 +21,9 @@ toc: false
 :::
 :::
 
+::: {.art-strip .art-strip-sm style="background-image: url(/static/images/art/hokusai-series-2026-09/card-vertical-city.webp);" role="img" aria-label="Ilustração de torres e arcadas do centro de São Paulo em vista isométrica, em azul e linho"}
+:::
+
 ::: {.band .band-light}
 ::: {.container}
 
@@ -40,6 +43,12 @@ toc: false
 [Avenida Paulista, 777, Sala 102<br>Bela Vista, São Paulo]{.contact-info-value}
 :::
 
+::: {.contact-info-item}
+[LinkedIn]{.contact-info-label}
+
+[[viniciusoike](https://linkedin.com/in/viniciusoike)]{.contact-info-value}
+:::
+
 :::
 
 ::: {.contact-col}
@@ -51,23 +60,23 @@ toc: false
 <p style="display: none;"><label>Não preencha este campo: <input name="bot-field"></label></p>
 
 ::: {.form-group}
-[Nome]{.form-label}
-<input type="text" class="form-input" name="name" placeholder="Seu nome" required>
+<label class="form-label" for="contato-nome">Nome</label>
+<input type="text" class="form-input" id="contato-nome" name="name" placeholder="Seu nome" autocomplete="name" required>
 :::
 
 ::: {.form-group}
-[Email]{.form-label}
-<input type="email" class="form-input" name="email" placeholder="seu@email.com" required>
+<label class="form-label" for="contato-email">Email</label>
+<input type="email" class="form-input" id="contato-email" name="email" placeholder="seu@email.com" autocomplete="email" required>
 :::
 
 ::: {.form-group}
-[Organização]{.form-label}
-<input type="text" class="form-input" name="organization" placeholder="Empresa ou instituição">
+<label class="form-label" for="contato-organizacao">Organização</label>
+<input type="text" class="form-input" id="contato-organizacao" name="organization" placeholder="Empresa ou instituição" autocomplete="organization">
 :::
 
 ::: {.form-group}
-[Área de interesse]{.form-label}
-<select class="form-select" name="service">
+<label class="form-label" for="contato-area">Área de interesse</label>
+<select class="form-select" id="contato-area" name="service">
 <option value="">Selecione uma área</option>
 <option value="Economia e estratégia">Economia e estratégia</option>
 <option value="Dados e analytics">Dados e analytics</option>
@@ -78,8 +87,8 @@ toc: false
 :::
 
 ::: {.form-group}
-[Sobre o seu projeto]{.form-label}
-<textarea class="form-textarea" name="message" placeholder="Descreva o desafio, o prazo e os dados que você já tem."></textarea>
+<label class="form-label" for="contato-mensagem">Sobre o seu projeto</label>
+<textarea class="form-textarea" id="contato-mensagem" name="message" placeholder="Descreva o desafio, o prazo e os dados que você já tem." required></textarea>
 :::
 
 <button type="submit" class="btn btn-primary-ekio btn-lg">Enviar mensagem</button>

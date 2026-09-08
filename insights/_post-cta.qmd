@@ -1,10 +1,13 @@
 ::: {.post-cta}
 
-**Precisa desse tipo de análise no seu negócio?**
+**Ninguém decide só com dados. E ninguém decide bem sem eles.**
 
-Trabalhamos com empresas e entidades governamentais em questões de mercado, investimento e localização.
+A decisão continua sendo sua. Nosso trabalho é diminuir o que ela tem de aposta.
 
-[contact@ekio.io](mailto:contact@ekio.io?subject=Insights%20-%20EKIO){.link-rule-sm}
-[Conhecer os serviços](/servicos.html){.link-rule-sm style="margin-left: 2rem;"}
+::: {.post-cta-actions}
+[Falar sobre um projeto](/contato.html){.link-rule-sm}
+
+[Conhecer os serviços](/servicos.html){.link-rule-sm}
+:::
 
 :::

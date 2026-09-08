@@ -6,9 +6,7 @@ description: "A maior parte da população de São Paulo vive em regiões de IDH
 image: "/static/images/art/hokusai-series-2026-09/card-vertical-city.webp"
 image-alt: "Ilustração de edifícios de alturas variadas com janelas em grade"
 draft: true
-format:
-  html:
-    code-tools: true
+toc: false   # uma seção só; o painel "Nesta página" não ajuda
 ---
 
 ```{r}
@@ -103,7 +101,6 @@ p_idh_atlas <-
   pmap + inset_element(pcol, left = 0.50, bottom = 0.05, right = 1, top = 0.5)
 ```
 
-# IDH em São Paulo
 
 O mapa abaixo mostra o [Índice de Desenvolvimento Humano (IDH)](https://pt.wikipedia.org/wiki/Índice_de_Desenvolvimento_Humano) das regiões de São Paulo. As estimativas provêm do [projeto Atlas Brasil](http://www.atlasbrasil.org.br), que computa o IDH em nível submunicipal nas chamadas Unidades de Desenvolvimento Humano (UDHs). Como se vê no desenho do mapa, as UDHs têm formatos bastante flexíveis. De forma geral, as UDHs seguem divisões administrativas pré-existentes, mas também ressaltam áreas de vulnerabilidade social que estão imersas dentro de outras regiões.
 
@@ -117,6 +114,4 @@ O gráfico de colunas mostra o percentual da população que vive em cada grupo 
 p_idh_atlas
 ```
 
--   Dados: [Atlas Brasil](http://www.atlasbrasil.org.br/acervo/biblioteca)
-
--   Paleta: `YlGnBu` ([ColorBrewer](https://colorbrewer2.org/#type=sequential&scheme=YlGnBu&n=8))
+{{< include ../../_post-cta.qmd >}}

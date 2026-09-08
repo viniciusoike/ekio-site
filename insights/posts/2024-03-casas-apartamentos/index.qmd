@@ -76,7 +76,7 @@ total_houses <- dat |>
 tab_geral <- left_join(tab_geral, total_houses, by = "code_muni")
 ```
 
-# Um país de casas
+## Um país de casas
 
 A vasta maioria dos domicílios residenciais no Brasil é formada por casas[^1]. De fato, em apenas 3 das mais de 5000 cidades brasileiras, o número de apartamentos é superior ao número de casas. Isto é, apenas em Santos, Balneário Camboriú e São Caetano do Sul, existe uma proporção maior de apartamentos do que de casas. Embora São Paulo seja famosa por seus prédios, os apartamentos representam apenas um terço das moradias na cidade.
 

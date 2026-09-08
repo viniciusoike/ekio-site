@@ -16,7 +16,14 @@ function Pandoc(doc)
   end
   local metadata = current_metadata(doc.meta)
   local source = pandoc.utils.stringify(metadata.image or "")
-  if not source:match("^/static/images/art/hokusai%-series%-2026%-09/") then
+  -- Any image under /static/images/art/ is editorial art; a post whose `image`
+  -- points at a chart or a figure is not a cover candidate.
+  if not source:match("^/static/images/art/") then
+    quarto.log.warning(
+      "post-cover: `art-cover` is set but `image` is not editorial art, so no "
+      .. "cover was added (" .. quarto.doc.input_file .. ", image: "
+      .. (source ~= "" and source or "<unset>") .. ")"
+    )
     return nil
   end
   local alt = pandoc.utils.stringify(metadata["image-alt"] or "Ilustração editorial de arquitetura urbana")

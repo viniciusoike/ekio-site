@@ -62,7 +62,7 @@ p_map <- ggplot(affordability) +
   )
 ```
 
-# PIR
+## O PIR em São Paulo
 
 O mapa abaixo apresenta o Price-Income-Ratio (PIR) por Zona OD na cidade de São Paulo. Os dados são de 2021 e provêm do artigo [Acesso à moradia em São Paulo: visão geral e mensuração](https://lares.architexturez.net/system/files/4DRB.pdf), publicado na LARES 2021.
 
@@ -210,6 +210,8 @@ A pandemia criou um boom imobiliário.
 p_index
 ```
 
-### Referências
+## Referências
 
 - [Acesso à moradia em São Paulo: visão geral e mensuração](https://lares.architexturez.net/system/files/4DRB.pdf)
+
+{{< include ../../_post-cta.qmd >}}

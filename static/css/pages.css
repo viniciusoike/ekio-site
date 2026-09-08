@@ -382,53 +382,6 @@ h1.home-cover-title {
 }
 
 /* ════════════════════════════════════════════════════════════
-   INSIGHTS — archive grid (arquivo.qmd, Quarto default listing)
-   ════════════════════════════════════════════════════════════ */
-
-.quarto-listing-cols-3 {
-    gap: 2.5rem !important;
-}
-
-.quarto-grid-item.card {
-    background: var(--ekio-paper);
-    border: none;
-    border-top: 1px solid var(--ekio-rule-strong);
-    border-radius: 0;
-    box-shadow: none;
-    padding-top: 1.25rem;
-}
-
-.quarto-grid-item .card-img-top {
-    border-radius: 0;
-    margin-bottom: 1rem;
-}
-
-.quarto-grid-item .card-title {
-    font-family: var(--font-display);
-    font-size: 1.25rem;
-    font-weight: 400;
-    line-height: 1.25;
-    color: var(--ekio-ink);
-}
-
-.quarto-grid-item .card-text {
-    font-size: 0.875rem;
-    line-height: 1.65;
-    color: var(--ekio-ink-500);
-}
-
-.quarto-grid-item .listing-categories .listing-category {
-    font-size: 0.6875rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    border: 1px solid var(--ekio-rule-strong);
-    border-radius: 0;
-    color: var(--ekio-ink-500);
-    opacity: 1;
-    padding: 0.25rem 0.6rem;
-}
-
-/* ════════════════════════════════════════════════════════════
    CONTACT
    ════════════════════════════════════════════════════════════ */
 
@@ -437,6 +390,12 @@ h1.home-cover-title {
     grid-template-columns: 1fr 1.25fr;
     gap: 5rem;
     align-items: start;
+}
+
+/* Grid items default to min-width:auto, so a long unbroken value — the
+   LinkedIn URL — would hold the column open past the viewport. */
+.contact-col {
+    min-width: 0;
 }
 
 .contact-info-item {
@@ -464,6 +423,7 @@ h1.home-cover-title {
     font-size: 1.25rem;
     color: var(--ekio-ink);
     line-height: 1.4;
+    overflow-wrap: anywhere;
 }
 
 .form-label {
@@ -503,6 +463,31 @@ h1.home-cover-title {
 .form-textarea {
     min-height: 120px;
     resize: vertical;
+}
+
+/* The select shares the underline treatment of the text inputs, so it needs a
+   chevron of its own to read as a menu. */
+.form-select {
+    appearance: none;
+    padding-right: 1.75rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5' fill='none' stroke='%2352555A' stroke-width='1.4'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.15rem center;
+    background-size: 12px 8px;
+    cursor: pointer;
+}
+
+/* Until a real area is picked, the empty option is a placeholder and takes the
+   same colour as the placeholders on the text fields. */
+.form-input::placeholder,
+.form-textarea::placeholder,
+.form-select:has(option[value=""]:checked) {
+    color: var(--ekio-ink-300);
+    opacity: 1;
+}
+
+.form-select option {
+    color: var(--ekio-ink);
 }
 
 /* ── Pull quote ── */
@@ -631,8 +616,24 @@ h1.home-cover-title {
     font-family: var(--font-display);
     font-size: 1.5rem;
     font-weight: 400;
+    line-height: 1.25;
     color: var(--ekio-ink);
     margin-bottom: 0.75rem;
+    /* The line is two balanced clauses; balance breaks it at the period. */
+    text-wrap: balance;
+}
+
+/* Each link is its own paragraph, so the row is a flex container that can
+   break: the rule links are nowrap and would otherwise overflow on mobile. */
+.post-cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem 2rem;
+    margin-top: 1.5rem;
+}
+
+.post-cta-actions p {
+    margin: 0;
 }
 
 /* ════════════════════════════════════════════════════════════

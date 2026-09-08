@@ -1,0 +1,79 @@
+#title-block-header {
+  display: none;
+}
+
+/* Chart-first editorial prototype; typography and colors inherit EKIO. */
+.data-story {
+  padding: clamp(1rem, 3vw, 2.5rem) 0 2rem;
+}
+.data-story-header {
+  max-width: 760px;
+  margin-bottom: 1.75rem;
+}
+.data-story-format {
+  color: var(--bs-body-color);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+}
+.data-story-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3.3rem);
+  line-height: 1.13;
+  letter-spacing: -0.025em;
+  margin: 0.6rem 0 1rem;
+}
+.data-story-date,
+.data-story-author {
+  color: #52555A;
+  font-size: 0.9rem;
+}
+.data-story-chart {
+  margin: 0 0 2rem;
+}
+.data-story-chart img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.data-story-chart figcaption {
+  display: none;
+}
+.data-story-copy {
+  max-width: 720px;
+  font-size: 1.08rem;
+  line-height: 1.65;
+}
+.data-story-copy > p {
+  margin-bottom: 1.1rem;
+}
+.data-story-method {
+  margin: 1.75rem 0 1.25rem;
+  padding: 1rem 0;
+  border-top: 1px solid #B4B0AB;
+  border-bottom: 1px solid #B4B0AB;
+  font-size: 0.93rem;
+}
+.data-story-method summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+.data-story-method[open] summary {
+  margin-bottom: 1rem;
+}
+.data-story-method summary:focus-visible,
+.data-story-related:focus-visible {
+  outline: 2px solid #225A7E;
+  outline-offset: 5px;
+}
+.data-story-related {
+  font-size: 0.95rem;
+}
+.data-story-author {
+  display: inline-block;
+  margin-top: 0.6rem;
+}
+@media (max-width: 575px) {
+  .data-story-header { margin-bottom: 1rem; }
+  .data-story-copy { font-size: 1rem; }
+  .data-story-chart { margin-bottom: 1.25rem; }
+}

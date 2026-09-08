@@ -1,5 +1,5 @@
 ---
-title: "Insights"
+pagetitle: "Insights"
 description: "Análises de economia, mercado imobiliário e dados, publicadas com o código que as gerou."
 page-layout: full
 toc: false
@@ -24,9 +24,13 @@ listing:
     sort: "date desc"
     type: custom
     template: grade-template.ejs
-    max-items: 12
+    # No max-items: with the archive retired this listing is the full index.
     fields: [title, date, description, categories, image]
     date-format: "MMM/YYYY"
+format:
+  html:
+    # No equations on this page; the default pulls in ~1.3 MB of MathJax.
+    html-math-method: plain
 ---
 
 ::: {.page-header}
@@ -63,10 +67,6 @@ listing:
 ::: {.container}
 
 ::: {#grade}
-:::
-
-::: {style="margin-top: 4rem;"}
-[Ver todos os posts](arquivo.qmd){.link-rule-sm}
 :::
 
 :::

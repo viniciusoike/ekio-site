@@ -198,6 +198,7 @@ p:has(> .package-meta:only-child) {
 .service-detail-desc,
 .package-desc,
 .about-bio,
+.about-partner-desc,
 .ins-excerpt {
   display: block;
 }
@@ -206,6 +207,7 @@ p:has(> .package-meta:only-child) {
 // inline children become the actual flex items.
 .hero-actions>p,
 .cta-actions>p,
+.about-links>p,
 .methodology-tags>p,
 .label-ruled>p,
 .ins-meta-row>p {
@@ -325,6 +327,14 @@ p:has(> .package-meta:only-child) {
       order: -1;
       margin-left: 0 !important;
       margin-right: 0 !important;
+      // Quarto reserves room here for a search box. Search is off, so the
+      // reserve only squeezes the lockup, which .navbar-brand then clips.
+      max-width: none;
+    }
+
+    .navbar-brand {
+      flex: 0 0 auto;
+      overflow: visible;
     }
 
     // Quarto puts margin-left:auto on both the toggler and search, so the
@@ -660,6 +670,12 @@ h2.section-heading-light {
   .section-heading {
     margin-bottom: 0;
   }
+}
+
+// A lede under the head row takes over the spacing, so the row above it closes
+// up instead of opening a second gap.
+.section-head-row:has(+ p > .section-desc) {
+  margin-bottom: 1.25rem;
 }
 
 // ═══════════════════════════════════════════════════════════════
@@ -1178,11 +1194,26 @@ h3.package-title {
 // Sobre
 // ═══════════════════════════════════════════════════════════════
 
+// Photo, fact sheet and links stack down the left column; the bio holds the
+// right one for the full height. The cells are placed explicitly so narrow
+// viewports can reorder them into reading order — name and bio right after the
+// photo, reference material last.
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1.25fr;
-  gap: 6rem;
+  column-gap: 6rem;
+  row-gap: 0;
   align-items: start;
+}
+
+.about-media {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.about-body {
+  grid-column: 2;
+  grid-row: 1 / 4;
 }
 
 .about-photo {
@@ -1229,13 +1260,48 @@ h2.about-name {
   max-width: 66ch;
 }
 
-.credentials-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2.25rem 3rem;
+.about-facts {
+  grid-column: 1;
+  grid-row: 2;
+  margin-top: 2.75rem;
+}
+
+.about-links {
+  grid-column: 1;
+  grid-row: 3;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 1.75rem;
+  margin-top: 2rem;
+}
+
+// Closes the bio column and answers, where the reader asks it, how a practice
+// of one staffs a larger project.
+.about-partner {
   margin-top: 3rem;
-  padding-top: 2.5rem;
+  padding-top: 2rem;
   border-top: 1px solid $rule;
+  max-width: 66ch;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+h3.about-partner-name {
+  font-family: $font-display;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: $ink;
+  margin: 0.625rem 0 0.875rem;
+}
+
+.about-partner-desc {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: $ink-600;
+  margin-bottom: 1.5rem;
 }
 
 .credential {
@@ -1243,6 +1309,16 @@ h2.about-name {
   background: transparent;
   border: none;
   border-radius: 0;
+}
+
+// Ruled rows, matching the contact details on Contato.
+.about-facts .credential {
+  padding: 1.25rem 0;
+  border-top: 1px solid $rule;
+
+  &:last-child {
+    border-bottom: 1px solid $rule;
+  }
 }
 
 .credential-label {
@@ -1354,6 +1430,22 @@ h2.about-name {
     gap: 2.5rem;
   }
 
+  // One column: photo, then the name and bio, then the reference material.
+  .about-body {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .about-facts {
+    grid-row: 3;
+    margin-top: 0;
+  }
+
+  .about-links {
+    grid-row: 4;
+    margin-top: 0;
+  }
+
   .about-photo {
     max-width: 320px;
   }
@@ -1369,10 +1461,6 @@ h2.about-name {
     margin-bottom: 1.5rem;
   }
 
-  .credentials-grid {
-    grid-template-columns: 1fr;
-  }
-
   .section-head-row {
     margin-bottom: 2.5rem;
   }
@@ -1383,6 +1471,13 @@ h2.about-name {
 // ═══════════════════════════════════════════════════════════════
 
 .quarto-title-block {
+  // Quarto puts the title and the source-code button in one flex row. The
+  // button has no shrink room, so on narrow screens it drops to its own line
+  // instead of pushing past the edge.
+  >div {
+    flex-wrap: wrap;
+  }
+
   .quarto-title h1.title {
     font-family: $font-display;
     font-weight: 400;

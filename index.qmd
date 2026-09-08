@@ -1,5 +1,5 @@
 ---
-title: "Consultoria em Economia e Dados"
+pagetitle: "Consultoria em Economia e Dados"
 description: "A EKIO combina análise econômica, ciência de dados e inteligência espacial para apoiar decisões de empresas e governos no Brasil."
 image: /static/images/og-card.png
 page-layout: full
@@ -13,6 +13,10 @@ listing:
     template: insights/home-template.ejs
     fields: [title, date, description, categories, image]
     date-format: "MMMM [de] YYYY"
+format:
+  html:
+    # No equations on this page; the default pulls in ~1.3 MB of MathJax.
+    html-math-method: plain
 ---
 
 <!-- ============ Hero ============ -->
