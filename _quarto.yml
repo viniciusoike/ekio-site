@@ -66,6 +66,8 @@ website:
         href: sobre.qmd
       - text: "Insights"
         href: insights/index.qmd
+      - text: "Contato"
+        href: contato.qmd
       - text: "LinkedIn"
         href: "https://linkedin.com/in/viniciusoike"
 

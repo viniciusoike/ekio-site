@@ -1,5 +1,5 @@
 ---
-title: "Serviços"
+pagetitle: "Serviços"
 description: "Avaliação imobiliária, geomarketing, dimensionamento de mercado, previsão econômica, dashboards e modelagem preditiva."
 page-layout: full
 toc: false
@@ -50,7 +50,7 @@ toc: false
 :::
 
 ::: {.service-detail-visual}
-![Mapa da distribuição espacial de renda em São Paulo, elaborado pela EKIO](static/images/services/espacial-renda-sp.png){fig-alt="Mapa coroplético de São Paulo com a renda domiciliar por decil em grade hexagonal H3; os decis mais altos se concentram no quadrante sudoeste da cidade."}
+![](static/images/art/hokusai-servicos-2026-09-07/servico-imoveis.webp){fig-alt="Edifícios residenciais com fachadas curvas e volumes escalonados em azul e linho, com textura de xilogravura."}
 :::
 
 :::
@@ -66,18 +66,22 @@ toc: false
 
 ::: {.service-offerings}
 - Dimensionamento de mercado e previsão de demanda
+- Previsão econômica e análise de conjuntura
 - Business cases e estudos de viabilidade
+- Análise de cenários e testes de estresse
+- Avaliação de impacto de políticas públicas
 :::
 
 ::: {.methodology-tags}
 [Econometria]{.method-tag}
+[Séries temporais]{.method-tag}
 [Análise de cenários]{.method-tag}
 [VPL / TIR]{.method-tag}
 :::
 :::
 
 ::: {.service-detail-visual}
-![Previsão de inflação com bandas de cenário, elaborada pela EKIO](static/images/services/economia-previsao.png){fig-alt="Série de inflação com a projeção à direita aberta em bandas de cenário sombreadas."}
+![](static/images/art/hokusai-servicos-2026-09-07/servico-economia.webp){fig-alt="Ilustração conceitual de uma série que se abre em três cenários, sobre planos geométricos em azul e linho."}
 :::
 
 :::
@@ -107,7 +111,7 @@ toc: false
 :::
 
 ::: {.service-detail-visual}
-![Detecção automática de anomalias em série econômica, elaborada pela EKIO](static/images/services/dados-anomalias.png){fig-alt="Série econômica mensal com faixa de variação esperada; os pontos fora da faixa aparecem destacados em vermelho."}
+![](static/images/art/hokusai-servicos-2026-09-07/servico-dados.webp){fig-alt="Marcas dispersas se organizam em uma grade e barras sobre planos arquitetônicos em azul e linho."}
 :::
 
 :::
