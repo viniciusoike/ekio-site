@@ -3,7 +3,6 @@ title: "Housing Affordability em São Paulo"
 date: "2024-03-07"
 categories: ["São Paulo", "Imóveis", "Análise Espacial"]
 description: "O Price-Income Ratio de São Paulo ficou próximo de 20 em 2021 — o dobro do teto internacional de 5 a 10. A pandemia agravou o quadro: os preços acumulam alta de quase 80% desde 2020."
-draft: true
 image: "/static/images/art/hokusai-series-2026-09/insight-compact-housing.webp"
 image-alt: "Ilustração de casas compactas e sobrados justapostos"
 ---
@@ -36,20 +35,26 @@ jenks <- BAMMtools::getJenksBreaks(affordability$pir_med_total, k = 8)
 
 p_map <- ggplot(affordability) +
   geom_sf(aes(fill = pir_med_total), linewidth = 0.15, color = "white") +
-  scale_fill_fermenter(
+  scale_fill_stepsn(
     name = "",
-    palette = "Reds",
-    direction = 1,
+    colours = as.character(ekio_pal("red")),
     breaks = jenks,
     labels = round(jenks),
-    na.value = "gray90"
+    na.value = ekio_pal("gray")[2]
   ) +
   labs(
     title = "Housing Affordability",
     subtitle = "Distribuição do Price-Income Ratio em São Paulo"
   ) +
-  ggthemes::theme_map(base_family = "Lato") +
+  theme_ekio_site() +
   theme(
+    axis.line.x = element_blank(),
+    axis.ticks.x = element_blank(),
+    axis.text.x = element_blank(),
+    axis.text.y = element_blank(),
+    axis.title.x = element_blank(),
+    axis.title.y = element_blank(),
+    panel.grid.major.y = element_blank(),
     legend.position = "top",
     legend.justification = 0.5,
     legend.key.size = unit(0.5, "cm"),
@@ -57,10 +62,12 @@ p_map <- ggplot(affordability) +
     legend.text = element_text(size = 12),
     legend.margin = margin(),
     plot.margin = margin(10, 5, 5, 10),
-    plot.title = element_text(family = "Lora", size = 32, hjust = 0.5),
-    plot.subtitle = element_text(size = 10, hjust = 0.5)
+    plot.title = element_text(size = 32, hjust = 0.5),
+    plot.subtitle = element_text(size = 12, hjust = 0.5)
   )
 ```
+
+Quantos anos de renda familiar são necessários para comprar um imóvel típico em São Paulo? Em 2021, a resposta ficava em torno de vinte — o dobro da faixa de 5 a 10 que a literatura internacional considera saudável. E a pandemia veio piorar o quadro: desde o início de 2020, os preços dos imóveis na cidade acumulam alta de quase 80%, enquanto a inflação acumulada no período foi de cerca de 29%.
 
 ## O PIR em São Paulo
 
@@ -68,7 +75,7 @@ O mapa abaixo apresenta o Price-Income-Ratio (PIR) por Zona OD na cidade de São
 
 O PIR é um indicador simples que mensura a acessibilidade financeira à moradia numa região: sua interpretação é do tipo "quanto maior, pior", isto é, quanto maior for o valor do PIR, pior é a acessibilidade financeira à moradia. Especificamente, ele mede a razão entre os preços dos imóveis disponíveis em uma região (preços de anúncios) e a renda média das famílias na cidade.
 
-O mapa abaixo compara o preço médio dos imóveis disponíveis nestas regiões com a renda média familiar bruta de São Paulo. Regiões centrais como Jardins e Alto de Pinheiros apresentam os piores indicadores de acessibilidade.
+O mapa abaixo compara o preço médio dos imóveis disponíveis nestas regiões com a renda média familiar bruta de São Paulo. Regiões centrais como Jardins e Alto de Pinheiros apresentam os piores indicadores de acessibilidade. No mapa, o PIR varia de cerca de 3 anos de renda em bairros da periferia leste, como Cidade Tiradentes e Santa Etelvina, a quase 29 anos no Jardim Europa; na metade das zonas, o indicador fica entre 6 e 12 anos. As zonas em cinza não possuem dados de preço disponíveis para o período.
 
 ```{r}
 #| out-width: "100%"
@@ -85,11 +92,11 @@ O PIR é uma razão simples entre o preço médio/mediano dos imóveis e a renda
 
 $$\text{PIR} = \frac{\text{Preços}}{\text{Renda Anual}}$$
 
-O PIR indica, grosso modo, a quantidade de "anos de trabalho" que uma família típica precisa investir de renda para comprar um imóvel típico. A principal vantagem do PIR é a sua simplicidade de cálculo, o que facilita comparações entre diferentes regiões. A principal desvantagem do PIR é ignorar as condições de financiamento disponíveis para a população. Supondo que a renda anual média das famílias seja $R\$30.000$ e que o preço médio dos imóveis seja $R\$270.000$. Então o valor do PIR seria:
+O PIR indica, grosso modo, a quantidade de "anos de trabalho" que uma família típica precisa investir de renda para comprar um imóvel típico. A principal vantagem do PIR é a sua simplicidade de cálculo, o que facilita comparações entre diferentes regiões. A principal desvantagem do PIR é ignorar as condições de financiamento disponíveis para a população. Supondo que a renda anual média das famílias seja $R\$30.000$ e o preço médio dos imóveis, $R\$270.000$, o valor do PIR seria:
 
 $$\text{PIR} = \frac{R\$270.000}{R\$30.000} = 9$$
 
-Na literatura internacional, valores de PIR na faixa de 5-10 indicam baixa acessibilidade financeira. Estudos feitos em países em desenvolvimento e subdesenvolvidos, contudo, apontam valores de PIR muito mais elevados do que este intervalo, devido tanto à **baixa renda média da população como também às condições limitadas de acesso ao crédito**. Neste sentido, talvez uma comparação mais justa seja com as megacidades chinesas que têm PIR na faixa de 10-15. No artigo [Acesso à moradia em São Paulo: visão geral e mensuração](https://lares.architexturez.net/system/files/4DRB.pdf), escrito por Vinicius Oike, em parceria com outros colegas, estima-se que o PIR de São Paulo em 2021 era próximo de 19-20. O site [Numbeo apresenta o PIR](https://www.numbeo.com/property-investment/rankings.jsp?title=2021) para um amplo grupo de cidades no mundo: em 2021, segundo o site, o PIR de São Paulo era de 17,8.
+Na literatura internacional, valores de PIR na faixa de 5-10 indicam baixa acessibilidade financeira. Estudos feitos em países em desenvolvimento e subdesenvolvidos, contudo, apontam valores de PIR muito mais elevados do que este intervalo, devido tanto à **baixa renda média da população quanto às condições limitadas de acesso ao crédito**. Neste sentido, talvez uma comparação mais justa seja com as megacidades chinesas, que têm PIR na faixa de 10-15. No artigo [Acesso à moradia em São Paulo: visão geral e mensuração](https://lares.architexturez.net/system/files/4DRB.pdf), escrito por Vinicius Oike, em parceria com outros colegas, estima-se que o PIR de São Paulo em 2021 era próximo de 19-20. O site [Numbeo apresenta o PIR](https://www.numbeo.com/property-investment/rankings.jsp?title=2021) para um amplo grupo de cidades no mundo: em 2021, segundo o site, o PIR de São Paulo era de 17,8.
 
 ## Preços dos imóveis
 
@@ -134,7 +141,7 @@ color_palette <- unname(color_palette)
 
 p_acum12m <- ggplot(subdat, aes(date, acum12m)) +
   geom_line(aes(color = name_series), linewidth = 0.8) +
-  geom_hline(yintercept = 0) +
+  geom_hline(yintercept = 0, color = ekio_pal("gray")[5], linewidth = 0.4) +
   scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
   scale_y_continuous(labels = scales::label_percent()) +
   scale_color_manual(
@@ -144,20 +151,19 @@ p_acum12m <- ggplot(subdat, aes(date, acum12m)) +
   labs(
     title = "Aceleração dos preços dos imóveis após a Pandemia",
     subtitle = str_wrap(
-      "Variação acumulada em 12 meses dos preços dos imóveis residenciais em São Paulo e no Brasil comparados com o IPCA.",
-      81
+      "Variação acumulada em 12 meses dos preços dos imóveis residenciais em São Paulo, no Brasil e do IPCA.",
+      111
     ),
     caption = "Fonte: IGMI-R (Abecip/FGV); IPCA (IBGE) • EKIO",
     y = NULL,
     x = NULL
   ) +
-  theme_ekio()
+  theme_ekio_site()
 
 subdat_index <- dat |>
   filter(date >= as.Date("2020-01-01")) |>
   mutate(chg = if_else(is.na(chg), value / 100, chg)) |>
-  mutate(acum = cumprod(1 + chg) - 1, .by = "name_series") |>
-  mutate()
+  mutate(acum = cumprod(1 + chg) - 1, .by = "name_series")
 
 aux_label <- subdat_index |>
   slice_max(date, n = 1) |>
@@ -188,27 +194,31 @@ p_index <- ggplot(subdat_index, aes(date, acum, group = name_series)) +
     title = "Aumento de quase 80% em SP desde a Pandemia",
     subtitle = str_wrap(
       "Variação acumulada dos preços dos imóveis residenciais em São Paulo e no Brasil comparados com o IPCA.",
-      81
+      111
     ),
     caption = "Fonte: IGMI-R (Abecip/FGV); IPCA (IBGE) • EKIO",
     y = NULL,
     x = NULL
   ) +
-  theme_ekio()
+  theme_ekio_site()
 ```
 
 
-A pandemia de Covid-19 acelerou o aumento dos preços no Brasil. O preço dos imóveis residenciais começou a se recuperar em 2017 dos efeitos da recessão econômica.
+A pandemia de Covid-19 acelerou o aumento dos preços dos imóveis no Brasil. Até então, o mercado ainda digeria os efeitos da recessão de 2015-2016: os preços acumulavam queda em 12 meses do fim de 2016 ao fim de 2017 e, na recuperação seguinte, as altas anuais não passavam de um dígito.
 
 ```{r}
 p_acum12m
 ```
 
-A pandemia criou um boom imobiliário.
+A pandemia criou um boom imobiliário. Entre janeiro de 2020 e fevereiro de 2024, os preços dos imóveis em São Paulo acumularam alta de quase 80% — contra 64% na média brasileira e 29% de inflação. O pico da aceleração veio no fim de 2021, quando os preços subiram mais de 20% em 12 meses; desde então, o ritmo perdeu força, mas segue bem acima da inflação.
 
 ```{r}
 p_index
 ```
+
+## Considerações finais
+
+Os dois quadros contam, no fundo, a mesma história. Em 2021, o PIR de São Paulo já estava próximo de 20 — o dobro da faixa internacional de 5 a 10 —, e as regiões mais nobres registravam valores ainda mais extremos: quase 29 anos de renda no Jardim Europa e mais de 25 na rua Oscar Freire. Desde então, os preços acumularam alta de quase 80%, contra 29% de inflação. Se a renda das famílias não tiver acompanhado esse movimento — o mais provável, dado o ritmo da alta —, o PIR da cidade deve subir ainda mais em relação aos níveis já elevados de 2021, e a acessibilidade à moradia deve continuar se deteriorando.
 
 ## Referências
 
