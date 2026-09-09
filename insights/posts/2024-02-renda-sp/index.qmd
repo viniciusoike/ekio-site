@@ -1,11 +1,10 @@
 ---
 title: "Distribuição de Renda em São Paulo"
-date: "2024-02-07"
+date: "2026-05-07"
 categories: ["São Paulo", "Mapas", "Análise Espacial"]
 description: "A renda em São Paulo se concentra no quadrante sudoeste da cidade. O mapa usa dados do projeto Acesso a Oportunidades (IPEA) na grade hexagonal H3."
 image: "/static/images/art/hokusai-series-2026-09/insight-old-and-new.webp"
 image-alt: "Ilustração de arquitetura histórica em contraste com arranha-céus"
-featured: "true"
 toc: false   # uma seção só; o painel "Nesta página" não ajuda
 ---
 
@@ -62,9 +61,9 @@ map_renda_decil <- ggplot(aop_censo) +
 
 O mapa abaixo mostra o rendimento domiciliar em grupos de decis em São Paulo. Divide-se toda a população, do mais pobre ao mais rico, em dez grupos de igual tamanho; assim, os hexágonos em azul estão no top 10% da distribuição de renda (10% mais ricos); já os hexágonos em vermelho estão no bottom 10% da distribuição (10% mais pobres).
 
-O grid hexagonal segue o padrão H3, em resolução 9. Os dados de renda provêm do Censo Demográfico do IBGE em nível de setor censitário. Usa-se uma técnica de interpolação espacial para converter os dados para o padrão hexagonal.
+O grid hexagonal segue o padrão H3, em resolução 9. Os dados de renda provêm do Censo Demográfico de 2010 do IBGE, em nível de setor censitário. Uma técnica de interpolação espacial converte os dados para o padrão hexagonal.
 
-Apesar de os dados brutos do Censo estarem defasados, é improvável que a sua distribuição espacial tenha se alterado significativamente na última década. Grosso modo, as maiores rendas se concentram no Centro Expandido e no Quadrante Sudoeste da cidade. As duas exceções são a região de Santana-Tucuruvi e o eixo Tatuapé - Jardim Anália Franco.
+Os dados brutos do Censo estão defasados e não representam o nível atual da renda. Ainda assim, a estrutura espacial da cidade costuma mudar devagar. Grosso modo, as maiores rendas se concentram no Centro Expandido e no Quadrante Sudoeste. As duas exceções são a região de Santana-Tucuruvi e o eixo Tatuapé–Jardim Anália Franco.
 
 ```{r}
 #| out-width: "100%"
