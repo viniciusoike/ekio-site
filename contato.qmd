@@ -78,9 +78,10 @@ toc: false
 <label class="form-label" for="contato-area">Área de interesse</label>
 <select class="form-select" id="contato-area" name="service">
 <option value="">Selecione uma área</option>
+<!-- Mesma ordem de servicos.qmd (01, 02, 03). -->
+<option value="Imóveis e inteligência espacial">Imóveis e inteligência espacial</option>
 <option value="Economia e estratégia">Economia e estratégia</option>
 <option value="Dados e analytics">Dados e analytics</option>
-<option value="Imóveis e inteligência espacial">Imóveis e inteligência espacial</option>
 <option value="Mais de uma área">Mais de uma área</option>
 <option value="Ainda não sei">Ainda não sei</option>
 </select>

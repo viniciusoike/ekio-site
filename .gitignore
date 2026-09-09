@@ -6,6 +6,11 @@
 # Quarto keeps computed results in /_freeze, which IS tracked so the site
 # renders without re-running R.
 
+# Seção DataViz em construção. Fica fora do repositório e fora do render
+# (ver a lista `render` em _quarto.yml) até a seção ter uma página inicial
+# e pelo menos um post pronto. Os arquivos continuam no disco local.
+/dataviz/
+
 # R
 .Rproj.user/
 .Rhistory

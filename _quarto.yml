@@ -4,6 +4,7 @@ project:
   render:
     - "**/*.qmd"
     - "!casos.qmd"   # fora do ar até haver casos reais publicáveis
+    - "!dataviz/**"  # seção em construção; também fora do git (ver .gitignore)
   # Art referenced only from a `style` attribute is invisible to Quarto's
   # resource discovery, so the directory is declared explicitly.
   resources:
@@ -79,6 +80,11 @@ website:
 
 lang: pt
 
+# O _language-pt.yml do Quarto traz "Alternar de navegação", que não é
+# português corrente. O botão só aparece no menu recolhido do celular.
+language:
+  toggle-navigation: "Abrir menu de navegação"
+
 filters:
   - static/filters/post-cover.lua
 
@@ -102,6 +108,15 @@ format:
       sidebar-width: 0px
       body-width: 1440px
       margin-width: 0px
+    # O site publica texto e imagens. O código que gera as figuras fica no
+    # GitHub, não na página: sem botão "Código", sem blocos dobráveis e sem
+    # o modal com o fonte do .qmd.
+    code-tools: false
+    code-fold: false
+    code-link: false
+    # O Netlify serve /servicos e /servicos.html para a mesma página. O
+    # canonical aponta a versão que vale; depende do site-url acima.
+    canonical-url: true
 
 # Execute
 execute:

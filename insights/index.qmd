@@ -1,6 +1,6 @@
 ---
 pagetitle: "Insights"
-description: "Análises de economia, mercado imobiliário e dados, publicadas com o código que as gerou."
+description: "Análises de economia, mercado imobiliário e dados."
 page-layout: full
 toc: false
 listing:
@@ -37,23 +37,18 @@ format:
 ::: {.container}
 
 ::: {.page-header-main}
-[Insights]{.section-label}
+[Publicações]{.section-label}
 
-# Notas sobre economia, cidade e dados {.page-header-title}
-:::
+# Insights {.page-header-title}
 
-::: {.page-header-aside}
-[Análises de economia, mercado imobiliário e dados, publicadas com o código que as gerou.]{.page-header-desc}
+[Análises de economia, mercado imobiliário e dados.]{.page-header-lead}
 :::
 
 :::
-:::
-
-::: {.art-strip .art-strip-data style="background-image: url(/static/images/art/hokusai-series-2026-09/banner-urban-data.webp);" role="img" aria-label="Ilustração de colunas e tendência sobre uma grade, em textura de gravura"}
 :::
 
 <!-- ============ Destaque ============ -->
-::: {.band .band-light}
+::: {.band .band-tight .band-light}
 ::: {.container}
 
 ::: {#destaque}

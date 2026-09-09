@@ -2,11 +2,13 @@
 
 // ═══════════════════════════════════════════════════════════════
 // EKIO — editorial theme
-// Lora display, Lato body and accents, Fira Code monospace. Hairline rules
-// instead of cards; paper background instead of white.
+// Lora display, Lato body, Host Grotesk accents, Fira Code monospace.
+// Hairline rules instead of cards; paper background instead of white.
+//
+// As famílias são carregadas em static/head.html, não aqui. Um @import no
+// topo do CSS só dispara o download depois que a folha compilada chega, o
+// que atrasa o primeiro texto na tela.
 // ═══════════════════════════════════════════════════════════════
-
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Host+Grotesk:wght@400;500;600;700&family=Lato:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap');
 
 // ═══════════════════════════════════════════════════════════════
 // Color
@@ -58,7 +60,10 @@ $ink-700: #28292C; // ekioplot gray.800
 $ink-600: #373A3D; // ekioplot gray.700
 $ink-500: #52555A; // ekioplot gray.600
 $ink-400: #6E7378; // ekioplot gray.500; AA on $paper
-$ink-300: #6E7378; // lightest accessible small-text neutral
+// Texto pequeno (11–13px) e placeholders. Era igual ao $ink-400, que cai a
+// 4.17 sobre $paper-sunk e ficava abaixo de AA nas faixas. Este tom dá 4.96
+// sobre $linen-94 e 5.36 sobre $paper, cobrindo toda a rampa.
+$ink-300: #63676C; // lightest accessible small-text neutral
 $ink-inverse-muted: #AEB1B5; // ekioplot gray.300 on dark surfaces
 
 // ── 6. Accent ──
@@ -191,6 +196,7 @@ p:has(> .package-meta:only-child) {
 // their vertical margins are dropped.
 .hero-subtitle,
 .page-header-desc,
+.page-header-lead,
 .section-desc,
 .cta-desc,
 .featured-desc,
@@ -220,8 +226,14 @@ p:has(> .package-meta:only-child) {
 
 // Marketing pages supply their own headers; suppress Quarto's title block.
 .page-layout-full {
-  main.content {
+
+  // Quarto pads every child of #quarto-content and gives main its own top
+  // margin. Both have to go, or the page header floats below the navbar
+  // instead of meeting it. The id in the selector matches the one Bootstrap
+  // uses, which a class-only rule cannot outrank.
+  &#quarto-content main.content {
     padding-top: 0;
+    margin-top: 0;
   }
 
   #title-block-header {
@@ -699,6 +711,14 @@ h2.section-heading-light {
   }
 }
 
+.page-header:has(.page-header-lead) {
+  padding: 4.5rem 0 3.5rem;
+
+  .section-label {
+    margin-bottom: 1.5rem;
+  }
+}
+
 // The split header pads its own two columns. Without an aside the header is a
 // single column and takes its spacing from .page-header and .container, so the
 // wrapper must not add a second layer.
@@ -733,6 +753,16 @@ h1.page-header-title {
   color: $ink-600;
   margin: 0;
   max-width: 48ch;
+}
+
+// Deck under the title, for headers that carry the page's line instead of
+// pushing it into the aside. Sits between the display size and body text.
+.page-header-lead {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  line-height: 1.55;
+  color: $ink-600;
+  margin: 1.75rem 0 0;
+  max-width: 34ch;
 }
 
 // ═══════════════════════════════════════════════════════════════
@@ -1394,17 +1424,29 @@ h3.about-partner-name {
     padding: 2.5rem 2rem;
   }
 
-  .page-header .container {
-    grid-template-columns: 1fr;
+  // The split header pads its own two columns, so the mobile spacing belongs
+  // to them. Scoping matters: unscoped, these rules stacked on top of
+  // .page-header's padding on the single-column pages and lost to the
+  // desktop rule on the split one.
+  .page-header:has(.page-header-aside) {
+    .container {
+      grid-template-columns: 1fr;
+    }
+
+    .page-header-main {
+      padding: 4rem 2rem 2rem;
+    }
+
+    .page-header-aside {
+      padding: 0 2rem 3.5rem;
+      border-left: none;
+    }
   }
 
-  .page-header-main {
-    padding: 4rem 2rem 2rem;
-  }
-
-  .page-header-aside {
-    padding: 0 2rem 3.5rem;
-    border-left: none;
+  // Single-column headers take their spacing from .page-header itself.
+  .page-header,
+  .page-header:has(.page-header-lead) {
+    padding: 4rem 0 3rem;
   }
 
   .band {
