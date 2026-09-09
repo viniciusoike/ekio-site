@@ -53,7 +53,7 @@ are reviewed. A source draft is not automatically unusable, but needs extra revi
 Tutorials outside `general-posts/` (including `tutorial-tidyverse/`) also belong in
 `ekio-academy` and are outside the 122-folder count.
 
-## Already adapted / EKIO drafts (14)
+## Already adapted / EKIO drafts (15)
 
 | Source folder | Source title | Status / next step |
 |---|---|---|
@@ -69,11 +69,12 @@ Tutorials outside `general-posts/` (including `tutorial-tidyverse/`) also belong
 | `2024-03-ciclos-economicos` | Recessões no Brasil | Adapted → [EKIO source](posts/2024-03-recessoes-brasil/index.qmd). |
 | `2024-04-wz-age-index` | Índice de Envelhecimento no Brasil | Adapted → [EKIO source](posts/2024-04-envelhecimento-brasil/index.qmd). |
 | `2024-05-generations-brazil` | Generations in Brazil | Adapted → [EKIO source](posts/2025-02-generations-brazil/index.qmd). |
-| `2025-06-censo-metro-regions` | O crescimento das Regiões Metropolitanas Brasileiras | Adapted → [EKIO source](posts/2025-06-censo-metro-regions/index.qmd). Rates and boundaries audited; five tables, three charts and interactive map rebuilt. |
 | `2025-03-map-brazil-census-race` | A Distribuição Racial do Brasil | Adapted → [EKIO source](posts/2025-02-distribuicao-racial-brasil/index.qmd). Static article with revised Portuguese text, vendored map, detailed alt text and editorial cover. |
+| `2025-06-censo-metro-regions` | O crescimento das Regiões Metropolitanas Brasileiras | Adapted → [EKIO source](posts/2025-06-censo-metro-regions/index.qmd). Rates and boundaries audited; five tables, three charts and interactive map rebuilt. |
+| `2025-07-demografia-brasil` | O Novo Perfil Demográfico do Brasil | Adapted → [EKIO source](posts/2025-07-demografia-brasil/index.qmd). Compact local data replaces serialized plot objects; definitions, projections and cross-post assets reviewed. |
 
 
-## Insights candidates — provisional (46)
+## Insights candidates — provisional (45)
 
 | Source folder | Source title | Status / next step |
 |---|---|---|
@@ -112,7 +113,6 @@ Tutorials outside `general-posts/` (including `tutorial-tidyverse/`) also belong
 | `2024-09-ips-brasil` | Índice de Progresso Social nos Municípios Brasileiros | Review before adaptation. |
 | `2024-09-viz-metro-line-5` | Linha-5 Lilás Metrô de São Paulo | Short visualization; compare with January 2026 version. |
 | `2025-03-homeownership-brazil` | index | Source `draft: true`. Short source draft with placeholder title; needs substantive development. |
-| `2025-07-demografia-brasil` | O Novo Perfil Demográfico do Brasil | Hard: 18 MiB `files.rds`, cross-post `/_site/` images, repeated sections, inverted aging-index formula and dependency-denominator review; overlaps two existing Insights. |
 | `2025-11-pop-density` | Densidade populacional | Source `draft: true`. Short source draft; review completeness before selection. |
 | `2026-01-line-2-metro` | Linha 2-Verde do Metrô de São Paulo | Review before adaptation. |
 | `2026-01-line-4-metro` | Linha-4 Amarela Metrô de São Paulo | Source `draft: true`.  |
@@ -201,7 +201,17 @@ Tutorials outside `general-posts/` (including `tutorial-tidyverse/`) also belong
 | `2025-01-top-posts-2024` | Melhores Posts de 2024 | Review before adaptation. |
 | `2025-05-chart-challenge` | 30DayChartChallenge: personal highlights | Review before adaptation. |
 
-## Latest adaptation — completed
+## Recent adaptations — completed
+
+`2025-07-demografia-brasil` replaces an 18 MB archive bundle with a 0.9 MB local
+data snapshot and reproducible preparation script. The aging-index formula,
+dependency-ratio denominator and projection boundary were corrected. Broken
+cross-post paths became local assets, while new EKIO charts cover national and
+regional dependency, state profiles and four age pyramids. See the
+[adaptation notes](posts/2025-07-demografia-brasil/_adaptation.md) for provenance
+and verification details.
+
+### Metropolitan regions
 
 `2025-06-censo-metro-regions` was approved with a constraint to preserve the
 original text and make only necessary adaptations, typo/grammar fixes and data
