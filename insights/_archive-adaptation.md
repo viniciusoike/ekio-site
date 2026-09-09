@@ -52,6 +52,11 @@ Skip anything that duplicates a live post: `indices-precos-imobiliarios`,
 ### Batch 1 — Insights, on-brand
 - [x] `2024-03-affordability-sp` — "Housing Affordability em São Paulo" (PIR map). DONE (draft) — vendored geojson + thumbnail; render to verify.
 - [x] `2024-02-wz-sp-idh-atlas` — "IDH por região em São Paulo". DONE (draft) — 39 MB `.qs` subset to SP-city-2010 → vendored 2.6 MB `atlas_sp_idh_2010.rds`; Raleway→Lato; no thumbnail yet (uses gradient fallback).
+- [x] `2024-04-wz-age-index` — "Onde o Brasil já envelheceu" (índice de
+  envelhecimento por município). DONE — 14 MB `.qs` com as colunas usadas e a
+  geometria simplificada em 500 m → `aging_index_city.rds` de 2,7 MB, gerado por
+  `data.R`; mapa refeito na paleta EKIO com rótulos em PT; capa
+  `insight-housing-distribution`.
 - [ ] `2023-10-wz-metro-sp` — Metrô de São Paulo. Vendor station CSVs (`metro_sp.csv`, `metro_sp_line_4_stations.csv`); **body is in English → translate to PT**; rename off "Weekly Viz".
 - [ ] `2025-07-demografia-brasil` — "O Novo Perfil Demográfico do Brasil". Heavier: 19 MB `files.rds` + cross-post PNG embeds to resolve.
 
