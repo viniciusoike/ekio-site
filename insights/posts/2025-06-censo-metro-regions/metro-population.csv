@@ -1,0 +1,325 @@
+year,name_metro,total,state,code_state,name_state,code_region,name_region
+1991,AU de Jundiaí,467671,SP,35,São Paulo,3,Sudeste
+2000,AU de Jundiaí,580131,SP,35,São Paulo,3,Sudeste
+2010,AU de Jundiaí,698679,SP,35,São Paulo,3,Sudeste
+2022,AU de Jundiaí,843633,SP,35,São Paulo,3,Sudeste
+1991,AU de Piracicaba-AU- Piracicaba,981437,SP,35,São Paulo,3,Sudeste
+2000,AU de Piracicaba-AU- Piracicaba,1180570,SP,35,São Paulo,3,Sudeste
+2010,AU de Piracicaba-AU- Piracicaba,1332507,SP,35,São Paulo,3,Sudeste
+2022,AU de Piracicaba-AU- Piracicaba,1467463,SP,35,São Paulo,3,Sudeste
+1991,AU do Litoral Norte,168217,RS,43,Rio Grande Do Sul,4,Sul
+2000,AU do Litoral Norte,231753,RS,43,Rio Grande Do Sul,4,Sul
+2010,AU do Litoral Norte,283959,RS,43,Rio Grande Do Sul,4,Sul
+2022,AU do Litoral Norte,360603,RS,43,Rio Grande Do Sul,4,Sul
+1991,AU do Sul,504486,RS,43,Rio Grande Do Sul,4,Sul
+2000,AU do Sul,557216,RS,43,Rio Grande Do Sul,4,Sul
+2010,AU do Sul,578034,RS,43,Rio Grande Do Sul,4,Sul
+2022,AU do Sul,572114,RS,43,Rio Grande Do Sul,4,Sul
+1991,Agreste,386275,AL,27,Alagoas,2,Nordeste
+2000,Agreste,435150,AL,27,Alagoas,2,Nordeste
+2010,Agreste,478035,AL,27,Alagoas,2,Nordeste
+2022,Agreste,495217,AL,27,Alagoas,2,Nordeste
+1991,Alto Vale do Itajaí,224365,SC,42,Santa Catarina,4,Sul
+2000,Alto Vale do Itajaí,243578,SC,42,Santa Catarina,4,Sul
+2010,Alto Vale do Itajaí,269483,SC,42,Santa Catarina,4,Sul
+2022,Alto Vale do Itajaí,309808,SC,42,Santa Catarina,4,Sul
+1991,Apucarana,290233,PR,41,Paraná,4,Sul
+2000,Apucarana,283923,PR,41,Paraná,4,Sul
+2010,Apucarana,289457,PR,41,Paraná,4,Sul
+2022,Apucarana,296131,PR,41,Paraná,4,Sul
+1991,Aracaju,530200,SE,28,Sergipe,2,Nordeste
+2000,Aracaju,675667,SE,28,Sergipe,2,Nordeste
+2010,Aracaju,835816,SE,28,Sergipe,2,Nordeste
+2022,Aracaju,932210,SE,28,Sergipe,2,Nordeste
+1991,Araruna,55818,PB,25,Paraíba,2,Nordeste
+2000,Araruna,59475,PB,25,Paraíba,2,Nordeste
+2010,Araruna,64572,PB,25,Paraíba,2,Nordeste
+2022,Araruna,59552,PB,25,Paraíba,2,Nordeste
+1991,Baixada Santista,1220249,SP,35,São Paulo,3,Sudeste
+2000,Baixada Santista,1476820,SP,35,São Paulo,3,Sudeste
+2010,Baixada Santista,1664136,SP,35,São Paulo,3,Sudeste
+2022,Baixada Santista,1805531,SP,35,São Paulo,3,Sudeste
+1991,Barra de Santa Rosa,72328,PB,25,Paraíba,2,Nordeste
+2000,Barra de Santa Rosa,72653,PB,25,Paraíba,2,Nordeste
+2010,Barra de Santa Rosa,77555,PB,25,Paraíba,2,Nordeste
+2022,Barra de Santa Rosa,75892,PB,25,Paraíba,2,Nordeste
+1991,Belo Horizonte,3923376,MG,31,Minas Gerais,3,Sudeste
+2000,Belo Horizonte,4833018,MG,31,Minas Gerais,3,Sudeste
+2010,Belo Horizonte,5429969,MG,31,Minas Gerais,3,Sudeste
+2022,Belo Horizonte,5733783,MG,31,Minas Gerais,3,Sudeste
+1991,Belém,1536706,PA,15,Pará,1,Norte
+2000,Belém,1973259,PA,15,Pará,1,Norte
+2010,Belém,2275032,PA,15,Pará,1,Norte
+2022,Belém,2243895,PA,15,Pará,1,Norte
+1991,Caetés,173438,AL,27,Alagoas,2,Nordeste
+2000,Caetés,185196,AL,27,Alagoas,2,Nordeste
+2010,Caetés,205503,AL,27,Alagoas,2,Nordeste
+2022,Caetés,179037,AL,27,Alagoas,2,Nordeste
+1991,Cajazeiras,151333,PB,25,Paraíba,2,Nordeste
+2000,Cajazeiras,157694,PB,25,Paraíba,2,Nordeste
+2010,Cajazeiras,168113,PB,25,Paraíba,2,Nordeste
+2022,Cajazeiras,173175,PB,25,Paraíba,2,Nordeste
+1991,Campina Grande,524805,PB,25,Paraíba,2,Nordeste
+2000,Campina Grande,564813,PB,25,Paraíba,2,Nordeste
+2010,Campina Grande,606124,PB,25,Paraíba,2,Nordeste
+2022,Campina Grande,651619,PB,25,Paraíba,2,Nordeste
+1991,Campinas,1874231,SP,35,São Paulo,3,Sudeste
+2000,Campinas,2348059,SP,35,São Paulo,3,Sudeste
+2010,Campinas,2808951,SP,35,São Paulo,3,Sudeste
+2022,Campinas,3178601,SP,35,São Paulo,3,Sudeste
+1991,Campo Mourão,387449,PR,41,Paraná,4,Sul
+2000,Campo Mourão,346686,PR,41,Paraná,4,Sul
+2010,Campo Mourão,334125,PR,41,Paraná,4,Sul
+2022,Campo Mourão,341931,PR,41,Paraná,4,Sul
+1991,Capital,178247,RR,14,Roraima,1,Norte
+2000,Capital,247619,RR,14,Roraima,1,Norte
+2010,Capital,340398,RR,14,Roraima,1,Norte
+2022,Capital,485282,RR,14,Roraima,1,Norte
+1991,Carbonífera,416998,SC,42,Santa Catarina,4,Sul
+2000,Carbonífera,484916,SC,42,Santa Catarina,4,Sul
+2010,Carbonífera,550206,SC,42,Santa Catarina,4,Sul
+2022,Carbonífera,645359,SC,42,Santa Catarina,4,Sul
+1991,Cariri,421410,CE,23,Ceará,2,Nordeste
+2000,Cariri,498268,CE,23,Ceará,2,Nordeste
+2010,Cariri,564617,CE,23,Ceará,2,Nordeste
+2022,Cariri,633326,CE,23,Ceará,2,Nordeste
+1991,Cascavel,402984,PR,41,Paraná,4,Sul
+2000,Cascavel,442643,PR,41,Paraná,4,Sul
+2010,Cascavel,480640,PR,41,Paraná,4,Sul
+2022,Cascavel,552097,PR,41,Paraná,4,Sul
+1991,Central,8899,RR,14,Roraima,1,Norte
+2000,Central,19067,RR,14,Roraima,1,Norte
+2010,Central,27094,RR,14,Roraima,1,Norte
+2022,Central,30980,RR,14,Roraima,1,Norte
+1991,Chapecó,354779,SC,42,Santa Catarina,4,Sul
+2000,Chapecó,383812,SC,42,Santa Catarina,4,Sul
+2010,Chapecó,433770,SC,42,Santa Catarina,4,Sul
+2022,Chapecó,535246,SC,42,Santa Catarina,4,Sul
+1991,Contestado,416465,SC,42,Santa Catarina,4,Sul
+2000,Contestado,468621,SC,42,Santa Catarina,4,Sul
+2010,Contestado,500298,SC,42,Santa Catarina,4,Sul
+2022,Contestado,539288,SC,42,Santa Catarina,4,Sul
+1991,Curitiba,2140981,PR,41,Paraná,4,Sul
+2000,Curitiba,2813397,PR,41,Paraná,4,Sul
+2010,Curitiba,3223836,PR,41,Paraná,4,Sul
+2022,Curitiba,3560258,PR,41,Paraná,4,Sul
+1991,Esperança,128435,PB,25,Paraíba,2,Nordeste
+2000,Esperança,124938,PB,25,Paraíba,2,Nordeste
+2010,Esperança,134114,PB,25,Paraíba,2,Nordeste
+2022,Esperança,137164,PB,25,Paraíba,2,Nordeste
+1991,Extremo Oeste,334490,SC,42,Santa Catarina,4,Sul
+2000,Extremo Oeste,323147,SC,42,Santa Catarina,4,Sul
+2010,Extremo Oeste,330020,SC,42,Santa Catarina,4,Sul
+2022,Extremo Oeste,351494,SC,42,Santa Catarina,4,Sul
+1991,Feira de Santana,676231,BA,29,Bahia,2,Nordeste
+2000,Feira de Santana,757656,BA,29,Bahia,2,Nordeste
+2010,Feira de Santana,846083,BA,29,Bahia,2,Nordeste
+2022,Feira de Santana,923191,BA,29,Bahia,2,Nordeste
+1991,Florianópolis,629050,SC,42,Santa Catarina,4,Sul
+2000,Florianópolis,816419,SC,42,Santa Catarina,4,Sul
+2010,Florianópolis,1012233,SC,42,Santa Catarina,4,Sul
+2022,Florianópolis,1356861,SC,42,Santa Catarina,4,Sul
+1991,Fortaleza,2548173,CE,23,Ceará,2,Nordeste
+2000,Fortaleza,3165796,CE,23,Ceará,2,Nordeste
+2010,Fortaleza,3740654,CE,23,Ceará,2,Nordeste
+2022,Fortaleza,3905891,CE,23,Ceará,2,Nordeste
+1991,Foz do Rio Itajaí,254316,SC,42,Santa Catarina,4,Sul
+2000,Foz do Rio Itajaí,375589,SC,42,Santa Catarina,4,Sul
+2010,Foz do Rio Itajaí,532771,SC,42,Santa Catarina,4,Sul
+2022,Foz do Rio Itajaí,782160,SC,42,Santa Catarina,4,Sul
+1991,Goiânia,1278255,GO,52,Goiás,5,Centro Oeste
+2000,Goiânia,1704497,GO,52,Goiás,5,Centro Oeste
+2010,Goiânia,2131148,GO,52,Goiás,5,Centro Oeste
+2022,Goiânia,2548732,GO,52,Goiás,5,Centro Oeste
+1991,Grande São Luís,957123,MA,21,Maranhão,2,Nordeste
+2000,Grande São Luís,1225383,MA,21,Maranhão,2,Nordeste
+2010,Grande São Luís,1492752,MA,21,Maranhão,2,Nordeste
+2022,Grande São Luís,1646005,MA,21,Maranhão,2,Nordeste
+1991,Grande Vitória,1136841,ES,32,Espírito Santo,3,Sudeste
+2000,Grande Vitória,1438596,ES,32,Espírito Santo,3,Sudeste
+2010,Grande Vitória,1687704,ES,32,Espírito Santo,3,Sudeste
+2022,Grande Vitória,1880828,ES,32,Espírito Santo,3,Sudeste
+1991,Guarabira,243950,PB,25,Paraíba,2,Nordeste
+2000,Guarabira,241915,PB,25,Paraíba,2,Nordeste
+2010,Guarabira,244312,PB,25,Paraíba,2,Nordeste
+2022,Guarabira,243173,PB,25,Paraíba,2,Nordeste
+1991,Gurupi,143674,TO,17,Tocantins,1,Norte
+2000,Gurupi,162411,TO,17,Tocantins,1,Norte
+2010,Gurupi,179628,TO,17,Tocantins,1,Norte
+2022,Gurupi,190501,TO,17,Tocantins,1,Norte
+1991,Itabaiana,126281,PB,25,Paraíba,2,Nordeste
+2000,Itabaiana,128230,PB,25,Paraíba,2,Nordeste
+2010,Itabaiana,132140,PB,25,Paraíba,2,Nordeste
+2022,Itabaiana,133563,PB,25,Paraíba,2,Nordeste
+1991,João Pessoa,820775,PB,25,Paraíba,2,Nordeste
+2000,João Pessoa,980874,PB,25,Paraíba,2,Nordeste
+2010,João Pessoa,1156478,PB,25,Paraíba,2,Nordeste
+2022,João Pessoa,1304280,PB,25,Paraíba,2,Nordeste
+1991,Lages,325609,SC,42,Santa Catarina,4,Sul
+2000,Lages,349068,SC,42,Santa Catarina,4,Sul
+2010,Lages,350532,SC,42,Santa Catarina,4,Sul
+2022,Lages,362506,SC,42,Santa Catarina,4,Sul
+1991,Londrina,788306,PR,41,Paraná,4,Sul
+2000,Londrina,897086,PR,41,Paraná,4,Sul
+2010,Londrina,999970,PR,41,Paraná,4,Sul
+2022,Londrina,1088734,PR,41,Paraná,4,Sul
+1991,Macapá,239785,AP,16,Amapá,1,Norte
+2000,Macapá,375733,AP,16,Amapá,1,Norte
+2010,Macapá,516498,AP,16,Amapá,1,Norte
+2022,Macapá,572475,AP,16,Amapá,1,Norte
+1991,Maceió,853662,AL,27,Alagoas,2,Nordeste
+2000,Maceió,1054405,AL,27,Alagoas,2,Nordeste
+2010,Maceió,1227347,AL,27,Alagoas,2,Nordeste
+2022,Maceió,1300609,AL,27,Alagoas,2,Nordeste
+1991,Manaus,1262572,AM,13,Amazônas,1,Norte
+2000,Manaus,1725536,AM,13,Amazônas,1,Norte
+2010,Manaus,2210647,AM,13,Amazônas,1,Norte
+2022,Manaus,2532519,AM,13,Amazônas,1,Norte
+1991,Maringá,524130,PR,41,Paraná,4,Sul
+2000,Maringá,617116,PR,41,Paraná,4,Sul
+2010,Maringá,716918,PR,41,Paraná,4,Sul
+2022,Maringá,851829,PR,41,Paraná,4,Sul
+1991,Médio Sertão,119198,AL,27,Alagoas,2,Nordeste
+2000,Médio Sertão,138326,AL,27,Alagoas,2,Nordeste
+2010,Médio Sertão,143882,AL,27,Alagoas,2,Nordeste
+2022,Médio Sertão,142332,AL,27,Alagoas,2,Nordeste
+1991,Natal,943393,RN,24,Rio Grande Do Norte,2,Nordeste
+2000,Natal,1172299,RN,24,Rio Grande Do Norte,2,Nordeste
+2010,Natal,1409021,RN,24,Rio Grande Do Norte,2,Nordeste
+2022,Natal,1517709,RN,24,Rio Grande Do Norte,2,Nordeste
+1991,Norte/Nordeste Catarinense,846483,SC,42,Santa Catarina,4,Sul
+2000,Norte/Nordeste Catarinense,1029956,SC,42,Santa Catarina,4,Sul
+2010,Norte/Nordeste Catarinense,1222801,SC,42,Santa Catarina,4,Sul
+2022,Norte/Nordeste Catarinense,1480750,SC,42,Santa Catarina,4,Sul
+1991,Palmas,168075,TO,17,Tocantins,1,Norte
+2000,Palmas,294209,TO,17,Tocantins,1,Norte
+2010,Palmas,400092,TO,17,Tocantins,1,Norte
+2022,Palmas,495196,TO,17,Tocantins,1,Norte
+1991,Palmeira dos Índios,149584,AL,27,Alagoas,2,Nordeste
+2000,Palmeira dos Índios,148599,AL,27,Alagoas,2,Nordeste
+2010,Palmeira dos Índios,151982,AL,27,Alagoas,2,Nordeste
+2022,Palmeira dos Índios,148747,AL,27,Alagoas,2,Nordeste
+1991,Patos,193928,PB,25,Paraíba,2,Nordeste
+2000,Patos,203672,PB,25,Paraíba,2,Nordeste
+2010,Patos,219921,PB,25,Paraíba,2,Nordeste
+2022,Patos,222863,PB,25,Paraíba,2,Nordeste
+1991,Porto Alegre,3281499,RS,43,Rio Grande Do Sul,4,Sul
+2000,Porto Alegre,3783096,RS,43,Rio Grande Do Sul,4,Sul
+2010,Porto Alegre,4032062,RS,43,Rio Grande Do Sul,4,Sul
+2022,Porto Alegre,4018915,RS,43,Rio Grande Do Sul,4,Sul
+1991,Porto Velho,287289,RO,11,Rondônia,1,Norte
+2000,Porto Velho,347768,RO,11,Rondônia,1,Norte
+2010,Porto Velho,448306,RO,11,Rondônia,1,Norte
+2022,Porto Velho,482744,RO,11,Rondônia,1,Norte
+1991,RIDE DF,2307695,"MG, GO, DF",NA,NA,5,Centro Oeste
+2000,RIDE DF,3118030,"MG, GO, DF",NA,NA,5,Centro Oeste
+2010,RIDE DF,3910782,"MG, GO, DF",NA,NA,5,Centro Oeste
+2022,RIDE DF,4484116,"MG, GO, DF",NA,NA,5,Centro Oeste
+1991,RIDE Petrolina/Juazeiro,449853,"PE, BA",NA,NA,2,Nordeste
+2000,RIDE Petrolina/Juazeiro,565877,"PE, BA",NA,NA,2,Nordeste
+2010,RIDE Petrolina/Juazeiro,687019,"PE, BA",NA,NA,2,Nordeste
+2022,RIDE Petrolina/Juazeiro,834632,"PE, BA",NA,NA,2,Nordeste
+1991,RIDE Teresina,853287,"MA, PI",NA,NA,2,Nordeste
+2000,RIDE Teresina,1008198,"MA, PI",NA,NA,2,Nordeste
+2010,RIDE Teresina,1151328,"MA, PI",NA,NA,2,Nordeste
+2022,RIDE Teresina,1246608,"MA, PI",NA,NA,2,Nordeste
+1991,Recife,2984130,PE,26,Pernambuco,2,Nordeste
+2000,Recife,3408742,PE,26,Pernambuco,2,Nordeste
+2010,Recife,3765768,PE,26,Pernambuco,2,Nordeste
+2022,Recife,3808029,PE,26,Pernambuco,2,Nordeste
+1991,Ribeirão Preto,1115558,SP,35,São Paulo,3,Sudeste
+2000,Ribeirão Preto,1308298,SP,35,São Paulo,3,Sudeste
+2010,Ribeirão Preto,1511140,SP,35,São Paulo,3,Sudeste
+2022,Ribeirão Preto,1648111,SP,35,São Paulo,3,Sudeste
+1991,Rio de Janeiro,9882018,RJ,33,Rio De Janeiro,3,Sudeste
+2000,Rio de Janeiro,10967489,RJ,33,Rio De Janeiro,3,Sudeste
+2010,Rio de Janeiro,11945695,RJ,33,Rio De Janeiro,3,Sudeste
+2022,Rio de Janeiro,11742990,RJ,33,Rio De Janeiro,3,Sudeste
+1991,Salvador,2586370,BA,29,Bahia,2,Nordeste
+2000,Salvador,3120303,BA,29,Bahia,2,Nordeste
+2010,Salvador,3575434,BA,29,Bahia,2,Nordeste
+2022,Salvador,3415022,BA,29,Bahia,2,Nordeste
+1991,Santarém,265063,PA,15,Pará,1,Norte
+2000,Santarém,277132,PA,15,Pará,1,Norte
+2010,Santarém,310898,PA,15,Pará,1,Norte
+2022,Santarém,373542,PA,15,Pará,1,Norte
+1991,Serra Gaúcha,509210,RS,43,Rio Grande Do Sul,4,Sul
+2000,Serra Gaúcha,624123,RS,43,Rio Grande Do Sul,4,Sul
+2010,Serra Gaúcha,735276,RS,43,Rio Grande Do Sul,4,Sul
+2022,Serra Gaúcha,801241,RS,43,Rio Grande Do Sul,4,Sul
+1991,Sertão,129912,AL,27,Alagoas,2,Nordeste
+2000,Sertão,143026,AL,27,Alagoas,2,Nordeste
+2010,Sertão,152156,AL,27,Alagoas,2,Nordeste
+2022,Sertão,148868,AL,27,Alagoas,2,Nordeste
+1991,Sobral,343889,CE,23,Ceará,2,Nordeste
+2000,Sobral,401982,CE,23,Ceará,2,Nordeste
+2010,Sobral,459322,CE,23,Ceará,2,Nordeste
+2022,Sobral,483674,CE,23,Ceará,2,Nordeste
+1991,Sorocaba,1257172,SP,35,São Paulo,3,Sudeste
+2000,Sorocaba,1603205,SP,35,São Paulo,3,Sudeste
+2010,Sorocaba,1871162,SP,35,São Paulo,3,Sudeste
+2022,Sorocaba,2174525,SP,35,São Paulo,3,Sudeste
+1991,Sousa,104894,PB,25,Paraíba,2,Nordeste
+2000,Sousa,106328,PB,25,Paraíba,2,Nordeste
+2010,Sousa,112168,PB,25,Paraíba,2,Nordeste
+2022,Sousa,113363,PB,25,Paraíba,2,Nordeste
+1991,Sudoeste Maranhense,349270,MA,21,Maranhão,2,Nordeste
+2000,Sudoeste Maranhense,325229,MA,21,Maranhão,2,Nordeste
+2010,Sudoeste Maranhense,345873,MA,21,Maranhão,2,Nordeste
+2022,Sudoeste Maranhense,374778,MA,21,Maranhão,2,Nordeste
+1991,Sul do Estado,19249,RR,14,Roraima,1,Norte
+2000,Sul do Estado,33487,RR,14,Roraima,1,Norte
+2010,Sul do Estado,45912,RR,14,Roraima,1,Norte
+2022,Sul do Estado,59476,RR,14,Roraima,1,Norte
+1991,São Francisco,110004,AL,27,Alagoas,2,Nordeste
+2000,São Francisco,117410,AL,27,Alagoas,2,Nordeste
+2010,São Francisco,124417,AL,27,Alagoas,2,Nordeste
+2022,São Francisco,119975,AL,27,Alagoas,2,Nordeste
+1991,São Paulo,15444942,SP,35,São Paulo,3,Sudeste
+2000,São Paulo,17879997,SP,35,São Paulo,3,Sudeste
+2010,São Paulo,19683975,SP,35,São Paulo,3,Sudeste
+2022,São Paulo,20731920,SP,35,São Paulo,3,Sudeste
+1991,Toledo,319625,PR,41,Paraná,4,Sul
+2000,Toledo,322181,PR,41,Paraná,4,Sul
+2010,Toledo,358660,PR,41,Paraná,4,Sul
+2022,Toledo,418589,PR,41,Paraná,4,Sul
+1991,Tubarão,287781,SC,42,Santa Catarina,4,Sul
+2000,Tubarão,324591,SC,42,Santa Catarina,4,Sul
+2010,Tubarão,356721,SC,42,Santa Catarina,4,Sul
+2022,Tubarão,405191,SC,42,Santa Catarina,4,Sul
+1991,Umuarama,317872,PR,41,Paraná,4,Sul
+2000,Umuarama,289648,PR,41,Paraná,4,Sul
+2010,Umuarama,299447,PR,41,Paraná,4,Sul
+2022,Umuarama,325387,PR,41,Paraná,4,Sul
+1991,Vale do Aço,619673,MG,31,Minas Gerais,3,Sudeste
+2000,Vale do Aço,657220,MG,31,Minas Gerais,3,Sudeste
+2010,Vale do Aço,715900,MG,31,Minas Gerais,3,Sudeste
+2022,Vale do Aço,718283,MG,31,Minas Gerais,3,Sudeste
+1991,Vale do Itajaí,451712,SC,42,Santa Catarina,4,Sul
+2000,Vale do Itajaí,558165,SC,42,Santa Catarina,4,Sul
+2010,Vale do Itajaí,689601,SC,42,Santa Catarina,4,Sul
+2022,Vale do Itajaí,841698,SC,42,Santa Catarina,4,Sul
+1991,Vale do Mamanguape,92015,PB,25,Paraíba,2,Nordeste
+2000,Vale do Mamanguape,102038,PB,25,Paraíba,2,Nordeste
+2010,Vale do Mamanguape,113079,PB,25,Paraíba,2,Nordeste
+2022,Vale do Mamanguape,121196,PB,25,Paraíba,2,Nordeste
+1991,Vale do Paraíba,156577,AL,27,Alagoas,2,Nordeste
+2000,Vale do Paraíba,163115,AL,27,Alagoas,2,Nordeste
+2010,Vale do Paraíba,158651,AL,27,Alagoas,2,Nordeste
+2022,Vale do Paraíba,139228,AL,27,Alagoas,2,Nordeste
+1991,Vale do Paraíba e Litoral Norte,1651589,SP,35,São Paulo,3,Sudeste
+2000,Vale do Paraíba e Litoral Norte,1992110,SP,35,São Paulo,3,Sudeste
+2010,Vale do Paraíba e Litoral Norte,2264594,SP,35,São Paulo,3,Sudeste
+2022,Vale do Paraíba e Litoral Norte,2505723,SP,35,São Paulo,3,Sudeste
+1991,Vale do Piancó,142822,PB,25,Paraíba,2,Nordeste
+2000,Vale do Piancó,140700,PB,25,Paraíba,2,Nordeste
+2010,Vale do Piancó,140663,PB,25,Paraíba,2,Nordeste
+2022,Vale do Piancó,136464,PB,25,Paraíba,2,Nordeste
+1991,Vale do Rio Cuiabá,698606,MT,51,Mato Grosso,5,Centro Oeste
+2000,Vale do Rio Cuiabá,835786,MT,51,Mato Grosso,5,Centro Oeste
+2010,Vale do Rio Cuiabá,944134,MT,51,Mato Grosso,5,Centro Oeste
+2022,Vale do Rio Cuiabá,1087084,MT,51,Mato Grosso,5,Centro Oeste
+1991,Zona da Mata,279748,AL,27,Alagoas,2,Nordeste
+2000,Zona da Mata,274717,AL,27,Alagoas,2,Nordeste
+2010,Zona da Mata,288422,AL,27,Alagoas,2,Nordeste
+2022,Zona da Mata,262264,AL,27,Alagoas,2,Nordeste

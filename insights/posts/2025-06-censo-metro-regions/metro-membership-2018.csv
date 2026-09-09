@@ -1,0 +1,1403 @@
+code_muni,name_metro,type,subdivision,abbrev_state
+1100205,Porto Velho,RM,NÃO TEM,RO
+1100809,Porto Velho,RM,NÃO TEM,RO
+1300300,Manaus,RM,NÃO TEM,AM
+1301100,Manaus,RM,NÃO TEM,AM
+1301159,Manaus,RM,NÃO TEM,AM
+1301852,Manaus,RM,NÃO TEM,AM
+1301902,Manaus,RM,NÃO TEM,AM
+1302009,Manaus,RM,NÃO TEM,AM
+1302504,Manaus,RM,NÃO TEM,AM
+1302553,Manaus,RM,NÃO TEM,AM
+1302603,Manaus,RM,NÃO TEM,AM
+1303205,Manaus,RM,NÃO TEM,AM
+1303536,Manaus,RM,NÃO TEM,AM
+1303569,Manaus,RM,NÃO TEM,AM
+1304005,Manaus,RM,NÃO TEM,AM
+1400050,Capital,RM,NÃO TEM,RR
+1400100,Capital,RM,NÃO TEM,RR
+1400159,Capital,RM,NÃO TEM,RR
+1400175,Capital,RM,NÃO TEM,RR
+1400209,Central,RM,NÃO TEM,RR
+1400233,Sul do Estado,RM,NÃO TEM,RR
+1400282,Central,RM,NÃO TEM,RR
+1400308,Capital,RM,NÃO TEM,RR
+1400472,Sul do Estado,RM,NÃO TEM,RR
+1400506,Sul do Estado,RM,NÃO TEM,RR
+1400605,Sul do Estado,RM,NÃO TEM,RR
+1500800,Belém,RM,NÃO TEM,PA
+1501402,Belém,RM,NÃO TEM,PA
+1501451,Santarém,RM,NÃO TEM,PA
+1501501,Belém,RM,NÃO TEM,PA
+1502400,Belém,RM,NÃO TEM,PA
+1504422,Belém,RM,NÃO TEM,PA
+1504752,Santarém,RM,NÃO TEM,PA
+1506351,Belém,RM,NÃO TEM,PA
+1506500,Belém,RM,NÃO TEM,PA
+1506807,Santarém,RM,NÃO TEM,PA
+1600303,Macapá,RM,NÃO TEM,AP
+1600402,Macapá,RM,NÃO TEM,AP
+1600600,Macapá,RM,NÃO TEM,AP
+1700350,Gurupi,RM,NÃO TEM,TO
+1700707,Gurupi,RM,NÃO TEM,TO
+1701101,Palmas,RM,NÃO TEM,TO
+1702000,Gurupi,RM,NÃO TEM,TO
+1703107,Palmas,RM,NÃO TEM,TO
+1703701,Palmas,RM,NÃO TEM,TO
+1703867,Gurupi,RM,NÃO TEM,TO
+1706258,Gurupi,RM,NÃO TEM,TO
+1707306,Gurupi,RM,NÃO TEM,TO
+1707553,Palmas,RM,NÃO TEM,TO
+1707652,Gurupi,RM,NÃO TEM,TO
+1708205,Gurupi,RM,NÃO TEM,TO
+1709500,Gurupi,RM,NÃO TEM,TO
+1709807,Palmas,RM,NÃO TEM,TO
+1711506,Gurupi,RM,NÃO TEM,TO
+1711902,Gurupi,RM,NÃO TEM,TO
+1712009,Palmas,RM,NÃO TEM,TO
+1713205,Palmas,RM,NÃO TEM,TO
+1713304,Palmas,RM,NÃO TEM,TO
+1713601,Palmas,RM,NÃO TEM,TO
+1715507,Palmas,RM,NÃO TEM,TO
+1715754,Gurupi,RM,NÃO TEM,TO
+1716109,Palmas,RM,NÃO TEM,TO
+1716604,Gurupi,RM,NÃO TEM,TO
+1718204,Palmas,RM,NÃO TEM,TO
+1718451,Palmas,RM,NÃO TEM,TO
+1718840,Gurupi,RM,NÃO TEM,TO
+1720259,Gurupi,RM,NÃO TEM,TO
+1720499,Gurupi,RM,NÃO TEM,TO
+1720655,Palmas,RM,NÃO TEM,TO
+1720853,Gurupi,RM,NÃO TEM,TO
+1720978,Gurupi,RM,NÃO TEM,TO
+1721000,Palmas,RM,NÃO TEM,TO
+1721109,Palmas,RM,NÃO TEM,TO
+2100204,Grande São Luís,RM,NÃO TEM,MA
+2101103,Grande São Luís,RM,NÃO TEM,MA
+2101251,Grande São Luís,RM,NÃO TEM,MA
+2102358,Sudoeste Maranhense,RM,NÃO TEM,MA
+2102374,Grande São Luís,RM,NÃO TEM,MA
+2103752,Sudoeste Maranhense,RM,NÃO TEM,MA
+2104552,Sudoeste Maranhense,RM,NÃO TEM,MA
+2105104,Grande São Luís,RM,NÃO TEM,MA
+2105302,Sudoeste Maranhense,RM,NÃO TEM,MA
+2105500,Sudoeste Maranhense,RM,NÃO TEM,MA
+2107001,Sudoeste Maranhense,RM,NÃO TEM,MA
+2107100,Grande São Luís,RM,NÃO TEM,MA
+2107506,Grande São Luís,RM,NÃO TEM,MA
+2109205,Grande São Luís,RM,NÃO TEM,MA
+2109452,Grande São Luís,RM,NÃO TEM,MA
+2109551,Sudoeste Maranhense,RM,NÃO TEM,MA
+2109601,Grande São Luís,RM,NÃO TEM,MA
+2110203,Grande São Luís,RM,NÃO TEM,MA
+2111201,Grande São Luís,RM,NÃO TEM,MA
+2111300,Grande São Luís,RM,NÃO TEM,MA
+2111763,Sudoeste Maranhense,RM,NÃO TEM,MA
+2112209,RIDE Teresina,RIDE,NÃO TEM,MA
+2200400,RIDE Teresina,RIDE,NÃO TEM,PI
+2201606,RIDE Teresina,RIDE,NÃO TEM,PI
+2202737,RIDE Teresina,RIDE,NÃO TEM,PI
+2203255,RIDE Teresina,RIDE,NÃO TEM,PI
+2203305,RIDE Teresina,RIDE,NÃO TEM,PI
+2205508,RIDE Teresina,RIDE,NÃO TEM,PI
+2205557,RIDE Teresina,RIDE,NÃO TEM,PI
+2205581,RIDE Teresina,RIDE,NÃO TEM,PI
+2206308,RIDE Teresina,RIDE,NÃO TEM,PI
+2206407,RIDE Teresina,RIDE,NÃO TEM,PI
+2206720,RIDE Teresina,RIDE,NÃO TEM,PI
+2211001,RIDE Teresina,RIDE,NÃO TEM,PI
+2211100,RIDE Teresina,RIDE,NÃO TEM,PI
+2300507,Sobral,RM,NÃO TEM,CE
+2301000,Fortaleza,RM,NÃO TEM,CE
+2301901,Cariri,RM,NÃO TEM,CE
+2303105,Sobral,RM,NÃO TEM,CE
+2303204,Cariri,RM,NÃO TEM,CE
+2303501,Fortaleza,RM,NÃO TEM,CE
+2303709,Fortaleza,RM,NÃO TEM,CE
+2303956,Fortaleza,RM,NÃO TEM,CE
+2304004,Sobral,RM,NÃO TEM,CE
+2304202,Cariri,RM,NÃO TEM,CE
+2304285,Fortaleza,RM,NÃO TEM,CE
+2304301,Cariri,RM,NÃO TEM,CE
+2304350,Sobral,RM,NÃO TEM,CE
+2304400,Fortaleza,RM,NÃO TEM,CE
+2304509,Sobral,RM,NÃO TEM,CE
+2304657,Sobral,RM,NÃO TEM,CE
+2304905,Sobral,RM,NÃO TEM,CE
+2304954,Fortaleza,RM,NÃO TEM,CE
+2305233,Fortaleza,RM,NÃO TEM,CE
+2306256,Fortaleza,RM,NÃO TEM,CE
+2307106,Cariri,RM,NÃO TEM,CE
+2307304,Cariri,RM,NÃO TEM,CE
+2307650,Fortaleza,RM,NÃO TEM,CE
+2307700,Fortaleza,RM,NÃO TEM,CE
+2308005,Sobral,RM,NÃO TEM,CE
+2308203,Sobral,RM,NÃO TEM,CE
+2308401,Cariri,RM,NÃO TEM,CE
+2308807,Sobral,RM,NÃO TEM,CE
+2309003,Sobral,RM,NÃO TEM,CE
+2309201,Cariri,RM,NÃO TEM,CE
+2309607,Fortaleza,RM,NÃO TEM,CE
+2309706,Fortaleza,RM,NÃO TEM,CE
+2309904,Sobral,RM,NÃO TEM,CE
+2310209,Fortaleza,RM,NÃO TEM,CE
+2310258,Fortaleza,RM,NÃO TEM,CE
+2310852,Fortaleza,RM,NÃO TEM,CE
+2310951,Sobral,RM,NÃO TEM,CE
+2311702,Sobral,RM,NÃO TEM,CE
+2312007,Sobral,RM,NÃO TEM,CE
+2312106,Cariri,RM,NÃO TEM,CE
+2312403,Fortaleza,RM,NÃO TEM,CE
+2312601,Fortaleza,RM,NÃO TEM,CE
+2312809,Sobral,RM,NÃO TEM,CE
+2312908,Sobral,RM,NÃO TEM,CE
+2313500,Fortaleza,RM,NÃO TEM,CE
+2313955,Sobral,RM,NÃO TEM,CE
+2401206,Natal,RM,NÃO TEM,RN
+2402600,Natal,RM,NÃO TEM,RN
+2403251,Natal,RM,NÃO TEM,RN
+2403608,Natal,RM,NÃO TEM,RN
+2404200,Natal,RM,NÃO TEM,RN
+2404606,Natal,RM,NÃO TEM,RN
+2407104,Natal,RM,NÃO TEM,RN
+2407500,Natal,RM,NÃO TEM,RN
+2407807,Natal,RM,NÃO TEM,RN
+2408102,Natal,RM,NÃO TEM,RN
+2408201,Natal,RM,NÃO TEM,RN
+2412005,Natal,RM,NÃO TEM,RN
+2412203,Natal,RM,NÃO TEM,RN
+2414803,Natal,RM,NÃO TEM,RN
+2500205,Vale do Piancó,RM,NÃO TEM,PB
+2500403,Esperança,RM,NÃO TEM,PB
+2500502,Guarabira,RM,NÃO TEM,PB
+2500536,Campina Grande,RM,NÃO TEM,PB
+2500577,Esperança,RM,NÃO TEM,PB
+2500601,João Pessoa,RM,NÃO TEM,PB
+2500700,Cajazeiras,RM,NÃO TEM,PB
+2500775,Sousa,RM,NÃO TEM,PB
+2500809,Guarabira,RM,NÃO TEM,PB
+2500908,Guarabira,RM,NÃO TEM,PB
+2501005,Araruna,RM,NÃO TEM,PB
+2501104,Esperança,RM,NÃO TEM,PB
+2501153,Patos,RM,NÃO TEM,PB
+2501203,Esperança,RM,NÃO TEM,PB
+2501302,Campina Grande,RM,NÃO TEM,PB
+2501401,Vale do Mamanguape,RM,NÃO TEM,PB
+2501500,Guarabira,RM,NÃO TEM,PB
+2501534,Barra de Santa Rosa,RM,NÃO TEM,PB
+2501575,Campina Grande,RM,NÃO TEM,PB
+2501609,Barra de Santa Rosa,RM,NÃO TEM,PB
+2501807,João Pessoa,RM,NÃO TEM,PB
+2501906,Guarabira,RM,NÃO TEM,PB
+2502052,Cajazeiras,RM,NÃO TEM,PB
+2502102,Vale do Piancó,RM,NÃO TEM,PB
+2502151,Campina Grande,RM,NÃO TEM,PB
+2502201,Cajazeiras,RM,NÃO TEM,PB
+2502409,Cajazeiras,RM,NÃO TEM,PB
+2502508,Campina Grande,RM,NÃO TEM,PB
+2502607,Vale do Piancó,RM,NÃO TEM,PB
+2502706,Guarabira,RM,NÃO TEM,PB
+2503001,João Pessoa,RM,NÃO TEM,PB
+2503209,João Pessoa,RM,NÃO TEM,PB
+2503308,Cajazeiras,RM,NÃO TEM,PB
+2503407,Patos,RM,NÃO TEM,PB
+2503506,Araruna,RM,NÃO TEM,PB
+2503555,Patos,RM,NÃO TEM,PB
+2503605,Guarabira,RM,NÃO TEM,PB
+2503704,Cajazeiras,RM,NÃO TEM,PB
+2503803,Itabaiana,RM,NÃO TEM,PB
+2504009,Campina Grande,RM,NÃO TEM,PB
+2504108,Cajazeiras,RM,NÃO TEM,PB
+2504207,Vale do Piancó,RM,NÃO TEM,PB
+2504355,Campina Grande,RM,NÃO TEM,PB
+2504405,Vale do Piancó,RM,NÃO TEM,PB
+2504504,Patos,RM,NÃO TEM,PB
+2504603,João Pessoa,RM,NÃO TEM,PB
+2504801,Vale do Piancó,RM,NÃO TEM,PB
+2504900,João Pessoa,RM,NÃO TEM,PB
+2505105,Barra de Santa Rosa,RM,NÃO TEM,PB
+2505204,Guarabira,RM,NÃO TEM,PB
+2505238,Vale do Mamanguape,RM,NÃO TEM,PB
+2505279,Vale do Mamanguape,RM,NÃO TEM,PB
+2505303,Vale do Piancó,RM,NÃO TEM,PB
+2505352,Araruna,RM,NÃO TEM,PB
+2505402,Patos,RM,NÃO TEM,PB
+2505501,Patos,RM,NÃO TEM,PB
+2505600,Vale do Piancó,RM,NÃO TEM,PB
+2505709,Araruna,RM,NÃO TEM,PB
+2505808,Guarabira,RM,NÃO TEM,PB
+2505907,Patos,RM,NÃO TEM,PB
+2506004,Esperança,RM,NÃO TEM,PB
+2506103,Campina Grande,RM,NÃO TEM,PB
+2506202,Barra de Santa Rosa,RM,NÃO TEM,PB
+2506251,Campina Grande,RM,NÃO TEM,PB
+2506301,Guarabira,RM,NÃO TEM,PB
+2506400,Itabaiana,RM,NÃO TEM,PB
+2506608,Vale do Piancó,RM,NÃO TEM,PB
+2506806,Itabaiana,RM,NÃO TEM,PB
+2506905,Itabaiana,RM,NÃO TEM,PB
+2507002,Vale do Piancó,RM,NÃO TEM,PB
+2507101,Vale do Mamanguape,RM,NÃO TEM,PB
+2507200,Campina Grande,RM,NÃO TEM,PB
+2507309,Vale do Mamanguape,RM,NÃO TEM,PB
+2507507,João Pessoa,RM,NÃO TEM,PB
+2507606,Itabaiana,RM,NÃO TEM,PB
+2507804,Patos,RM,NÃO TEM,PB
+2507903,Itabaiana,RM,NÃO TEM,PB
+2508208,Guarabira,RM,NÃO TEM,PB
+2508307,Campina Grande,RM,NÃO TEM,PB
+2508406,Sousa,RM,NÃO TEM,PB
+2508554,Guarabira,RM,NÃO TEM,PB
+2508604,João Pessoa,RM,NÃO TEM,PB
+2508703,Patos,RM,NÃO TEM,PB
+2508802,Patos,RM,NÃO TEM,PB
+2508901,Vale do Mamanguape,RM,NÃO TEM,PB
+2509057,Vale do Mamanguape,RM,NÃO TEM,PB
+2509156,Sousa,RM,NÃO TEM,PB
+2509206,Campina Grande,RM,NÃO TEM,PB
+2509305,Vale do Mamanguape,RM,NÃO TEM,PB
+2509339,Campina Grande,RM,NÃO TEM,PB
+2509396,Patos,RM,NÃO TEM,PB
+2509404,Itabaiana,RM,NÃO TEM,PB
+2509503,Esperança,RM,NÃO TEM,PB
+2509602,Cajazeiras,RM,NÃO TEM,PB
+2509800,Guarabira,RM,NÃO TEM,PB
+2509909,Campina Grande,RM,NÃO TEM,PB
+2510006,Sousa,RM,NÃO TEM,PB
+2510105,Barra de Santa Rosa,RM,NÃO TEM,PB
+2510204,Vale do Piancó,RM,NÃO TEM,PB
+2510303,Barra de Santa Rosa,RM,NÃO TEM,PB
+2510709,Patos,RM,NÃO TEM,PB
+2510808,Patos,RM,NÃO TEM,PB
+2511202,João Pessoa,RM,NÃO TEM,PB
+2511301,Vale do Piancó,RM,NÃO TEM,PB
+2511400,Barra de Santa Rosa,RM,NÃO TEM,PB
+2511509,Itabaiana,RM,NÃO TEM,PB
+2511608,Guarabira,RM,NÃO TEM,PB
+2511707,Guarabira,RM,NÃO TEM,PB
+2511806,Guarabira,RM,NÃO TEM,PB
+2511905,João Pessoa,RM,NÃO TEM,PB
+2512002,Esperança,RM,NÃO TEM,PB
+2512036,Cajazeiras,RM,NÃO TEM,PB
+2512077,Cajazeiras,RM,NÃO TEM,PB
+2512408,Campina Grande,RM,NÃO TEM,PB
+2512507,Campina Grande,RM,NÃO TEM,PB
+2512606,Patos,RM,NÃO TEM,PB
+2512705,Esperança,RM,NÃO TEM,PB
+2512721,Vale do Mamanguape,RM,NÃO TEM,PB
+2512747,Araruna,RM,NÃO TEM,PB
+2512754,Itabaiana,RM,NÃO TEM,PB
+2512903,João Pessoa,RM,NÃO TEM,PB
+2513000,Patos,RM,NÃO TEM,PB
+2513109,Itabaiana,RM,NÃO TEM,PB
+2513158,Campina Grande,RM,NÃO TEM,PB
+2513208,Sousa,RM,NÃO TEM,PB
+2513307,Cajazeiras,RM,NÃO TEM,PB
+2513356,Vale do Piancó,RM,NÃO TEM,PB
+2513406,Patos,RM,NÃO TEM,PB
+2513505,Vale do Piancó,RM,NÃO TEM,PB
+2513604,Vale do Piancó,RM,NÃO TEM,PB
+2513653,Cajazeiras,RM,NÃO TEM,PB
+2513703,João Pessoa,RM,NÃO TEM,PB
+2513802,Patos,RM,NÃO TEM,PB
+2513984,Sousa,RM,NÃO TEM,PB
+2514206,Sousa,RM,NÃO TEM,PB
+2514305,Vale do Piancó,RM,NÃO TEM,PB
+2514404,Patos,RM,NÃO TEM,PB
+2514453,Itabaiana,RM,NÃO TEM,PB
+2514503,Cajazeiras,RM,NÃO TEM,PB
+2514602,Patos,RM,NÃO TEM,PB
+2514701,Patos,RM,NÃO TEM,PB
+2514909,Patos,RM,NÃO TEM,PB
+2515005,Itabaiana,RM,NÃO TEM,PB
+2515104,Esperança,RM,NÃO TEM,PB
+2515609,Guarabira,RM,NÃO TEM,PB
+2515708,Vale do Piancó,RM,NÃO TEM,PB
+2515807,Campina Grande,RM,NÃO TEM,PB
+2515906,Guarabira,RM,NÃO TEM,PB
+2515930,Guarabira,RM,NÃO TEM,PB
+2516003,Guarabira,RM,NÃO TEM,PB
+2516151,Barra de Santa Rosa,RM,NÃO TEM,PB
+2516201,Sousa,RM,NÃO TEM,PB
+2516409,Araruna,RM,NÃO TEM,PB
+2516706,Patos,RM,NÃO TEM,PB
+2516805,Cajazeiras,RM,NÃO TEM,PB
+2516904,Cajazeiras,RM,NÃO TEM,PB
+2517001,Campina Grande,RM,NÃO TEM,PB
+2517100,Patos,RM,NÃO TEM,PB
+2517209,Sousa,RM,NÃO TEM,PB
+2600054,Recife,RM,NÃO TEM,PE
+2601052,Recife,RM,NÃO TEM,PE
+2602902,Recife,RM,NÃO TEM,PE
+2603454,Recife,RM,NÃO TEM,PE
+2606200,Recife,RM,NÃO TEM,PE
+2606804,Recife,RM,NÃO TEM,PE
+2607208,Recife,RM,NÃO TEM,PE
+2607604,Recife,RM,NÃO TEM,PE
+2607752,Recife,RM,NÃO TEM,PE
+2607901,Recife,RM,NÃO TEM,PE
+2608750,RIDE Petrolina/Juazeiro,RIDE,NÃO TEM,PE
+2609402,Recife,RM,NÃO TEM,PE
+2609600,Recife,RM,NÃO TEM,PE
+2609808,RIDE Petrolina/Juazeiro,RIDE,NÃO TEM,PE
+2610707,Recife,RM,NÃO TEM,PE
+2611101,RIDE Petrolina/Juazeiro,RIDE,NÃO TEM,PE
+2611606,Recife,RM,NÃO TEM,PE
+2612604,RIDE Petrolina/Juazeiro,RIDE,NÃO TEM,PE
+2613701,Recife,RM,NÃO TEM,PE
+2700102,Sertão,RM,NÃO TEM,AL
+2700201,Vale do Paraíba,RM,NÃO TEM,AL
+2700300,Agreste,RM,NÃO TEM,AL
+2700409,Maceió,RM,NÃO TEM,AL
+2700508,Maceió,RM,NÃO TEM,AL
+2700607,Maceió,RM,NÃO TEM,AL
+2700805,Palmeira dos Índios,RM,NÃO TEM,AL
+2701001,Vale do Paraíba,RM,NÃO TEM,AL
+2701100,Zona da Mata,RM,NÃO TEM,AL
+2701209,Palmeira dos Índios,RM,NÃO TEM,AL
+2701308,Vale do Paraíba,RM,NÃO TEM,AL
+2701357,Zona da Mata,RM,NÃO TEM,AL
+2701407,Caetés,RM,NÃO TEM,AL
+2701506,Agreste,RM,NÃO TEM,AL
+2701704,Vale do Paraíba,RM,NÃO TEM,AL
+2701803,Médio Sertão,RM,NÃO TEM,AL
+2701902,Vale do Paraíba,RM,NÃO TEM,AL
+2702009,Agreste,RM,NÃO TEM,AL
+2702108,Zona da Mata,RM,NÃO TEM,AL
+2702207,Maceió,RM,NÃO TEM,AL
+2702306,Caetés,RM,NÃO TEM,AL
+2702355,Agreste,RM,NÃO TEM,AL
+2702405,Sertão,RM,NÃO TEM,AL
+2702504,Médio Sertão,RM,NÃO TEM,AL
+2702553,Palmeira dos Índios,RM,NÃO TEM,AL
+2702603,Agreste,RM,NÃO TEM,AL
+2702702,São Francisco,RM,NÃO TEM,AL
+2702801,Zona da Mata,RM,NÃO TEM,AL
+2702900,Agreste,RM,NÃO TEM,AL
+2703007,Zona da Mata,RM,NÃO TEM,AL
+2703106,Palmeira dos Índios,RM,NÃO TEM,AL
+2703205,São Francisco,RM,NÃO TEM,AL
+2703304,Sertão,RM,NÃO TEM,AL
+2703502,Zona da Mata,RM,NÃO TEM,AL
+2703700,Agreste,RM,NÃO TEM,AL
+2703809,Zona da Mata,RM,NÃO TEM,AL
+2703908,Zona da Mata,RM,NÃO TEM,AL
+2704005,Agreste,RM,NÃO TEM,AL
+2704104,Agreste,RM,NÃO TEM,AL
+2704203,Agreste,RM,NÃO TEM,AL
+2704302,Maceió,RM,NÃO TEM,AL
+2704401,Palmeira dos Índios,RM,NÃO TEM,AL
+2704609,Médio Sertão,RM,NÃO TEM,AL
+2704708,Maceió,RM,NÃO TEM,AL
+2704807,Vale do Paraíba,RM,NÃO TEM,AL
+2704906,Vale do Paraíba,RM,NÃO TEM,AL
+2705002,Sertão,RM,NÃO TEM,AL
+2705101,Zona da Mata,RM,NÃO TEM,AL
+2705200,Maceió,RM,NÃO TEM,AL
+2705309,Palmeira dos Índios,RM,NÃO TEM,AL
+2705507,Maceió,RM,NÃO TEM,AL
+2705606,Zona da Mata,RM,NÃO TEM,AL
+2705705,Médio Sertão,RM,NÃO TEM,AL
+2705804,Sertão,RM,NÃO TEM,AL
+2705903,Agreste,RM,NÃO TEM,AL
+2706000,Médio Sertão,RM,NÃO TEM,AL
+2706109,Médio Sertão,RM,NÃO TEM,AL
+2706307,Palmeira dos Índios,RM,NÃO TEM,AL
+2706422,Sertão,RM,NÃO TEM,AL
+2706448,Maceió,RM,NÃO TEM,AL
+2706604,Vale do Paraíba,RM,NÃO TEM,AL
+2706703,São Francisco,RM,NÃO TEM,AL
+2706802,São Francisco,RM,NÃO TEM,AL
+2706901,Maceió,RM,NÃO TEM,AL
+2707008,Vale do Paraíba,RM,NÃO TEM,AL
+2707107,Sertão,RM,NÃO TEM,AL
+2707206,Médio Sertão,RM,NÃO TEM,AL
+2707305,Zona da Mata,RM,NÃO TEM,AL
+2707503,São Francisco,RM,NÃO TEM,AL
+2707602,Vale do Paraíba,RM,NÃO TEM,AL
+2707701,Maceió,RM,NÃO TEM,AL
+2707800,Caetés,RM,NÃO TEM,AL
+2707909,Maceió,RM,NÃO TEM,AL
+2708006,Médio Sertão,RM,NÃO TEM,AL
+2708105,Zona da Mata,RM,NÃO TEM,AL
+2708204,Agreste,RM,NÃO TEM,AL
+2708303,Zona da Mata,RM,NÃO TEM,AL
+2708501,Zona da Mata,RM,NÃO TEM,AL
+2708600,Caetés,RM,NÃO TEM,AL
+2708808,Agreste,RM,NÃO TEM,AL
+2708907,Maceió,RM,NÃO TEM,AL
+2708956,Médio Sertão,RM,NÃO TEM,AL
+2709004,Vale do Paraíba,RM,NÃO TEM,AL
+2709103,Agreste,RM,NÃO TEM,AL
+2709152,Caetés,RM,NÃO TEM,AL
+2709202,Agreste,RM,NÃO TEM,AL
+2709301,Zona da Mata,RM,NÃO TEM,AL
+2709400,Vale do Paraíba,RM,NÃO TEM,AL
+2800308,Aracaju,RM,NÃO TEM,SE
+2800605,Aracaju,RM,NÃO TEM,SE
+2804805,Aracaju,RM,NÃO TEM,SE
+2806701,Aracaju,RM,NÃO TEM,SE
+2901106,Feira de Santana,RM,RM Feira de Santana,BA
+2901502,Feira de Santana,RM,Área de Expansão Metropolitana,BA
+2901700,Feira de Santana,RM,Área de Expansão Metropolitana,BA
+2905701,Salvador,RM,NÃO TEM,BA
+2906402,Feira de Santana,RM,Área de Expansão Metropolitana,BA
+2906501,Salvador,RM,NÃO TEM,BA
+2907202,RIDE Petrolina/Juazeiro,RIDE,NÃO TEM,BA
+2908200,Feira de Santana,RM,RM Feira de Santana,BA
+2908507,Feira de Santana,RM,RM Feira de Santana,BA
+2908903,Feira de Santana,RM,Área de Expansão Metropolitana,BA
+2909901,RIDE Petrolina/Juazeiro,RIDE,NÃO TEM,BA
+2910057,Salvador,RM,NÃO TEM,BA
+2910800,Feira de Santana,RM,RM Feira de Santana,BA
+2913804,Feira de Santana,RM,Área de Expansão Metropolitana,BA
+2914505,Feira de Santana,RM,Área de Expansão Metropolitana,BA
+2916104,Salvador,RM,NÃO TEM,BA
+2918407,RIDE Petrolina/Juazeiro,RIDE,NÃO TEM,BA
+2919207,Salvador,RM,NÃO TEM,BA
+2919926,Salvador,RM,NÃO TEM,BA
+2921005,Salvador,RM,NÃO TEM,BA
+2925204,Salvador,RM,NÃO TEM,BA
+2926301,Feira de Santana,RM,Área de Expansão Metropolitana,BA
+2927408,Salvador,RM,NÃO TEM,BA
+2927507,Feira de Santana,RM,Área de Expansão Metropolitana,BA
+2928307,Feira de Santana,RM,Área de Expansão Metropolitana,BA
+2929206,Salvador,RM,NÃO TEM,BA
+2929305,Feira de Santana,RM,RM Feira de Santana,BA
+2929503,Salvador,RM,NÃO TEM,BA
+2930402,Feira de Santana,RM,Área de Expansão Metropolitana,BA
+2930709,Salvador,RM,NÃO TEM,BA
+2930774,RIDE Petrolina/Juazeiro,RIDE,NÃO TEM,BA
+2931103,Feira de Santana,RM,RM Feira de Santana,BA
+2933208,Salvador,RM,NÃO TEM,BA
+3100500,Vale do Aço,CM,Colar Metropolitano,MG
+3103009,Vale do Aço,CM,Colar Metropolitano,MG
+3104502,RIDE DF,RIDE,NÃO TEM,MG
+3105004,Belo Horizonte,RM,RM Belo Horizonte,MG
+3105400,Belo Horizonte,RM,Colar Metropolitano,MG
+3106200,Belo Horizonte,RM,RM Belo Horizonte,MG
+3106309,Vale do Aço,CM,Colar Metropolitano,MG
+3106408,Belo Horizonte,RM,Colar Metropolitano,MG
+3106705,Belo Horizonte,RM,RM Belo Horizonte,MG
+3107703,Belo Horizonte,RM,Colar Metropolitano,MG
+3107802,Vale do Aço,CM,Colar Metropolitano,MG
+3108107,Belo Horizonte,RM,Colar Metropolitano,MG
+3108800,Vale do Aço,CM,Colar Metropolitano,MG
+3109006,Belo Horizonte,RM,RM Belo Horizonte,MG
+3109253,Vale do Aço,CM,Colar Metropolitano,MG
+3109303,RIDE DF,RIDE,NÃO TEM,MG
+3109451,RIDE DF,RIDE,NÃO TEM,MG
+3110004,Belo Horizonte,RM,RM Belo Horizonte,MG
+3112505,Belo Horizonte,RM,RM Belo Horizonte,MG
+3113404,Vale do Aço,CM,Colar Metropolitano,MG
+3117876,Belo Horizonte,RM,RM Belo Horizonte,MG
+3118601,Belo Horizonte,RM,RM Belo Horizonte,MG
+3119401,Vale do Aço,RM,RM Vale do Aço,MG
+3120003,Vale do Aço,CM,Colar Metropolitano,MG
+3121803,Vale do Aço,CM,Colar Metropolitano,MG
+3122504,Vale do Aço,CM,Colar Metropolitano,MG
+3123858,Vale do Aço,CM,Colar Metropolitano,MG
+3124104,Belo Horizonte,RM,RM Belo Horizonte,MG
+3126000,Belo Horizonte,RM,RM Belo Horizonte,MG
+3126406,Belo Horizonte,RM,Colar Metropolitano,MG
+3127206,Belo Horizonte,RM,Colar Metropolitano,MG
+3129301,Vale do Aço,CM,Colar Metropolitano,MG
+3129806,Belo Horizonte,RM,RM Belo Horizonte,MG
+3130101,Belo Horizonte,RM,RM Belo Horizonte,MG
+3131000,Belo Horizonte,RM,Colar Metropolitano,MG
+3131158,Vale do Aço,CM,Colar Metropolitano,MG
+3131307,Vale do Aço,RM,RM Vale do Aço,MG
+3131901,Belo Horizonte,RM,Colar Metropolitano,MG
+3132206,Belo Horizonte,RM,RM Belo Horizonte,MG
+3133709,Belo Horizonte,RM,RM Belo Horizonte,MG
+3133808,Belo Horizonte,RM,Colar Metropolitano,MG
+3134608,Belo Horizonte,RM,RM Belo Horizonte,MG
+3135001,Vale do Aço,CM,Colar Metropolitano,MG
+3136108,Vale do Aço,CM,Colar Metropolitano,MG
+3136603,Belo Horizonte,RM,RM Belo Horizonte,MG
+3136652,Belo Horizonte,RM,RM Belo Horizonte,MG
+3137601,Belo Horizonte,RM,RM Belo Horizonte,MG
+3140159,Belo Horizonte,RM,RM Belo Horizonte,MG
+3140308,Vale do Aço,CM,Colar Metropolitano,MG
+3140704,Belo Horizonte,RM,RM Belo Horizonte,MG
+3141108,Belo Horizonte,RM,RM Belo Horizonte,MG
+3141702,Vale do Aço,CM,Colar Metropolitano,MG
+3142304,Belo Horizonte,RM,Colar Metropolitano,MG
+3144359,Vale do Aço,CM,Colar Metropolitano,MG
+3144805,Belo Horizonte,RM,RM Belo Horizonte,MG
+3147105,Belo Horizonte,RM,Colar Metropolitano,MG
+3149309,Belo Horizonte,RM,RM Belo Horizonte,MG
+3149952,Vale do Aço,CM,Colar Metropolitano,MG
+3150539,Vale do Aço,CM,Colar Metropolitano,MG
+3153608,Belo Horizonte,RM,Colar Metropolitano,MG
+3153905,Belo Horizonte,RM,RM Belo Horizonte,MG
+3154606,Belo Horizonte,RM,RM Belo Horizonte,MG
+3154804,Belo Horizonte,RM,RM Belo Horizonte,MG
+3155306,Belo Horizonte,RM,RM Belo Horizonte,MG
+3156700,Belo Horizonte,RM,RM Belo Horizonte,MG
+3157203,Belo Horizonte,RM,Colar Metropolitano,MG
+3157807,Belo Horizonte,RM,RM Belo Horizonte,MG
+3158953,Vale do Aço,RM,RM Vale do Aço,MG
+3161908,Belo Horizonte,RM,Colar Metropolitano,MG
+3162609,Vale do Aço,CM,Colar Metropolitano,MG
+3162922,Belo Horizonte,RM,RM Belo Horizonte,MG
+3162955,Belo Horizonte,RM,RM Belo Horizonte,MG
+3163102,Belo Horizonte,RM,Colar Metropolitano,MG
+3163409,Vale do Aço,CM,Colar Metropolitano,MG
+3165537,Belo Horizonte,RM,RM Belo Horizonte,MG
+3167202,Belo Horizonte,RM,Colar Metropolitano,MG
+3167707,Vale do Aço,CM,Colar Metropolitano,MG
+3168309,Belo Horizonte,RM,RM Belo Horizonte,MG
+3168705,Vale do Aço,RM,RM Vale do Aço,MG
+3170404,RIDE DF,RIDE,NÃO TEM,MG
+3170578,Vale do Aço,CM,Colar Metropolitano,MG
+3171204,Belo Horizonte,RM,RM Belo Horizonte,MG
+3201308,Grande Vitória,RM,NÃO TEM,ES
+3202207,Grande Vitória,RM,NÃO TEM,ES
+3202405,Grande Vitória,RM,NÃO TEM,ES
+3205002,Grande Vitória,RM,NÃO TEM,ES
+3205101,Grande Vitória,RM,NÃO TEM,ES
+3205200,Grande Vitória,RM,NÃO TEM,ES
+3205309,Grande Vitória,RM,NÃO TEM,ES
+3300456,Rio de Janeiro,RM,NÃO TEM,RJ
+3300803,Rio de Janeiro,RM,NÃO TEM,RJ
+3301702,Rio de Janeiro,RM,NÃO TEM,RJ
+3301850,Rio de Janeiro,RM,NÃO TEM,RJ
+3301900,Rio de Janeiro,RM,NÃO TEM,RJ
+3302007,Rio de Janeiro,RM,NÃO TEM,RJ
+3302270,Rio de Janeiro,RM,NÃO TEM,RJ
+3302502,Rio de Janeiro,RM,NÃO TEM,RJ
+3302700,Rio de Janeiro,RM,NÃO TEM,RJ
+3302858,Rio de Janeiro,RM,NÃO TEM,RJ
+3303203,Rio de Janeiro,RM,NÃO TEM,RJ
+3303302,Rio de Janeiro,RM,NÃO TEM,RJ
+3303500,Rio de Janeiro,RM,NÃO TEM,RJ
+3303609,Rio de Janeiro,RM,NÃO TEM,RJ
+3304144,Rio de Janeiro,RM,NÃO TEM,RJ
+3304300,Rio de Janeiro,RM,NÃO TEM,RJ
+3304557,Rio de Janeiro,RM,NÃO TEM,RJ
+3304904,Rio de Janeiro,RM,NÃO TEM,RJ
+3305109,Rio de Janeiro,RM,NÃO TEM,RJ
+3305554,Rio de Janeiro,RM,NÃO TEM,RJ
+3305752,Rio de Janeiro,RM,NÃO TEM,RJ
+3500600,AU de Piracicaba-AU- Piracicaba,AGLO,NÃO TEM,SP
+3500758,Sorocaba,RM,Sub-região 1,SP
+3501004,Ribeirão Preto,RM,Sub-região 4,SP
+3501152,Sorocaba,RM,Sub-região 2,SP
+3501608,Campinas,RM,NÃO TEM,SP
+3502002,AU de Piracicaba-AU- Piracicaba,AGLO,NÃO TEM,SP
+3502507,Vale do Paraíba e Litoral Norte,RM,Sub-região 3,SP
+3502754,Sorocaba,RM,Sub-região 2,SP
+3502903,Sorocaba,RM,Sub-região 3,SP
+3503158,Vale do Paraíba e Litoral Norte,RM,Sub-região 4,SP
+3503307,AU de Piracicaba-AU- Piracicaba,AGLO,NÃO TEM,SP
+3503505,Vale do Paraíba e Litoral Norte,RM,Sub-região 4,SP
+3503802,Campinas,RM,NÃO TEM,SP
+3503901,São Paulo,RM,Sub-região Leste,SP
+3504909,Vale do Paraíba e Litoral Norte,RM,Sub-região 4,SP
+3505609,Ribeirão Preto,RM,Sub-região 1,SP
+3505708,São Paulo,RM,Sub-região Oeste,SP
+3505906,Ribeirão Preto,RM,Sub-região 4,SP
+3506359,Baixada Santista,RM,NÃO TEM,SP
+3506607,São Paulo,RM,Sub-região Leste,SP
+3507001,Sorocaba,RM,Sub-região 1,SP
+3507803,Ribeirão Preto,RM,Sub-região 1,SP
+3508405,AU de Jundiaí,AGLO,NÃO TEM,SP
+3508504,Vale do Paraíba e Litoral Norte,RM,Sub-região 1,SP
+3508603,Vale do Paraíba e Litoral Norte,RM,Sub-região 3,SP
+3509007,São Paulo,RM,Sub-região Norte,SP
+3509205,São Paulo,RM,Sub-região Norte,SP
+3509403,Ribeirão Preto,RM,Sub-região 3,SP
+3509502,Campinas,RM,NÃO TEM,SP
+3509601,AU de Jundiaí,AGLO,NÃO TEM,SP
+3509700,Vale do Paraíba e Litoral Norte,RM,Sub-região 2,SP
+3509957,Vale do Paraíba e Litoral Norte,RM,Sub-região 3,SP
+3510302,Sorocaba,RM,Sub-região 1,SP
+3510401,AU de Piracicaba-AU- Piracicaba,AGLO,NÃO TEM,SP
+3510500,Vale do Paraíba e Litoral Norte,RM,Sub-região 5,SP
+3510609,São Paulo,RM,Sub-região Oeste,SP
+3510906,Ribeirão Preto,RM,Sub-região 3,SP
+3511508,Sorocaba,RM,Sub-região 1,SP
+3511607,Sorocaba,RM,Sub-região 1,SP
+3511706,AU de Piracicaba-AU- Piracicaba,AGLO,NÃO TEM,SP
+3512209,AU de Piracicaba-AU- Piracicaba,AGLO,NÃO TEM,SP
+3512407,AU de Piracicaba-AU- Piracicaba,AGLO,NÃO TEM,SP
+3512704,AU de Piracicaba-AU- Piracicaba,AGLO,NÃO TEM,SP
+3512803,Campinas,RM,NÃO TEM,SP
+3513009,São Paulo,RM,Sub-região Sudoeste,SP
+3513108,Ribeirão Preto,RM,Sub-região 1,SP
+3513405,Vale do Paraíba e Litoral Norte,RM,Sub-região 4,SP
+3513504,Baixada Santista,RM,NÃO TEM,SP
+3513603,Vale do Paraíba e Litoral Norte,RM,Sub-região 3,SP
+3513801,São Paulo,RM,Sub-região Sudeste,SP
+3514601,Ribeirão Preto,RM,Sub-região 1,SP
+3514908,AU de Piracicaba-AU- Piracicaba,AGLO,NÃO TEM,SP
+3515004,São Paulo,RM,Sub-região Sudoeste,SP
+3515103,São Paulo,RM,Sub-região Sudoeste,SP
+3515152,Campinas,RM,NÃO TEM,SP
+3515707,São Paulo,RM,Sub-região Leste,SP
+3516309,São Paulo,RM,Sub-região Norte,SP
+3516408,São Paulo,RM,Sub-região Norte,SP
+3518305,São Paulo,RM,Sub-região Leste,SP
+3518404,Vale do Paraíba e Litoral Norte,RM,Sub-região 3,SP
+3518602,Ribeirão Preto,RM,Sub-região 2,SP
+3518701,Baixada Santista,RM,NÃO TEM,SP
+3518800,São Paulo,RM,Sub-região Leste,SP
+3518859,Ribeirão Preto,RM,Sub-região 1,SP
+3519055,Campinas,RM,NÃO TEM,SP
+3519071,Campinas,RM,NÃO TEM,SP
+3519709,Sorocaba,RM,Sub-região 2,SP
+3520202,Vale do Paraíba e Litoral Norte,RM,Sub-região 1,SP
+3520400,Vale do Paraíba e Litoral Norte,RM,Sub-região 5,SP
+3520509,Campinas,RM,NÃO TEM,SP
+3521002,Sorocaba,RM,Sub-região 3,SP
+3521101,AU de Piracicaba-AU- Piracicaba,AGLO,NÃO TEM,SP
+3521408,AU de Piracicaba-AU- Piracicaba,AGLO,NÃO TEM,SP
+3522109,Baixada Santista,RM,NÃO TEM,SP
+3522208,São Paulo,RM,Sub-região Sudoeste,SP
+3522307,Sorocaba,RM,Sub-região 1,SP
+3522505,São Paulo,RM,Sub-região Oeste,SP
+3523107,São Paulo,RM,Sub-região Leste,SP
+3523404,Campinas,RM,NÃO TEM,SP
+3523909,Sorocaba,RM,Sub-região 2,SP
+3524006,AU de Jundiaí,AGLO,NÃO TEM,SP
+3524303,Ribeirão Preto,RM,Sub-região 2,SP
+3524402,Vale do Paraíba e Litoral Norte,RM,Sub-região 1,SP
+3524709,Campinas,RM,NÃO TEM,SP
+3524907,Vale do Paraíba e Litoral Norte,RM,Sub-região 1,SP
+3525003,São Paulo,RM,Sub-região Oeste,SP
+3525102,Ribeirão Preto,RM,Sub-região 1,SP
+3525201,AU de Jundiaí,AGLO,NÃO TEM,SP
+3525854,Sorocaba,RM,Sub-região 1,SP
+3525904,AU de Jundiaí,AGLO,NÃO TEM,SP
+3526209,São Paulo,RM,Sub-região Sudoeste,SP
+3526308,Vale do Paraíba e Litoral Norte,RM,Sub-região 2,SP
+3526407,AU de Piracicaba-AU- Piracicaba,AGLO,NÃO TEM,SP
+3526605,Vale do Paraíba e Litoral Norte,RM,Sub-região 4,SP
+3526704,AU de Piracicaba-AU- Piracicaba,AGLO,NÃO TEM,SP
+3526902,AU de Piracicaba-AU- Piracicaba,AGLO,NÃO TEM,SP
+3527207,Vale do Paraíba e Litoral Norte,RM,Sub-região 3,SP
+3527306,AU de Jundiaí,AGLO,NÃO TEM,SP
+3527603,Ribeirão Preto,RM,Sub-região 1,SP
+3528403,Sorocaba,RM,Sub-região 2,SP
+3528502,São Paulo,RM,Sub-região Norte,SP
+3529401,São Paulo,RM,Sub-região Sudeste,SP
+3530508,Ribeirão Preto,RM,Sub-região 3,SP
+3530607,São Paulo,RM,Sub-região Leste,SP
+3530904,AU de Piracicaba-AU- Piracicaba,AGLO,NÃO TEM,SP
+3531100,Baixada Santista,RM,NÃO TEM,SP
+3531308,Ribeirão Preto,RM,Sub-região 2,SP
+3531704,Vale do Paraíba e Litoral Norte,RM,Sub-região 1,SP
+3531803,Campinas,RM,NÃO TEM,SP
+3531902,Ribeirão Preto,RM,Sub-região 4,SP
+3532009,Campinas,RM,NÃO TEM,SP
+3532306,Vale do Paraíba e Litoral Norte,RM,Sub-região 2,SP
+3533403,Campinas,RM,NÃO TEM,SP
+3533601,Ribeirão Preto,RM,Sub-região 4,SP
+3534302,Ribeirão Preto,RM,Sub-região 4,SP
+3534401,São Paulo,RM,Sub-região Oeste,SP
+3535606,Vale do Paraíba e Litoral Norte,RM,Sub-região 1,SP
+3536505,Campinas,RM,NÃO TEM,SP
+3537107,Campinas,RM,NÃO TEM,SP
+3537602,Baixada Santista,RM,NÃO TEM,SP
+3537800,Sorocaba,RM,Sub-região 3,SP
+3537909,Sorocaba,RM,Sub-região 3,SP
+3538006,Vale do Paraíba e Litoral Norte,RM,Sub-região 2,SP
+3538501,Vale do Paraíba e Litoral Norte,RM,Sub-região 3,SP
+3538709,AU de Piracicaba-AU- Piracicaba,AGLO,NÃO TEM,SP
+3539103,São Paulo,RM,Sub-região Oeste,SP
+3539509,Ribeirão Preto,RM,Sub-região 2,SP
+3539806,São Paulo,RM,Sub-região Leste,SP
+3540200,Ribeirão Preto,RM,Sub-região 1,SP
+3540606,Sorocaba,RM,Sub-região 2,SP
+3540754,Vale do Paraíba e Litoral Norte,RM,Sub-região 3,SP
+3540903,Ribeirão Preto,RM,Sub-região 1,SP
+3541000,Baixada Santista,RM,NÃO TEM,SP
+3541901,Vale do Paraíba e Litoral Norte,RM,Sub-região 4,SP
+3542107,AU de Piracicaba-AU- Piracicaba,AGLO,NÃO TEM,SP
+3542305,Vale do Paraíba e Litoral Norte,RM,Sub-região 2,SP
+3543303,São Paulo,RM,Sub-região Sudeste,SP
+3543402,Ribeirão Preto,RM,Sub-região 1,SP
+3543907,AU de Piracicaba-AU- Piracicaba,AGLO,NÃO TEM,SP
+3544004,AU de Piracicaba-AU- Piracicaba,AGLO,NÃO TEM,SP
+3544103,São Paulo,RM,Sub-região Sudeste,SP
+3544301,Vale do Paraíba e Litoral Norte,RM,Sub-região 3,SP
+3544905,Ribeirão Preto,RM,Sub-região 4,SP
+3545001,São Paulo,RM,Sub-região Leste,SP
+3545159,AU de Piracicaba-AU- Piracicaba,AGLO,NÃO TEM,SP
+3545209,Sorocaba,RM,Sub-região 2,SP
+3545308,Sorocaba,RM,Sub-região 3,SP
+3545803,Campinas,RM,NÃO TEM,SP
+3546009,Vale do Paraíba e Litoral Norte,RM,Sub-região 1,SP
+3546256,Ribeirão Preto,RM,Sub-região 3,SP
+3546702,AU de Piracicaba-AU- Piracicaba,AGLO,NÃO TEM,SP
+3546801,São Paulo,RM,Sub-região Leste,SP
+3547007,AU de Piracicaba-AU- Piracicaba,AGLO,NÃO TEM,SP
+3547304,São Paulo,RM,Sub-região Oeste,SP
+3547502,Ribeirão Preto,RM,Sub-região 1,SP
+3547601,Ribeirão Preto,RM,Sub-região 3,SP
+3547809,São Paulo,RM,Sub-região Sudeste,SP
+3547908,Ribeirão Preto,RM,Sub-região 4,SP
+3548005,Campinas,RM,NÃO TEM,SP
+3548203,Vale do Paraíba e Litoral Norte,RM,Sub-região 2,SP
+3548500,Baixada Santista,RM,NÃO TEM,SP
+3548609,Vale do Paraíba e Litoral Norte,RM,Sub-região 2,SP
+3548708,São Paulo,RM,Sub-região Sudeste,SP
+3548807,São Paulo,RM,Sub-região Sudeste,SP
+3549607,Vale do Paraíba e Litoral Norte,RM,Sub-região 4,SP
+3549904,Vale do Paraíba e Litoral Norte,RM,Sub-região 1,SP
+3549953,São Paulo,RM,Sub-região Sudoeste,SP
+3550001,Vale do Paraíba e Litoral Norte,RM,Sub-região 2,SP
+3550209,Sorocaba,RM,Sub-região 3,SP
+3550308,São Paulo,RM,Todas as sub-regiões,SP
+3550407,AU de Piracicaba-AU- Piracicaba,AGLO,NÃO TEM,SP
+3550605,Sorocaba,RM,Sub-região 2,SP
+3550704,Vale do Paraíba e Litoral Norte,RM,Sub-região 5,SP
+3550902,Ribeirão Preto,RM,Sub-região 1,SP
+3551009,Baixada Santista,RM,NÃO TEM,SP
+3551108,Sorocaba,RM,Sub-região 1,SP
+3551405,Ribeirão Preto,RM,Sub-região 1,SP
+3551504,Ribeirão Preto,RM,Sub-região 1,SP
+3551702,Ribeirão Preto,RM,Sub-região 1,SP
+3552007,Vale do Paraíba e Litoral Norte,RM,Sub-região 4,SP
+3552205,Sorocaba,RM,Sub-região 3,SP
+3552403,Campinas,RM,NÃO TEM,SP
+3552502,São Paulo,RM,Sub-região Leste,SP
+3552809,São Paulo,RM,Sub-região Sudoeste,SP
+3553203,Ribeirão Preto,RM,Sub-região 2,SP
+3553302,Ribeirão Preto,RM,Sub-região 3,SP
+3553500,Sorocaba,RM,Sub-região 3,SP
+3553658,Ribeirão Preto,RM,Sub-região 2,SP
+3554003,Sorocaba,RM,Sub-região 1,SP
+3554102,Vale do Paraíba e Litoral Norte,RM,Sub-região 2,SP
+3554508,Sorocaba,RM,Sub-região 1,SP
+3554805,Vale do Paraíba e Litoral Norte,RM,Sub-região 2,SP
+3555406,Vale do Paraíba e Litoral Norte,RM,Sub-região 5,SP
+3556206,Campinas,RM,NÃO TEM,SP
+3556453,São Paulo,RM,Sub-região Sudoeste,SP
+3556503,AU de Jundiaí,AGLO,NÃO TEM,SP
+3556701,Campinas,RM,NÃO TEM,SP
+3557006,Sorocaba,RM,Sub-região 3,SP
+4100202,Curitiba,RM,NÃO TEM,PR
+4100301,Curitiba,RM,NÃO TEM,PR
+4100400,Curitiba,RM,NÃO TEM,PR
+4100459,Campo Mourão,RM,NÃO TEM,PR
+4100509,Umuarama,RM,NÃO TEM,PR
+4100707,Umuarama,RM,NÃO TEM,PR
+4100806,Londrina,RM,NÃO TEM,PR
+4101051,Cascavel,RM,NÃO TEM,PR
+4101150,Maringá,RM,NÃO TEM,PR
+4101408,Apucarana,RM,NÃO TEM,PR
+4101507,Londrina,RM,NÃO TEM,PR
+4101655,Apucarana,RM,NÃO TEM,PR
+4101705,Campo Mourão,RM,NÃO TEM,PR
+4101804,Curitiba,RM,NÃO TEM,PR
+4101853,Apucarana,RM,NÃO TEM,PR
+4101903,Londrina,RM,NÃO TEM,PR
+4102000,Toledo,RM,NÃO TEM,PR
+4102109,Maringá,RM,NÃO TEM,PR
+4102208,Maringá,RM,NÃO TEM,PR
+4102307,Curitiba,RM,NÃO TEM,PR
+4102505,Campo Mourão,RM,NÃO TEM,PR
+4102802,Londrina,RM,NÃO TEM,PR
+4103008,Campo Mourão,RM,NÃO TEM,PR
+4103057,Cascavel,RM,NÃO TEM,PR
+4103107,Curitiba,RM,NÃO TEM,PR
+4103206,Maringá,RM,NÃO TEM,PR
+4103305,Apucarana,RM,NÃO TEM,PR
+4103354,Cascavel,RM,NÃO TEM,PR
+4103370,Umuarama,RM,NÃO TEM,PR
+4103453,Cascavel,RM,NÃO TEM,PR
+4103479,Umuarama,RM,NÃO TEM,PR
+4103503,Apucarana,RM,NÃO TEM,PR
+4103701,Londrina,RM,NÃO TEM,PR
+4103800,Maringá,RM,NÃO TEM,PR
+4103909,Campo Mourão,RM,NÃO TEM,PR
+4104006,Curitiba,RM,NÃO TEM,PR
+4104055,Cascavel,RM,NÃO TEM,PR
+4104105,Curitiba,RM,NÃO TEM,PR
+4104204,Curitiba,RM,NÃO TEM,PR
+4104253,Curitiba,RM,NÃO TEM,PR
+4104303,Campo Mourão,RM,NÃO TEM,PR
+4104600,Cascavel,RM,NÃO TEM,PR
+4104808,Cascavel,RM,NÃO TEM,PR
+4105003,Cascavel,RM,NÃO TEM,PR
+4105102,Londrina,RM,NÃO TEM,PR
+4105201,Curitiba,RM,NÃO TEM,PR
+4105300,Cascavel,RM,NÃO TEM,PR
+4105607,Umuarama,RM,NÃO TEM,PR
+4105805,Curitiba,RM,NÃO TEM,PR
+4106209,Curitiba,RM,NÃO TEM,PR
+4106308,Cascavel,RM,NÃO TEM,PR
+4106555,Campo Mourão,RM,NÃO TEM,PR
+4106605,Umuarama,RM,NÃO TEM,PR
+4106852,Apucarana,RM,NÃO TEM,PR
+4106902,Curitiba,RM,NÃO TEM,PR
+4107124,Cascavel,RM,NÃO TEM,PR
+4107157,Toledo,RM,NÃO TEM,PR
+4107256,Umuarama,RM,NÃO TEM,PR
+4107306,Maringá,RM,NÃO TEM,PR
+4107504,Campo Mourão,RM,NÃO TEM,PR
+4107520,Umuarama,RM,NÃO TEM,PR
+4107538,Toledo,RM,NÃO TEM,PR
+4107553,Campo Mourão,RM,NÃO TEM,PR
+4107603,Apucarana,RM,NÃO TEM,PR
+4107652,Curitiba,RM,NÃO TEM,PR
+4107702,Campo Mourão,RM,NÃO TEM,PR
+4107801,Maringá,RM,NÃO TEM,PR
+4107900,Maringá,RM,NÃO TEM,PR
+4108007,Londrina,RM,NÃO TEM,PR
+4108106,Maringá,RM,NÃO TEM,PR
+4108320,Umuarama,RM,NÃO TEM,PR
+4108551,Apucarana,RM,NÃO TEM,PR
+4108601,Campo Mourão,RM,NÃO TEM,PR
+4108700,Apucarana,RM,NÃO TEM,PR
+4108809,Toledo,RM,NÃO TEM,PR
+4109203,Londrina,RM,NÃO TEM,PR
+4109302,Cascavel,RM,NÃO TEM,PR
+4109757,Cascavel,RM,NÃO TEM,PR
+4109807,Londrina,RM,NÃO TEM,PR
+4109906,Umuarama,RM,NÃO TEM,PR
+4110003,Maringá,RM,NÃO TEM,PR
+4110052,Cascavel,RM,NÃO TEM,PR
+4110607,Umuarama,RM,NÃO TEM,PR
+4110656,Cascavel,RM,NÃO TEM,PR
+4110805,Campo Mourão,RM,NÃO TEM,PR
+4111100,Maringá,RM,NÃO TEM,PR
+4111258,Curitiba,RM,NÃO TEM,PR
+4111506,Apucarana,RM,NÃO TEM,PR
+4111555,Umuarama,RM,NÃO TEM,PR
+4111605,Maringá,RM,NÃO TEM,PR
+4111902,Londrina,RM,NÃO TEM,PR
+4112108,Maringá,RM,NÃO TEM,PR
+4112207,Campo Mourão,RM,NÃO TEM,PR
+4112504,Apucarana,RM,NÃO TEM,PR
+4112702,Londrina,RM,NÃO TEM,PR
+4112751,Cascavel,RM,NÃO TEM,PR
+4112959,Campo Mourão,RM,NÃO TEM,PR
+4113106,Apucarana,RM,NÃO TEM,PR
+4113205,Curitiba,RM,NÃO TEM,PR
+4113429,Apucarana,RM,NÃO TEM,PR
+4113452,Cascavel,RM,NÃO TEM,PR
+4113601,Maringá,RM,NÃO TEM,PR
+4113700,Londrina,RM,NÃO TEM,PR
+4113734,Campo Mourão,RM,NÃO TEM,PR
+4113759,Apucarana,RM,NÃO TEM,PR
+4113809,Londrina,RM,NÃO TEM,PR
+4114005,Campo Mourão,RM,NÃO TEM,PR
+4114104,Maringá,RM,NÃO TEM,PR
+4114203,Maringá,RM,NÃO TEM,PR
+4114302,Curitiba,RM,NÃO TEM,PR
+4114609,Toledo,RM,NÃO TEM,PR
+4114708,Umuarama,RM,NÃO TEM,PR
+4114807,Maringá,RM,NÃO TEM,PR
+4114906,Apucarana,RM,NÃO TEM,PR
+4115101,Umuarama,RM,NÃO TEM,PR
+4115200,Maringá,RM,NÃO TEM,PR
+4115358,Toledo,RM,NÃO TEM,PR
+4115507,Apucarana,RM,NÃO TEM,PR
+4115606,Cascavel,RM,NÃO TEM,PR
+4115754,Apucarana,RM,NÃO TEM,PR
+4115853,Toledo,RM,NÃO TEM,PR
+4116000,Londrina,RM,NÃO TEM,PR
+4116109,Campo Mourão,RM,NÃO TEM,PR
+4116307,Maringá,RM,NÃO TEM,PR
+4116703,Cascavel,RM,NÃO TEM,PR
+4116802,Campo Mourão,RM,NÃO TEM,PR
+4116901,Maringá,RM,NÃO TEM,PR
+4117206,Umuarama,RM,NÃO TEM,PR
+4117222,Toledo,RM,NÃO TEM,PR
+4117297,Apucarana,RM,NÃO TEM,PR
+4117404,Maringá,RM,NÃO TEM,PR
+4117453,Toledo,RM,NÃO TEM,PR
+4117503,Maringá,RM,NÃO TEM,PR
+4117909,Toledo,RM,NÃO TEM,PR
+4118451,Toledo,RM,NÃO TEM,PR
+4118808,Campo Mourão,RM,NÃO TEM,PR
+4118857,Umuarama,RM,NÃO TEM,PR
+4118907,Umuarama,RM,NÃO TEM,PR
+4119103,Curitiba,RM,NÃO TEM,PR
+4119152,Curitiba,RM,NÃO TEM,PR
+4119509,Curitiba,RM,NÃO TEM,PR
+4119657,Londrina,RM,NÃO TEM,PR
+4120002,Londrina,RM,NÃO TEM,PR
+4120333,Londrina,RM,NÃO TEM,PR
+4120408,Maringá,RM,NÃO TEM,PR
+4120507,Londrina,RM,NÃO TEM,PR
+4120655,Campo Mourão,RM,NÃO TEM,PR
+4120804,Curitiba,RM,NÃO TEM,PR
+4120853,Toledo,RM,NÃO TEM,PR
+4121109,Campo Mourão,RM,NÃO TEM,PR
+4121208,Curitiba,RM,NÃO TEM,PR
+4121307,Londrina,RM,NÃO TEM,PR
+4121356,Campo Mourão,RM,NÃO TEM,PR
+4122107,Apucarana,RM,NÃO TEM,PR
+4122172,Apucarana,RM,NÃO TEM,PR
+4122206,Curitiba,RM,NÃO TEM,PR
+4122305,Curitiba,RM,NÃO TEM,PR
+4122404,Londrina,RM,NÃO TEM,PR
+4122503,Campo Mourão,RM,NÃO TEM,PR
+4122651,Apucarana,RM,NÃO TEM,PR
+4122701,Londrina,RM,NÃO TEM,PR
+4123402,Maringá,RM,NÃO TEM,PR
+4123501,Toledo,RM,NÃO TEM,PR
+4123824,Cascavel,RM,NÃO TEM,PR
+4124020,Cascavel,RM,NÃO TEM,PR
+4125001,Apucarana,RM,NÃO TEM,PR
+4125308,Maringá,RM,NÃO TEM,PR
+4125357,Umuarama,RM,NÃO TEM,PR
+4125456,Toledo,RM,NÃO TEM,PR
+4125506,Curitiba,RM,NÃO TEM,PR
+4125753,Toledo,RM,NÃO TEM,PR
+4125803,Apucarana,RM,NÃO TEM,PR
+4126256,Maringá,RM,NÃO TEM,PR
+4126405,Londrina,RM,NÃO TEM,PR
+4126504,Londrina,RM,NÃO TEM,PR
+4126678,Londrina,RM,NÃO TEM,PR
+4126801,Umuarama,RM,NÃO TEM,PR
+4126900,Umuarama,RM,NÃO TEM,PR
+4127205,Campo Mourão,RM,NÃO TEM,PR
+4127403,Toledo,RM,NÃO TEM,PR
+4127601,Curitiba,RM,NÃO TEM,PR
+4127700,Toledo,RM,NÃO TEM,PR
+4127858,Cascavel,RM,NÃO TEM,PR
+4127882,Curitiba,RM,NÃO TEM,PR
+4127908,Umuarama,RM,NÃO TEM,PR
+4127957,Toledo,RM,NÃO TEM,PR
+4128005,Campo Mourão,RM,NÃO TEM,PR
+4128104,Umuarama,RM,NÃO TEM,PR
+4128401,Londrina,RM,NÃO TEM,PR
+4128559,Cascavel,RM,NÃO TEM,PR
+4128625,Umuarama,RM,NÃO TEM,PR
+4128633,Curitiba,RM,NÃO TEM,PR
+4128807,Umuarama,RM,NÃO TEM,PR
+4200051,Contestado,RM,Núcleo Metropolitano,SC
+4200101,Extremo Oeste,RM,Área de Expansão Metropolitana,SC
+4200200,Alto Vale do Itajaí,RM,Área de Expansão Metropolitana,SC
+4200309,Alto Vale do Itajaí,RM,Área de Expansão Metropolitana,SC
+4200408,Contestado,RM,Núcleo Metropolitano,SC
+4200507,Chapecó,RM,Núcleo Metropolitano,SC
+4200556,Chapecó,RM,Núcleo Metropolitano,SC
+4200606,Florianópolis,RM,Núcleo Metropolitano,SC
+4200705,Florianópolis,RM,Área de Expansão Metropolitana,SC
+4200754,Contestado,RM,Núcleo Metropolitano,SC
+4200804,Extremo Oeste,RM,Área de Expansão Metropolitana,SC
+4200903,Florianópolis,RM,Área de Expansão Metropolitana,SC
+4201000,Lages,RM,Área de Expansão Metropolitana,SC
+4201109,Florianópolis,RM,Área de Expansão Metropolitana,SC
+4201208,Florianópolis,RM,Núcleo Metropolitano,SC
+4201257,Vale do Itajaí,RM,Área de Expansão Metropolitana,SC
+4201273,Contestado,RM,Núcleo Metropolitano,SC
+4201307,Norte/Nordeste Catarinense,RM,Núcleo Metropolitano,SC
+4201406,Carbonífera,RM,Área de Expansão Metropolitana,SC
+4201505,Tubarão,RM,Área de Expansão Metropolitana,SC
+4201604,Contestado,RM,Núcleo Metropolitano,SC
+4201653,Chapecó,RM,Núcleo Metropolitano,SC
+4201703,Vale do Itajaí,RM,Área de Expansão Metropolitana,SC
+4201802,Alto Vale do Itajaí,RM,Área de Expansão Metropolitana,SC
+4201901,Alto Vale do Itajaí,RM,Área de Expansão Metropolitana,SC
+4201950,Carbonífera,RM,Área de Expansão Metropolitana,SC
+4202008,Foz do Rio Itajaí,RM,Núcleo Metropolitano,SC
+4202057,Norte/Nordeste Catarinense,RM,Área de Expansão Metropolitana,SC
+4202073,Carbonífera,RM,Área de Expansão Metropolitana,SC
+4202081,Extremo Oeste,RM,Núcleo Metropolitano,SC
+4202099,Extremo Oeste,RM,Núcleo Metropolitano,SC
+4202107,Norte/Nordeste Catarinense,RM,Área de Expansão Metropolitana,SC
+4202131,Norte/Nordeste Catarinense,RM,Área de Expansão Metropolitana,SC
+4202156,Extremo Oeste,RM,Núcleo Metropolitano,SC
+4202206,Vale do Itajaí,RM,Área de Expansão Metropolitana,SC
+4202305,Florianópolis,RM,Núcleo Metropolitano,SC
+4202404,Vale do Itajaí,RM,Núcleo Metropolitano,SC
+4202438,Lages,RM,Área de Expansão Metropolitana,SC
+4202453,Foz do Rio Itajaí,RM,Área de Expansão Metropolitana,SC
+4202503,Lages,RM,Área de Expansão Metropolitana,SC
+4202537,Extremo Oeste,RM,Área de Expansão Metropolitana,SC
+4202578,Extremo Oeste,RM,Área de Expansão Metropolitana,SC
+4202602,Lages,RM,Área de Expansão Metropolitana,SC
+4202701,Vale do Itajaí,RM,Área de Expansão Metropolitana,SC
+4202800,Tubarão,RM,Área de Expansão Metropolitana,SC
+4202859,Alto Vale do Itajaí,RM,Área de Expansão Metropolitana,SC
+4202875,Contestado,RM,Núcleo Metropolitano,SC
+4202909,Vale do Itajaí,RM,Área de Expansão Metropolitana,SC
+4203006,Contestado,RM,Núcleo Metropolitano,SC
+4203105,Extremo Oeste,RM,Área de Expansão Metropolitana,SC
+4203154,Contestado,RM,Núcleo Metropolitano,SC
+4203204,Foz do Rio Itajaí,RM,Núcleo Metropolitano,SC
+4203253,Lages,RM,Área de Expansão Metropolitana,SC
+4203303,Norte/Nordeste Catarinense,RM,Área de Expansão Metropolitana,SC
+4203402,Lages,RM,Área de Expansão Metropolitana,SC
+4203501,Extremo Oeste,RM,Área de Expansão Metropolitana,SC
+4203600,Contestado,RM,Núcleo Metropolitano,SC
+4203709,Florianópolis,RM,Área de Expansão Metropolitana,SC
+4203808,Norte/Nordeste Catarinense,RM,Área de Expansão Metropolitana,SC
+4203907,Contestado,RM,Núcleo Metropolitano,SC
+4203956,Tubarão,RM,Núcleo Metropolitano,SC
+4204004,Contestado,RM,Núcleo Metropolitano,SC
+4204103,Chapecó,RM,Área de Expansão Metropolitana,SC
+4204152,Contestado,RM,Núcleo Metropolitano,SC
+4204178,Lages,RM,Área de Expansão Metropolitana,SC
+4204194,Alto Vale do Itajaí,RM,Área de Expansão Metropolitana,SC
+4204202,Chapecó,RM,Núcleo Metropolitano,SC
+4204251,Carbonífera,RM,Núcleo Metropolitano,SC
+4204301,Contestado,RM,Núcleo Metropolitano,SC
+4204350,Chapecó,RM,Núcleo Metropolitano,SC
+4204400,Chapecó,RM,Núcleo Metropolitano,SC
+4204459,Extremo Oeste,RM,Área de Expansão Metropolitana,SC
+4204509,Norte/Nordeste Catarinense,RM,Área de Expansão Metropolitana,SC
+4204558,Lages,RM,Núcleo Metropolitano,SC
+4204608,Carbonífera,RM,Núcleo Metropolitano,SC
+4204707,Extremo Oeste,RM,Núcleo Metropolitano,SC
+4204756,Chapecó,RM,Área de Expansão Metropolitana,SC
+4204806,Lages,RM,Área de Expansão Metropolitana,SC
+4204905,Extremo Oeste,RM,Núcleo Metropolitano,SC
+4205001,Extremo Oeste,RM,Núcleo Metropolitano,SC
+4205100,Alto Vale do Itajaí,RM,Área de Expansão Metropolitana,SC
+4205159,Vale do Itajaí,RM,Área de Expansão Metropolitana,SC
+4205175,Extremo Oeste,RM,Área de Expansão Metropolitana,SC
+4205191,Carbonífera,RM,Área de Expansão Metropolitana,SC
+4205209,Contestado,RM,Núcleo Metropolitano,SC
+4205308,Chapecó,RM,Área de Expansão Metropolitana,SC
+4205357,Extremo Oeste,RM,Núcleo Metropolitano,SC
+4205407,Florianópolis,RM,Núcleo Metropolitano,SC
+4205431,Extremo Oeste,RM,Área de Expansão Metropolitana,SC
+4205456,Carbonífera,RM,Núcleo Metropolitano,SC
+4205506,Contestado,RM,Núcleo Metropolitano,SC
+4205555,Lages,RM,Área de Expansão Metropolitana,SC
+4205605,Extremo Oeste,RM,Área de Expansão Metropolitana,SC
+4205704,Florianópolis,RM,Área de Expansão Metropolitana,SC
+4205803,Norte/Nordeste Catarinense,RM,Área de Expansão Metropolitana,SC
+4205902,Vale do Itajaí,RM,Núcleo Metropolitano,SC
+4206009,Florianópolis,RM,Núcleo Metropolitano,SC
+4206108,Tubarão,RM,Área de Expansão Metropolitana,SC
+4206207,Tubarão,RM,Núcleo Metropolitano,SC
+4206306,Vale do Itajaí,RM,Área de Expansão Metropolitana,SC
+4206405,Extremo Oeste,RM,Núcleo Metropolitano,SC
+4206504,Norte/Nordeste Catarinense,RM,Área de Expansão Metropolitana,SC
+4206603,Extremo Oeste,RM,Núcleo Metropolitano,SC
+4206652,Chapecó,RM,Núcleo Metropolitano,SC
+4206702,Contestado,RM,Núcleo Metropolitano,SC
+4206751,Contestado,RM,Núcleo Metropolitano,SC
+4206801,Contestado,RM,Núcleo Metropolitano,SC
+4206900,Alto Vale do Itajaí,RM,Núcleo Metropolitano,SC
+4207007,Carbonífera,RM,Núcleo Metropolitano,SC
+4207106,Vale do Itajaí,RM,Área de Expansão Metropolitana,SC
+4207205,Tubarão,RM,Área de Expansão Metropolitana,SC
+4207304,Tubarão,RM,Área de Expansão Metropolitana,SC
+4207403,Alto Vale do Itajaí,RM,Área de Expansão Metropolitana,SC
+4207502,Vale do Itajaí,RM,Núcleo Metropolitano,SC
+4207577,Contestado,RM,Núcleo Metropolitano,SC
+4207601,Contestado,RM,Núcleo Metropolitano,SC
+4207650,Extremo Oeste,RM,Núcleo Metropolitano,SC
+4207684,Extremo Oeste,RM,Área de Expansão Metropolitana,SC
+4207700,Contestado,RM,Núcleo Metropolitano,SC
+4207759,Extremo Oeste,RM,Núcleo Metropolitano,SC
+4207809,Contestado,RM,Núcleo Metropolitano,SC
+4207858,Extremo Oeste,RM,Área de Expansão Metropolitana,SC
+4207908,Norte/Nordeste Catarinense,RM,Área de Expansão Metropolitana,SC
+4208005,Chapecó,RM,Área de Expansão Metropolitana,SC
+4208104,Norte/Nordeste Catarinense,RM,Área de Expansão Metropolitana,SC
+4208203,Foz do Rio Itajaí,RM,Núcleo Metropolitano,SC
+4208302,Foz do Rio Itajaí,RM,Área de Expansão Metropolitana,SC
+4208401,Extremo Oeste,RM,Núcleo Metropolitano,SC
+4208450,Norte/Nordeste Catarinense,RM,Área de Expansão Metropolitana,SC
+4208500,Alto Vale do Itajaí,RM,Núcleo Metropolitano,SC
+4208609,Contestado,RM,Núcleo Metropolitano,SC
+4208708,Carbonífera,RM,Área de Expansão Metropolitana,SC
+4208807,Tubarão,RM,Área de Expansão Metropolitana,SC
+4208906,Norte/Nordeste Catarinense,RM,Área de Expansão Metropolitana,SC
+4208955,Extremo Oeste,RM,Área de Expansão Metropolitana,SC
+4209003,Contestado,RM,Núcleo Metropolitano,SC
+4209102,Norte/Nordeste Catarinense,RM,Núcleo Metropolitano,SC
+4209151,Alto Vale do Itajaí,RM,Área de Expansão Metropolitana,SC
+4209177,Extremo Oeste,RM,Área de Expansão Metropolitana,SC
+4209201,Contestado,RM,Núcleo Metropolitano,SC
+4209300,Lages,RM,Núcleo Metropolitano,SC
+4209409,Tubarão,RM,Área de Expansão Metropolitana,SC
+4209458,Chapecó,RM,Área de Expansão Metropolitana,SC
+4209508,Alto Vale do Itajaí,RM,Área de Expansão Metropolitana,SC
+4209607,Carbonífera,RM,Área de Expansão Metropolitana,SC
+4209706,Contestado,RM,Núcleo Metropolitano,SC
+4209805,Florianópolis,RM,Área de Expansão Metropolitana,SC
+4209854,Contestado,RM,Núcleo Metropolitano,SC
+4209904,Alto Vale do Itajaí,RM,Área de Expansão Metropolitana,SC
+4210001,Vale do Itajaí,RM,Área de Expansão Metropolitana,SC
+4210035,Contestado,RM,Núcleo Metropolitano,SC
+4210050,Contestado,RM,Núcleo Metropolitano,SC
+4210100,Norte/Nordeste Catarinense,RM,Área de Expansão Metropolitana,SC
+4210209,Florianópolis,RM,Área de Expansão Metropolitana,SC
+4210308,Norte/Nordeste Catarinense,RM,Área de Expansão Metropolitana,SC
+4210407,Carbonífera,RM,Área de Expansão Metropolitana,SC
+4210506,Extremo Oeste,RM,Núcleo Metropolitano,SC
+4210555,Chapecó,RM,Área de Expansão Metropolitana,SC
+4210605,Norte/Nordeste Catarinense,RM,Área de Expansão Metropolitana,SC
+4210704,Contestado,RM,Núcleo Metropolitano,SC
+4210803,Carbonífera,RM,Área de Expansão Metropolitana,SC
+4210852,Alto Vale do Itajaí,RM,Área de Expansão Metropolitana,SC
+4210902,Extremo Oeste,RM,Área de Expansão Metropolitana,SC
+4211009,Extremo Oeste,RM,Área de Expansão Metropolitana,SC
+4211058,Contestado,RM,Núcleo Metropolitano,SC
+4211108,Norte/Nordeste Catarinense,RM,Área de Expansão Metropolitana,SC
+4211207,Carbonífera,RM,Núcleo Metropolitano,SC
+4211256,Carbonífera,RM,Área de Expansão Metropolitana,SC
+4211306,Foz do Rio Itajaí,RM,Núcleo Metropolitano,SC
+4211405,Chapecó,RM,Núcleo Metropolitano,SC
+4211454,Chapecó,RM,Núcleo Metropolitano,SC
+4211504,Florianópolis,RM,Área de Expansão Metropolitana,SC
+4211603,Carbonífera,RM,Núcleo Metropolitano,SC
+4211652,Extremo Oeste,RM,Área de Expansão Metropolitana,SC
+4211702,Tubarão,RM,Área de Expansão Metropolitana,SC
+4211751,Lages,RM,Área de Expansão Metropolitana,SC
+4211801,Contestado,RM,Núcleo Metropolitano,SC
+4211850,Extremo Oeste,RM,Área de Expansão Metropolitana,SC
+4211876,Chapecó,RM,Núcleo Metropolitano,SC
+4211892,Lages,RM,Área de Expansão Metropolitana,SC
+4211900,Florianópolis,RM,Núcleo Metropolitano,SC
+4212007,Extremo Oeste,RM,Área de Expansão Metropolitana,SC
+4212056,Lages,RM,Área de Expansão Metropolitana,SC
+4212106,Chapecó,RM,Área de Expansão Metropolitana,SC
+4212205,Norte/Nordeste Catarinense,RM,Área de Expansão Metropolitana,SC
+4212239,Extremo Oeste,RM,Núcleo Metropolitano,SC
+4212254,Carbonífera,RM,Área de Expansão Metropolitana,SC
+4212270,Chapecó,RM,Área de Expansão Metropolitana,SC
+4212304,Florianópolis,RM,Área de Expansão Metropolitana,SC
+4212403,Tubarão,RM,Área de Expansão Metropolitana,SC
+4212502,Foz do Rio Itajaí,RM,Núcleo Metropolitano,SC
+4212601,Contestado,RM,Núcleo Metropolitano,SC
+4212650,Tubarão,RM,Área de Expansão Metropolitana,SC
+4212700,Alto Vale do Itajaí,RM,Área de Expansão Metropolitana,SC
+4212809,Foz do Rio Itajaí,RM,Área de Expansão Metropolitana,SC
+4212908,Chapecó,RM,Núcleo Metropolitano,SC
+4213005,Contestado,RM,Núcleo Metropolitano,SC
+4213104,Contestado,RM,Núcleo Metropolitano,SC
+4213153,Chapecó,RM,Núcleo Metropolitano,SC
+4213203,Vale do Itajaí,RM,Núcleo Metropolitano,SC
+4213302,Lages,RM,Área de Expansão Metropolitana,SC
+4213351,Lages,RM,Área de Expansão Metropolitana,SC
+4213401,Chapecó,RM,Área de Expansão Metropolitana,SC
+4213500,Foz do Rio Itajaí,RM,Área de Expansão Metropolitana,SC
+4213609,Norte/Nordeste Catarinense,RM,Área de Expansão Metropolitana,SC
+4213708,Alto Vale do Itajaí,RM,Área de Expansão Metropolitana,SC
+4213807,Carbonífera,RM,Área de Expansão Metropolitana,SC
+4213906,Contestado,RM,Núcleo Metropolitano,SC
+4214003,Alto Vale do Itajaí,RM,Área de Expansão Metropolitana,SC
+4214102,Alto Vale do Itajaí,RM,Área de Expansão Metropolitana,SC
+4214151,Extremo Oeste,RM,Núcleo Metropolitano,SC
+4214201,Chapecó,RM,Área de Expansão Metropolitana,SC
+4214300,Florianópolis,RM,Área de Expansão Metropolitana,SC
+4214409,Contestado,RM,Núcleo Metropolitano,SC
+4214508,Alto Vale do Itajaí,RM,Área de Expansão Metropolitana,SC
+4214607,Alto Vale do Itajaí,RM,Área de Expansão Metropolitana,SC
+4214706,Vale do Itajaí,RM,Área de Expansão Metropolitana,SC
+4214805,Alto Vale do Itajaí,RM,Núcleo Metropolitano,SC
+4214904,Tubarão,RM,Área de Expansão Metropolitana,SC
+4215000,Norte/Nordeste Catarinense,RM,Área de Expansão Metropolitana,SC
+4215059,Lages,RM,Área de Expansão Metropolitana,SC
+4215075,Extremo Oeste,RM,Área de Expansão Metropolitana,SC
+4215109,Vale do Itajaí,RM,Área de Expansão Metropolitana,SC
+4215208,Extremo Oeste,RM,Núcleo Metropolitano,SC
+4215307,Alto Vale do Itajaí,RM,Área de Expansão Metropolitana,SC
+4215356,Extremo Oeste,RM,Área de Expansão Metropolitana,SC
+4215406,Contestado,RM,Núcleo Metropolitano,SC
+4215455,Tubarão,RM,Área de Expansão Metropolitana,SC
+4215505,Lages,RM,Área de Expansão Metropolitana,SC
+4215554,Extremo Oeste,RM,Núcleo Metropolitano,SC
+4215604,Tubarão,RM,Área de Expansão Metropolitana,SC
+4215653,Carbonífera,RM,Área de Expansão Metropolitana,SC
+4215679,Alto Vale do Itajaí,RM,Área de Expansão Metropolitana,SC
+4215687,Extremo Oeste,RM,Área de Expansão Metropolitana,SC
+4215695,Extremo Oeste,RM,Área de Expansão Metropolitana,SC
+4215703,Florianópolis,RM,Núcleo Metropolitano,SC
+4215752,Extremo Oeste,RM,Área de Expansão Metropolitana,SC
+4215802,Norte/Nordeste Catarinense,RM,Área de Expansão Metropolitana,SC
+4215901,Florianópolis,RM,Área de Expansão Metropolitana,SC
+4216008,Chapecó,RM,Núcleo Metropolitano,SC
+4216057,Lages,RM,Área de Expansão Metropolitana,SC
+4216107,Extremo Oeste,RM,Área de Expansão Metropolitana,SC
+4216206,Norte/Nordeste Catarinense,RM,Área de Expansão Metropolitana,SC
+4216255,Extremo Oeste,RM,Núcleo Metropolitano,SC
+4216305,Florianópolis,RM,Área de Expansão Metropolitana,SC
+4216354,Norte/Nordeste Catarinense,RM,Área de Expansão Metropolitana,SC
+4216404,Carbonífera,RM,Área de Expansão Metropolitana,SC
+4216503,Lages,RM,Área de Expansão Metropolitana,SC
+4216602,Florianópolis,RM,Núcleo Metropolitano,SC
+4216701,Extremo Oeste,RM,Núcleo Metropolitano,SC
+4216800,Lages,RM,Área de Expansão Metropolitana,SC
+4216909,Extremo Oeste,RM,Área de Expansão Metropolitana,SC
+4217006,Tubarão,RM,Área de Expansão Metropolitana,SC
+4217105,Tubarão,RM,Área de Expansão Metropolitana,SC
+4217154,Extremo Oeste,RM,Área de Expansão Metropolitana,SC
+4217204,Extremo Oeste,RM,Núcleo Metropolitano,SC
+4217253,Florianópolis,RM,Núcleo Metropolitano,SC
+4217303,Chapecó,RM,Núcleo Metropolitano,SC
+4217402,Norte/Nordeste Catarinense,RM,Área de Expansão Metropolitana,SC
+4217501,Chapecó,RM,Núcleo Metropolitano,SC
+4217550,Chapecó,RM,Área de Expansão Metropolitana,SC
+4217600,Carbonífera,RM,Núcleo Metropolitano,SC
+4217709,Carbonífera,RM,Área de Expansão Metropolitana,SC
+4217758,Chapecó,RM,Área de Expansão Metropolitana,SC
+4217808,Alto Vale do Itajaí,RM,Núcleo Metropolitano,SC
+4217907,Contestado,RM,Núcleo Metropolitano,SC
+4217956,Extremo Oeste,RM,Área de Expansão Metropolitana,SC
+4218004,Florianópolis,RM,Área de Expansão Metropolitana,SC
+4218103,Carbonífera,RM,Área de Expansão Metropolitana,SC
+4218202,Vale do Itajaí,RM,Núcleo Metropolitano,SC
+4218251,Contestado,RM,Núcleo Metropolitano,SC
+4218301,Norte/Nordeste Catarinense,RM,Área de Expansão Metropolitana,SC
+4218350,Carbonífera,RM,Área de Expansão Metropolitana,SC
+4218400,Tubarão,RM,Área de Expansão Metropolitana,SC
+4218509,Contestado,RM,Núcleo Metropolitano,SC
+4218608,Alto Vale do Itajaí,RM,Área de Expansão Metropolitana,SC
+4218707,Tubarão,RM,Núcleo Metropolitano,SC
+4218756,Extremo Oeste,RM,Núcleo Metropolitano,SC
+4218806,Carbonífera,RM,Área de Expansão Metropolitana,SC
+4218855,Chapecó,RM,Área de Expansão Metropolitana,SC
+4218905,Lages,RM,Área de Expansão Metropolitana,SC
+4218954,Lages,RM,Área de Expansão Metropolitana,SC
+4219002,Carbonífera,RM,Área de Expansão Metropolitana,SC
+4219101,Chapecó,RM,Área de Expansão Metropolitana,SC
+4219150,Contestado,RM,Núcleo Metropolitano,SC
+4219176,Contestado,RM,Núcleo Metropolitano,SC
+4219200,Alto Vale do Itajaí,RM,Área de Expansão Metropolitana,SC
+4219309,Contestado,RM,Núcleo Metropolitano,SC
+4219358,Alto Vale do Itajaí,RM,Área de Expansão Metropolitana,SC
+4219408,Alto Vale do Itajaí,RM,Área de Expansão Metropolitana,SC
+4219507,Chapecó,RM,Núcleo Metropolitano,SC
+4219606,Chapecó,RM,Área de Expansão Metropolitana,SC
+4219705,Chapecó,RM,Núcleo Metropolitano,SC
+4219853,Contestado,RM,Núcleo Metropolitano,SC
+4220000,Carbonífera,RM,Área de Expansão Metropolitana,SC
+4300604,Porto Alegre,RM,NÃO TEM,RS
+4300802,Serra Gaúcha,RM,NÃO TEM,RS
+4300877,Porto Alegre,RM,NÃO TEM,RS
+4301057,AU do Litoral Norte,AGLO,NÃO TEM,RS
+4301073,AU do Sul,AGLO,NÃO TEM,RS
+4301107,Porto Alegre,RM,NÃO TEM,RS
+4301636,AU do Litoral Norte,AGLO,NÃO TEM,RS
+4302105,Serra Gaúcha,RM,NÃO TEM,RS
+4303103,Porto Alegre,RM,NÃO TEM,RS
+4303905,Porto Alegre,RM,NÃO TEM,RS
+4304606,Porto Alegre,RM,NÃO TEM,RS
+4304630,AU do Litoral Norte,AGLO,NÃO TEM,RS
+4304663,AU do Sul,AGLO,NÃO TEM,RS
+4304671,AU do Litoral Norte,AGLO,NÃO TEM,RS
+4304689,Porto Alegre,RM,NÃO TEM,RS
+4304713,AU do Litoral Norte,AGLO,NÃO TEM,RS
+4304804,Serra Gaúcha,RM,NÃO TEM,RS
+4305108,Serra Gaúcha,RM,NÃO TEM,RS
+4305355,Porto Alegre,RM,NÃO TEM,RS
+4305454,AU do Litoral Norte,AGLO,NÃO TEM,RS
+4306403,Porto Alegre,RM,NÃO TEM,RS
+4306551,AU do Litoral Norte,AGLO,NÃO TEM,RS
+4306767,Porto Alegre,RM,NÃO TEM,RS
+4307609,Porto Alegre,RM,NÃO TEM,RS
+4307708,Porto Alegre,RM,NÃO TEM,RS
+4307906,Serra Gaúcha,RM,NÃO TEM,RS
+4308201,Serra Gaúcha,RM,NÃO TEM,RS
+4308607,Serra Gaúcha,RM,NÃO TEM,RS
+4309050,Porto Alegre,RM,NÃO TEM,RS
+4309209,Porto Alegre,RM,NÃO TEM,RS
+4309308,Porto Alegre,RM,NÃO TEM,RS
+4310108,Porto Alegre,RM,NÃO TEM,RS
+4310330,AU do Litoral Norte,AGLO,NÃO TEM,RS
+4310439,Serra Gaúcha,RM,NÃO TEM,RS
+4310652,AU do Litoral Norte,AGLO,NÃO TEM,RS
+4310801,Porto Alegre,RM,NÃO TEM,RS
+4311734,AU do Litoral Norte,AGLO,NÃO TEM,RS
+4311775,AU do Litoral Norte,AGLO,NÃO TEM,RS
+4312385,Serra Gaúcha,RM,NÃO TEM,RS
+4312401,Porto Alegre,RM,NÃO TEM,RS
+4312443,AU do Litoral Norte,AGLO,NÃO TEM,RS
+4313060,Porto Alegre,RM,NÃO TEM,RS
+4313086,Serra Gaúcha,RM,NÃO TEM,RS
+4313375,Porto Alegre,RM,NÃO TEM,RS
+4313409,Porto Alegre,RM,NÃO TEM,RS
+4313508,AU do Litoral Norte,AGLO,NÃO TEM,RS
+4313656,AU do Litoral Norte,AGLO,NÃO TEM,RS
+4314050,Porto Alegre,RM,NÃO TEM,RS
+4314407,AU do Sul,AGLO,NÃO TEM,RS
+4314548,Serra Gaúcha,RM,NÃO TEM,RS
+4314803,Porto Alegre,RM,NÃO TEM,RS
+4314902,Porto Alegre,RM,NÃO TEM,RS
+4315602,AU do Sul,AGLO,NÃO TEM,RS
+4316006,Porto Alegre,RM,NÃO TEM,RS
+4317251,Serra Gaúcha,RM,NÃO TEM,RS
+4317608,Porto Alegre,RM,NÃO TEM,RS
+4318408,Porto Alegre,RM,NÃO TEM,RS
+4318507,AU do Sul,AGLO,NÃO TEM,RS
+4318705,Porto Alegre,RM,NÃO TEM,RS
+4319000,Serra Gaúcha,RM,NÃO TEM,RS
+4319505,Porto Alegre,RM,NÃO TEM,RS
+4319901,Porto Alegre,RM,NÃO TEM,RS
+4320008,Porto Alegre,RM,NÃO TEM,RS
+4321204,Porto Alegre,RM,NÃO TEM,RS
+4321436,AU do Litoral Norte,AGLO,NÃO TEM,RS
+4321501,AU do Litoral Norte,AGLO,NÃO TEM,RS
+4321600,AU do Litoral Norte,AGLO,NÃO TEM,RS
+4321667,AU do Litoral Norte,AGLO,NÃO TEM,RS
+4321832,AU do Litoral Norte,AGLO,NÃO TEM,RS
+4322004,Porto Alegre,RM,NÃO TEM,RS
+4323002,Porto Alegre,RM,NÃO TEM,RS
+4323804,AU do Litoral Norte,AGLO,NÃO TEM,RS
+5100102,Vale do Rio Cuiabá,RM,RM  Vale do Rio Cuiabá,MT
+5101605,Vale do Rio Cuiabá,RM,Entorno Metropolitano da RM Vale do Rio Cuiabá,MT
+5103007,Vale do Rio Cuiabá,RM,RM  Vale do Rio Cuiabá,MT
+5103403,Vale do Rio Cuiabá,RM,RM  Vale do Rio Cuiabá,MT
+5104906,Vale do Rio Cuiabá,RM,Entorno Metropolitano da RM Vale do Rio Cuiabá,MT
+5105903,Vale do Rio Cuiabá,RM,Entorno Metropolitano da RM Vale do Rio Cuiabá,MT
+5106109,Vale do Rio Cuiabá,RM,RM  Vale do Rio Cuiabá,MT
+5106208,Vale do Rio Cuiabá,RM,Entorno Metropolitano da RM Vale do Rio Cuiabá,MT
+5106455,Vale do Rio Cuiabá,RM,Entorno Metropolitano da RM Vale do Rio Cuiabá,MT
+5106505,Vale do Rio Cuiabá,RM,Entorno Metropolitano da RM Vale do Rio Cuiabá,MT
+5107701,Vale do Rio Cuiabá,RM,Entorno Metropolitano da RM Vale do Rio Cuiabá,MT
+5107800,Vale do Rio Cuiabá,RM,RM  Vale do Rio Cuiabá,MT
+5108402,Vale do Rio Cuiabá,RM,RM  Vale do Rio Cuiabá,MT
+5200050,Goiânia,RM,NÃO TEM,GO
+5200100,RIDE DF,RIDE,NÃO TEM,GO
+5200175,RIDE DF,RIDE,NÃO TEM,GO
+5200258,RIDE DF,RIDE,NÃO TEM,GO
+5200308,RIDE DF,RIDE,NÃO TEM,GO
+5200605,RIDE DF,RIDE,NÃO TEM,GO
+5200803,RIDE DF,RIDE,NÃO TEM,GO
+5201405,Goiânia,RM,NÃO TEM,GO
+5201801,Goiânia,RM,NÃO TEM,GO
+5203203,RIDE DF,RIDE,NÃO TEM,GO
+5203302,Goiânia,RM,NÃO TEM,GO
+5203559,Goiânia,RM,NÃO TEM,GO
+5203609,Goiânia,RM,NÃO TEM,GO
+5204003,RIDE DF,RIDE,NÃO TEM,GO
+5204557,Goiânia,RM,NÃO TEM,GO
+5205208,Goiânia,RM,NÃO TEM,GO
+5205307,RIDE DF,RIDE,NÃO TEM,GO
+5205497,RIDE DF,RIDE,NÃO TEM,GO
+5205513,RIDE DF,RIDE,NÃO TEM,GO
+5205802,RIDE DF,RIDE,NÃO TEM,GO
+5206206,RIDE DF,RIDE,NÃO TEM,GO
+5207907,RIDE DF,RIDE,NÃO TEM,GO
+5208004,RIDE DF,RIDE,NÃO TEM,GO
+5208400,Goiânia,RM,NÃO TEM,GO
+5208608,RIDE DF,RIDE,NÃO TEM,GO
+5208707,Goiânia,RM,NÃO TEM,GO
+5208806,Goiânia,RM,NÃO TEM,GO
+5209200,Goiânia,RM,NÃO TEM,GO
+5209705,Goiânia,RM,NÃO TEM,GO
+5212501,RIDE DF,RIDE,NÃO TEM,GO
+5213053,RIDE DF,RIDE,NÃO TEM,GO
+5214507,Goiânia,RM,NÃO TEM,GO
+5214606,RIDE DF,RIDE,NÃO TEM,GO
+5215009,Goiânia,RM,NÃO TEM,GO
+5215231,RIDE DF,RIDE,NÃO TEM,GO
+5215603,RIDE DF,RIDE,NÃO TEM,GO
+5217302,RIDE DF,RIDE,NÃO TEM,GO
+5217609,RIDE DF,RIDE,NÃO TEM,GO
+5219100,Goiânia,RM,NÃO TEM,GO
+5219738,Goiânia,RM,NÃO TEM,GO
+5219753,RIDE DF,RIDE,NÃO TEM,GO
+5220009,RIDE DF,RIDE,NÃO TEM,GO
+5220454,Goiânia,RM,NÃO TEM,GO
+5220686,RIDE DF,RIDE,NÃO TEM,GO
+5221197,Goiânia,RM,NÃO TEM,GO
+5221403,Goiânia,RM,NÃO TEM,GO
+5221858,RIDE DF,RIDE,NÃO TEM,GO
+5222203,RIDE DF,RIDE,NÃO TEM,GO
+5222302,RIDE DF,RIDE,NÃO TEM,GO
+5300108,RIDE DF,RIDE,NÃO TEM,DF
