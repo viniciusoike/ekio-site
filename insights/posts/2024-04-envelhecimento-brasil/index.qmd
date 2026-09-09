@@ -1,0 +1,167 @@
+---
+title: "Onde o Brasil já envelheceu"
+date: "2024-04-11"
+description: "Em 555 municípios brasileiros os idosos já superam os jovens. O mapa do índice de envelhecimento mostra uma transição concentrada no Sul e no Sudeste, com o Rio Grande do Sul no extremo."
+categories: ["Demografia", "Censo", "Mapas"]
+image: "/static/images/art/hokusai-series-2026-09/insight-housing-distribution.webp"
+image-alt: "Ilustração de uma distribuição assimétrica em barras azuis sobre fundo de linho"
+toc: false   # uma seção só; o painel "Nesta página" não ajuda
+---
+
+```{r libs}
+library(ggplot2)
+library(dplyr)
+library(sf)
+library(patchwork)
+source(here::here("insights/posts/_ekio-style.R"))
+
+# Índice de envelhecimento por município, Censos de 1991 a 2022. Subconjunto
+# vendorizado com geometria simplificada; ver data.R.
+cities_age <- readRDS("aging_index_city.rds")
+```
+
+```{r dados}
+faixas <- c(
+  "Menos de 25",
+  "25 a 50",
+  "50 a 75",
+  "75 a 100",
+  "100 ou mais"
+)
+
+cities_age <- cities_age |>
+  mutate(
+    faixa = cut(
+      age_index_2022,
+      breaks = c(-Inf, 25, 50, 75, 100, Inf),
+      labels = faixas,
+      right = FALSE
+    )
+  )
+
+cores <- as.character(ekio_pal("teal"))[c(2, 3, 4, 6, 8)]
+
+resumo <- st_drop_geometry(cities_age)
+n_acima <- sum(resumo$age_index_2022 > 100)
+n_rs <- sum(resumo$age_index_2022 > 100 & resumo$abbrev_state == "RS")
+mediana <- median(resumo$age_index_2022)
+```
+
+```{r figura}
+p_mapa <- ggplot(cities_age) +
+  geom_sf(aes(fill = faixa, color = faixa), linewidth = 0.01) +
+  scale_fill_manual(name = NULL, values = cores) +
+  scale_color_manual(name = NULL, values = cores) +
+  coord_sf(xlim = c(NA, -34.469802)) +
+  labs(
+    title = "Índice de envelhecimento, 2022",
+    subtitle = "Idosos (65 anos ou mais) para cada 100 jovens (até 14 anos), por município",
+    caption = "Fonte: IBGE, Censos Demográficos."
+  ) +
+  theme_ekio_site() +
+  theme(
+    axis.line.x = element_blank(),
+    axis.ticks.x = element_blank(),
+    axis.text = element_blank(),
+    axis.title = element_blank(),
+    panel.grid.major.y = element_blank(),
+    legend.position = "top",
+    legend.justification = 0.5,
+    legend.direction = "horizontal",
+    legend.key.size = unit(0.5, "cm"),
+    legend.key.width = unit(1.5, "cm"),
+    legend.text = element_text(size = 12),
+    legend.margin = margin(),
+    plot.margin = margin(10, 5, 5, 10),
+    plot.title = element_text(size = 28, hjust = 0.5),
+    plot.subtitle = element_text(size = 13, hjust = 0.5)
+  )
+
+# Índice do país nos quatro Censos, ponderado pela população, herdado da
+# versão original do post. Não é a mediana dos municípios do mapa, que é mais
+# alta porque cada município pesa igual.
+indice_brasil <- tibble(
+  ano = c(1991, 2000, 2010, 2022),
+  indice = c(13.90, 16.18, 24.31, 55.24)
+)
+
+p_serie <- ggplot(indice_brasil, aes(ano, indice)) +
+  geom_hline(yintercept = 0, color = ekio_site$rule_strong) +
+  geom_line(linewidth = 0.8, color = ekio_site$teal) +
+  geom_point(size = 2, color = ekio_site$teal) +
+  geom_text(
+    aes(label = format(indice, decimal.mark = ",", nsmall = 2)),
+    nudge_y = c(6, 6, 6, 6),
+    nudge_x = c(1, 1, -2, -1),
+    family = "Lato",
+    size = 3.5,
+    color = ekio_site$ink_600
+  ) +
+  scale_x_continuous(breaks = indice_brasil$ano) +
+  scale_y_continuous(limits = c(0, 70)) +
+  labs(
+    title = "O país todo, quatro Censos",
+    subtitle = "Índice de envelhecimento do Brasil",
+    x = NULL,
+    y = NULL
+  ) +
+  theme_ekio_site(base_size = 10) +
+  theme(
+    plot.background = element_blank(),
+    panel.background = element_blank(),
+    panel.grid.major.x = element_blank(),
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor = element_blank(),
+    axis.line.x = element_blank(),
+    axis.ticks.x = element_blank(),
+    axis.ticks.y = element_blank(),
+    axis.text.y = element_blank(),
+    plot.title = element_text(size = 12),
+    plot.subtitle = element_text(size = 10),
+    plot.margin = margin()
+  )
+
+p_envelhecimento <- p_mapa +
+  inset_element(p_serie, left = 0, bottom = 0.04, right = 0.42, top = 0.42)
+```
+
+Em 2022, `r n_acima` municípios brasileiros tinham mais idosos do que jovens,
+cerca de um décimo do país. Só no Rio Grande do Sul estão `r n_rs` deles. A
+conta vem do índice de envelhecimento, que mede quantas pessoas de 65 anos ou
+mais existem para cada 100 pessoas de até 14 anos; acima de 100, os idosos
+superam os jovens.
+
+O mapa abaixo traz o índice nos `r format(nrow(resumo), big.mark = ".")`
+municípios do país, segundo o Censo de 2022. A série no canto inferior
+acompanha o índice do Brasil nos quatro Censos mais recentes.
+
+```{r}
+#| out-width: "100%"
+#| fig-width: 9
+#| fig-height: 9.5
+#| fig-dpi: 72
+p_envelhecimento
+```
+
+O futuro demográfico do Brasil, em boa parte, já está escrito. A queda da
+fecundidade e o aumento da expectativa de vida envelhecem a população de forma
+lenta e previsível, e o mapa mostra o quanto dessa transição já aconteceu. O
+município típico tem hoje índice de `r format(round(mediana, 1), decimal.mark = ",")`,
+acima do índice do país, de 55,2. A diferença não é contradição: o índice
+nacional pondera pela população, e o peso das cidades grandes puxa a conta.
+
+O Sul e o Sudeste concentram as cidades mais envelhecidas. O caso extremo é o
+Rio Grande do Sul: metade dos seus municípios já tem mais idosos do que jovens,
+e a mediana estadual, de 99,2, supera em mais de vinte pontos a de Minas
+Gerais, o segundo colocado. Santa Catarina e Paraná, vizinhos do Rio Grande do Sul,
+ficam bem abaixo, com medianas próximas de 66. No Nordeste, Paraíba, Bahia e
+Rio Grande do Norte já registram medianas perto de 57, acima de estados do
+Centro-Oeste como Mato Grosso e Mato Grosso do Sul.
+
+A ponta jovem do mapa está no Norte. Dos 250 municípios com índice abaixo de
+25, dois terços ficam na região; Amapá, Amazonas e Roraima têm medianas
+estaduais entre 16,7 e 18,6, menos de um quinto do valor gaúcho.
+
+Dados: IBGE, Censos Demográficos de 1991, 2000, 2010 e 2022.
+
+{{< include ../../_post-cta.qmd >}}
