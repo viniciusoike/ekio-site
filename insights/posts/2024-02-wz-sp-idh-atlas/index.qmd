@@ -2,14 +2,13 @@
 title: "IDH por região em São Paulo"
 date: "2024-02-21"
 categories: ["São Paulo", "Mapas", "Análise Espacial"]
-description: "A maior parte da população de São Paulo vive em regiões de IDH médio, entre 0,650 e 0,800, e cerca de um terço vive em áreas acima de 0,800. O mapa usa dados do Atlas Brasil agregados por UDH (Unidade de Desenvolvimento Humano)."
+description: "A maior parte da população de São Paulo vive em regiões de IDH médio, entre 0,650 e 0,800, e cerca de 40% vive em áreas acima de 0,800. O mapa usa dados do Atlas Brasil agregados por UDH (Unidade de Desenvolvimento Humano)."
 image: "/static/images/art/hokusai-series-2026-09/card-vertical-city.webp"
 image-alt: "Ilustração de edifícios de alturas variadas com janelas em grade"
-draft: true
-toc: false   # uma seção só; o painel "Nesta página" não ajuda
 ---
 
-```{r}
+```{r libs}
+#| include: false
 library(ggplot2)
 library(patchwork)
 library(dplyr)
@@ -21,30 +20,52 @@ source(here::here("insights/posts/_ekio-style.R"))
 atlas_sp <- readRDS("atlas_sp_idh_2010.rds")
 ```
 
-```{r}
+```{r paleta}
+# O mapa tem nove faixas de 0,050 entre 0,600 e 0,950. A rampa azul entra a
+# partir da segunda cor do ekioplot: a primeira (#E8F6FF) quase não se
+# distingue do papel da página.
+ek_blue <- colorRampPalette(
+  unname(as.character(ekio_pal("blue")))[-1]
+)(9)
+
+# Rótulo dentro de cada coluna: escuro nas faixas claras, branco nas
+# escuras. O último grupo fica acima da coluna, sobre o papel.
+ek_label <- c(rep(ekio_site$ink, 3), rep("white", 4), ekio_site$ink)
+```
+
+```{r mapa-idh}
 pmap <- ggplot(atlas_sp) +
   geom_sf(aes(fill = idhm), linewidth = 0.05, color = "white") +
-  scale_fill_fermenter(
+  scale_fill_stepsn(
     name = "",
-    palette = "YlGnBu",
-    direction = 1,
-    breaks = seq(0.6, 0.95, 0.05)
+    colours = ek_blue,
+    breaks = seq(0.6, 0.95, 0.05),
+    # Sem o limite inferior em 0,6, a escala descarta a quebra mais baixa —
+    # o limite começa no mínimo dos dados (0,625) — e a UDH de menor IDH da
+    # cidade recebe o na.value.
+    limits = c(0.6, NA),
+    labels = scales::label_number(accuracy = 0.01, decimal.mark = ","),
+    na.value = ekio_pal("gray")[2]
   ) +
   labs(
     title = "IDH em São Paulo",
-    subtitle = "IDH das regiões em São Paulo",
-    caption = "Fonte: Atlas Brasil (2023). @viniciusoike"
+    subtitle = "Índice de Desenvolvimento Humano por UDH, Censo 2010",
+    caption = "Fonte: Atlas Brasil (Ipea/FJP), Censo 2010 • EKIO"
   ) +
-  ggthemes::theme_map(base_family = "Lato") +
+  theme_ekio_site(grid = "none", ticks = "none") +
   theme(
+    axis.line = element_blank(),
+    axis.ticks = element_blank(),
+    axis.text = element_blank(),
+    axis.title = element_blank(),
     legend.position = "top",
     legend.justification = 0.5,
-    legend.key.size = unit(0.75, "cm"),
-    legend.key.width = unit(1.75, "cm"),
+    legend.key.size = unit(0.5, "cm"),
+    legend.key.width = unit(2, "cm"),
     legend.text = element_text(size = 12),
     legend.margin = margin(),
     plot.margin = margin(10, 5, 5, 10),
-    plot.title = element_text(size = 24, hjust = 0.5),
+    plot.title = element_text(size = 32, hjust = 0.5),
     plot.subtitle = element_text(size = 12, hjust = 0.5)
   )
 
@@ -61,40 +82,40 @@ pop_idh <- pop_idh |>
   )
 
 x <- seq(0.600, 0.950, 0.05)
-x <- formatC(x, digits = 3, format = "f")
-xx <- paste(format(x, digits = 4), x[-1], sep = " a ")
+x <- formatC(x, digits = 3, format = "f", decimal.mark = ",")
+xx <- paste(x, x[-1], sep = " a ")
 
-xx[length(xx)] <- "0.950 ou mais"
-xx <- c("Até 0.600", xx)
+xx[length(xx)] <- "0,950 ou mais"
+xx <- c("Até 0,600", xx)
 
 pcol <- ggplot(pop_idh, aes(group_idh, share, fill = as.factor(group_idh))) +
   geom_col(width = 0.8) +
-  geom_hline(yintercept = 0) +
+  geom_hline(yintercept = 0, color = ekio_site$ink_400, linewidth = 0.4) +
   geom_text(
-    aes(y = y_text, label = round(share, 1), color = as.factor(group_idh)),
+    aes(
+      y = y_text,
+      label = scales::number(share, accuracy = 0.1, decimal.mark = ","),
+      color = as.factor(group_idh)
+    ),
     family = "Lato",
     size = 4
   ) +
   coord_flip() +
   scale_x_continuous(breaks = 0:8, labels = xx) +
-  scale_y_continuous(labels = scales::label_percent(scale = 1)) +
-  scale_fill_brewer(palette = "YlGnBu") +
-  scale_color_manual(
-    name = "",
-    values = c(rep("black", 5), rep("white", 2), "black")
+  scale_y_continuous(
+    labels = scales::label_percent(scale = 1),
+    expand = expansion(mult = c(0, 0.05))
   ) +
+  scale_fill_manual(values = ek_blue[-1]) +
+  scale_color_manual(values = ek_label) +
   guides(fill = "none", color = "none") +
-  labs(
-    title = "Share da população por grupo de IDH",
-    x = NULL,
-    y = NULL
-  ) +
-  theme_minimal(base_family = "Lato") +
+  labs(title = "População por faixa de IDH (%)", x = NULL, y = NULL) +
+  theme_ekio_site(grid = "none", ticks = "none") +
   theme(
     plot.margin = margin(),
-    panel.grid = element_blank(),
     axis.text.y = element_text(size = 6),
-    plot.title = element_text(size = 10)
+    axis.text.x = element_blank(),
+    plot.title = element_text(size = 12)
   )
 
 p_idh_atlas <-
@@ -102,16 +123,39 @@ p_idh_atlas <-
 ```
 
 
-O mapa abaixo mostra o [Índice de Desenvolvimento Humano (IDH)](https://pt.wikipedia.org/wiki/Índice_de_Desenvolvimento_Humano) das regiões de São Paulo. As estimativas provêm do [projeto Atlas Brasil](http://www.atlasbrasil.org.br), que computa o IDH em nível submunicipal nas chamadas Unidades de Desenvolvimento Humano (UDHs). Como se vê no desenho do mapa, as UDHs têm formatos bastante flexíveis. De forma geral, as UDHs seguem divisões administrativas pré-existentes, mas também ressaltam áreas de vulnerabilidade social que estão imersas dentro de outras regiões.
+O mapa abaixo mostra o [Índice de Desenvolvimento Humano (IDH)](https://pt.wikipedia.org/wiki/Índice_de_Desenvolvimento_Humano) das regiões de São Paulo. As estimativas provêm do [projeto Atlas Brasil](http://www.atlasbrasil.org.br), que computa o IDH em nível submunicipal nas chamadas Unidades de Desenvolvimento Humano (UDHs). Como se vê no desenho do mapa, as UDHs têm formatos bastante flexíveis. De forma geral, as UDHs seguem divisões administrativas pré-existentes, mas também ressaltam áreas de vulnerabilidade social que estão imersas em outras regiões.
 
-O gráfico de colunas mostra o percentual da população que vive em cada grupo de IDH. Este gráfico ajuda a reduzir a distorção visual causada pelo mapa. Visualmente, tende-se a associar o tamanho das áreas com a sua representatividade. Isto acontece tanto no extremo sul da cidade, que é esparsamente povoado, como também no Centro Expandido. De maneira geral, a maior parte da população vive na faixa entre 0,650 e 0,800, que corresponde a um IDH médio. Cerca de um terço da população vive em regiões com IDH acima de 0,800, um IDH alto ou altíssimo.
+O gráfico de colunas mostra o percentual da população que vive em cada grupo de IDH. Este gráfico ajuda a reduzir a distorção visual causada pelo mapa. Visualmente, tende-se a associar o tamanho das áreas com a sua representatividade. Isto acontece tanto no extremo sul da cidade, que é esparsamente povoado, como também no Centro Expandido. De maneira geral, a maior parte da população vive na faixa entre 0,650 e 0,800, que corresponde a um IDH médio. Cerca de 40% da população vive em regiões com IDH acima de 0,800 — a faixa que o PNUD classifica como muito alta.
 
 ```{r}
+#| label: fig-idh-atlas
 #| out-width: "100%"
 #| fig-width: 9
 #| fig-height: 12
 #| fig-dpi: 72
 p_idh_atlas
 ```
+
+## O que o IDH mede
+
+O IDH resume três dimensões em um único número entre 0 e 1: longevidade (esperança de vida ao nascer), educação (escolaridade da população adulta e frequência escolar dos jovens) e renda (renda per capita). O Atlas Brasil calcula essas dimensões para cada UDH a partir dos microdados do Censo, com a mesma metodologia do IDH Municipal do PNUD — a escala submunicipal é o que distingue o Atlas dos IDHs publicados para municípios inteiros.
+
+Na cidade, os valores vão de 0,625 a 0,965, com média de 0,79 ponderada pela população. É uma amplitude grande para médias de uma única cidade.
+
+## A geografia do IDH
+
+O padrão espacial é o mesmo da [distribuição de renda](/insights/posts/2024-02-renda-sp/) e de quase todo indicador social da cidade: os valores caem do quadrante sudoeste para a periferia. As UDHs com IDH mais alto (0,965) se concentram no Morumbi e no Alto de Pinheiros. As de menor valor ficam no extremo sul, em Parelheiros e Marsilac (0,625), e em um bloco da periferia leste, em Guaianases e Cidade Tiradentes (0,632).
+
+Não é um gradiente suave. Bolsões de IDH baixo aparecem imersos em regiões médias — é o que o recorte fino das UDHs expõe e o que uma média municipal esconderia.
+
+## População por faixa de IDH
+
+O gráfico de colunas no canto do mapa reordena essa geografia por população: 55% dos moradores vivem em UDHs com IDH entre 0,650 e 0,800, e 41% vivem em UDHs acima de 0,800; apenas 4% vivem em regiões abaixo de 0,650. A faixa mais populosa, com 22% da população, vai de 0,750 a 0,800.
+
+## O que os números não dizem
+
+Os valores refletem o Censo 2010, a base mais recente para a qual o Atlas publicou UDHs. Em mais de uma década, os valores absolutos mudaram — a escolaridade subiu, a renda se alterou —, mas a estrutura espacial, formada por décadas de expansão urbana, muda devagar. O recorte segue sendo uma referência razoável para a geografia do IDH na cidade, não para o nível atual dos indicadores.
+
+Duas ressalvas complementares. Primeira: as UDHs variam muito em população, de algumas centenas a mais de 56 mil moradores, e o IDH de uma unidade pequena pode refletir poucos quarteirões. Segunda: o índice médio esconde a desigualdade interna de cada região — um IDH alto em uma UDH não significa que todos os seus moradores vivam bem.
 
 {{< include ../../_post-cta.qmd >}}
