@@ -53,7 +53,7 @@ are reviewed. A source draft is not automatically unusable, but needs extra revi
 Tutorials outside `general-posts/` (including `tutorial-tidyverse/`) also belong in
 `ekio-academy` and are outside the 122-folder count.
 
-## Already adapted / EKIO drafts (14)
+## Already adapted / EKIO drafts (15)
 
 | Source folder | Source title | Status / next step |
 |---|---|---|
@@ -71,9 +71,10 @@ Tutorials outside `general-posts/` (including `tutorial-tidyverse/`) also belong
 | `2024-05-generations-brazil` | Generations in Brazil | Adapted → [EKIO source](posts/2025-02-generations-brazil/index.qmd). |
 | `2025-06-censo-metro-regions` | O crescimento das Regiões Metropolitanas Brasileiras | Adapted → [EKIO source](posts/2025-06-censo-metro-regions/index.qmd). Rates and boundaries audited; five tables, three charts and interactive map rebuilt. |
 | `2025-03-map-brazil-census-race` | A Distribuição Racial do Brasil | Adapted → [EKIO source](posts/2025-02-distribuicao-racial-brasil/index.qmd). Static article with revised Portuguese text, vendored map, detailed alt text and editorial cover. |
+| `2024-09-ips-brasil` | Índice de Progresso Social nos Municípios Brasileiros | Adapted → [EKIO source](posts/2024-09-ips-municipios/index.qmd). Distribution, dispersion and regional claims corrected; policy-prescription section cut; component chart added. |
 
 
-## Insights candidates — provisional (46)
+## Insights candidates — provisional (45)
 
 | Source folder | Source title | Status / next step |
 |---|---|---|
@@ -109,7 +110,6 @@ Tutorials outside `general-posts/` (including `tutorial-tidyverse/`) also belong
 | `2024-05-births-weddings` | Weddings and Births in Brazil | Source `draft: true`.  |
 | `2024-05-illiterate-census` | Analfabetismo no Brasil | Review before adaptation. |
 | `2024-07-viz-metro-4` | Linha-4 Amarela Metrô de São Paulo | Short visualization; compare with January 2026 version. |
-| `2024-09-ips-brasil` | Índice de Progresso Social nos Municípios Brasileiros | Review before adaptation. |
 | `2024-09-viz-metro-line-5` | Linha-5 Lilás Metrô de São Paulo | Short visualization; compare with January 2026 version. |
 | `2025-03-homeownership-brazil` | index | Source `draft: true`. Short source draft with placeholder title; needs substantive development. |
 | `2025-07-demografia-brasil` | O Novo Perfil Demográfico do Brasil | Hard: 18 MiB `files.rds`, cross-post `/_site/` images, repeated sections, inverted aging-index formula and dependency-denominator review; overlaps two existing Insights. |
@@ -203,17 +203,20 @@ Tutorials outside `general-posts/` (including `tutorial-tidyverse/`) also belong
 
 ## Latest adaptation — completed
 
-`2025-06-censo-metro-regions` was approved with a constraint to preserve the
-original text and make only necessary adaptations, typo/grammar fixes and data
-corrections. The original title and substantive section structure are retained.
+`2024-09-ips-brasil` was adapted as
+[`2024-09-ips-municipios`](posts/2024-09-ips-municipios/index.qmd), keeping the
+original section order and rewriting the text where it claimed more than the
+data supports.
 
-The post uses local census tables and a compact Belo Horizonte spatial file,
-with five EKIO tables, three charts and an interactive map. Annual rates now use
-actual census intervals. The 2018 territorial definitions and inclusion of
-associated areas are explicit. See [adaptation notes](posts/2025-06-censo-metro-regions/_adaptation.md)
-for data provenance, necessary factual corrections and reproduction commands.
+The post reads one vendored CSV — 5,570 municipalities, the index, its three
+dimensions, twelve components and context variables — and needs neither the
+archive nor network access to render. Four charts and three tables use the
+shared EKIO helpers. See [adaptation notes](posts/2024-09-ips-municipios/_adaptation.md)
+for provenance, the corrected claims and reproduction commands.
 
-Validation: all 81 metropolitan units reconcile with the municipal data;
-5,570 municipal growth rates agree with the published IBGE rates within rounding;
-the map contains the expected 34 RM and 16 colar municipalities. Quarto rendering
-and desktop/mobile checks cover tables, chart tabsets, map and local assets.
+Corrections: the IPS distribution is symmetric, not skewed; Oportunidades is
+the lowest dimension but not the most dispersed; the Federal District is a
+single municipality and not comparable to the states; the simple municipal mean
+(58.1) and the population-weighted mean (61.8) are now distinguished. The
+policy-prescription section was cut. A component chart and the regional
+inversion in Oportunidades were added.
