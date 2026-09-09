@@ -23,7 +23,7 @@ toc: false
 
 ::: {.cta-actions style="flex-direction: row; gap: 2.5rem;"}
 [Ver insights](insights/index.qmd){.link-rule}
-[Voltar ao início](index.qmd){.link-rule-sm}
+[Voltar ao início](index.qmd){.link-rule}
 :::
 
 :::

@@ -19,9 +19,11 @@ toc: false
 ::: {.band .band-light}
 ::: {.container}
 
+[Comece pelo início do site ou vá direto para as análises publicadas.]{.section-desc}
+
 ::: {.cta-actions style="flex-direction: row; gap: 2.5rem;"}
 [Voltar ao início](/index.qmd){.link-rule}
-[Ver insights](/insights/index.qmd){.link-rule-sm}
+[Ver insights](/insights/index.qmd){.link-rule}
 :::
 
 :::
