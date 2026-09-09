@@ -250,18 +250,17 @@ share_fgts <- filter(share_linha, v3 == "fgts")$share
 
 ```{r charts}
 p_selic <- ggplot(selic, aes(x = date, y = value)) +
-  geom_step(linewidth = 0.8, color = ekio_pal("full")[[1]]) +
   geom_rect(
     data = tibble(
-      x = as.Date("2021-02-01"),
-      xend = as.Date("2023-07-01"),
-      y = 2,
-      yend = 15
+      xmin = as.Date("2021-02-01"),
+      xmax = as.Date("2023-07-01")
     ),
-    aes(x = x, xend = xend, y = y, y = yend),
-    fill = unname(ekio_pal("cinza")[3]),
-    alpha = 0.8
+    aes(xmin = xmin, xmax = xmax, ymin = -Inf, ymax = Inf),
+    inherit.aes = FALSE,
+    fill = unname(ekio_pal("gray")[3]),
+    alpha = 0.45
   ) +
+  geom_step(linewidth = 0.8, color = ekio_pal("full")[[1]]) +
   scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
   scale_y_continuous(breaks = seq(0, 14, 2)) +
   labs(
