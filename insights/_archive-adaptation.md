@@ -6,8 +6,9 @@ Goal: bring the on-brand (real estate / spatial / economics) posts into
 
 ## Authoring a NEW post (the scalable path — no archive rewrite)
 
-The blog uses Quarto's **native listing** (`insights/index.qmd` + `arquivo.qmd`
-over `contents: posts`). A new post auto-appears in both — you never edit a listing.
+The blog uses Quarto's **native listing** (`insights/index.qmd` over
+`contents: posts`). The separate archive page has been retired, and a new post
+appears automatically in the full Insights index.
 
 1. Copy `insights/posts/_TEMPLATE.qmd` into `insights/posts/YYYY-MM-slug/index.qmd`.
 2. Fill title / date / description / categories / image. `author`, `freeze`, TOC,
@@ -50,25 +51,37 @@ Skip anything that duplicates a live post: `indices-precos-imobiliarios`,
 ## Triage
 
 ### Batch 1 — Insights, on-brand
-- [x] `2024-03-affordability-sp` — "Housing Affordability em São Paulo" (PIR map). DONE (draft) — vendored geojson + thumbnail; render to verify.
-- [x] `2024-02-wz-sp-idh-atlas` — "IDH por região em São Paulo". DONE (draft) — 39 MB `.qs` subset to SP-city-2010 → vendored 2.6 MB `atlas_sp_idh_2010.rds`; Raleway→Lato; no thumbnail yet (uses gradient fallback).
+- [x] `2024-03-affordability-sp` — "Housing Affordability em São Paulo" (PIR map).
+  Published with vendored GeoJSON, EKIO styling, and an editorial cover.
+- [x] `2024-02-wz-sp-idh-atlas` — "IDH por região em São Paulo". Published —
+  39 MB `.qs` subset to SP-city-2010 → vendored 2.6 MB
+  `atlas_sp_idh_2010.rds`; Raleway→Lato; editorial cover added.
 - [x] `2024-04-wz-age-index` — "Onde o Brasil já envelheceu" (índice de
-  envelhecimento por município). DONE — 14 MB `.qs` com as colunas usadas e a
+  envelhecimento por município). Published — 14 MB `.qs` com as colunas usadas e a
   geometria simplificada em 500 m → `aging_index_city.rds` de 2,7 MB, gerado por
   `data.R`; mapa refeito na paleta EKIO com rótulos em PT; capa
   `insight-housing-distribution`.
+- [x] `2023-08-juros-affordability` → `2023-08-juros-financiamento` — "O impacto
+  dos juros na demanda imobiliária". Published with updated data cutoffs, EKIO
+  charts, and an editorial cover.
+- [x] `2024-05-generations-brazil` → `2025-02-generations-brazil` — "Gerações no
+  Brasil". Published with revised Portuguese text, EKIO charts, and an editorial
+  cover.
+- [x] `2025-03-map-brazil-census-race` → `2025-02-distribuicao-racial-brasil` —
+  "A distribuição racial do Brasil". Adapted as a static article with revised
+  Portuguese text, a vendored map, detailed alt text, and an editorial cover.
 - [ ] `2023-10-wz-metro-sp` — Metrô de São Paulo. Vendor station CSVs (`metro_sp.csv`, `metro_sp_line_4_stations.csv`); **body is in English → translate to PT**; rename off "Weekly Viz".
 - [ ] `2025-07-demografia-brasil` — "O Novo Perfil Demográfico do Brasil". Heavier: 19 MB `files.rds` + cross-post PNG embeds to resolve.
 
 **NOT importable (verify each archive slug before picking — many recent ones are stubs):**
 - `2025-02-spo-mapa-renda` — stub: `draft:true`, loads data, no chart/prose.
 - `2025-12-density-sao-paulo` — no `index.qmd` (only `draft.R`), unfinished.
+- `2025-12-cidades-crescimento` — no `index.qmd` (only `draft.R`), unfinished.
 
 ### Also on-brand (later)
 `2024-04-sp-grid-houses` (writes svg to static — fix), `2025-03-homeownership-brazil`
 (title "index", messy H1, EN?), `2023-11-preco-imoveis-brasil` (EN, near-dup),
-`repost-precos-imoveis-demografia`, `2023-08-juros-affordability`,
-`2024-05-generations-brazil`, `2024-12-demographic-pyramid`,
+`repost-precos-imoveis-demografia`, `2024-12-demographic-pyramid`,
 `repost-ipca-visualizacao`, `2025-11-pop-density`, `2025-06-censo-metro-regions`,
 `2024-07-viz-metro-4`, `2024-09-viz-metro-line-5`, `2026-01-line-{2,4,5}-metro`.
 
@@ -79,7 +92,8 @@ Skip anything that duplicates a live post: `indices-precos-imobiliarios`,
 ### Route to ekio-academy (tutorials/methods — NOT Insights)
 tutorial-tidyverse/*, `pipes-in-r`, `comandos-simples`, `2024-02-gradient-descent`,
 `2024-02-media-movel`, `2024-01-sazonalidade`, `2024-02-hamilton-trend`,
-`2024-03-carry-over`, `2025-07-modelo-arima`, `repost-{arima,sarima,arma,ols-*,emv,otimizacao,regressao,mqo,teoria-assintotica}`,
+`2024-03-carry-over`, `2025-07-modelo-arima`, `2025-07-setup-r`,
+`repost-{arima,sarima,arma,ols-*,emv,otimizacao,regressao,mqo,teoria-assintotica}`,
 `2024-04-radar-plots`, `2024-04-plots-sacrilegio`, `2024-12-punchcard-plot`,
 `2024-12-github-contributions-plot`, `2024-09-basemaps-ggplot2`,
 `2026-06-packages-custom-fonts`, `2026-06-claudeplot`, `repost-tutorial-showtext`,
