@@ -2,10 +2,9 @@
 title: "O impacto dos juros na demanda imobiliária"
 date: "2023-08-17"
 categories: ["Imóveis", "Economia", "Brasil"]
-description: "Entre maio de 2021 e abril de 2023, a taxa média do financiamento habitacional subiu de 6,6% para 10,2% ao ano. O mesmo imóvel passou a exigir 34% mais renda para ser financiado — antes de contar a alta dos preços."
+description: "Entre maio de 2021 e abril de 2023, a taxa média do financiamento habitacional subiu de 6,6% para 10,2% ao ano. O mesmo imóvel passou a exigir 34% mais renda para ser financiado mesmo antes de contar a alta dos preços."
 image: "/static/images/art/hokusai-series-2026-09/insight-courtyard-housing.webp"
 image-alt: "Ilustração de edifícios residenciais em torno de um pátio interno"
-draft: true
 ---
 
 ```{r libs}
@@ -251,12 +250,22 @@ share_fgts <- filter(share_linha, v3 == "fgts")$share
 
 ```{r charts}
 p_selic <- ggplot(selic, aes(x = date, y = value)) +
+  geom_rect(
+    data = tibble(
+      xmin = as.Date("2021-02-01"),
+      xmax = as.Date("2023-07-01")
+    ),
+    aes(xmin = xmin, xmax = xmax, ymin = -Inf, ymax = Inf),
+    inherit.aes = FALSE,
+    fill = unname(ekio_pal("gray")[3]),
+    alpha = 0.45
+  ) +
   geom_step(linewidth = 0.8, color = ekio_pal("full")[[1]]) +
   scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
   scale_y_continuous(breaks = seq(0, 14, 2)) +
   labs(
-    title = "Três anos de aperto monetário, revertidos em agosto",
-    subtitle = "Meta da taxa SELIC definida pelo COPOM, ao ano.",
+    title = "Três anos de aperto monetário",
+    subtitle = "Meta da taxa SELIC definida pelo COPOM, taxa anualizada.",
     x = NULL,
     y = "% a.a.",
     caption = "Fonte: Banco Central do Brasil (SGS 432)."
@@ -273,7 +282,8 @@ p_flux <- flux |>
   geom_line(linewidth = 0.8) +
   scale_x_continuous(breaks = c(0, 60, 120, 180, 240, 300, 360)) +
   scale_y_continuous(
-    labels = scales::label_currency(prefix = "R$ ", big.mark = ".")
+    labels = scales::label_currency(prefix = "R$ ", big.mark = "."),
+    expand = expansion(c(0, 0.05))
   ) +
   scale_color_ekio_d(
     "full",
@@ -295,7 +305,7 @@ p_sens <- ggplot(sens, aes(x = rate, y = renda)) +
     labels = scales::label_currency(prefix = "R$ ", big.mark = ".")
   ) +
   labs(
-    title = "Cada ponto de juros custa cerca de R$800 de renda",
+    title = "Cada ponto de juros 'custa' ~R$800 de renda",
     subtitle = "Renda mínima para financiar um imóvel de R$450 mil, por taxa contratada.",
     x = "Taxa de juros (% a.a.)",
     y = NULL,
@@ -398,21 +408,21 @@ p_rmn_adj <- afford |>
   theme_ekio_site()
 ```
 
-Entre maio de 2021 e abril de 2023, a taxa média do financiamento habitacional passou de `r pct(rate_min$rate)`% para `r pct(rate_last$rate)`% ao ano. Nada mudou no imóvel, no prazo ou nas regras do banco. Ainda assim, a renda exigida para financiar um apartamento de R\$450 mil subiu de R\$`r brl(renda_piso)` para R\$`r brl(renda_topo)` — um aumento de `r round(renda_alta)`%.
+Entre maio de 2021 e abril de 2023, a taxa média do financiamento habitacional passou de `r pct(rate_min$rate)`% para `r pct(rate_last$rate)`% ao ano. Esta aumento acompanhou a alta da SELIC, que saltou de 3,5% para 13,75%.
 
-Essa é a parte do encarecimento da moradia que não aparece no preço anunciado. Este post reconstrói a conta do financiamento habitacional, mede quanto de renda cada ponto percentual de juros custa e separa o efeito dos juros do efeito da valorização dos imóveis.
+O aumento dos juros tem enorme peso sobre o mercado imobiliário: além de encarecer o produto, diminui a capacidade de financiamento do comprador. Um apartamento de R\$450 mil exigia renda de R\$`r brl(renda_piso)`; hoje, exige R\$`r brl(renda_topo)`. Ou seja, o aumento de 10 p.p. na SELIC se traduziu em aumento de `r round(renda_alta)`% da renda exigida para financiar o imóvel.
 
 ## A conta do financiamento
 
 O financiamento imobiliário é um empréstimo que a família contrai com um banco e repaga em parcelas mensais, com juros sobre o saldo devedor. Do preço $P$ do imóvel subtrai-se a entrada $E$, e o restante forma a dívida $D = P - E$. A razão entre dívida e preço é o *loan-to-value* (LTV): um LTV alto significa entrada baixa e dívida grande.
 
-A modalidade dominante no Brasil é o Sistema de Amortização Constante (SAC). O nome descreve a mecânica: a cada mês a família devolve a mesma fatia do principal, $A = D/N$, e paga juros sobre o que ainda deve. Como o saldo devedor cai todo mês, os juros caem junto e a parcela encolhe ao longo do contrato. **A primeira parcela é a maior**, e é contra ela que o banco compara a renda do candidato.
+A modalidade dominante no Brasil é o Sistema de Amortização Constante (SAC). O nome descreve a mecânica: a cada mês, a família devolve a mesma fatia do principal, $A = D/N$, e paga juros sobre o que ainda deve. Como o saldo devedor cai todo mês, os juros caem junto e a parcela encolhe ao longo do contrato. **A primeira parcela é a maior**, e é contra ela que o banco compara a renda do candidato.
 
 Os parâmetros da simulação abaixo vêm do que os contratos brasileiros de fato registravam em abril de 2023. O LTV médio ficava em `r round(ltv_sfh)`% no SFH e `r round(ltv_fgts)`% na linha FGTS, então uso 70%. O prazo médio contratado era de `r round(prazo_medio)` meses, então uso 360. Para o comprometimento de renda, uso a regra de bolso mais comum do mercado: a primeira parcela não pode passar de 30% da renda bruta familiar.
 
-Num imóvel de R\$450 mil com LTV de 70%, a entrada é de R\$135 mil e a dívida, de R\$315 mil. A amortização mensal é fixa em R\$875. A uma taxa de 10% ao ano — equivalente a `r pct(taxa_mensal_10, 4)`% ao mês[^conversao] — a primeira parcela fica em R\$`r brl(parcela_10, 2)` e a renda exigida, em R\$`r brl(renda_10)`.
+Num imóvel de R\$450 mil com LTV de 70%, a entrada é de R\$135 mil e a dívida, de R\$315 mil. A amortização mensal é fixa em R\$875. A uma taxa de 10% ao ano — equivalente a `r pct(taxa_mensal_10, 4)`% ao mês[^1] — a primeira parcela fica em R\$`r brl(parcela_10, 2)` e a renda exigida, em R\$`r brl(renda_10)`.
 
-[^conversao]: O Banco Central publica as taxas contratadas como taxas efetivas ao ano. A conversão para o mês é geométrica, $(1+i)^{1/12}-1$, e não a divisão por doze. A diferença importa: a divisão simples daria 0,8333% ao mês e superestimaria a parcela.
+[^1]: O Banco Central publica as taxas contratadas como taxas efetivas ao ano. A conversão para o mês é geométrica, $(1+i)^{1/12}-1$, e não a divisão por doze. A diferença importa: a divisão simples daria 0,8333% ao mês e superestimaria a parcela.
 
 ```{r tabela-fluxo}
 new_names <- c("Mês", "Amortização", "Juros", "Parcela", "Saldo devedor")
@@ -436,9 +446,9 @@ flux |>
     sep_mark = ".",
     dec_mark = ","
   ) |>
-  tab_header(title = "Primeiro ano de um financiamento SAC") |>
-  tab_source_note(
-    "Imóvel de R$450 mil, LTV de 70%, 360 meses, juros de 10% ao ano."
+  tab_header(
+    title = "Primeiro ano de um financiamento SAC",
+    subtitle = "Fluxo de pagamento de um financiamento SAC típico: preço do imóvel R$450 mil, LTV de 70%, 360 meses de prazo e juros de 10% ao ano."
   ) |>
   gt_theme_hokusai(
     stripe = TRUE,
@@ -448,7 +458,7 @@ flux |>
   )
 ```
 
-Ao longo dos 360 meses, a amortização não se move e os juros derretem. A parcela sai de R\$3.387 e termina em pouco mais de R\$880.
+Ao longo dos 360 meses, a amortização se mantém a mesma e os juros diminuem gradativamente. A parcela sai de R\$3.387 e termina em pouco mais de R\$880.
 
 ```{r grafico-fluxo}
 p_flux
@@ -456,11 +466,13 @@ p_flux
 
 ## Quanto custa um ponto de juros
 
-Repetindo a mesma simulação para taxas diferentes, aparece a relação que interessa: quanto de renda cada ponto percentual de juros exige. A resposta é aproximadamente linear na faixa relevante, em torno de R\$800 de renda por ponto.
+Repetindo a simulação acima para diferentes valores de taxas de juro, podemos visualizar o que nos interessa: o efeito do aumento dos juros sobre a renda mínima exigida para o financiamento imobiliário. Para um imóvel de R\$450 mil, cada ponto adicional de juros aumenta a renda mínima em R\$800.
 
 ```{r grafico-sensibilidade}
 p_sens
 ```
+
+A tabela abaixo resume os principais valores que o gráfico mostra. A 7% ao ano, uma família com R\$`r brl(first(sens_table$renda))` de renda financia o imóvel; a 12%, precisa de R\$`r brl(last(sens_table$renda))`. São R\$`r brl(last(sens_table$renda) - first(sens_table$renda))` de renda mensal separando as duas situações, sem que o imóvel tenha mudado.
 
 ```{r tabela-sensibilidade}
 sens_table |>
@@ -479,8 +491,10 @@ sens_table |>
     sep_mark = ".",
     dec_mark = ","
   ) |>
-  tab_header(title = "Renda exigida para o mesmo imóvel de R$450 mil") |>
-  tab_source_note("LTV de 70%, 360 meses, comprometimento de 30% da renda.") |>
+  tab_header(
+    title = "Renda mínima exigida para um imóvel de R$450 mil",
+    subtitle = "Renda mínima exigida para ser elegível a um financimaneto imobiliário considerando LTV de 70%, 360 meses e comprometimento máximo de 30% da renda."
+  ) |>
   gt_theme_hokusai(
     stripe = TRUE,
     font_size = 11,
@@ -489,11 +503,9 @@ sens_table |>
   )
 ```
 
-A distância entre as pontas da tabela mede o problema. A 7% ao ano, uma família com R\$`r brl(first(sens_table$renda))` de renda financia o imóvel; a 12%, precisa de R\$`r brl(last(sens_table$renda))`. São R\$`r brl(last(sens_table$renda) - first(sens_table$renda))` de renda mensal separando as duas situações, sem que o imóvel tenha mudado.
-
 ## A SELIC não é a taxa do financiamento
 
-A taxa que entra nessa conta não é a SELIC. O COPOM define a meta SELIC como instrumento de política monetária, tipicamente elevando-a quando a inflação acelera — foi o que fez em 2014-16 e de novo em 2021-23. Na reunião de 2 de agosto de 2023, o comitê reduziu a meta de 13,75% para 13,25% ao ano, a primeira queda depois de três anos de aperto.
+A taxa que entra na conta do financiamento habitacional não é a SELIC. O COPOM define a meta SELIC como instrumento de política monetária, tipicamente elevando-a ou quando a inflação acelera: foi o que fez em 2014-16 e de novo em 2021-23. Na reunião de 2 de agosto de 2023, o comitê reduziu a meta de 13,75% para 13,25% ao ano, a primeira queda depois de três anos de aumentos.
 
 ```{r grafico-selic}
 p_selic
@@ -550,9 +562,9 @@ p_rmn_adj
 
 A comparação entre as duas linhas separa as duas forças. Mantido o preço de janeiro de 2018, a alta dos juros responde por R\$`r brl(delta_juros)` da renda adicional exigida; a valorização do imóvel responde pelos outros R\$`r brl(delta_preco)`. O preço fez cerca de quatro quintos do trabalho, e quase tudo isso depois de 2020.
 
-O IGMI-R é um índice hedônico, isto é, ajustado por qualidade[^hedonico]. A valorização medida não reflete apenas uma mudança na composição dos imóveis vendidos.
+O IGMI-R é um índice hedônico, isto é, ajustado por qualidade[^2]. A valorização medida não reflete apenas uma mudança na composição dos imóveis vendidos.
 
-[^hedonico]: Um índice hedônico controla os atributos do imóvel — área, localização, padrão — de modo a estimar a variação de preço de um imóvel de características constantes.
+[^2]: Um índice hedônico controla os atributos do imóvel — área, localização, padrão — de modo a estimar a variação de preço de um imóvel de características constantes.
 
 ## O que a conta não inclui
 
