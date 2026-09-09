@@ -63,9 +63,13 @@ Skip anything that duplicates a live post: `indices-precos-imobiliarios`,
 `2024-04-sp-grid-houses` (writes svg to static — fix), `2025-03-homeownership-brazil`
 (title "index", messy H1, EN?), `2023-11-preco-imoveis-brasil` (EN, near-dup),
 `repost-precos-imoveis-demografia`, `2023-08-juros-affordability`,
-`2024-05-generations-brazil`, `2024-12-demographic-pyramid`, `2023-12-wz-inflation`,
+`2024-05-generations-brazil`, `2024-12-demographic-pyramid`,
 `repost-ipca-visualizacao`, `2025-11-pop-density`, `2025-06-censo-metro-regions`,
 `2024-07-viz-metro-4`, `2024-09-viz-metro-line-5`, `2026-01-line-{2,4,5}-metro`.
+
+- [x] `2023-12-wz-inflation` — "A história da inflação brasileira". Texto
+  adaptado para português; gráficos históricos vendorizados no diretório do
+  post e capa editorial associada.
 
 ### Route to ekio-academy (tutorials/methods — NOT Insights)
 tutorial-tidyverse/*, `pipes-in-r`, `comandos-simples`, `2024-02-gradient-descent`,
