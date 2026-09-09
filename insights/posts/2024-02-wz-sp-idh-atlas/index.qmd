@@ -17,7 +17,10 @@ source(here::here("insights/posts/_ekio-style.R"))
 
 # Subconjunto vendorizado do Atlas Brasil: São Paulo (município), 2010.
 # Gerado a partir de shiny-atlas-brasil/data/atlas_brasil.qs (39 MB → ~2,6 MB).
-atlas_sp <- readRDS("atlas_sp_idh_2010.rds")
+atlas_sp <- readr::read_rds(here::here(
+  "insights/posts/2024-02-wz-sp-idh-atlas",
+  "atlas_sp_idh_2010.rds"
+))
 ```
 
 ```{r paleta}
@@ -52,7 +55,7 @@ pmap <- ggplot(atlas_sp) +
     subtitle = "Índice de Desenvolvimento Humano por UDH, Censo 2010",
     caption = "Fonte: Atlas Brasil (Ipea/FJP), Censo 2010 • EKIO"
   ) +
-  theme_ekio_site(grid = "none", ticks = "none") +
+  theme_ekio_site(grid = "none", ticks = "none", font_title = "Lato") +
   theme(
     axis.line = element_blank(),
     axis.ticks = element_blank(),
@@ -128,7 +131,6 @@ O mapa abaixo mostra o [Índice de Desenvolvimento Humano (IDH)](https://pt.wiki
 O gráfico de colunas mostra o percentual da população que vive em cada grupo de IDH. Este gráfico ajuda a reduzir a distorção visual causada pelo mapa. Visualmente, tende-se a associar o tamanho das áreas com a sua representatividade. Isto acontece tanto no extremo sul da cidade, que é esparsamente povoado, como também no Centro Expandido. De maneira geral, a maior parte da população vive na faixa entre 0,650 e 0,800, que corresponde a um IDH médio. Cerca de 40% da população vive em regiões com IDH acima de 0,800 — a faixa que o PNUD classifica como muito alta.
 
 ```{r}
-#| label: fig-idh-atlas
 #| out-width: "100%"
 #| fig-width: 9
 #| fig-height: 12

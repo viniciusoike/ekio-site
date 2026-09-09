@@ -5,9 +5,6 @@ categories: ["Demografia", "Mercado Imobiliário", "Brasil"]
 description: "Quase metade dos brasileiros tem entre 12 e 43 anos, o maior contingente de jovens da história do país. Este fator demográfico, junto com a redução do tamanho das famílias deve sustentar a demanda imobiliária no país pelos próximos 15 a 20 anos. A educação e o acesso desigual a oportunidades. contudo, limitam esse ganho: um em cada cinco jovens não estuda nem trabalha."
 image: "/static/images/art/hokusai-series-2026-09/insight-apartment-balconies.webp"
 image-alt: "Ilustração de varandas e terraços em edifícios residenciais"
-format:
-  html:
-    code-tools: true
 toc: false   # uma seção só; o painel "Nesta página" não ajuda
 ---
 
