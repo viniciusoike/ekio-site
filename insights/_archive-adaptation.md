@@ -7,8 +7,9 @@ Goal: bring the on-brand (real estate / spatial / economics) posts into
 
 ## Authoring a NEW post (the scalable path — no archive rewrite)
 
-The blog uses Quarto's **native listing** (`insights/index.qmd` + `arquivo.qmd`
-over `contents: posts`). A new post auto-appears in both — you never edit a listing.
+The blog uses Quarto's **native listing** (`insights/index.qmd` over
+`contents: posts`). The separate archive page has been retired, and a new post
+appears automatically in the full Insights index.
 
 1. Copy `insights/posts/_TEMPLATE.qmd` into `insights/posts/YYYY-MM-slug/index.qmd`.
 2. Fill title / date / description / categories / image. `author`, `freeze`, TOC,
@@ -52,7 +53,7 @@ are reviewed. A source draft is not automatically unusable, but needs extra revi
 Tutorials outside `general-posts/` (including `tutorial-tidyverse/`) also belong in
 `ekio-academy` and are outside the 122-folder count.
 
-## Already adapted / EKIO drafts (13)
+## Already adapted / EKIO drafts (14)
 
 | Source folder | Source title | Status / next step |
 |---|---|---|
@@ -69,9 +70,10 @@ Tutorials outside `general-posts/` (including `tutorial-tidyverse/`) also belong
 | `2024-04-wz-age-index` | Índice de Envelhecimento no Brasil | Adapted → [EKIO source](posts/2024-04-envelhecimento-brasil/index.qmd). |
 | `2024-05-generations-brazil` | Generations in Brazil | Adapted → [EKIO source](posts/2025-02-generations-brazil/index.qmd). |
 | `2025-06-censo-metro-regions` | O crescimento das Regiões Metropolitanas Brasileiras | Adapted → [EKIO source](posts/2025-06-censo-metro-regions/index.qmd). Rates and boundaries audited; five tables, three charts and interactive map rebuilt. |
+| `2025-03-map-brazil-census-race` | A Distribuição Racial do Brasil | Adapted → [EKIO source](posts/2025-02-distribuicao-racial-brasil/index.qmd). Static article with revised Portuguese text, vendored map, detailed alt text and editorial cover. |
 
 
-## Insights candidates — provisional (47)
+## Insights candidates — provisional (46)
 
 | Source folder | Source title | Status / next step |
 |---|---|---|
@@ -110,7 +112,6 @@ Tutorials outside `general-posts/` (including `tutorial-tidyverse/`) also belong
 | `2024-09-ips-brasil` | Índice de Progresso Social nos Municípios Brasileiros | Review before adaptation. |
 | `2024-09-viz-metro-line-5` | Linha-5 Lilás Metrô de São Paulo | Short visualization; compare with January 2026 version. |
 | `2025-03-homeownership-brazil` | index | Source `draft: true`. Short source draft with placeholder title; needs substantive development. |
-| `2025-03-map-brazil-census-race` | A Distribuição Racial do Brasil | Review before adaptation. |
 | `2025-07-demografia-brasil` | O Novo Perfil Demográfico do Brasil | Hard: 18 MiB `files.rds`, cross-post `/_site/` images, repeated sections, inverted aging-index formula and dependency-denominator review; overlaps two existing Insights. |
 | `2025-11-pop-density` | Densidade populacional | Source `draft: true`. Short source draft; review completeness before selection. |
 | `2026-01-line-2-metro` | Linha 2-Verde do Metrô de São Paulo | Review before adaptation. |
