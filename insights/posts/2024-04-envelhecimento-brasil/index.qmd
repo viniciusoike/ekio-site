@@ -1,6 +1,6 @@
 ---
 title: "Onde o Brasil já envelheceu"
-date: "2024-04-11"
+date: "2025-09-11"
 description: "Em 555 municípios brasileiros os idosos já superam os jovens. O mapa do índice de envelhecimento mostra uma transição concentrada no Sul e no Sudeste, com o Rio Grande do Sul no extremo."
 categories: ["Demografia", "Censo", "Mapas"]
 image: "/static/images/art/hokusai-series-2026-09/insight-housing-distribution.webp"
@@ -150,7 +150,7 @@ p_envelhecimento
 O futuro demográfico do Brasil, em boa parte, já está escrito. A queda da
 fecundidade e o aumento da expectativa de vida envelhecem a população de forma
 lenta e previsível, e o mapa mostra o quanto dessa transição já aconteceu. O
-município típico tem hoje índice de `r format(round(mediana, 1), decimal.mark = ",")`,
+no Censo de 2022, o município típico tinha índice de `r format(round(mediana, 1), decimal.mark = ",")`,
 acima do índice do país, de 55,2. A diferença não é contradição: o índice
 nacional pondera pela população, e o peso das cidades grandes puxa a conta.
 

@@ -1,6 +1,6 @@
 ---
 title: "Casas e Apartamentos"
-date: "2024-03-19"
+date: "2025-03-19"
 description: "Em apenas três das mais de cinco mil cidades brasileiras há mais apartamentos do que casas. Nem o tamanho da população nem a área do município explicam a verticalização."
 draft: true
 image: "/static/images/art/hokusai-series-2026-09/insight-houses-and-apartments.webp"
