@@ -121,8 +121,12 @@ p_serie <- ggplot(indice_brasil, aes(ano, indice)) +
     plot.margin = margin()
   )
 
+# O "&" pinta o canvas externo do patchwork sem repaintar o fundo do inset,
+# que fica propositalmente sem fundo sobre o mapa; o dev.args em
+# _ekio-style.R pinta o dispositivo por baixo de tudo.
 p_envelhecimento <- p_mapa +
-  inset_element(p_serie, left = 0, bottom = 0.04, right = 0.42, top = 0.42)
+  inset_element(p_serie, left = 0, bottom = 0.04, right = 0.42, top = 0.42) &
+  theme_sub_plot(background = element_rect(fill = ekio_site$paper, color = NA))
 ```
 
 Em 2022, `r n_acima` municípios brasileiros tinham mais idosos do que jovens,

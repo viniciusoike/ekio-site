@@ -141,6 +141,14 @@ ekio_site <- list(
   green = "#448255"
 )
 
+# Device background ----
+# O dispositivo pinta o que o gráfico deixa nu: o coord_sf engaixa o painel
+# na proporção do mapa e o canvas externo do patchwork fica sem pintura — o
+# branco padrão do ragg aparece como moldura em volta da figura. Pinta o
+# dispositivo com o papel da página; o dispositivo fica atrás de tudo, então
+# insets com fundo em branco continuam flutuando sobre o mapa.
+knitr::opts_chunk$set(dev.args = list(background = ekio_site$paper))
+
 # Chart theme ----
 # theme_ekio() with the page's paper as canvas color, so a figure sits on
 # the page without a seam.
