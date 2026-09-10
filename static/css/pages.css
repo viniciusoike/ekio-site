@@ -38,10 +38,10 @@
     inset: 0;
     z-index: -1;
     background: linear-gradient(180deg,
-        rgba(21, 42, 68, 0.30) 0%,
-        rgba(21, 42, 68, 0.68) 48%,
-        rgba(21, 42, 68, 0.56) 72%,
-        rgba(21, 42, 68, 0.12) 100%);
+            rgba(21, 42, 68, 0.30) 0%,
+            rgba(21, 42, 68, 0.68) 48%,
+            rgba(21, 42, 68, 0.56) 72%,
+            rgba(21, 42, 68, 0.12) 100%);
 }
 
 .home-cover-content {
@@ -55,8 +55,8 @@
     margin-bottom: 1.5rem;
 }
 
-.home-cover-label > p,
-.home-cover-content > p {
+.home-cover-label>p,
+.home-cover-content>p {
     margin: 0;
 }
 
@@ -93,21 +93,34 @@ h1.home-cover-title {
     outline-offset: 6px;
 }
 
+/* Wide enough to hold the opening sentence on one line down to ~950px; below
+   that it wraps, and text-wrap: balance keeps the two lines even. */
 .home-intro {
-    max-width: 780px;
+    max-width: 1240px;
     margin: 0 auto;
     padding: 4.5rem 2rem 1rem;
     text-align: center;
 }
 
-.home-intro > p:first-child {
-    font-size: clamp(1.125rem, 1.6vw, 1.375rem);
-    line-height: 1.7;
+#quarto-document-content .home-intro>p:first-child {
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    line-height: 1.6;
+    text-wrap: balance;
+    max-width: none;
     margin: 0 0 1.5rem;
 }
 
-.home-intro > p:last-child {
+/* The prose rule caps paragraphs at 36em, and a narrower box inside a centered
+   container sits left of centre — the line only looks centred once the box
+   spans the full width. */
+#quarto-document-content .home-intro>p:last-child {
+    max-width: none;
     margin-bottom: 0;
+}
+
+.home-intro .link-rule {
+    font-size: 1.125rem;
+    padding-bottom: 7px;
 }
 
 @media (max-width: 640px) {
@@ -127,6 +140,10 @@ h1.home-cover-title {
 
     .home-intro {
         padding: 3rem 2rem 0;
+    }
+
+    #quarto-document-content .home-intro>p:first-child {
+        font-size: 1.125rem;
     }
 }
 
@@ -149,10 +166,21 @@ h1.home-cover-title {
     gap: 2.5rem;
 }
 
-.ins-row--2 { grid-template-columns: repeat(2, 1fr); }
-.ins-row--3 { grid-template-columns: repeat(3, 1fr); }
-.ins-row--4 { grid-template-columns: repeat(4, 1fr); }
-.ins-row--1 { grid-template-columns: 1fr; }
+.ins-row--2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.ins-row--3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.ins-row--4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.ins-row--1 {
+    grid-template-columns: 1fr;
+}
 
 /* ── Card ── */
 .ins-card {
@@ -220,13 +248,29 @@ h1.home-cover-title {
 }
 
 /* ── Density-dependent scale ── */
-.ins-row--2 .ins-media { height: 300px; }
-.ins-row--3 .ins-media { height: 220px; }
-.ins-row--4 .ins-media { height: 170px; }
+.ins-row--2 .ins-media {
+    height: 300px;
+}
 
-.ins-row--2 .ins-title { font-size: 1.75rem; }
-.ins-row--3 .ins-title { font-size: 1.375rem; }
-.ins-row--4 .ins-title { font-size: 1.1875rem; }
+.ins-row--3 .ins-media {
+    height: 220px;
+}
+
+.ins-row--4 .ins-media {
+    height: 170px;
+}
+
+.ins-row--2 .ins-title {
+    font-size: 1.75rem;
+}
+
+.ins-row--3 .ins-title {
+    font-size: 1.375rem;
+}
+
+.ins-row--4 .ins-title {
+    font-size: 1.1875rem;
+}
 
 /* Clamp the denser rows so uneven description lengths don't leave the row
    ragged; the whole card is a link, so nothing is lost. */
@@ -279,7 +323,9 @@ h1.home-cover-title {
     align-items: start;
 }
 
-.ins-card--feature .ins-media { min-height: 380px; }
+.ins-card--feature .ins-media {
+    min-height: 380px;
+}
 
 .ins-card--feature .ins-title {
     font-size: clamp(1.9rem, 3.5vw, 2.85rem);
@@ -331,25 +377,28 @@ h1.home-cover-title {
 }
 
 .work-media--lead {
-    height: 420px;
+    height: 360px;
 }
 
 .work-media--side {
-    height: 210px;
-    margin-bottom: 1.125rem;
+    height: 190px;
+    margin-bottom: 1rem;
 }
 
-.work-cat {
-    font-size: 0.6875rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
+/* Card paragraphs carry the #quarto-document-content prefix: the body-copy
+   rule in custom.scss is ID-scoped, so a bare class loses to it and the card
+   text falls back to the 19px prose scale. */
+#quarto-document-content .work-cat {
+    font-size: 0.75rem;
+    /*letter-spacing: 0.06em;*/
     color: var(--ekio-ink-300);
-    margin: 0 0 0.75rem;
+    max-width: none;
+    margin: 0 0 0.5rem;
 }
 
 .work-title {
     font-family: var(--font-display);
-    font-size: 1.375rem;
+    font-size: 1.25rem;
     font-weight: 400;
     line-height: 1.3;
     color: var(--ekio-ink);
@@ -357,7 +406,7 @@ h1.home-cover-title {
 }
 
 .work-title--lead {
-    font-size: 2rem;
+    font-size: 1.75rem;
     line-height: 1.25;
     max-width: 26ch;
     margin-bottom: 0.75rem;
@@ -372,7 +421,7 @@ h1.home-cover-title {
     color: var(--ekio-navy);
 }
 
-.work-excerpt {
+#quarto-document-content .work-excerpt {
     font-size: 0.9375rem;
     line-height: 1.7;
     color: var(--ekio-ink-500);
@@ -380,9 +429,10 @@ h1.home-cover-title {
     max-width: 52ch;
 }
 
-.work-date {
+#quarto-document-content .work-date {
     font-size: 0.8125rem;
     color: var(--ekio-ink-300);
+    max-width: none;
     margin: 0.875rem 0 0;
 }
 
@@ -695,7 +745,9 @@ h1.home-cover-title {
 }
 
 @media (max-width: 640px) {
-    .ins-rows { gap: 2.5rem; }
+    .ins-rows {
+        gap: 2.5rem;
+    }
 
     .ins-row,
     .ins-row--2,
@@ -738,12 +790,13 @@ h1.home-cover-title {
 }
 
 @media (max-width: 991px) {
-    .page-header:has(.page-header-aside) > .container {
+    .page-header:has(.page-header-aside)>.container {
         grid-template-columns: minmax(0, 1fr);
     }
 }
 
 @media (max-width: 640px) {
+
     .ins-row .ins-media,
     .ins-card--feature .ins-media {
         height: auto;

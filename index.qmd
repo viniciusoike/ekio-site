@@ -5,8 +5,13 @@ image: /static/images/og-card.png
 page-layout: full
 toc: false
 listing:
+  # A home mostra só os posts que pedem para aparecer: `home: "true"` no front
+  # matter do post. A ordem continua sendo a data, então o card grande é o mais
+  # recente entre os marcados.
   - id: home-insights
     contents: insights/posts
+    include:
+      home: "true"
     sort: "date desc"
     max-items: 3
     type: custom
@@ -98,18 +103,18 @@ Atendemos empresas e entidades governamentais em questões de mercado, investime
 ::: {.featured-insight}
 
 ::: {.featured-chart}
-![Mapa da distribuição espacial de renda em São Paulo, elaborado pela EKIO](static/images/services/espacial-renda-sp.png){fig-alt="Mapa coroplético de São Paulo com a renda domiciliar por decil em grade hexagonal H3; os decis mais altos se concentram no quadrante sudoeste da cidade."}
+![Gráfico do crescimento populacional por porte municipal, elaborado pela EKIO](static/images/insights/censo-crescimento-porte.png){fig-alt="Gráfico de barras do crescimento populacional acumulado entre 2010 e 2022 por porte municipal; as cidades de 100 a 500 mil habitantes lideram, com 14,3%, e as de mais de um milhão crescem 1,1%."}
 :::
 
 ::: {.featured-text}
 
 [Insight em destaque]{.section-label .section-label-light}
 
-## Distribuição de renda em São Paulo {.section-heading .section-heading-light}
+## O crescimento das regiões metropolitanas brasileiras {.section-heading .section-heading-light}
 
-[A renda em São Paulo se concentra no quadrante sudoeste da cidade. O mapa usa dados do projeto Acesso a Oportunidades (IPEA) na grade hexagonal H3, a mesma inteligência espacial que aplicamos em geomarketing e avaliação imobiliária.]{.featured-desc}
+[Entre 2010 e 2022, grandes metrópoles perderam população ou cresceram pouco, enquanto as cidades médias absorveram o crescimento. É a mesma leitura demográfica que aplicamos em dimensionamento de mercado e seleção de pontos.]{.featured-desc}
 
-[Ler a análise completa](insights/posts/2026-05-renda-sp/index.qmd){.link-rule-light}
+[Ler a análise completa](insights/posts/2025-06-censo-metro-regions/index.qmd){.link-rule-light}
 
 :::
 

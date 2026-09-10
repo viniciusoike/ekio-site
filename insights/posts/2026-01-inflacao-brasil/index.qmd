@@ -1,10 +1,11 @@
 ---
 title: "A história da inflação brasileira"
 date: "2026-01-05"
-description: "Do fim da década de 1970 ao período pós-Plano Real, dois gráficos mostram como planos econômicos, mudanças institucionais e crises marcaram a trajetória da inflação brasileira. O Plano Real foi a maior mudança institucional na histórica econômica do país: este divisor de águas permitiu uma estabilidade monetária que antes parecia impensável"
+description: "Do fim da década de 1970 ao período pós-Plano Real, dois gráficos mostram como planos econômicos, mudanças institucionais e crises marcaram a trajetória da inflação brasileira."
 categories: ["Economia", "Inflação", "História"]
 image: "/static/images/art/hokusai-insights-2026-09-07/insight-signal-and-cycle.webp"
 image-alt: "Faixas curvas azuis se cruzam com fragmentos angulares sobre fundo de cor linho"
+home: "true"
 toc: false
 ---
 
