@@ -261,12 +261,14 @@ As fontes de dados para verificar a dinâmica destes mercados são limitadas no 
 O gráfico abaixo mostra as séries de aluguel e de venda (residenciais) em nível nacional, agregadas por tipologia. Como se vê, o comportamento das séries é muito similar no período 2008-2015. Durante a Crise Econômica, o mercado de aluguel parece sofrer mais do que o mercado de venda. Durante e após a pandemia do Covid-19, ambos os mercados se recuperam com força, mas o mercado de aluguel parece crescer mais.
 
 ```{r plot-rent-sale}
+#| fig-alt: "Gráfico de linhas dos índices FipeZap de aluguel e venda, normalizados pela média de 2019. As séries seguem trajetórias semelhantes até meados da década de 2010 e divergem durante a recessão e a pandemia."
 p1
 ```
 
 Na variação acumulada do período, vê-se que o mercado de venda acumulou uma alta significativamente maior do que a do mercado de aluguel. A divergência parece ter começado em 2009. A diferença entre as séries fica estável durante a Crise Econômica e o mercado de aluguel parece começar a reduzir esta distância no período da pandemia.
 
 ```{r plot-rent-sale-acum}
+#| fig-alt: "Gráfico de linhas da variação acumulada dos preços de aluguel e venda desde o início da série. Os preços de venda acumulam alta maior; a distância começa a diminuir com a recuperação dos aluguéis após a pandemia."
 p2
 ```
 
@@ -275,12 +277,14 @@ p2
 Olhando a variação contemporânea nos dois mercados, vê-se que parece existir uma correlação entre as variáveis. O gráfico abaixo mostra o ajuste da equação de um modelo aditivo generalizado e as cores dos pontos indicam ciclos econômicos. Grosso modo, define-se que o ciclo de commodities vai até a metade de 2012; a recessão Dilma começa na metade de 2014 e vai até o final de 2016; o período Covid começa em maio de 2020 e agrupa também o período pós-Covid até o presente.
 
 ```{r scatter-rent-sale-gam}
+#| fig-alt: "Gráfico de dispersão das variações mensais dos preços de aluguel e venda, com curvas de ajuste e cores por ciclo econômico. A relação entre as duas variações muda no período da pandemia e pós-pandemia."
 p3
 ```
 
 Pode-se também buscar quebras de tendência entre os períodos. Agora, o gráfico ajusta linhas de regressão linear em cada um dos períodos. Visualmente, apenas o período Covid + Pós-Covid parece apresentar uma quebra na tendência, indicando variações maiores nos preços de aluguel para uma dada variação nos preços de venda. Os demais ciclos se distinguem por mudanças de média/nível e variância, mas preservam uma relação similar entre mudanças nos preços de aluguel e nos preços de venda.
 
 ```{r scatter-rent-sale-lm}
+#| fig-alt: "Gráfico de dispersão das variações mensais dos preços de aluguel e venda, com retas de regressão por ciclo econômico. O período da pandemia e pós-pandemia se distingue pela relação entre as duas séries."
 p4
 ```
 
@@ -301,12 +305,14 @@ Usando testes de detecção e verificação de quebras estruturais[^3], chega-se
 Intuitivamente, pode-se associar a quebra da série de aluguel às mudanças no período da Pandemia e pós-Pandemia. As mudanças na série de vendas são mais opacas. A quebra na série de vendas na metade de 2010 pode estar refletindo o bom momento da economia brasileira na época, que ainda sentia os estímulos da política contracíclica de 2009, como também o recente lançamento do programa MCMV. A quebra no final de 2012 pode estar refletindo tanto o final do ciclo de commodities, como também o início do ciclo (forçado) de queda da taxa SELIC. A quebra no final de 2018 pode estar refletindo mudanças institucionais (reforma da previdência, reforma dos distratos, etc.), a taxa de inflação estável e a baixa taxa SELIC.
 
 ```{r series-breakpoints}
+#| fig-alt: "Dois gráficos de linhas dos índices de aluguel e venda, com quebras estruturais assinaladas. O aluguel apresenta uma quebra em outubro de 2020; a venda apresenta quebras em julho de 2010, novembro de 2012 e dezembro de 2018."
 p_rent_bp / p_sale_bp
 ```
 
 Para manter a simplicidade da análise, vamos considerar apenas a quebra na série de aluguel. O gráfico abaixo destaca apenas a quebra na série do aluguel. É interessante notar que o período "normal" apresenta uma correlação positiva entre a variação do preço do aluguel e do preço de venda, sugerindo que os mercados andam lado a lado. Já no período pós-Covid a correlação é inexistente. O que se verifica é que os preços de venda variam consideravelmente, de -0.2% a quase 2% em cada mês, enquanto os preços de aluguéis variam muito menos. Neste sentido, os mercados parecem se comportar de maneira quase independente no período denominado "Pós-Covid".
 
 ```{r scatter-bp}
+#| fig-alt: "Gráfico de dispersão das variações mensais dos preços de aluguel e venda, separado pela quebra de outubro de 2020. A relação positiva do período anterior deixa de aparecer no período posterior."
 p_changes
 ```
 
@@ -323,6 +329,7 @@ O Índice FipeZap captura a mediana dos preços de anúncios mês a mês e utili
 Em particular, vale notar que o FipeZap divergiu consideravelmente em relação ao IVAR durante o período da pandemia. Enquanto o IVAR registrou quedas nominais, indicando a tendência do mercado de ceder descontos durante o período de maior incerteza da Pandemia, o FipeZap registrou um longo período de estagnação entrecortado por quedas pontuais. A partir de 2022, ambos os índices registram aumento, mas a alta do IVAR é consideravelmente menor.
 
 ```{r series-ivar-fipe}
+#| fig-alt: "Gráfico de linhas do FipeZap de aluguel e do IVAR, com janeiro de 2019 igual a 100. Durante a pandemia, o IVAR registra quedas mais acentuadas. Ambos sobem a partir de 2022, mas o FipeZap acumula alta maior."
 p_fipe_ivar
 ```
 

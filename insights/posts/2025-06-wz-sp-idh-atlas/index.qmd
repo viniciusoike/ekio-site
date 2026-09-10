@@ -151,6 +151,7 @@ O mapa abaixo mostra o [Índice de Desenvolvimento Humano (IDH)](https://pt.wiki
 O gráfico de colunas mostra o percentual da população que vive em cada grupo de IDH. Este gráfico ajuda a reduzir a distorção visual causada pelo mapa. Visualmente, tende-se a associar o tamanho das áreas com a sua representatividade. Isto acontece tanto no extremo sul da cidade, que é esparsamente povoado, como também no Centro Expandido. De maneira geral, a maior parte da população vive na faixa entre 0,650 e 0,800, que corresponde a um IDH médio. Cerca de 40% da população vive em regiões com IDH acima de 0,800 — a faixa que o PNUD classifica como muito alta.
 
 ```{r}
+#| fig-alt: "Mapa do IDH das Unidades de Desenvolvimento Humano de São Paulo, com dados do Censo 2010. Tons mais escuros indicam IDH maior, concentrado no quadrante sudoeste. Um gráfico de colunas inserido no mapa mostra a participação da população por faixa de IDH."
 #| out-width: "100%"
 #| fig-width: 9
 #| fig-height: 12

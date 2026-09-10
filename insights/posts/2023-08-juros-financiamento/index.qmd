@@ -470,6 +470,7 @@ flux |>
 Ao longo dos 360 meses, a amortização se mantém a mesma e os juros diminuem gradativamente. A parcela sai de R\$3.387 e termina em pouco mais de R\$880.
 
 ```{r grafico-fluxo}
+#| fig-alt: "Gráfico de linhas do fluxo mensal de um financiamento SAC de R$315 mil em 360 meses, com juros de 10% ao ano. A amortização é constante; os juros e a prestação diminuem ao longo do contrato."
 p_flux
 ```
 
@@ -478,6 +479,7 @@ p_flux
 Repetindo a simulação acima para diferentes valores de taxas de juro, podemos visualizar o que nos interessa: o efeito do aumento dos juros sobre a renda mínima exigida para o financiamento imobiliário. Para um imóvel de R\$450 mil, cada ponto adicional de juros aumenta a renda mínima em R\$800.
 
 ```{r grafico-sensibilidade}
+#| fig-alt: "Gráfico de linhas da renda mínima exigida por taxa de juros para financiar um imóvel de R$450 mil. Cada ponto percentual adicional de juros aumenta a renda necessária em cerca de R$800."
 p_sens
 ```
 
@@ -517,12 +519,14 @@ sens_table |>
 A taxa que entra na conta do financiamento habitacional não é a SELIC. A meta SELIC é o instrumento de política monetária do COPOM, que a eleva quando a inflação acelera — foi o que fez em 2014-16 e de novo em 2021-23. Na reunião de 2 de agosto de 2023, o comitê reduziu a meta de 13,75% para 13,25% ao ano, a primeira queda desde março de 2021.
 
 ```{r grafico-selic}
+#| fig-alt: "Gráfico de linhas da meta Selic anualizada ao longo do tempo. A taxa sobe de 2% em 2020 para 13,75% em 2022, antes do início dos cortes em agosto de 2023."
 p_selic
 ```
 
 Entre a SELIC e o contrato de financiamento há várias camadas. O Banco Central classifica o crédito habitacional em cinco linhas — comercial, livre, home equity, FGTS e SFH — e cada uma tem seu próprio preço. As reguladas, FGTS e SFH, responderam por `r round(share_regulada)`% do volume contratado com pessoas físicas em abril de 2023.
 
 ```{r grafico-linhas}
+#| fig-alt: "Gráfico de linhas das taxas médias de cinco modalidades de crédito habitacional, suavizadas por médias móveis de três meses. As linhas de financiamento apresentam custos diferentes ao longo do tempo."
 p_linhas
 ```
 
@@ -531,6 +535,7 @@ As taxas sobem nos ciclos de alta da SELIC, mas em amplitudes distintas. A taxa 
 O gráfico seguinte separa as taxas de mercado das reguladas e mostra que a transmissão é lenta e incompleta. A distância entre os dois grupos encolheu ao longo da série, e os aumentos recentes da SELIC chegaram ao consumidor com defasagem de alguns meses.
 
 ```{r grafico-split}
+#| fig-alt: "Gráfico de linhas da meta Selic e da taxa média do financiamento habitacional. A taxa contratada não acompanha integralmente as oscilações da Selic."
 p_split
 ```
 
@@ -541,6 +546,7 @@ Vale notar um ponto que contraria a leitura de que o aperto de 2021-23 levou o c
 Aplicada a taxa média observada em cada mês ao mesmo imóvel de R\$450 mil, a série da renda exigida acompanha o ciclo de juros de perto. No fundo do ciclo, em maio de 2021, bastavam R\$`r brl(renda_piso)`. Em abril de 2023, com a taxa em `r pct(rate_last$rate)`%, o mesmo imóvel exigia R\$`r brl(renda_topo)`.
 
 ```{r grafico-rmn}
+#| fig-alt: "Gráfico de linhas da renda mínima para financiar um imóvel de R$450 mil, mantendo seu preço fixo. A renda exigida varia com a taxa de juros do financiamento."
 p_rmn
 ```
 
@@ -566,6 +572,7 @@ igmi |>
 Com o preço corrigido pelo índice, o imóvel que valia R\$450 mil em janeiro de 2018 valia cerca de R\$`r brl(round(afford_last$est_price / 1000) * 1000)` em abril de 2023. A renda exigida para financiá-lo passou de R\$`r brl(renda_jan18)` para R\$`r brl(afford_last$rmn_adj)` — cerca de `r pct(afford_last$rmn_adj / renda_jan18, 1)` vezes o valor de janeiro de 2018.
 
 ```{r grafico-rmn-adj}
+#| fig-alt: "Gráfico de linhas da renda mínima para financiar um imóvel que valia R$450 mil em janeiro de 2018. Compara o preço fixo com o preço atualizado pelo índice imobiliário. Após 2020, a valorização aumenta a renda exigida em relação ao cenário de preço fixo."
 p_rmn_adj
 ```
 

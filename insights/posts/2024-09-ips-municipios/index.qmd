@@ -159,6 +159,7 @@ Dois componentes ficam muito abaixo do resto: `r rotulos[names(piores_comp)[1]]`
 ## Como o índice se distribui
 
 ```{r histograma}
+#| fig-alt: "Histograma do Índice de Progresso Social nos municípios brasileiros. A maioria das pontuações se concentra no meio da escala de 0 a 100, com poucos municípios nos extremos."
 ggplot(ips, aes(x = ips)) +
   geom_histogram(bins = 50, fill = ekio_site$navy, color = ekio_site$paper) +
   geom_vline(
@@ -190,6 +191,7 @@ Essa média dá o mesmo peso a Serra da Saudade, com 833 habitantes, e a São Pa
 ## As três dimensões
 
 ```{r boxplot}
+#| fig-alt: "Diagramas de caixa das três dimensões do IPS nos municípios brasileiros. Oportunidades apresenta pontuações mais baixas que Necessidades Humanas Básicas e Fundamentos do Bem-Estar."
 dados_dimensao <- ips |>
   select(all_of(names(dimensoes))) |>
   pivot_longer(everything(), names_to = "dimensao") |>
@@ -231,6 +233,7 @@ A distância entre as dimensões é grande. Necessidades Humanas Básicas tem m�
 Oportunidades não é, porém, a dimensão mais dispersa. Seu desvio-padrão, `r n_br(sd_dimensao["opo"])`, é menor que o de Necessidades Humanas Básicas, `r n_br(sd_dimensao["nhb"])`. O que a distingue é o nível, não a variabilidade — os municípios brasileiros falham em oportunidades de forma bastante uniforme.
 
 ```{r componentes}
+#| fig-alt: "Gráfico de barras das pontuações médias dos componentes do IPS, agrupados por dimensão. Direitos individuais e acesso à educação superior estão entre os componentes de menor pontuação."
 #| fig-height: 6
 dados_componentes <- tibble(
   variable = names(media_componente),
@@ -277,6 +280,7 @@ Os doze componentes deixam claro onde está o problema. Moradia é o ponto forte
 ## Desempenho regional
 
 ```{r estados}
+#| fig-alt: "Gráfico de barras do IPS médio por unidade da federação, com cores por grande região. As médias municipais são mais altas no Sul e no Sudeste e mais baixas em estados do Norte."
 #| fig-height: 6.5
 por_uf <- ips |>
   summarise(media = mean(ips), .by = c(abbrev_state, regiao)) |>

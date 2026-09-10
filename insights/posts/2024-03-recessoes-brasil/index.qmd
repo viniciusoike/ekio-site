@@ -286,12 +286,14 @@ No Brasil, a datação dos ciclos econômicos é feita pela CODACE[^1]. Desde 19
 O gráfico abaixo mostra a série trimestral do PIB, dessazonalizada, em número-índice. A base do índice é a média de 1996. Nota-se que os períodos de expansão são mais frequentes do que os períodos de recessão: no período da amostra houve 87 trimestres de expansão contra 25 trimestres de recessão. Grosso modo, um em cada quatro trimestres apresentou uma recessão.
 
 ```{r}
+#| fig-alt: "Gráfico de linhas do PIB trimestral dessazonalizado, com média de 1996 igual a 100. Faixas sombreadas marcam as recessões brasileiras. A tendência de expansão é interrompida por quedas, com destaque para 2014–2016 e 2020."
 p_pib
 ```
 
 O gráfico abaixo normaliza o valor do PIB em cada uma das recessões ao valor pré-crise, isto é, ao valor observado no trimestre imediatamente anterior ao do início da recessão. Comparativamente, a maior queda relativa registrada aconteceu na Crise da Covid, na primeira metade de 2020. Ao todo, a queda foi de quase 11%.
 
 ```{r}
+#| fig-alt: "Gráfico de linhas do PIB durante seis recessões, normalizado pelo trimestre anterior a cada crise. O eixo horizontal mede trimestres desde o início da recessão. A Covid produz a queda mais profunda; a crise de 2014–2016 dura mais."
 #| out-width: 100%
 #| fig-width: 11
 #| fig-height: 6.5
@@ -303,6 +305,7 @@ O período de recessão termina, grosso modo, quando a economia para de diminuir
 O segundo gráfico mostra justamente o esforço necessário para voltar ao patamar pré-crise. Na maioria dos casos, foram necessários mais 2-3 trimestres para que a economia recuperasse o que foi perdido na recessão. A exceção notável foi a crise de 2014-16: foram necessários mais de 5 anos, após o final da recessão, para que a economia voltasse ao mesmo nível que estava antes da crise. Isto é, apenas no segundo trimestre de 2022 a economia brasileira apresentou PIB acima do observado no primeiro trimestre de 2014.
 
 ```{r}
+#| fig-alt: "Gráfico de linhas do PIB desde o início de cada recessão até a recuperação do patamar anterior. A crise de 2014–2016 apresenta o percurso mais longo, com recuperação apenas em 2022."
 #| out-width: 100%
 #| fig-width: 11
 #| fig-height: 6.5

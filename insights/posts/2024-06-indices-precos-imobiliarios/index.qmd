@@ -397,6 +397,7 @@ Em termos metodológicos, o IVG-R é um índice de mediana estratificado. Essenc
 Como resultado, o IVG-R é um índice bastante suave. O IVG-R é o mais próximo que existe de um índice "oficial" de preços de imóveis no Brasil. Ele é o índice utilizado pelo BIS na compilação de índices de preços imobiliários.
 
 ```{r}
+#| fig-alt: "Três gráficos de linhas do IVG-R: nível do índice, variação em 12 meses e variação mensal. Os painéis mostram a valorização no longo prazo e as oscilações do ritmo de crescimento."
 #| fig-width: 8
 #| fig-height: 11
 #| out-width: "100%"
@@ -412,6 +413,7 @@ O Índice FipeZap é um índice de mediana estratificado construído a partir de
 3.  O custo de construção de um índice de anúncios é baixíssimo quando comparado com outros métodos de coleta de dados.
 
 ```{r}
+#| fig-alt: "Três gráficos de linhas do FipeZap: nível do índice, variação em 12 meses e variação mensal. Os painéis distinguem a trajetória dos preços das mudanças no ritmo de valorização."
 #| fig-width: 8
 #| fig-height: 11
 #| out-width: "100%"
@@ -427,6 +429,7 @@ O IGMI-R foi desenvolvido pelo economista Paulo Pichetti, numa [parceria entre a
 A principal fragilidade do IGMI-R é o seu histórico curto. Além disso, o *timing* de criação do índice foi bastante infortuito, pois a série inicia em 2014. Nos seus breves 10 anos de história, o IGMI-R passou pela maior recessão econômica da história recente do país, uma pandemia global, dois ciclos de alta de juros e a menor taxa de juros da história.
 
 ```{r}
+#| fig-alt: "Três gráficos de linhas do IGMI-R: nível do índice, variação em 12 meses e variação mensal. Os painéis mostram a aceleração dos preços após 2020."
 #| fig-width: 8
 #| fig-height: 11
 #| out-width: "100%"
@@ -452,24 +455,28 @@ gt(tab_rppi) |>
 Para fazer uma comparação visual entre as séries é preciso definir um período comum para servir de base. No gráfico abaixo, ajusto as três séries em torno de seus valores médios em 2019. Vê-se como o comportamento das séries é muito similar nas séries históricas. Há uma divergência - cada vez maior - a partir de 2021 no período da pandemia. O IGMI-R registra um aumento significativo dos preços enquanto o IVG-R fica estagnado. Já o FipeZap registra uma alta muito mais tímida do que o IGMI-R.
 
 ```{r}
+#| fig-alt: "Gráfico de linhas dos índices imobiliários e do IPCA, normalizados pela média de 2019. As diferenças entre as trajetórias mostram como a escolha do índice altera a leitura da valorização imobiliária."
 p_rppi_comp
 ```
 
 O gráfico abaixo encadeia todas as séries a partir de 2014. Este gráfico facilita a comparação dos índices no período mais recente.
 
 ```{r}
+#| fig-alt: "Gráfico de linhas dos índices de preços imobiliários brasileiros, com janeiro de 2014 igual a 100. Os índices divergem na intensidade da valorização medida ao longo do período."
 p_rppi_brasil
 ```
 
 O próximo gráfico contrasta os índices de preços imobiliários com a taxa de inflação geral da economia.
 
 ```{r}
+#| fig-alt: "Gráfico de linhas dos índices imobiliários e do IPCA, com janeiro de 2014 igual a 100. A comparação mostra a diferença entre valorização nominal dos imóveis e inflação ao consumidor."
 p_rppi_ipca
 ```
 
 Por fim, compara-se a evolução dos índices com relação aos custos de construção. Novamente, os preços finais dos imóveis não acompanham o aumento nos custos da construção civil, ao menos dentro desta janela de análise.
 
 ```{r}
+#| fig-alt: "Gráfico de linhas dos índices imobiliários e do INCC, com janeiro de 2014 igual a 100. Os custos de construção crescem mais do que os preços medidos por parte dos índices imobiliários."
 p_rppi_incc
 ```
 
@@ -480,6 +487,7 @@ A maior janela de análise possível é comparar o IVG-R com os demais índices 
 A dinâmica de preços de imóveis no Brasil, em parte, reflete a própria economia brasileira. O ciclo de crescimento de preços é interrompido em 2014 e só volta a crescer em 2018, ganhando força em 2020 com a baixa taxa de juros.
 
 ```{r}
+#| fig-alt: "Gráfico de linhas do IVG-R, do INCC e do IPCA, com março de 2001 igual a 100. No horizonte mais longo, a valorização dos imóveis supera a inflação ao consumidor."
 p_ivgr_ipca
 ```
 

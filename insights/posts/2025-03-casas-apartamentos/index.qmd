@@ -106,6 +106,7 @@ Pode-se imaginar que cidades maiores são mais verticalizadas, na média, do que
 Os dados apresentam uma correlação muito fraca e grande variabilidade. De fato, não parece haver relação alguma entre os dados.
 
 ```{r plot-cities-vert}
+#| fig-alt: "Gráfico de dispersão do percentual de apartamentos pelo número de domicílios, em escala logarítmica, para cidades com mais de 50 mil domicílios. As cores identificam as grandes regiões. Há grande dispersão e pouca relação entre porte e verticalização."
 big_cities <- total_houses |>
   filter(total_houses > 50000) |>
   pull(code_muni)
@@ -189,6 +190,7 @@ tab_geral <- tab_geral |>
 ```
 
 ```{r}
+#| fig-alt: "Gráfico de dispersão do percentual de apartamentos pela área municipal em hectares, em escala logarítmica. As cores identificam as grandes regiões. Municípios de área semelhante apresentam proporções muito diferentes de apartamentos."
 sub <- tab_geral |>
   filter(code_muni %in% big_cities) |>
   mutate(code_region = factor(str_sub(code_muni, 1, 1)))

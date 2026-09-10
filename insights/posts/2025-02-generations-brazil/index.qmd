@@ -232,6 +232,7 @@ O Brasil está envelhecendo, assim como tantos outros países no mundo. A combin
 Apesar dessa tendência, o quadro demográfico de hoje revela o maior contingente de jovens na história do país. Quase 100 milhões de pessoas, perto de metade da população, formam a Geração Z e a Geração Y (millennials), com idades entre 12 e 43 anos. Para o mercado imobiliário, há duas consequências imediatas. A primeira, aproveitar a última onda do bônus demográfico, que forma a base da demanda imobiliária: os mais jovens formando famílias e comprando o sonho da casa própria. A segunda, ainda pouco explorada: adaptar o produto imobiliário ao público idoso.
 
 ```{r}
+#| fig-alt: "Gráfico de colunas da participação de cada idade na população brasileira do Censo 2022, com cores por geração. Geração Z e Millennials reúnem quase metade da população."
 p_col
 ```
 
@@ -250,6 +251,7 @@ gt_gen
 Entre os jovens brasileiros, porém, cresce o contingente que não trabalha nem estuda. Os números recentes da PNAD ainda mostram uma distância grande entre as taxas de desemprego por idade, sobretudo para a Geração Z, que chega agora ao mercado de trabalho.
 
 ```{r}
+#| fig-alt: "Gráfico de linhas da taxa de desemprego trimestral por faixa etária. Os grupos mais jovens apresentam taxas maiores que os adultos mais velhos ao longo do período."
 p_unemp
 ```
 

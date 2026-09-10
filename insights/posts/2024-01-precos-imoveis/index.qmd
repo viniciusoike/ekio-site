@@ -140,12 +140,14 @@ Os dados desta comparação vêm do Bank for International Settlements (BIS), qu
 O gráfico mostra que o Brasil segue um caminho próprio. Depois de mais de uma década de forte alta — os preços reais mais que dobraram entre o início dos anos 2000 e o pico, no fim de 2013 —, a recessão de 2014 a 2016 derrubou os preços e eles nunca recuperaram o nível anterior. Hoje, o índice do Brasil permanece cerca de 15% abaixo da marca de 2010. As economias avançadas, em contraste, encerram o período quase um terço acima de 2010, mesmo após o recuo que se segue ao aperto monetário global de 2022; as emergentes avançam cerca de 15% e a média mundial, cerca de 20%.
 
 ```{r}
+#| fig-alt: "Gráfico de linhas dos preços reais dos imóveis, com média de 2010 igual a 100. Compara Brasil, economias avançadas, emergentes e média mundial. O Brasil termina o período abaixo de 2010, enquanto os outros grupos ficam acima."
 p_bis_geral
 ```
 
 ## Preços do Brasil x Países Desenvolvidos
 
 ```{r}
+#| fig-alt: "Gráfico de linhas dos preços reais dos imóveis no Brasil, Canadá, Estados Unidos, Nova Zelândia e Israel, com base em 2010. O Brasil é o único da seleção que termina abaixo do nível inicial."
 p_bis_rich
 ```
 
@@ -154,6 +156,7 @@ A divergência fica mais clara na comparação com países desenvolvidos. Seleci
 ## Preços do Brasil x Países LATAM
 
 ```{r}
+#| fig-alt: "Gráfico de linhas dos preços reais dos imóveis no Brasil, Chile, México, Peru e Colômbia, com base em 2010. O Brasil termina abaixo da base, enquanto os demais países acumulam valorização real."
 p_bis_latam
 ```
 

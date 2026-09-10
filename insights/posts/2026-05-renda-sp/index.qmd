@@ -68,6 +68,7 @@ O grid hexagonal segue o padrão H3, em resolução 9. Os dados de renda provêm
 Os dados brutos do Censo estão defasados e não representam o nível atual da renda. Ainda assim, a estrutura espacial da cidade costuma mudar devagar. Grosso modo, as maiores rendas se concentram no Centro Expandido e no Quadrante Sudoeste. As duas exceções são a região de Santana-Tucuruvi e o eixo Tatuapé–Jardim Anália Franco.
 
 ```{r}
+#| fig-alt: "Mapa da renda domiciliar por decil em hexágonos de São Paulo, com dados do Censo 2010. Vermelho indica os decis mais baixos e azul, os mais altos. As maiores rendas se concentram no quadrante sudoeste; áreas sem dados aparecem em cinza."
 #| out-width: "100%"
 #| fig-width: 9
 #| fig-height: 12
