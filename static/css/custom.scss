@@ -79,6 +79,7 @@ $ekio-teal: #006261; // ekioplot teal.600
 $ekio-amber: #B88715; // ekioplot gold.mid
 $ekio-red: #B44D47; // ekioplot red.500
 $ekio-green: #448255; // ekioplot green.500
+$ekio-purple: #8A5CA1; // ekioplot purple.500
 
 $info-blue: #5597CC; // ekioplot blue.400; Bootstrap's $info
 
@@ -1538,6 +1539,36 @@ h3.about-partner-name {
     background: transparent;
     color: $ink-500;
     opacity: 1;
+  }
+}
+
+// ── Corpo do texto ──
+// 19px sobre a raiz de 17px do Quarto, na altura-x dos editoriais (Folha,
+// G1, Economist) e da McKinsey. A medida trava abaixo da coluna: o texto
+// para em ~80 caracteres e as figuras seguem com os 760px do grid.
+#quarto-document-content {
+  p,
+  ul,
+  ol,
+  blockquote {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    max-width: 36em;
+  }
+
+  // Blocos que trazem a própria caixa não seguem a medida do texto.
+  figure p,
+  .cell-output-display p,
+  .callout p {
+    max-width: none;
+  }
+
+  // Autor e data são metadados: ficam na escala do bloco de título, não na
+  // do corpo.
+  .quarto-title-block p {
+    font-size: 1rem;
+    line-height: $line-height-base;
+    max-width: none;
   }
 }
 

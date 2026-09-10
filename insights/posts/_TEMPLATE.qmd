@@ -5,7 +5,7 @@
 title: "Título do Post"
 date: "2025-01-01"
 description: "Uma ou duas frases que resumem a análise. Aparece no card da listagem e no <meta description>."
-categories: ["Imóveis", "São Paulo"]   # Title-Case PT: Imóveis, Mapas, Análise Espacial, Economia, Demografia, Censo, Visualização de Dados
+categories: ["Mercado Imobiliário", "Economia", "São Paulo"]   # Sempre 3: tema principal + tema secundário + palavra-chave/recorte. Temas fixos: Mercado Imobiliário, Economia, Demografia, Censo, Desenvolvimento. Recortes: São Paulo, Municípios, Regiões Metropolitanas etc. Evite genéricas: Brasil, Mapas, Visualização de Dados, Análise Espacial.
 image: "/static/images/thumbnails/SLUG.png"   # card thumbnail; put the file in static/images/thumbnails/
 # featured: "true"   # uncomment on exactly ONE post to make it the hero
 # draft: true        # while WIP; remove to publish

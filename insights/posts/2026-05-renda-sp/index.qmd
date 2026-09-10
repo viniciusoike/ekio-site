@@ -1,7 +1,7 @@
 ---
 title: "Distribuição de Renda em São Paulo"
 date: "2026-05-07"
-categories: ["São Paulo", "Mapas", "Análise Espacial"]
+categories: ["Economia", "Renda", "São Paulo"]
 description: "A renda em São Paulo se concentra no quadrante sudoeste da cidade. O mapa usa dados do projeto Acesso a Oportunidades (IPEA) na grade hexagonal H3."
 image: "/static/images/art/hokusai-series-2026-09/insight-old-and-new.webp"
 image-alt: "Ilustração de arquitetura histórica em contraste com arranha-céus"
@@ -42,7 +42,7 @@ map_renda_decil <- ggplot(aop_censo) +
   labs(
     title = "Distribuição de Renda",
     subtitle = "Rendimento médio por grupos de decil de renda em São Paulo.",
-    caption = "Fonte: IPEA (Acesso a Oportunidades, 2023), aopdata. @viniciusoike."
+    caption = "Fonte: IPEA (Acesso a Oportunidades, 2023) • EKIO"
   ) +
   ggthemes::theme_map(base_family = "Lato") +
   theme_sub_legend(

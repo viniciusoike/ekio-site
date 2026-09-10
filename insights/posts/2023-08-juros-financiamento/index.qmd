@@ -1,7 +1,7 @@
 ---
 title: "O impacto dos juros na demanda imobiliária"
 date: "2023-08-17"
-categories: ["Imóveis", "Economia", "Brasil"]
+categories: ["Mercado Imobiliário", "Economia", "Juros"]
 description: "Entre maio de 2021 e abril de 2023, a taxa média do financiamento habitacional subiu de 6,6% para 10,2% ao ano. O mesmo imóvel passou a exigir 34% mais renda para ser financiado mesmo antes de contar a alta dos preços."
 image: "/static/images/art/hokusai-series-2026-09/insight-courtyard-housing.webp"
 image-alt: "Ilustração de edifícios residenciais em torno de um pátio interno"
@@ -15,6 +15,15 @@ library(gt)
 library(realestatebr)
 library(GetBCBData)
 source(here::here("insights/posts/_ekio-style.R"))
+```
+
+```{r captions}
+ek_caption_bcb <- "Fonte: Banco Central do Brasil (SGS 432) • EKIO"
+ek_caption_premissas <- "LTV de 70%, prazo de 360 meses, comprometimento de 30% da renda • EKIO"
+ek_caption_bcb_imob <- "Fonte: Banco Central do Brasil (estatísticas do mercado imobiliário) • EKIO"
+ek_caption_bcb_sgs <- "Fonte: Banco Central do Brasil (SGS 432, 20772, 20773) • EKIO"
+ek_caption_bcb_premissas <- "Fonte: Banco Central do Brasil (SGS 432). LTV de 70%, prazo de 360 meses, comprometimento de 30% da renda • EKIO"
+ek_caption_bcb_igmi <- "Fonte: Banco Central do Brasil, IGMI-R (Abrainc/FGV) • EKIO"
 ```
 
 ```{r cutoffs}
@@ -268,7 +277,7 @@ p_selic <- ggplot(selic, aes(x = date, y = value)) +
     subtitle = "Meta da taxa SELIC definida pelo COPOM, taxa anualizada.",
     x = NULL,
     y = "% a.a.",
-    caption = "Fonte: Banco Central do Brasil (SGS 432)."
+    caption = ek_caption_bcb
   ) +
   theme_ekio_site()
 
@@ -309,7 +318,7 @@ p_sens <- ggplot(sens, aes(x = rate, y = renda)) +
     subtitle = "Renda mínima para financiar um imóvel de R$450 mil, por taxa contratada.",
     x = "Taxa de juros (% a.a.)",
     y = NULL,
-    caption = "LTV de 70%, prazo de 360 meses, comprometimento de 30% da renda."
+    caption = ek_caption_premissas
   ) +
   theme_ekio_site()
 
@@ -326,7 +335,7 @@ p_linhas <- ggplot(taxas_linha, aes(x = date, y = trend, color = linha)) +
     subtitle = "Taxa média contratada por pessoas físicas, média móvel de três meses.",
     x = NULL,
     y = "% a.a.",
-    caption = "Fonte: Banco Central do Brasil, estatísticas do mercado imobiliário."
+    caption = ek_caption_bcb_imob
   ) +
   theme_ekio_site()
 
@@ -361,7 +370,7 @@ p_split <- ggplot() +
     subtitle = "Taxa média do financiamento habitacional a pessoas físicas e meta SELIC.",
     x = NULL,
     y = "% a.a.",
-    caption = "Fonte: Banco Central do Brasil (SGS 432, 20772, 20773)."
+    caption = ek_caption_bcb_sgs
   ) +
   theme_ekio_site()
 
@@ -380,7 +389,7 @@ p_rmn <- ggplot(afford, aes(x = date, y = rmn)) +
     subtitle = "Renda mínima para financiar um imóvel de R$450 mil, sem ajuste de preço.",
     x = NULL,
     y = NULL,
-    caption = "Fonte: Banco Central do Brasil. LTV de 70%, 360 meses, 30% da renda."
+    caption = ek_caption_bcb_premissas
   ) +
   theme_ekio_site()
 
@@ -403,7 +412,7 @@ p_rmn_adj <- afford |>
     subtitle = "Renda mínima para financiar um imóvel que valia R$450 mil em janeiro de 2018.",
     x = NULL,
     y = NULL,
-    caption = "Fonte: Banco Central do Brasil e IGMI-R (Abrainc/FGV)."
+    caption = ek_caption_bcb_igmi
   ) +
   theme_ekio_site()
 ```

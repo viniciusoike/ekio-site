@@ -2,7 +2,7 @@
 title: "O Índice de Progresso Social nos municípios brasileiros"
 date: "2024-09-15"
 description: "O Índice de Progresso Social separa o melhor e o pior município brasileiro por quase 37 pontos. A dimensão que puxa o país para baixo não é saneamento nem moradia: é o acesso a direitos e à educação superior."
-categories: ["Economia", "Demografia", "Brasil"]
+categories: ["Desenvolvimento", "Economia", "Municípios"]
 image: "/static/images/art/hokusai-insights-2026-09-07/cover-layered-inquiry.webp"
 image-alt: "Faixas curvas azuis e claras se sobrepõem sob um campo de cor linho"
 ---
@@ -23,6 +23,10 @@ variaveis <- readr::read_csv("ips-variaveis.csv", show_col_types = FALSE)
 n_br <- function(x, digits = 1) {
   format(round(x, digits), decimal.mark = ",", nsmall = digits, big.mark = ".")
 }
+```
+
+```{r captions}
+ek_caption_ips <- "Fonte: IPS-Brasil (Imazon) • EKIO"
 ```
 
 ```{r contexto}
@@ -174,7 +178,7 @@ ggplot(ips, aes(x = ips)) +
     ),
     x = "Índice de Progresso Social",
     y = "Municípios",
-    caption = "Fonte: IPS-Brasil (Imazon). Elaboração: EKIO."
+    caption = ek_caption_ips
   ) +
   theme_ekio_site()
 ```
@@ -216,7 +220,7 @@ ggplot(dados_dimensao, aes(x = dimensao, y = value, fill = dimensao)) +
     subtitle = "Distribuição das três dimensões do IPS entre os municípios brasileiros",
     x = NULL,
     y = "Pontuação",
-    caption = "Fonte: IPS-Brasil (Imazon). Elaboração: EKIO."
+    caption = ek_caption_ips
   ) +
   theme_ekio_site() +
   theme(legend.position = "none", panel.grid.major.x = element_blank())
@@ -258,7 +262,7 @@ ggplot(dados_componentes, aes(x = media, y = rotulo, fill = dimensao)) +
     subtitle = "Média dos municípios brasileiros em cada componente do IPS",
     x = NULL,
     y = NULL,
-    caption = "Fonte: IPS-Brasil (Imazon). Elaboração: EKIO."
+    caption = ek_caption_ips
   ) +
   theme_ekio_site() +
   theme(
@@ -308,7 +312,7 @@ ggplot(por_uf, aes(x = media, y = abbrev_state, fill = regiao)) +
     ),
     x = NULL,
     y = NULL,
-    caption = "Fonte: IPS-Brasil (Imazon). Elaboração: EKIO."
+    caption = ek_caption_ips
   ) +
   theme_ekio_site() +
   theme(

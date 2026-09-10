@@ -2,9 +2,17 @@
 title: "O novo perfil demográfico do Brasil"
 date: "2025-07-04"
 description: "O bônus demográfico brasileiro mudou de direção. A queda da fecundidade e o envelhecimento elevam a razão de dependência, mas as regiões atravessam essa transição em ritmos distintos."
-categories: ["Demografia", "Censo", "Economia", "Brasil"]
+categories: ["Demografia", "Censo", "Economia"]
 image: "/static/images/art/hokusai-insights-2026-09-07/insight-demographic-strata.webp"
 image-alt: "Ilustração abstrata de estratos populacionais em azul, verde e laranja"
+# O texto divide a página com notas de margem: o TOC vai para a esquerda para
+# não disputar a faixa da direita, e os blocos largos usam column-page-right,
+# que respeita a coluna do TOC.
+toc-location: left
+grid:
+  sidebar-width: 220px
+  body-width: 760px
+  margin-width: 300px
 ---
 
 ```{r setup}
@@ -24,7 +32,8 @@ state_dependency <- demography$state_dependency
 population_pyramid <- demography$population_pyramid
 projections <- demography$projections
 
-source_ibge <- "Fonte: IBGE, Censo Demográfico 2022 e Projeções da População, revisão 2024."
+ek_caption_censo2022 <- "Fonte: IBGE (Censo Demográfico 2022) • EKIO"
+source_ibge <- "Fonte: IBGE (Censo Demográfico 2022, Projeções da População rev. 2024) • EKIO"
 ```
 
 ```{r indicators}
@@ -74,6 +83,12 @@ colocava essa razão em `r format(round(dependency_2025, 1), decimal.mark = ",")
 A diferença ainda é pequena, mas marca o fim da longa queda que caracterizou o
 bônus demográfico brasileiro.
 
+::: column-margin
+**Bônus demográfico** <br> A expressão descreve o período em que a população
+em idade de trabalhar cresce mais rápido do que os grupos dependentes. É uma
+janela de estrutura etária, não uma promessa de crescimento.
+:::
+
 Essa inflexão não equivale a uma ruptura. O bônus demográfico descreve uma
 janela em que a população potencialmente ativa cresce em relação aos grupos
 dependentes; ele não mede emprego, produtividade ou renda. O Brasil pode colher
@@ -99,22 +114,46 @@ tarde, as coortes numerosas envelhecem e elevam a proporção de idosos. O país
 passa, então, de uma estrutura com muitos jovens para outra em que a longevidade
 tem peso crescente.
 
-![Distribuição da população brasileira por idade simples e grupos geracionais. Geração Z e Millennials concentram 49% da população.](images/geracoes-brasil.png){width="100%"}
+::: column-margin
+**Definindo gerações** <br> As faixas seguem a definição do Beresford Research:
+Millennials nasceram entre 1981 e 1996, e a Geração Z entre 1997 e 2012.
+:::
 
+::: column-page-right
+:::::: grid
+::: {.g-col-12 .g-col-lg-4}
 A concentração de adultos jovens ainda oferece uma base ampla para o mercado
-de trabalho e para a demanda por moradia. Ao mesmo tempo, a base da pirâmide
-etária se estreita. Haverá menos pessoas entrando na vida adulta nas próximas
-décadas, enquanto as gerações hoje numerosas avançarão para idades em que a
-demanda por saúde, cuidado e acessibilidade aumenta.
+de trabalho e para a demanda por moradia.
 
-![Mapa municipal do índice de envelhecimento em 2022. Os valores mais altos se concentram no Sul e no Sudeste, enquanto o Norte permanece mais jovem.](images/indice-envelhecimento-brasil.png){width="100%"}
+Ao mesmo tempo, a base da pirâmide etária se estreita. Haverá menos pessoas
+entrando na vida adulta nas próximas décadas, enquanto as gerações hoje
+numerosas avançarão para idades em que a demanda por saúde, cuidado e
+acessibilidade aumenta.
+:::
+
+::: {.g-col-12 .g-col-lg-8}
+![Distribuição da população brasileira por idade simples e grupos geracionais. Geração Z e Millennials concentram 49% da população.](images/geracoes-brasil.png){width="100%"}
+:::
+:::::::
+:::
 
 O envelhecimento já aparece em todo o território, mas sua intensidade varia. O
 Sul e o Sudeste concentram os municípios com maior proporção de idosos em
 relação aos jovens. O Norte permanece mais jovem, e o Nordeste combina
-municípios em estágios diferentes da transição. Essa diversidade limita
-diagnósticos nacionais muito simples: o desafio demográfico de cada região
-depende tanto do seu nível atual quanto da velocidade da mudança.
+municípios em estágios diferentes da transição.
+
+::: column-margin
+**Índice de envelhecimento** <br> Razão entre a população de 65 anos ou mais e a
+população de 0 a 14 anos, multiplicada por 100. Valores acima de 100 indicam
+mais idosos do que jovens no município.
+:::
+
+Essa diversidade limita diagnósticos nacionais muito simples: o desafio de cada
+região depende tanto do nível atual quanto da velocidade da mudança.
+
+::: column-page-right
+![Mapa municipal do índice de envelhecimento em 2022. Os valores mais altos se concentram no Sul e no Sudeste, enquanto o Norte permanece mais jovem.](images/indice-envelhecimento-brasil.png){width="100%"}
+:::
 
 ## A razão de dependência voltou a subir
 
@@ -124,19 +163,21 @@ pessoas de 15 a 64 anos, não apenas quem participa da população economicament
 ativa. Por isso, o indicador descreve uma estrutura etária e não a dependência
 econômica efetiva de cada domicílio.
 
-Formalmente, a razão de dependência total (RDT) soma dois componentes:
+::: column-margin
+**As três razões** <br> A razão de dependência total (RDT) soma os dois
+componentes:
 
 $$
 \begin{aligned}
-\text{RDJ} &= 100 \times \frac{P_{0–14}}{P_{15–64}}, \\
-\text{RDI} &= 100 \times \frac{P_{65+}}{P_{15–64}}, \\
-\text{RDT} &= \text{RDJ} + \text{RDI}.
+\text{RDJ} &= 100 \times \frac{P_{0–14}}{P_{15–64}} \\[4pt]
+\text{RDI} &= 100 \times \frac{P_{65+}}{P_{15–64}} \\[4pt]
+\text{RDT} &= \text{RDJ} + \text{RDI}
 \end{aligned}
 $$
 
-Nessas expressões, $P_{0–14}$ é a população de 0 a 14 anos,
-$P_{15–64}$ é a população de 15 a 64 anos e $P_{65+}$ é a população de
-65 anos ou mais.
+$P_{0–14}$ é a população de 0 a 14 anos, $P_{15–64}$ a população de 15 a 64
+anos e $P_{65+}$ a população de 65 anos ou mais.
+:::
 
 Durante a primeira fase da transição, a queda da dependência jovem foi maior
 do que o aumento da dependência idosa. Esse movimento reduziu a RDT brasileira
@@ -146,10 +187,11 @@ o envelhecimento passou a dominar a conta. A projeção chega a
 100 pessoas em idade potencialmente ativa em 2050.
 
 ```{r dependency-projection}
+#| column: page-right
 #| fig-alt: "Séries da dependência jovem, idosa e total entre 2000 e 2060 para o Brasil e as cinco grandes regiões. A dependência jovem cai, enquanto a idosa cresce em todas as regiões."
 #| out-width: "100%"
-#| fig-width: 9
-#| fig-height: 8
+#| fig-width: 12
+#| fig-height: 6
 projection_plot <- projections |>
   filter(variable != "Índice de envelhecimento") |>
   mutate(
@@ -189,7 +231,7 @@ ggplot(projection_plot, aes(year, value, color = indicator)) +
     alpha = 0.35
   ) +
   geom_line(linewidth = 0.8) +
-  facet_wrap(vars(geography), ncol = 2) +
+  facet_wrap(vars(geography), ncol = 3) +
   scale_x_continuous(breaks = seq(2000, 2060, 20)) +
   scale_y_continuous(limits = c(0, 75), breaks = seq(0, 75, 15)) +
   scale_color_manual(name = NULL, values = dependency_colors) +
@@ -256,11 +298,23 @@ dependência jovem e baixa dependência idosa. O Sul e parte do Sudeste exibem o
 padrão oposto, com maior peso dos idosos. Nordeste e Centro-Oeste ocupam
 posições intermediárias e mais heterogêneas.
 
+::: column-page-right
+:::::: grid
+::: {.g-col-12 .g-col-lg-5}
+O Rio Grande do Sul tem a maior dependência idosa do país: 20,6 idosos para
+cada 100 pessoas de 15 a 64 anos. Amazonas e Roraima ainda estão no outro
+extremo, com estruturas mais jovens.
+
+Santa Catarina chama atenção dentro do Sul porque a entrada de adultos em idade
+de trabalhar reduz sua dependência total, embora o estado também envelheça.
+:::
+
+::: {.g-col-12 .g-col-lg-7}
 ```{r dependency-map}
 #| fig-alt: "Mapa bivariado das razões de dependência jovem e idosa nas unidades da federação em 2022. Estados do Norte têm maior dependência jovem; Rio Grande do Sul e Rio de Janeiro têm maior dependência idosa."
 #| out-width: "100%"
-#| fig-width: 8
-#| fig-height: 6.5
+#| fig-width: 7
+#| fig-height: 6
 dependency_classes <- bi_class(
   state_dependency,
   x = rdi,
@@ -277,7 +331,7 @@ map_states <- ggplot(dependency_classes) +
   labs(
     title = "A transição tem ritmos regionais",
     subtitle = "Combinação das razões de dependência jovem e idosa por UF, 2022",
-    caption = "Fonte: IBGE, Censo Demográfico 2022."
+    caption = ek_caption_censo2022
   ) +
   theme_ekio_site() +
   theme(
@@ -297,19 +351,22 @@ map_legend <- bi_legend(
 
 map_states + inset_element(map_legend, 0.02, 0.08, 0.34, 0.42)
 ```
+:::
+:::::::
+:::
 
-O Rio Grande do Sul tem a maior dependência idosa do país: 20,6 idosos para
-cada 100 pessoas de 15 a 64 anos. Amazonas e Roraima ainda estão no outro
-extremo, com estruturas mais jovens. Santa Catarina chama atenção dentro do
-Sul porque a entrada de adultos em idade de trabalhar reduz sua dependência
-total, embora o estado também envelheça.
-
+::: column-page-right
+:::::: grid
+::: {.g-col-12 .g-col-lg-4}
 As pirâmides etárias mostram essas diferenças sem resumir a população em um
-único indicador. Amazonas tem base larga e maior participação de crianças. No
-Rio Grande do Sul, as coortes mais numerosas estão em idades mais avançadas. O
-Piauí representa uma estrutura em transição, enquanto Santa Catarina concentra
-uma parcela maior da população nas idades adultas.
+único indicador. Amazonas tem base larga e maior participação de crianças.
 
+No Rio Grande do Sul, as coortes mais numerosas estão em idades mais avançadas.
+O Piauí representa uma estrutura em transição, enquanto Santa Catarina concentra
+uma parcela maior da população nas idades adultas.
+:::
+
+::: {.g-col-12 .g-col-lg-8}
 ```{r population-pyramids}
 #| fig-alt: "Pirâmides etárias de Amazonas, Piauí, Santa Catarina e Rio Grande do Sul. Amazonas tem base mais larga e o Rio Grande do Sul concentra mais população nas faixas de maior idade."
 #| out-width: "100%"
@@ -317,7 +374,7 @@ uma parcela maior da população nas idades adultas.
 #| fig-height: 7
 pyramid_colors <- c(
   "Homens" = ekio_site$teal,
-  "Mulheres" = ekio_site$orange
+  "Mulheres" = ekio_site$purple
 )
 
 pyramid_breaks <- seq(-6, 6, 2)
@@ -340,7 +397,7 @@ ggplot(
     subtitle = "Participação de cada faixa etária na população estadual, 2022",
     x = NULL,
     y = "Participação na população (%)",
-    caption = "Fonte: IBGE, Censo Demográfico 2022."
+    caption = ek_caption_censo2022
   ) +
   theme_ekio_site(grid = "x") +
   theme(
@@ -349,6 +406,16 @@ ggplot(
     panel.spacing = unit(1, "lines")
   )
 ```
+:::
+:::::::
+:::
+
+::: column-margin
+**Lendo a pirâmide** <br> Cada barra mostra a participação da faixa etária na
+população do estado. Homens aparecem à esquerda
+([teal]{style="color:#006261"}) e mulheres à direita
+([roxo]{style="color:#8A5CA1"}).
+:::
 
 ## O que muda com o envelhecimento
 
@@ -374,7 +441,7 @@ instituições para o envelhecimento são partes do mesmo desafio.
 
 ## Leituras relacionadas
 
-- [Onde o Brasil já envelheceu](../2024-04-envelhecimento-brasil/index.qmd)
+- [Onde o Brasil já envelheceu](../2025-09-envelhecimento-brasil/index.qmd)
 - [Gerações no Brasil](../2025-02-generations-brazil/index.qmd)
 
 Dados: [IBGE, Censo Demográfico 2022](https://www.ibge.gov.br/estatisticas/sociais/populacao/22827-censo-demografico-2022.html)

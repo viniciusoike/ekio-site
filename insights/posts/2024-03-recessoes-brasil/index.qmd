@@ -1,7 +1,7 @@
 ---
 title: "Recessões no Brasil"
 date: "2024-03-01"
-categories: ["Economia", "Visualização de Dados", "Brasil"]
+categories: ["Economia", "PIB", "Recessões"]
 description: "Desde 1996, o Brasil teve seis recessões, a maioria com dois a cinco trimestres de duração. A da Covid foi a queda mais profunda; a de 2014–16, a mais longa: o PIB só voltou ao patamar pré-crise em 2022."
 image: "/static/images/art/hokusai-series-2026-09/insight-market-cycles.webp"
 image-alt: "Ilustração de séries cíclicas sobre uma grade sem rótulos"
@@ -184,7 +184,7 @@ p1 <- ggplot(rec_comp, aes(x = period, y = new_index * 100)) +
       "Índice normalizado ao valor do PIB (a preços de mercado) imediatamente anterior ao início da recessão. A datação das recessões segue o CODACE (FGV).",
       101
     ),
-    caption = "Fonte: IBGE e CODACE. Autor: @viniciusoike"
+    caption = "Fonte: IBGE (CODACE) • EKIO"
   ) +
   scale_y_continuous(breaks = seq(80, 100, 1)) +
   scale_x_continuous(breaks = seq(0, 20, 1)) +
@@ -268,7 +268,7 @@ p2 <- ggplot(data = cycles, aes(x = period, y = new_index * 100)) +
     x = "Trimestres após o início da recessão",
     y = "Índice normalizado",
     subtitle = "Índice normalizado ao valor do PIB (a preços de mercado) imediatamente anterior ao início da recessão.\nA datação das recessões segue o CODACE (FGV).",
-    caption = "Fonte: IBGE e CODACE. Autor: @viniciusoike"
+    caption = "Fonte: IBGE (CODACE) • EKIO"
   ) +
   scale_y_continuous(breaks = seq(80, 102, 1), limits = c(86, 102)) +
   scale_x_continuous(breaks = seq(0, 40, 1)) +
