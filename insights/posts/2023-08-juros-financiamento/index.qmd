@@ -505,31 +505,31 @@ sens_table |>
 
 ## A SELIC não é a taxa do financiamento
 
-A taxa que entra na conta do financiamento habitacional não é a SELIC. O COPOM define a meta SELIC como instrumento de política monetária, tipicamente elevando-a ou quando a inflação acelera: foi o que fez em 2014-16 e de novo em 2021-23. Na reunião de 2 de agosto de 2023, o comitê reduziu a meta de 13,75% para 13,25% ao ano, a primeira queda depois de três anos de aumentos.
+A taxa que entra na conta do financiamento habitacional não é a SELIC. A meta SELIC é o instrumento de política monetária do COPOM, que a eleva quando a inflação acelera — foi o que fez em 2014-16 e de novo em 2021-23. Na reunião de 2 de agosto de 2023, o comitê reduziu a meta de 13,75% para 13,25% ao ano, a primeira queda desde março de 2021.
 
 ```{r grafico-selic}
 p_selic
 ```
 
-Entre a SELIC e o contrato de financiamento há várias camadas. O Banco Central reconhece cinco linhas de crédito habitacional — comercial, livre, home equity, FGTS e SFH — e cada uma tem seu próprio preço. As duas mais representativas responderam por `r round(share_regulada)`% do volume contratado com pessoas físicas em abril de 2023.
+Entre a SELIC e o contrato de financiamento há várias camadas. O Banco Central classifica o crédito habitacional em cinco linhas — comercial, livre, home equity, FGTS e SFH — e cada uma tem seu próprio preço. As reguladas, FGTS e SFH, responderam por `r round(share_regulada)`% do volume contratado com pessoas físicas em abril de 2023.
 
 ```{r grafico-linhas}
 p_linhas
 ```
 
-O gráfico mostra por que a distinção importa. Todas as linhas sobem nos ciclos de alta da SELIC, mas em amplitudes muito diferentes. A taxa do FGTS é administrada e está vinculada ao programa habitacional, não ao mercado. Ela permanece sempre a mais barata e oscila numa faixa estreita, entre `r pct(fgts_range$min, 1)`% e `r pct(fgts_range$max, 1)`%. Na outra ponta, o home equity cobra cerca de `r pct(he_fgts_ratio, 1)` vezes a taxa do FGTS ao longo de quase toda a série. Nas quedas, como em 2020, as taxas livres cedem enquanto a do FGTS fica praticamente parada.
+As taxas sobem nos ciclos de alta da SELIC, mas em amplitudes distintas. A taxa do FGTS é administrada e está vinculada ao programa habitacional, não ao mercado. Tipicamente, é a de menor taxa do conjunto e oscila numa faixa estreita, entre `r pct(fgts_range$min, 1)`% e `r pct(fgts_range$max, 1)`%. Na outra ponta, o home equity cobra cerca de `r pct(he_fgts_ratio, 1)` vezes a taxa do FGTS ao longo de quase toda a série. Nos períodos de queda da SELIC, como em 2020, as taxas livres cedem enquanto a do FGTS fica praticamente parada.
 
-Separando as taxas de mercado das reguladas, o gráfico seguinte mostra que a transmissão é lenta e incompleta. A distância entre os dois grupos encolheu ao longo da década, e os aumentos recentes da SELIC chegaram ao consumidor com defasagem de alguns meses.
+O gráfico seguinte separa as taxas de mercado das reguladas e mostra que a transmissão é lenta e incompleta. A distância entre os dois grupos encolheu ao longo da série, e os aumentos recentes da SELIC chegaram ao consumidor com defasagem de alguns meses.
 
 ```{r grafico-split}
 p_split
 ```
 
-Vale notar um ponto que contraria a leitura habitual. Apesar do aperto de 2021-23, a taxa média do financiamento habitacional em abril de 2023, de `r pct(rate_last$rate)`%, ainda estava abaixo do pico de `r pct(pico_2016$rate)`% atingido em julho de 2016. O crédito habitacional encareceu, mas partiu de um patamar melhor do que no ciclo anterior.
+Vale notar um ponto que contraria a leitura de que o aperto de 2021-23 levou o crédito habitacional ao ponto mais caro da história. Apesar do aperto de 2021-23, a taxa média do financiamento habitacional em abril de 2023, de `r pct(rate_last$rate)`%, ainda estava abaixo do pico de `r pct(pico_2016$rate)`% atingido em julho de 2016. O crédito habitacional encareceu, mas partiu de um patamar mais baixo do que no ciclo anterior.
 
 ## O que os juros fizeram com a acessibilidade
 
-Aplicando a taxa média observada em cada mês ao mesmo imóvel de R\$450 mil, a série da renda exigida acompanha o ciclo de juros de perto. No fundo do ciclo, em maio de 2021, bastavam R\$`r brl(renda_piso)`. Em abril de 2023, com a taxa em `r pct(rate_last$rate)`%, o mesmo imóvel exigia R\$`r brl(renda_topo)`.
+Aplicada a taxa média observada em cada mês ao mesmo imóvel de R\$450 mil, a série da renda exigida acompanha o ciclo de juros de perto. No fundo do ciclo, em maio de 2021, bastavam R\$`r brl(renda_piso)`. Em abril de 2023, com a taxa em `r pct(rate_last$rate)`%, o mesmo imóvel exigia R\$`r brl(renda_topo)`.
 
 ```{r grafico-rmn}
 p_rmn
@@ -554,13 +554,13 @@ igmi |>
   )
 ```
 
-Refazendo o exercício com o preço corrigido pelo índice, o imóvel que valia R\$450 mil em janeiro de 2018 valia cerca de R\$`r brl(round(afford_last$est_price / 1000) * 1000)` em abril de 2023. A renda exigida para financiá-lo passou de R\$`r brl(renda_jan18)` para R\$`r brl(afford_last$rmn_adj)` — quase o dobro.
+Com o preço corrigido pelo índice, o imóvel que valia R\$450 mil em janeiro de 2018 valia cerca de R\$`r brl(round(afford_last$est_price / 1000) * 1000)` em abril de 2023. A renda exigida para financiá-lo passou de R\$`r brl(renda_jan18)` para R\$`r brl(afford_last$rmn_adj)` — cerca de `r pct(afford_last$rmn_adj / renda_jan18, 1)` vezes o valor de janeiro de 2018.
 
 ```{r grafico-rmn-adj}
 p_rmn_adj
 ```
 
-A comparação entre as duas linhas separa as duas forças. Mantido o preço de janeiro de 2018, a alta dos juros responde por R\$`r brl(delta_juros)` da renda adicional exigida; a valorização do imóvel responde pelos outros R\$`r brl(delta_preco)`. O preço fez cerca de quatro quintos do trabalho, e quase tudo isso depois de 2020.
+A comparação entre as duas séries decompõe o aumento em duas forças. Mantido o preço de janeiro de 2018, a alta dos juros responde por R\$`r brl(delta_juros)` da renda adicional exigida; a valorização do imóvel responde pelos outros R\$`r brl(delta_preco)`. O preço responde por `r pct(100 * delta_preco / delta_total, 0)`% do aumento, e a valorização se concentra depois de 2020.
 
 O IGMI-R é um índice hedônico, isto é, ajustado por qualidade[^2]. A valorização medida não reflete apenas uma mudança na composição dos imóveis vendidos.
 
@@ -568,13 +568,15 @@ O IGMI-R é um índice hedônico, isto é, ajustado por qualidade[^2]. A valoriz
 
 ## O que a conta não inclui
 
-A simulação isola o efeito da taxa de juros e, por isso, omite deliberadamente vários custos e efeitos reais.
+A simulação isola o efeito da taxa de juros e, por isso, omite deliberadamente vários custos que a família efetivamente paga.
 
 O contrato típico não é prefixado. Cerca de `r round(share_tr)`% do estoque de financiamentos a pessoas físicas era indexado à Taxa Referencial (TR) em abril de 2023, com uma parcela pré-fixada somada a ela. A TR raramente passa de 0,2% ao mês, mas a conta acima não a inclui.
 
-Além disso, a parcela que o comprador efetivamente paga carrega seguros obrigatórios (MIP e DFI) e taxa de administração, e a compra em si tem ITBI e custos de registro. Nenhum deles entra aqui. A renda mínima calculada é, portanto, um piso.
+Além disso, a parcela que o comprador efetivamente paga carrega seguros obrigatórios (MIP e DFI) e taxa de administração, e a compra em si envolve ITBI e custos de registro. Nenhum deles entra aqui. A renda mínima calculada é, portanto, um piso.
 
-Dois outros fatores puxam no sentido contrário. O primeiro é o crescimento da renda das famílias, que ao longo de cinco anos compensa parte do encarecimento — a análise acima mantém a renda implícita constante e mede apenas quanto seria preciso ter. O segundo é o Minha Casa Minha Vida, que oferece taxas bem abaixo das de mercado conforme a renda da família e o preço do imóvel. O valor de R\$450 mil usado aqui supera o teto do programa e não seria elegível, o que torna a simulação representativa do mercado, não do segmento subsidiado.
+Dois outros fatores puxam no sentido contrário. O primeiro é o crescimento da renda das famílias, que ao longo de cinco anos compensa parte do encarecimento — a análise acima mantém a renda implícita constante e mede apenas quanto seria preciso ter.
+
+O segundo é o Minha Casa Minha Vida, que oferece taxas bem abaixo das de mercado conforme a renda da família e o preço do imóvel. O valor de R\$450 mil usado aqui supera o teto do programa e não seria elegível, o que torna a simulação representativa do mercado, não do segmento subsidiado.
 
 Por fim, as regras de aprovação variam entre instituições. Os 30% de comprometimento são uma convenção de mercado, não uma norma.
 
@@ -582,6 +584,6 @@ Por fim, as regras de aprovação variam entre instituições. Os 30% de comprom
 
 A decisão do COPOM de 2 de agosto encerrou o ciclo de alta, mas a análise acima mostra que a repercussão sobre o custo do financiamento habitacional não é automática nem imediata. Cerca de `r round(share_fgts)`% do volume contratado sai pela linha FGTS, cuja taxa se move por decisão administrativa e não acompanha a SELIC. O restante responde ao mercado, e com defasagem de meses.
 
-A acessibilidade à moradia depende de três variáveis, e este post mediu duas. Juros e preços explicam por que financiar o mesmo imóvel ficou quase duas vezes mais caro em cinco anos. A terceira, a renda das famílias, fica para uma análise seguinte.
+A acessibilidade à moradia depende de três variáveis, e este post mediu duas. Juros e preços explicam por que a renda exigida para financiar um imóvel de características equivalentes quase dobrou em cinco anos. A terceira, a renda das famílias, fica para uma análise seguinte.
 
 {{< include ../../_post-cta.qmd >}}

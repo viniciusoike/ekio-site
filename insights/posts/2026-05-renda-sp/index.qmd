@@ -5,7 +5,7 @@ categories: ["São Paulo", "Mapas", "Análise Espacial"]
 description: "A renda em São Paulo se concentra no quadrante sudoeste da cidade. O mapa usa dados do projeto Acesso a Oportunidades (IPEA) na grade hexagonal H3."
 image: "/static/images/art/hokusai-series-2026-09/insight-old-and-new.webp"
 image-alt: "Ilustração de arquitetura histórica em contraste com arranha-céus"
-toc: false   # uma seção só; o painel "Nesta página" não ajuda
+toc: false
 ---
 
 ```{r}
@@ -45,16 +45,18 @@ map_renda_decil <- ggplot(aop_censo) +
     caption = "Fonte: IPEA (Acesso a Oportunidades, 2023), aopdata. @viniciusoike."
   ) +
   ggthemes::theme_map(base_family = "Lato") +
-  theme(
-    legend.position = "top",
-    legend.justification = 0.5,
-    legend.key.size = unit(1, "cm"),
-    legend.key.width = unit(1.5, "cm"),
-    legend.text = element_text(size = 12),
-    legend.margin = margin(),
-    plot.margin = margin(10, 5, 5, 10),
-    plot.title = element_text(size = 38, hjust = 0.5),
-    plot.subtitle = element_text(size = 14, hjust = 0.5)
+  theme_sub_legend(
+    position = "top",
+    justification = 0.5,
+    key.size = unit(1, "cm"),
+    key.width = unit(1.75, "cm"),
+    text = element_text(size = 12),
+    background = element_rect(fill = NA, color = NA)
+  ) +
+  theme_sub_plot(
+    margin = margin(10, 10, 10, 10),
+    title = element_text(size = 32, family = "Lora", hjust = 0.5),
+    subtitle = element_text(size = 12, hjust = 0.5)
   )
 ```
 
@@ -69,14 +71,10 @@ Os dados brutos do Censo estão defasados e não representam o nível atual da r
 #| out-width: "100%"
 #| fig-width: 9
 #| fig-height: 12
-#| fig-dpi: 72
 map_renda_decil
 ```
 
 -   Dados: IPEA ([Acesso a Oportunidades](https://www.ipea.gov.br/acessooportunidades/)) acessado via [`aopdata`](https://github.com/ipeaGIT/aopdata)
 
--   Tipografia: [Lato](https://fonts.google.com/specimen/Lato)
-
--   Paleta: `Spectral` ([ColorBrewer](https://colorbrewer2.org/#type=diverging&scheme=Spectral&n=10))
 
 {{< include ../../_post-cta.qmd >}}

@@ -27,24 +27,44 @@ n_br <- function(x, digits = 1) {
 
 ```{r contexto}
 regioes <- c(
-  AC = "Norte", AM = "Norte", AP = "Norte", PA = "Norte", RO = "Norte",
-  RR = "Norte", TO = "Norte",
-  AL = "Nordeste", BA = "Nordeste", CE = "Nordeste", MA = "Nordeste",
-  PB = "Nordeste", PE = "Nordeste", PI = "Nordeste", RN = "Nordeste",
+  AC = "Norte",
+  AM = "Norte",
+  AP = "Norte",
+  PA = "Norte",
+  RO = "Norte",
+  RR = "Norte",
+  TO = "Norte",
+  AL = "Nordeste",
+  BA = "Nordeste",
+  CE = "Nordeste",
+  MA = "Nordeste",
+  PB = "Nordeste",
+  PE = "Nordeste",
+  PI = "Nordeste",
+  RN = "Nordeste",
   SE = "Nordeste",
-  DF = "Centro-Oeste", GO = "Centro-Oeste", MS = "Centro-Oeste",
+  DF = "Centro-Oeste",
+  GO = "Centro-Oeste",
+  MS = "Centro-Oeste",
   MT = "Centro-Oeste",
-  ES = "Sudeste", MG = "Sudeste", RJ = "Sudeste", SP = "Sudeste",
-  PR = "Sul", RS = "Sul", SC = "Sul"
+  ES = "Sudeste",
+  MG = "Sudeste",
+  RJ = "Sudeste",
+  SP = "Sudeste",
+  PR = "Sul",
+  RS = "Sul",
+  SC = "Sul"
 )
 
 ips <- mutate(ips, regiao = regioes[abbrev_state])
 
 rotulos <- setNames(variaveis$source_name, variaveis$variable)
 componentes <- filter(variaveis, !is.na(dimension))
-dimensoes <- c(nhb = "Necessidades Humanas Básicas",
-               fbe = "Fundamentos do Bem-estar",
-               opo = "Oportunidades")
+dimensoes <- c(
+  nhb = "Necessidades Humanas Básicas",
+  fbe = "Fundamentos do Bem-estar",
+  opo = "Oportunidades"
+)
 
 # Números usados no texto corrido.
 faixa_ips <- range(ips$ips)
@@ -148,7 +168,9 @@ ggplot(ips, aes(x = ips)) +
     title = "Um país concentrado no meio da escala",
     subtitle = paste0(
       "Municípios por faixa do Índice de Progresso Social. ",
-      "A linha tracejada marca a mediana, ", n_br(mediana_ips), "."
+      "A linha tracejada marca a mediana, ",
+      n_br(mediana_ips),
+      "."
     ),
     x = "Índice de Progresso Social",
     y = "Municípios",
@@ -227,7 +249,10 @@ ggplot(dados_componentes, aes(x = media, y = rotulo, fill = dimensao)) +
     color = ekio_site$ink_500
   ) +
   scale_x_continuous(limits = c(0, 100), expand = expansion(c(0, 0.02))) +
-  scale_fill_manual(name = NULL, values = as.character(ekio_pal("full"))[c(1, 3, 2)]) +
+  scale_fill_manual(
+    name = NULL,
+    values = as.character(ekio_pal("full"))[c(1, 3, 2)]
+  ) +
   labs(
     title = "Direitos e ensino superior formam o piso do índice",
     subtitle = "Média dos municípios brasileiros em cada componente do IPS",

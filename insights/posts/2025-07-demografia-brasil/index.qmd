@@ -47,16 +47,16 @@ dependency_2050 <- brazil_dependency |>
 
 crossover <- projections |>
   filter(
-    variable %in% c(
-      "Razão de dependência de jovens",
-      "Razão de dependência de idosos"
-    )
+    variable %in%
+      c(
+        "Razão de dependência de jovens",
+        "Razão de dependência de idosos"
+      )
   ) |>
   select(geography, year, variable, value) |>
   pivot_wider(names_from = variable, values_from = value) |>
   filter(
-    `Razão de dependência de idosos` >=
-      `Razão de dependência de jovens`
+    `Razão de dependência de idosos` >= `Razão de dependência de jovens`
   ) |>
   summarise(year = min(year), .by = geography)
 

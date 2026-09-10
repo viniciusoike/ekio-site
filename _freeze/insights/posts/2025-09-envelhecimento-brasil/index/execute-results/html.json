@@ -1,0 +1,17 @@
+{
+  "hash": "6f20fd6baa499ae35943eadbd4558541",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Onde o Brasil já envelheceu\"\ndate: \"2025-09-11\"\ndescription: \"Em 555 municípios brasileiros os idosos já superam os jovens. O mapa do índice de envelhecimento mostra uma transição concentrada no Sul e no Sudeste, com o Rio Grande do Sul no extremo.\"\ncategories: [\"Demografia\", \"Censo\", \"Mapas\"]\nimage: \"/static/images/art/hokusai-series-2026-09/insight-housing-distribution.webp\"\nimage-alt: \"Ilustração de uma distribuição assimétrica em barras azuis sobre fundo de linho\"\ntoc: false   # uma seção só; o painel \"Nesta página\" não ajuda\n---\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell layout-align=\"center\"}\n\n:::\n\n\n\n::: {.cell layout-align=\"center\"}\n\n:::\n\n\nEm 2022, 555 municípios brasileiros tinham mais idosos do que jovens,\ncerca de um décimo do país. Só no Rio Grande do Sul estão 246 deles. A\nconta vem do índice de envelhecimento, que mede quantas pessoas de 65 anos ou\nmais existem para cada 100 pessoas de até 14 anos; acima de 100, os idosos\nsuperam os jovens.\n\nO mapa abaixo traz o índice nos 5.570\nmunicípios do país, segundo o Censo de 2022. A série no canto inferior\nacompanha o índice do Brasil nos quatro Censos mais recentes.\n\n\n::: {.cell layout-align=\"center\"}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-1-1.png){fig-align='center' width=100%}\n:::\n:::\n\n\nO futuro demográfico do Brasil, em boa parte, já está escrito. A queda da\nfecundidade e o aumento da expectativa de vida envelhecem a população de forma\nlenta e previsível, e o mapa mostra o quanto dessa transição já aconteceu. O\nno Censo de 2022, o município típico tinha índice de 61,4,\nacima do índice do país, de 55,2. A diferença não é contradição: o índice\nnacional pondera pela população, e o peso das cidades grandes puxa a conta.\n\nO Sul e o Sudeste concentram as cidades mais envelhecidas. O caso extremo é o\nRio Grande do Sul: metade dos seus municípios já tem mais idosos do que jovens,\ne a mediana estadual, de 99,2, supera em mais de vinte pontos a de Minas\nGerais, o segundo colocado. Santa Catarina e Paraná, vizinhos do Rio Grande do Sul,\nficam bem abaixo, com medianas próximas de 66. No Nordeste, Paraíba, Bahia e\nRio Grande do Norte já registram medianas perto de 57, acima de estados do\nCentro-Oeste como Mato Grosso e Mato Grosso do Sul.\n\nA ponta jovem do mapa está no Norte. Dos 250 municípios com índice abaixo de\n25, dois terços ficam na região; Amapá, Amazonas e Roraima têm medianas\nestaduais entre 16,7 e 18,6, menos de um quinto do valor gaúcho.\n\nDados: IBGE, Censos Demográficos de 1991, 2000, 2010 e 2022.\n\n::: {.post-cta}\n\n**Ninguém decide só com dados. E ninguém decide bem sem eles.**\n\nA decisão continua sendo sua. Nosso trabalho é diminuir o que ela tem de aposta.\n\n::: {.post-cta-actions}\n[Falar sobre um projeto](/contato.html){.link-rule-sm}\n\n[Conhecer os serviços](/servicos.html){.link-rule-sm}\n:::\n\n:::\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
