@@ -31,5 +31,5 @@ Figuras — os padrões vêm de _ekio-style.R. Não repita opções de chunk aqu
   Mapa             o mesmo, mais fig-dpi: 72 (9 x 12 in -> 1296 x 1728 px)
 
   geom_line(linewidth = 0.8) e geom_col(width = 0.8).
-  Tabelas: ekiotable::gt_theme_hokusai(stripe = TRUE).
+  Tabelas: ekiotable::gt_theme_hokusai(stripe = TRUE, reversed = TRUE, font_body = "host_grotesk", font_title = "lora").
 -->

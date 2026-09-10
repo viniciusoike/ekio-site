@@ -165,7 +165,7 @@ gt_gen <- gt(tbl_generations) |>
   ) |>
   fmt_number(3, decimals = 0, sep_mark = ".") |>
   fmt_percent(4:5, scale_values = FALSE, dec_mark = ",", decimals = 1) |>
-  gt_theme_hokusai(stripe = TRUE, reversed = TRUE)
+  ekiotable::gt_theme_hokusai(stripe = TRUE, reversed = TRUE, font_body = "host_grotesk", font_title = "lora")
 ```
 
 ```{r, get_unemp_data}

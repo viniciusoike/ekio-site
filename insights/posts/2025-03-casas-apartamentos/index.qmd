@@ -96,7 +96,7 @@ tab_geral |>
   fmt_percent(3:5, dec_mark = ",", decimals = 1) |>
   fmt_number(6, decimals = 0, sep_mark = ".") |>
   tab_footnote(ek_source) |>
-  gt_theme_hokusai(stripe = TRUE, font_body = "host_grotesk")
+  ekiotable::gt_theme_hokusai(stripe = TRUE, reversed = TRUE, font_body = "host_grotesk", font_title = "lora")
 ```
 
 ## Tamanho do Município
@@ -167,7 +167,7 @@ tab_geral |>
   gt() |>
   fmt_percent(3, dec_mark = ",", decimals = 1) |>
   fmt_number(4, decimals = 0, sep_mark = ".") |>
-  gt_theme_hokusai(stripe = TRUE)
+  ekiotable::gt_theme_hokusai(stripe = TRUE, reversed = TRUE, font_body = "host_grotesk", font_title = "lora")
 ```
 
 Comparando o share de apartamentos com o tamanho do município[^2], chega-se à mesma conclusão. O gráfico abaixo mostra o percentual de domicílios contra a área total do município. Seria intuitivo que municípios menores, onde há menos oferta de terra, exibissem maiores percentuais de apartamentos. Contudo, não parece haver relação entre as variáveis.
@@ -243,7 +243,7 @@ tab_geral |>
   gt() |>
   fmt_percent(3, dec_mark = ",", decimals = 1) |>
   fmt_number(4:5, decimals = 0, sep_mark = ".") |>
-  gt_theme_hokusai(stripe = TRUE)
+  ekiotable::gt_theme_hokusai(stripe = TRUE, reversed = TRUE, font_body = "host_grotesk", font_title = "lora")
 ```
 
 ## Tabela completa

@@ -5,6 +5,7 @@ categories: ["Mercado Imobiliário", "Economia", "Juros"]
 description: "Entre maio de 2021 e abril de 2023, a taxa média do financiamento habitacional subiu de 6,6% para 10,2% ao ano. O mesmo imóvel passou a exigir 34% mais renda para ser financiado mesmo antes de contar a alta dos preços."
 image: "/static/images/art/hokusai-series-2026-09/insight-courtyard-housing.webp"
 image-alt: "Ilustração de edifícios residenciais em torno de um pátio interno"
+home: "true"
 ---
 
 ```{r libs}
@@ -459,12 +460,7 @@ flux |>
     title = "Primeiro ano de um financiamento SAC",
     subtitle = "Fluxo de pagamento de um financiamento SAC típico: preço do imóvel R$450 mil, LTV de 70%, 360 meses de prazo e juros de 10% ao ano."
   ) |>
-  gt_theme_hokusai(
-    stripe = TRUE,
-    font_size = 11,
-    font_body = "host_grotesk",
-    font_numeric = "host_grotesk"
-  )
+  ekiotable::gt_theme_hokusai(stripe = TRUE, reversed = TRUE, font_body = "host_grotesk", font_title = "lora")
 ```
 
 Ao longo dos 360 meses, a amortização se mantém a mesma e os juros diminuem gradativamente. A parcela sai de R\$3.387 e termina em pouco mais de R\$880.
@@ -506,12 +502,7 @@ sens_table |>
     title = "Renda mínima exigida para um imóvel de R$450 mil",
     subtitle = "Renda mínima exigida para ser elegível a um financimaneto imobiliário considerando LTV de 70%, 360 meses e comprometimento máximo de 30% da renda."
   ) |>
-  gt_theme_hokusai(
-    stripe = TRUE,
-    font_size = 11,
-    font_body = "host_grotesk",
-    font_numeric = "host_grotesk"
-  )
+  ekiotable::gt_theme_hokusai(stripe = TRUE, reversed = TRUE, font_body = "host_grotesk", font_title = "lora")
 ```
 
 ## A SELIC não é a taxa do financiamento
@@ -561,12 +552,7 @@ igmi |>
   fmt_percent(total, dec_mark = ",") |>
   tab_header(title = "Valorização residencial pelo IGMI-R") |>
   tab_source_note("2023 cobre apenas janeiro a abril.") |>
-  gt_theme_hokusai(
-    stripe = TRUE,
-    font_size = 11,
-    font_body = "host_grotesk",
-    font_numeric = "host_grotesk"
-  )
+  ekiotable::gt_theme_hokusai(stripe = TRUE, reversed = TRUE, font_body = "host_grotesk", font_title = "lora")
 ```
 
 Com o preço corrigido pelo índice, o imóvel que valia R\$450 mil em janeiro de 2018 valia cerca de R\$`r brl(round(afford_last$est_price / 1000) * 1000)` em abril de 2023. A renda exigida para financiá-lo passou de R\$`r brl(renda_jan18)` para R\$`r brl(afford_last$rmn_adj)` — cerca de `r pct(afford_last$rmn_adj / renda_jan18, 1)` vezes o valor de janeiro de 2018.

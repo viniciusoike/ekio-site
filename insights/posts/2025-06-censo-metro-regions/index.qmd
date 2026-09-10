@@ -114,7 +114,7 @@ Em termos agregados, as cidades de médio porte "ganharam" muito mais habitantes
 ## Cidades que cresceram
 
 ```{r}
-#| label: fig-cities-share
+#| label: cities-share
 #| fig-alt: "Percentual de municípios que ganharam população entre 2010 e 2022, por porte. As faixas de 50 a 500 mil habitantes apresentam os maiores percentuais."
 #| echo: false
 #| fig-align: "center"
@@ -125,7 +125,7 @@ plots$cities
 ## Crescimento médio
 
 ```{r}
-#| label: fig-cities-growth
+#| label: cities-growth
 #| fig-alt: "Crescimento populacional acumulado médio, ponderado pela população de 2022. A faixa de 100 a 500 mil habitantes lidera, com cerca de 14,3%."
 #| echo: false
 #| fig-align: "center"
@@ -136,7 +136,7 @@ plots$growth
 ## Ganho populacional
 
 ```{r}
-#| label: fig-cities-total
+#| label: cities-total
 #| fig-alt: "Ganho populacional por porte municipal. Cidades de 100 a 500 mil habitantes ganharam 6,4 milhões de pessoas; cidades acima de um milhão, cerca de 339 mil."
 #| echo: false
 #| fig-align: "center"

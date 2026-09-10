@@ -5,6 +5,7 @@ categories: ["Mercado Imobiliário", "Economia", "Preços"]
 description: "Os três principais índices de preços imobiliários do Brasil divergem desde a pandemia: alta expressiva no IGMI-R, alta tímida no FipeZap e estagnação no IVG-R. O que cada um mede explica a diferença."
 image: "/static/images/art/hokusai-series-2026-09/insight-office-towers.webp"
 image-alt: "Ilustração de torres de escritórios com fachadas em grade"
+home: "true"
 ---
 
 ```{r setup}
@@ -447,7 +448,7 @@ gt(tab_rppi) |>
   gt::cols_label(year = "Ano") |>
   fmt_number(2:6, decimals = 2) |>
   sub_missing() |>
-  gt_theme_hokusai(stripe = TRUE)
+  ekiotable::gt_theme_hokusai(stripe = TRUE, reversed = TRUE, font_body = "host_grotesk", font_title = "lora")
 ```
 
 ### Gráficos

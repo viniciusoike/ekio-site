@@ -96,7 +96,7 @@ metro_table <- function(data, national = FALSE) {
     tab_source_note(
       "Fonte: IBGE, Censos Demográficos. Recortes de 2018, incluindo áreas associadas. Elaboração: EKIO."
     ) |>
-    ekiotable::gt_theme_hokusai(stripe = TRUE) |>
+    ekiotable::gt_theme_hokusai(stripe = TRUE, reversed = TRUE, font_body = "host_grotesk", font_title = "lora") |>
     tab_options(
       table.width = pct(100),
       container.overflow.x = "auto",

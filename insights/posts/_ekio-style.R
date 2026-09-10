@@ -173,5 +173,6 @@ theme_ekio_site <- function(...) {
 
 # Table theme ----
 
-# Tables use ekiotable::gt_theme_hokusai(stripe = TRUE). Posts call it
-# directly; nothing here wraps it.
+# Tables use ekiotable::gt_theme_hokusai(stripe = TRUE, reversed = TRUE,
+# font_body = "host_grotesk", font_title = "lora"). Posts call it directly;
+# nothing here wraps it.

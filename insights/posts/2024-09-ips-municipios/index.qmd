@@ -146,7 +146,7 @@ resumo |>
     subtitle = "Distribuição entre os municípios brasileiros. Escala de 0 a 100."
   ) |>
   tab_source_note("Fonte: IPS-Brasil (Imazon). Elaboração: EKIO.") |>
-  ekiotable::gt_theme_hokusai(stripe = TRUE) |>
+  ekiotable::gt_theme_hokusai(stripe = TRUE, reversed = TRUE, font_body = "host_grotesk", font_title = "lora") |>
   tab_options(
     table.width = pct(100),
     container.overflow.x = "auto",
@@ -348,7 +348,7 @@ tabela_extremos <- function(dados, titulo, subtitulo) {
     fmt_number(where(is.numeric), decimals = 1, dec_mark = ",") |>
     tab_header(title = titulo, subtitle = subtitulo) |>
     tab_source_note("Fonte: IPS-Brasil (Imazon). Elaboração: EKIO.") |>
-    ekiotable::gt_theme_hokusai(stripe = TRUE) |>
+    ekiotable::gt_theme_hokusai(stripe = TRUE, reversed = TRUE, font_body = "host_grotesk", font_title = "lora") |>
     tab_options(
       table.width = pct(100),
       container.overflow.x = "auto",
