@@ -1,7 +1,7 @@
 ---
 title: "O Índice de Progresso Social nos municípios brasileiros"
 date: "2024-09-15"
-description: "O Índice de Progresso Social separa por quase 37 pontos o melhor e o pior município brasileiro. A dimensão que puxa o país para baixo não é saneamento nem moradia: é o acesso a direitos e à educação superior."
+description: "O Índice de Progresso Social separa o melhor e o pior município brasileiro por quase 37 pontos. A dimensão que puxa o país para baixo não é saneamento nem moradia: é o acesso a direitos e à educação superior."
 categories: ["Economia", "Demografia", "Brasil"]
 image: "/static/images/art/hokusai-insights-2026-09-07/cover-layered-inquiry.webp"
 image-alt: "Faixas curvas azuis e claras se sobrepõem sob um campo de cor linho"
@@ -157,9 +157,9 @@ ggplot(ips, aes(x = ips)) +
   theme_ekio_site()
 ```
 
-Quase `r n_br(share_meio * 100, 0)`% dos municípios pontuam entre 50 e 60. A distribuição é simétrica: a média, `r n_br(media_simples)`, praticamente coincide com a mediana. Não há uma cauda longa de casos extremos em nenhum dos lados — o que o gráfico mostra é um país agrupado numa faixa estreita, com poucas cidades se destacando para cima ou para baixo.
+Quase `r n_br(share_meio * 100, 0)`% dos municípios pontuam entre 50 e 60. A distribuição é simétrica: a média, `r n_br(media_simples)`, praticamente coincide com a mediana. Não há cauda longa de casos extremos em nenhum dos lados — o que o gráfico mostra é um país agrupado numa faixa estreita, com poucas cidades se destacando para cima ou para baixo.
 
-Essa média trata Serra da Saudade, com 833 habitantes, e São Paulo, com 11,5 milhões, como uma observação cada. Ponderando pela população, o índice do brasileiro típico sobe para `r n_br(media_ponderada)`, porque os municípios maiores pontuam melhor. As comparações a seguir usam a média simples entre municípios, como é usual na leitura do IPS, mas a diferença de `r n_br(media_ponderada - media_simples)` pontos entre as duas medidas pesa em qualquer comparação regional.
+Essa média dá o mesmo peso a Serra da Saudade, com 833 habitantes, e a São Paulo, com 11,5 milhões. Ponderando pela população, o índice do brasileiro típico sobe para `r n_br(media_ponderada)`, porque os municípios maiores pontuam melhor. As comparações a seguir usam a média simples entre municípios, como é usual na leitura do IPS, mas a diferença de `r n_br(media_ponderada - media_simples)` pontos entre as duas medidas pesa em qualquer comparação regional.
 
 ## As três dimensões
 
@@ -293,7 +293,7 @@ ggplot(por_uf, aes(x = media, y = abbrev_state, fill = regiao)) +
   )
 ```
 
-O ordenamento entre regiões segue o esperado. O Sudeste lidera com `r n_br(por_regiao$ips[por_regiao$regiao == "Sudeste"])` pontos e o Norte fecha a lista com `r n_br(por_regiao$ips[por_regiao$regiao == "Norte"])`, uma distância de `r n_br(por_regiao$ips[por_regiao$regiao == "Sudeste"] - por_regiao$ips[por_regiao$regiao == "Norte"])` pontos. São Paulo, Santa Catarina, Paraná e Rio Grande do Sul ocupam as primeiras posições entre os estados; Roraima, Acre, Pará e Amazonas, as últimas.
+O ranking entre regiões segue o esperado. O Sudeste lidera com `r n_br(por_regiao$ips[por_regiao$regiao == "Sudeste"])` pontos e o Norte fecha a lista com `r n_br(por_regiao$ips[por_regiao$regiao == "Norte"])`, uma distância de `r n_br(por_regiao$ips[por_regiao$regiao == "Sudeste"] - por_regiao$ips[por_regiao$regiao == "Norte"])` pontos. São Paulo, Santa Catarina, Paraná e Rio Grande do Sul ocupam as primeiras posições entre os estados; Roraima, Acre, Pará e Amazonas, as últimas.
 
 O ranking se inverte, porém, quando se olha só para Oportunidades. Aí o Nordeste (`r n_br(por_regiao$opo[por_regiao$regiao == "Nordeste"])`) fica acima do Sudeste (`r n_br(por_regiao$opo[por_regiao$regiao == "Sudeste"])`). A inversão vem do componente de inclusão social, que no IPS-Brasil mede paridade de gênero e de raça na câmara municipal, violência contra mulheres, negros e indígenas, e trabalho infantil: os municípios nordestinos marcam `r n_br(inclusao_regiao$inclusao[inclusao_regiao$regiao == "Nordeste"])` contra `r n_br(inclusao_regiao$inclusao[inclusao_regiao$regiao == "Sudeste"])` dos paulistas, mineiros, cariocas e capixabas. Desenvolvimento econômico e inclusão política não caminham juntos.
 

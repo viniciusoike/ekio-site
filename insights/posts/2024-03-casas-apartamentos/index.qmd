@@ -78,7 +78,7 @@ tab_geral <- left_join(tab_geral, total_houses, by = "code_muni")
 
 ## Um país de casas
 
-A vasta maioria dos domicílios residenciais no Brasil é formada por casas[^1]. De fato, em apenas 3 das mais de 5000 cidades brasileiras, o número de apartamentos é superior ao número de casas. Isto é, apenas em Santos, Balneário Camboriú e São Caetano do Sul, existe uma proporção maior de apartamentos do que de casas. Embora São Paulo seja famosa por seus prédios, os apartamentos representam apenas um terço das moradias na cidade.
+A vasta maioria dos domicílios residenciais no Brasil é formada por casas[^1]. De fato, em apenas 3 das mais de cinco mil cidades brasileiras, o número de apartamentos é superior ao número de casas. Isto é, apenas em Santos, Balneário Camboriú e São Caetano do Sul, existe uma proporção maior de apartamentos do que de casas. Embora São Paulo seja famosa por seus prédios, os apartamentos representam apenas um terço das moradias na cidade.
 
 [^1]: Vale notar que os dados refletem o número total de domicílios e não o número total de pessoas morando em domicílios (por tipo de domicílio).
 
@@ -152,7 +152,7 @@ ggplot(sub, aes(x = log(total_houses), y = Apartamento)) +
   theme_ekio_site(grid = "xy", ticks = "xy")
 ```
 
-A tabela abaixo ilustra este fato. A tabela mostra todas as cidades na faixa de 150 a 200 mil domicílios. A cidade com maior percentual de apartamentos é Santos: 67% dos seus 167 mil domicílios são apartamentos; um contraste enorme com São João de Meriti: menos de 5% dos seus 168 domicílios são apartamentos.
+A tabela abaixo ilustra este fato. A tabela mostra todas as cidades na faixa de 150 a 200 mil domicílios. A cidade com maior percentual de apartamentos é Santos: 67% dos seus 167 mil domicílios são apartamentos; um contraste enorme com São João de Meriti: menos de 5% dos seus 168 mil domicílios são apartamentos.
 
 ```{r}
 tab_geral |>
@@ -217,7 +217,7 @@ ggplot(sub, aes(x = log(area_ha), y = Apartamento)) +
   ) +
   labs(
     title = "Verticalização e Tamanho",
-    subtitle = "Relação entre o número total de domicílios e o percentual de apartamentos por cidade",
+    subtitle = "Relação entre a área total do município e o percentual de apartamentos por cidade",
     x = "Tamanho do Município (hectares, escala log)",
     y = "Percentual de Apartamentos",
     caption = "Fonte: IBGE (CENSO 2022)"
@@ -225,7 +225,7 @@ ggplot(sub, aes(x = log(area_ha), y = Apartamento)) +
   theme_ekio_site(grid = "xy", ticks = "xy")
 ```
 
-Na faixa de 1000 a 6000 hectares, temos 20 municípios, a maioria com menos de 20% de apartamentos. Neste contexto, Balneário Camboriú e São Caetano do Sul são outliers notáveis com mais de 50% de apartamentos.
+Na faixa de 1.000 a 6.000 hectares, temos 20 municípios, a maioria com menos de 20% de apartamentos. Neste contexto, Balneário Camboriú e São Caetano do Sul são outliers notáveis com mais de 50% de apartamentos.
 
 ```{r}
 tab_geral |>

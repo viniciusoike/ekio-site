@@ -2,7 +2,7 @@
 title: "Gerações no Brasil"
 date: "2025-02-05"
 categories: ["Demografia", "Mercado Imobiliário", "Brasil"]
-description: "Quase metade dos brasileiros tem entre 12 e 43 anos, o maior contingente de jovens da história do país. Este fator demográfico, junto com a redução do tamanho das famílias deve sustentar a demanda imobiliária no país pelos próximos 15 a 20 anos. A educação e o acesso desigual a oportunidades. contudo, limitam esse ganho: um em cada cinco jovens não estuda nem trabalha."
+description: "Quase metade dos brasileiros tem entre 12 e 43 anos, o maior contingente de jovens da história do país. Este fator demográfico, junto com a redução do tamanho das famílias, deve sustentar a demanda imobiliária no país pelos próximos 15 anos. A educação e o acesso desigual a oportunidades, contudo, limitam esse ganho: um em cada cinco jovens não estuda nem trabalha."
 image: "/static/images/art/hokusai-series-2026-09/insight-apartment-balconies.webp"
 image-alt: "Ilustração de varandas e terraços em edifícios residenciais"
 toc: false   # uma seção só; o painel "Nesta página" não ajuda
@@ -227,9 +227,9 @@ p_unemp <- ggplot(tbl_unemp, aes(date, value, color = age_group)) +
 ```
 
 
-O Brasil está envelhecendo, assim como tantos outros países no mundo. A combinação do aumento consistente da expectativa de vida com as seguidas quedas na taxa de fecundidade vai, indubitavelmente, modificar a distribuição etária do país. O percentual de idosos na população vai aumentar, relativamente ao número de jovens e de adultos; além disso, a população, em termos absolutos, também deve começar a diminuir por volta da década de 2040.
+O Brasil está envelhecendo, assim como tantos outros países no mundo. A combinação do aumento consistente da expectativa de vida com as seguidas quedas na taxa de fecundidade vai modificar a distribuição etária do país. O percentual de idosos na população vai aumentar, relativamente ao número de jovens e de adultos; além disso, a população, em termos absolutos, também deve começar a diminuir por volta da década de 2040.
 
-Apesar dessa tendência, o quadro demográfico de hoje revela o maior contingente de jovens na história do país. Quase 100 milhões de pessoas, perto de metade da população, formam a Geração Z e a Geração Y (millennials), com idades entre 12 e 43 anos. Para o mercado imobiliário há duas consequências imediatas. A primeira, aproveitar a última onda do bônus demográfico, que forma a base da demanda imobiliária: os mais jovens formando famílias e comprando o sonho da casa própria. A segunda, ainda pouco explorada: adaptar o produto imobiliário ao público idoso.
+Apesar dessa tendência, o quadro demográfico de hoje revela o maior contingente de jovens na história do país. Quase 100 milhões de pessoas, perto de metade da população, formam a Geração Z e a Geração Y (millennials), com idades entre 12 e 43 anos. Para o mercado imobiliário, há duas consequências imediatas. A primeira, aproveitar a última onda do bônus demográfico, que forma a base da demanda imobiliária: os mais jovens formando famílias e comprando o sonho da casa própria. A segunda, ainda pouco explorada: adaptar o produto imobiliário ao público idoso.
 
 ```{r}
 p_col
@@ -237,7 +237,7 @@ p_col
 
 Os cortes de cada geração no gráfico acima seguem a definição da [Beresford Research](https://www.beresfordresearch.com/age-range-by-generation/), que adapta a classificação do [Pew Research Center](https://www.pewresearch.org/short-reads/2019/01/17/where-millennials-end-and-generation-z-begins/). Os dados vêm do [Censo de 2022](https://censo2022.ibge.gov.br/). Vale comentar que não há consenso sobre os anos de corte para delimitar uma geração da outra.
 
-[![](images/Screenshot%202024-06-07%20at%2015.49.22.png){fig-align="center"}](https://www.pewresearch.org/short-reads/2019/01/17/where-millennials-end-and-generation-z-begins/)
+[![](images/Screenshot%202024-06-07%20at%2015.49.22.png){fig-align="center" fig-alt="Gráfico de barras do Pew Research Center mostrando os intervalos de idade de cada geração, de Silenciosa a Gen Alpha, com Baby Boomers, Gen X, Millennials e Gen Z no meio."}](https://www.pewresearch.org/short-reads/2019/01/17/where-millennials-end-and-generation-z-begins/)
 
 Como afirmado anteriormente, esta deve ser a última grande geração jovem do Brasil, e o país precisa aproveitá-la economicamente. O envelhecimento da população vai elevar a razão de dependência, pressionando o sistema previdenciário que segue frágil, mesmo após a reforma. Com menos adultos em idade para trabalhar, o Brasil vai precisar produzir ganhos de produtividade para manter seu crescimento.
 
@@ -257,7 +257,7 @@ O IBGE, na [Síntese de Indicadores Sociais](https://agenciadenoticias.ibge.gov.
 
 Um [relatório da OCDE](https://www.oecd-ilibrary.org/sites/3197152b-en/1/3/2/2/index.html?itemId=/content/publication/3197152b-en&_csp_=7702d7a2844b0c49180e6b095bf85459&itemIGO=oecd&itemContentType=book) também aponta uma parcela muito alta de nem-nem (jovens que não trabalham nem estudam) na faixa de 18 a 24 anos no Brasil. Esses jovens são majoritariamente negros, mulheres e de baixa renda, o que expõe o acesso desigual a oportunidades no país.
 
-![](images/Screenshot%202024-06-07%20at%2015.48.12.png){fig-align="center"}
+![](images/Screenshot%202024-06-07%20at%2015.48.12.png){fig-align="center" fig-alt="Gráfico da OCDE de barras comparando a proporção de jovens de 18 a 24 anos que não trabalham nem estudam em países da OCDE. O Brasil aparece no topo, entre os países com maior proporção de nem-nem."}
 
 ---
 

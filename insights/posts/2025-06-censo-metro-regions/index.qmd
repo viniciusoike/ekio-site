@@ -12,7 +12,7 @@ image-alt: "Composição abstrata de núcleos urbanos em azul e tons de papel, c
 source("_analysis.R")
 ```
 
-Os resultados do Censo 2022 trouxeram à tona um fenômeno que tem gerado intensos debates sobre o futuro demográfico do Brasil: pela primeira vez em décadas, algumas das principais regiões metropolitanas do país registraram redução populacional ou crescimento próximo de zero. Para melhor compreender esta transformação, vale analisar os dados em uma perspectiva histórica e regional.
+Os resultados do Censo 2022 trouxeram à tona um fenômeno que tem gerado intensos debates sobre o futuro demográfico do Brasil: pela primeira vez em décadas, algumas das principais regiões metropolitanas do país registraram redução populacional ou crescimento próximo de zero. Para compreender melhor esta transformação, vale analisar os dados em uma perspectiva histórica e regional.
 
 As taxas citadas a seguir são anuais e se referem a 2010–2022, salvo indicação em contrário. Os recortes metropolitanos seguem a composição de 2018 e incluem suas áreas associadas; em Belo Horizonte, por exemplo, incluem o colar metropolitano.
 
@@ -22,7 +22,7 @@ As taxas citadas a seguir são anuais e se referem a 2010–2022, salvo indicaç
 
 -   **Crescimento negativo em grandes centros**. Rio de Janeiro (`r metro_rate("Rio de Janeiro")`), Salvador (`r metro_rate("Salvador")`), Porto Alegre (`r metro_rate("Porto Alegre")`) e Belém (`r metro_rate("Belém")`) apresentam retração populacional. Em alguns casos a capital também registrou perdas populacionais.
 
--   **São Paulo em desaceleração.** A população da RM de São Paulo aumentou em cerca de 1 milhão de habitantes, saindo de 19,7 para 20,7 milhões. O crescimento entre 2010 e 2022 foi praticamente a metade do registrado no período anterior (2000-2010) quando a população aumentou em 1,8 milhão de habitantes.
+-   **São Paulo em desaceleração.** A população da RM de São Paulo aumentou em cerca de 1 milhão de habitantes, saindo de 19,7 para 20,7 milhões. O crescimento entre 2010 e 2022 foi praticamente a metade do registrado no período anterior (2000-2010), quando a população aumentou em 1,8 milhão de habitantes.
 
 -   **Florianópolis e Santa Catarina em destaque**. A RM de Florianópolis cresceu `r metro_rate("Florianópolis")` ao ano, maior crescimento entre as metrópoles de grande porte. Outros eixos de SC também cresceram acima da média brasileira como Chapecó (`r metro_rate("Chapecó")`), a Foz do Rio Itajaí (`r metro_rate("Foz do Rio Itajaí")`), o Vale do Itajaí (`r metro_rate("Vale do Itajaí")`), a Região do Norte/Nordeste Catarinense (`r metro_rate("Norte/Nordeste Catarinense")`) e a Região Carbonífera (`r metro_rate("Carbonífera")`).
 
@@ -41,9 +41,9 @@ gtable_cities
 
 Os dados mostram um cenário de clara desaceleração do crescimento populacional nas principais regiões metropolitanas brasileiras. São Paulo, que manteve taxas de crescimento de `r metro_rate("São Paulo", 2000)` ao ano entre 1991 e 2000, viu este ritmo cair para `r metro_rate("São Paulo", 2010)` entre 2000 e 2010 e apenas `r metro_rate("São Paulo")` entre 2010 e 2022. O Rio de Janeiro apresenta situação ainda mais dramática, com crescimento de `r metro_rate("Rio de Janeiro")` ao ano entre 2010 e 2022, indicando redução populacional.
 
-Como comentado em outros posts, o número de [nascimentos no Brasil está em tendência de queda](https://restateinsight.com/posts/general-posts/2023-10-nascimentos-brasil/); de fato, em 2022, [16% dos municípios registraram mais óbitos do que nascimentos](https://restateinsight.com/posts/general-posts/2024-03-maps-birth-deaths/). Do outro lado, a [população está envelhecendo](/insights/posts/2024-04-envelhecimento-brasil/), sobretudo no Sul e no Sudeste. Essa mudança demográfica sinaliza um aperto da razão de dependência no longo prazo e maiores dificuldades para manter o crescimento econômico.
+Como comentado em outros posts, o número de [nascimentos no Brasil está em tendência de queda](https://restateinsight.com/posts/general-posts/2023-10-nascimentos-brasil/); de fato, em 2022, [16% dos municípios registraram mais óbitos do que nascimentos](https://restateinsight.com/posts/general-posts/2024-03-maps-birth-deaths/). Ao mesmo tempo, a [população está envelhecendo](/insights/posts/2024-04-envelhecimento-brasil/), sobretudo no Sul e no Sudeste. Essa mudança demográfica sinaliza um aperto da razão de dependência no longo prazo e maiores dificuldades para manter o crescimento econômico.
 
-Ainda que o Brasil siga se urbanizando, o Censo Demográfico de 2022 trouxe um primeiro alerta às cidades brasileiras. Ainda é cedo para entender a motivação das quedas populacionais em alguns centros, mas pode-se especular que a mistura de aumento de custo de vida, baixo crescimento da renda e aumento de insegurança foram alguns dos principais fatores.
+Ainda que o Brasil siga se urbanizando, o Censo Demográfico de 2022 trouxe um primeiro alerta às cidades brasileiras. Ainda é cedo para entender a motivação das quedas populacionais em alguns centros, mas cabe especular que o custo de vida alto, o baixo crescimento da renda e o aumento da insegurança foram alguns dos principais fatores.
 
 ### Diferentes Dinâmicas Regionais
 
@@ -97,11 +97,11 @@ gtable_rs |>
 ```
 :::
 
-**No Centro-Oeste, todos os recortes metropolitanos analisados tiveram crescimento**. Goiânia (`r metro_rate("Goiânia")`) ultrapassou Belém (`r metro_rate("Belém")`) e Manaus (`r metro_rate("Manaus")`), chegando a 2,55 milhões de habitantes e se tornou a $11^{\text{a}}$ maior região metropolitana. Já Brasília (`r metro_rate("RIDE DF")`) ultrapassou Porto Alegre (`r metro_rate("Porto Alegre")`) e se tornou a $4^{\text{a}}$ maior metrópole do país com 4,5 milhões de habitantes. O Vale do Rio Cuiabá também registrou forte crescimento (`r metro_rate("Vale do Rio Cuiabá")`) e ultrapassou a marca de 1 milhão de habitantes.
+**No Centro-Oeste, todos os recortes metropolitanos analisados tiveram crescimento**. Goiânia (`r metro_rate("Goiânia")`) ultrapassou Belém (`r metro_rate("Belém")`) e Manaus (`r metro_rate("Manaus")`), chegando a 2,55 milhões de habitantes e se tornou a 11ª maior região metropolitana. Já Brasília (`r metro_rate("RIDE DF")`) ultrapassou Porto Alegre (`r metro_rate("Porto Alegre")`) e se tornou a 4ª maior região metropolitana do país, com 4,5 milhões de habitantes. O Vale do Rio Cuiabá também registrou forte crescimento (`r metro_rate("Vale do Rio Cuiabá")`) e ultrapassou a marca de 1 milhão de habitantes.
 
 **O Nordeste foi a região com menor crescimento populacional**. A taxa de crescimento anual da região (0,24%) ficou abaixo da média do país e, em termos absolutos, a região cresceu menos do que o Centro-Oeste, apesar da sua população total ser três vezes maior.
 
-A RM de Salvador é o destaque negativo: a metrópole perdeu mais de 100 mil habitantes; Fortaleza (`r metro_rate("Fortaleza")`) e Recife (`r metro_rate("Recife")`) também mostram sinais de estagnação. O crescimento foi fraco também no interior, diversas metrópoles de Alagoas e da Paraíba registraram quedas populacionais: Caetés, AL (`r metro_rate("Caetés")`), Vale do Paraíba, AL (`r metro_rate("Vale do Paraíba")`), Zona da Mata, AL (`r metro_rate("Zona da Mata")`), Vale do Piancó, PB (`r metro_rate("Vale do Piancó")`) e Guarabira, PB (`r metro_rate("Guarabira")`) somente para citar algumas.
+A RM de Salvador é o destaque negativo: a metrópole perdeu mais de 100 mil habitantes; Fortaleza (`r metro_rate("Fortaleza")`) e Recife (`r metro_rate("Recife")`) também mostram sinais de estagnação. O crescimento foi fraco também no interior, e diversas metrópoles de Alagoas e da Paraíba registraram quedas populacionais, como Caetés, AL (`r metro_rate("Caetés")`), Vale do Paraíba, AL (`r metro_rate("Vale do Paraíba")`), Zona da Mata, AL (`r metro_rate("Zona da Mata")`), Vale do Piancó, PB (`r metro_rate("Vale do Piancó")`) e Guarabira, PB (`r metro_rate("Guarabira")`).
 
 **A Região Norte também apresentou contrastes no crescimento populacional**. Manaus (`r metro_rate("Manaus")`) foi o destaque, crescendo em mais de 300 mil habitantes. Já Belém perdeu população (`r metro_rate("Belém")`), enquanto Porto Velho (`r metro_rate("Porto Velho")`) e Macapá (`r metro_rate("Macapá")`) cresceram mais lentamente que Manaus.
 
@@ -157,11 +157,11 @@ map
 
 Clique nos municípios do mapa para consultar as populações e o crescimento anual.
 
-Essa redistribuição populacional, compatível com a hipótese de **migração da capital para as periferias**, pode apontar uma busca por melhor qualidade de vida, menores custos habitacionais e novas oportunidades. Este tipo de movimentação também pode sinalizar uma **saturação da capital**, resultado de várias causas, incluindo: aumento da violência urbana, saturação da infraestrutura viária, aumento do custo de vida, piora na qualidade e oferta de serviços públicos. No caso de BH, [Thiago Jardim relaciona parte desse processo às restrições urbanísticas da cidade, que dificultariam a expansão imobiliária](https://caosplanejado.com/belo-horizonte-o-caminho-para-a-recuperacao/)[^1].
+Essa redistribuição populacional, compatível com a hipótese de **migração da capital para as periferias**, pode apontar uma busca por melhor qualidade de vida, menores custos habitacionais e novas oportunidades. Este tipo de movimentação também pode sinalizar uma **saturação da capital**, resultado de várias causas, incluindo o aumento da violência urbana, a saturação da infraestrutura viária, o aumento do custo de vida e a piora na qualidade e oferta de serviços públicos. No caso de BH, [Thiago Jardim relaciona parte desse processo às restrições urbanísticas da cidade, que dificultariam a expansão imobiliária](https://caosplanejado.com/belo-horizonte-o-caminho-para-a-recuperacao/)[^1].
 
 [^1]: Essa é a interpretação apresentada por Thiago Jardim no artigo citado. As variações populacionais dos Censos, isoladamente, não identificam os fluxos migratórios nem o efeito causal das regras urbanísticas.
 
-**Nova Lima** foi uma das cidades que mais cresceram nesse entorno. A cidade registrou crescimento de `r city_rate("Nova Lima")` ao ano, saltando de 80.998 para 111.697 habitantes - um aumento de quase 38% em apenas 12 anos. A cidade tem localização estratégica, próxima à região Centro-Sul da capital mineira, facilitando o deslocamento para regiões com empregos de alta qualidade. Na interpretação de Jardim, as condições para construir em Nova Lima são mais favoráveis do que na capital.
+**Nova Lima** foi uma das cidades que mais cresceram nesse entorno. A cidade registrou crescimento de `r city_rate("Nova Lima")` ao ano, saltando de 80.998 para 111.697 habitantes — um aumento de quase 38% em apenas 12 anos. A cidade tem localização estratégica, próxima à região Centro-Sul da capital mineira, facilitando o deslocamento para regiões com empregos de alta qualidade. Na interpretação de Jardim, as condições para construir em Nova Lima são mais favoráveis do que na capital.
 
 O padrão se repete em outros municípios da região: São José da Lapa (`r city_rate("São José da Lapa")`), Mateus Leme (`r city_rate("Mateus Leme")`), Igarapé (`r city_rate("Igarapé")`) e Itatiaiuçu (`r city_rate("Itatiaiuçu")`) apresentam crescimento robusto, evidenciando que o dinamismo metropolitano se deslocou para a periferia. Mesmo municípios menores como Florestal (`r city_rate("Florestal")`) e Fortuna de Minas (`r city_rate("Fortuna de Minas")`) participam desse processo de redistribuição.
 
