@@ -1,0 +1,17 @@
+variable,source_name,dimension
+ips,Índice de Progresso Social,NA
+nhb,Necessidades Humanas Básicas,NA
+fbe,Fundamentos do Bem-estar,NA
+opo,Oportunidades,NA
+nutricao,Nutrição e Cuidados Médicos Básicos,nhb
+saneamento,Água e Saneamento,nhb
+moradia,Moradia,nhb
+seguranca,Segurança Pessoal,nhb
+conhecimento,Acesso ao Conhecimento Básico,fbe
+informacao,Acesso à Informação e Comunicação,fbe
+saude,Saúde e Bem-estar,fbe
+ambiente,Qualidade do Meio Ambiente,fbe
+direitos,Direitos Individuais,opo
+liberdades,Liberdades Individuais e de Escolha,opo
+inclusao,Inclusão Social,opo
+educacao,Acesso à Educação Superior,opo

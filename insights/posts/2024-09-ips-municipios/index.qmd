@@ -1,0 +1,353 @@
+---
+title: "O Índice de Progresso Social nos municípios brasileiros"
+date: "2024-09-15"
+description: "O Índice de Progresso Social separa o melhor e o pior município brasileiro por quase 37 pontos. A dimensão que puxa o país para baixo não é saneamento nem moradia: é o acesso a direitos e à educação superior."
+categories: ["Economia", "Demografia", "Brasil"]
+image: "/static/images/art/hokusai-insights-2026-09-07/cover-layered-inquiry.webp"
+image-alt: "Faixas curvas azuis e claras se sobrepõem sob um campo de cor linho"
+---
+
+```{r libs}
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(gt)
+source(here::here("insights/posts/_ekio-style.R"))
+
+# IPS Brasil por município, subconjunto vendorizado do arquivo original.
+# Índice, três dimensões, doze componentes e variáveis de contexto; ver data.R.
+ips <- readr::read_csv("ips-municipios.csv", show_col_types = FALSE)
+variaveis <- readr::read_csv("ips-variaveis.csv", show_col_types = FALSE)
+
+# Número com vírgula decimal para o texto corrido.
+n_br <- function(x, digits = 1) {
+  format(round(x, digits), decimal.mark = ",", nsmall = digits, big.mark = ".")
+}
+```
+
+```{r contexto}
+regioes <- c(
+  AC = "Norte", AM = "Norte", AP = "Norte", PA = "Norte", RO = "Norte",
+  RR = "Norte", TO = "Norte",
+  AL = "Nordeste", BA = "Nordeste", CE = "Nordeste", MA = "Nordeste",
+  PB = "Nordeste", PE = "Nordeste", PI = "Nordeste", RN = "Nordeste",
+  SE = "Nordeste",
+  DF = "Centro-Oeste", GO = "Centro-Oeste", MS = "Centro-Oeste",
+  MT = "Centro-Oeste",
+  ES = "Sudeste", MG = "Sudeste", RJ = "Sudeste", SP = "Sudeste",
+  PR = "Sul", RS = "Sul", SC = "Sul"
+)
+
+ips <- mutate(ips, regiao = regioes[abbrev_state])
+
+rotulos <- setNames(variaveis$source_name, variaveis$variable)
+componentes <- filter(variaveis, !is.na(dimension))
+dimensoes <- c(nhb = "Necessidades Humanas Básicas",
+               fbe = "Fundamentos do Bem-estar",
+               opo = "Oportunidades")
+
+# Números usados no texto corrido.
+faixa_ips <- range(ips$ips)
+mediana_ips <- median(ips$ips)
+media_simples <- mean(ips$ips)
+media_ponderada <- weighted.mean(ips$ips, ips$pop_2022)
+share_meio <- mean(ips$ips >= 50 & ips$ips < 60)
+cor_pib <- cor(ips$ips, log(ips$gdp_pc_2021))
+
+media_dimensao <- sapply(ips[names(dimensoes)], mean)
+sd_dimensao <- sapply(ips[names(dimensoes)], sd)
+
+media_componente <- sapply(ips[componentes$variable], mean)
+piores_comp <- sort(media_componente)[1:2]
+melhor_comp <- sort(media_componente, decreasing = TRUE)[1]
+
+por_regiao <- ips |>
+  summarise(ips = mean(ips), opo = mean(opo), .by = regiao) |>
+  arrange(desc(ips))
+
+inclusao_regiao <- ips |>
+  summarise(inclusao = mean(inclusao), .by = regiao)
+```
+
+A renda de um município brasileiro explica pouco do que se vive nele. Entre as `r format(nrow(ips), big.mark = ".", decimal.mark = ",")` cidades do país, a correlação entre o logaritmo do PIB per capita e o Índice de Progresso Social (IPS) é de `r n_br(cor_pib, 2)`: municípios de renda parecida chegam a pontuações sociais muito distantes. O que quase todos têm em comum é onde falham.
+
+## O que o IPS mede
+
+O IPS avalia o desenvolvimento social sem usar variáveis econômicas. Enquanto o PIB per capita mede a riqueza produzida, o IPS mede resultados: quanta gente tem água tratada, quantas crianças concluem a escola, quem alcança o ensino superior.
+
+O índice se organiza em três dimensões, cada uma formada por quatro componentes.
+
+**Necessidades Humanas Básicas** reúne nutrição e cuidados médicos, água e saneamento, moradia e segurança pessoal. **Fundamentos do Bem-estar** cobre acesso ao conhecimento básico, informação e comunicação, saúde e qualidade do meio ambiente. **Oportunidades** trata de direitos individuais, liberdades pessoais, inclusão social e acesso à educação superior.
+
+O IPS-Brasil é uma adaptação da metodologia internacional do Social Progress Index, feita pelo Imazon em parceria com o Social Progress Imperative. Os dados deste post cobrem todos os municípios do país; as variáveis de contexto trazem a população do Censo de 2022 e o PIB per capita de 2021.
+
+## Estatísticas descritivas
+
+Todos os indicadores vão de 0 a 100, e valores maiores indicam melhor desempenho.
+
+```{r tabela-descritiva}
+resumo <- ips |>
+  select(ips, all_of(c(names(dimensoes), componentes$variable))) |>
+  pivot_longer(everything(), names_to = "variable") |>
+  summarise(
+    minimo = min(value),
+    media = mean(value),
+    mediana = median(value),
+    maximo = max(value),
+    .by = variable
+  ) |>
+  mutate(
+    rotulo = unname(rotulos[variable]),
+    grupo = case_when(
+      variable == "ips" ~ "Índice geral",
+      variable %in% names(dimensoes) ~ "Dimensões",
+      TRUE ~ "Componentes"
+    ),
+    grupo = factor(grupo, c("Índice geral", "Dimensões", "Componentes"))
+  ) |>
+  arrange(grupo, match(variable, variaveis$variable))
+
+resumo |>
+  select(grupo, rotulo, minimo, media, mediana, maximo) |>
+  gt(groupname_col = "grupo", rowname_col = "rotulo") |>
+  cols_label(
+    minimo = "Mínimo",
+    media = "Média",
+    mediana = "Mediana",
+    maximo = "Máximo"
+  ) |>
+  fmt_number(where(is.numeric), decimals = 1, dec_mark = ",", sep_mark = ".") |>
+  tab_header(
+    title = "O índice, suas dimensões e seus componentes",
+    subtitle = "Distribuição entre os municípios brasileiros. Escala de 0 a 100."
+  ) |>
+  tab_source_note("Fonte: IPS-Brasil (Imazon). Elaboração: EKIO.") |>
+  ekiotable::gt_theme_hokusai(stripe = TRUE) |>
+  tab_options(
+    table.width = pct(100),
+    container.overflow.x = "auto",
+    table.font.size = px(13)
+  )
+```
+
+Dois componentes ficam muito abaixo do resto: `r rotulos[names(piores_comp)[1]]`, com média de `r n_br(piores_comp[1])`, e `r rotulos[names(piores_comp)[2]]`, com `r n_br(piores_comp[2])`. No outro extremo, `r rotulos[names(melhor_comp)]` chega a `r n_br(melhor_comp)`. O contraste explica por que a dimensão Oportunidades, que abriga os dois primeiros, fica tão atrás das outras duas.
+
+## Como o índice se distribui
+
+```{r histograma}
+ggplot(ips, aes(x = ips)) +
+  geom_histogram(bins = 50, fill = ekio_site$navy, color = ekio_site$paper) +
+  geom_vline(
+    xintercept = mediana_ips,
+    linetype = "dashed",
+    color = ekio_site$orange,
+    linewidth = 0.8
+  ) +
+  scale_y_continuous(expand = expansion(c(0, 0.05))) +
+  labs(
+    title = "Um país concentrado no meio da escala",
+    subtitle = paste0(
+      "Municípios por faixa do Índice de Progresso Social. ",
+      "A linha tracejada marca a mediana, ", n_br(mediana_ips), "."
+    ),
+    x = "Índice de Progresso Social",
+    y = "Municípios",
+    caption = "Fonte: IPS-Brasil (Imazon). Elaboração: EKIO."
+  ) +
+  theme_ekio_site()
+```
+
+Quase `r n_br(share_meio * 100, 0)`% dos municípios pontuam entre 50 e 60. A distribuição é simétrica: a média, `r n_br(media_simples)`, praticamente coincide com a mediana. Não há cauda longa de casos extremos em nenhum dos lados — o que o gráfico mostra é um país agrupado numa faixa estreita, com poucas cidades se destacando para cima ou para baixo.
+
+Essa média dá o mesmo peso a Serra da Saudade, com 833 habitantes, e a São Paulo, com 11,5 milhões. Ponderando pela população, o índice do brasileiro típico sobe para `r n_br(media_ponderada)`, porque os municípios maiores pontuam melhor. As comparações a seguir usam a média simples entre municípios, como é usual na leitura do IPS, mas a diferença de `r n_br(media_ponderada - media_simples)` pontos entre as duas medidas pesa em qualquer comparação regional.
+
+## As três dimensões
+
+```{r boxplot}
+dados_dimensao <- ips |>
+  select(all_of(names(dimensoes))) |>
+  pivot_longer(everything(), names_to = "dimensao") |>
+  mutate(
+    dimensao = factor(
+      dimensao,
+      levels = c("nhb", "fbe", "opo"),
+      labels = c(
+        "Necessidades\nHumanas Básicas",
+        "Fundamentos do\nBem-estar",
+        "Oportunidades"
+      )
+    )
+  )
+
+ggplot(dados_dimensao, aes(x = dimensao, y = value, fill = dimensao)) +
+  geom_boxplot(
+    outlier.alpha = 0.15,
+    outlier.size = 0.6,
+    color = ekio_site$ink_600,
+    linewidth = 0.4,
+    width = 0.55
+  ) +
+  scale_fill_manual(values = as.character(ekio_pal("full"))[c(1, 3, 2)]) +
+  scale_y_continuous(limits = c(0, 100)) +
+  labs(
+    title = "Oportunidades é a dimensão mais fraca",
+    subtitle = "Distribuição das três dimensões do IPS entre os municípios brasileiros",
+    x = NULL,
+    y = "Pontuação",
+    caption = "Fonte: IPS-Brasil (Imazon). Elaboração: EKIO."
+  ) +
+  theme_ekio_site() +
+  theme(legend.position = "none", panel.grid.major.x = element_blank())
+```
+
+A distância entre as dimensões é grande. Necessidades Humanas Básicas tem média de `r n_br(media_dimensao["nhb"])` e Fundamentos do Bem-estar, `r n_br(media_dimensao["fbe"])`; Oportunidades fica em `r n_br(media_dimensao["opo"])`, mais de trinta pontos abaixo da primeira. Nenhum município brasileiro alcança 65 pontos em Oportunidades, patamar que milhares de municípios ultrapassam nas outras duas dimensões.
+
+Oportunidades não é, porém, a dimensão mais dispersa. Seu desvio-padrão, `r n_br(sd_dimensao["opo"])`, é menor que o de Necessidades Humanas Básicas, `r n_br(sd_dimensao["nhb"])`. O que a distingue é o nível, não a variabilidade — os municípios brasileiros falham em oportunidades de forma bastante uniforme.
+
+```{r componentes}
+#| fig-height: 6
+dados_componentes <- tibble(
+  variable = names(media_componente),
+  media = unname(media_componente)
+) |>
+  left_join(componentes, by = "variable") |>
+  mutate(
+    rotulo = source_name,
+    rotulo = stringr::str_wrap(rotulo, 34),
+    rotulo = forcats::fct_reorder(rotulo, media),
+    dimensao = factor(dimension, names(dimensoes), unname(dimensoes))
+  )
+
+ggplot(dados_componentes, aes(x = media, y = rotulo, fill = dimensao)) +
+  geom_col(width = 0.8) +
+  geom_text(
+    aes(label = n_br(media)),
+    hjust = -0.25,
+    size = 3.2,
+    color = ekio_site$ink_500
+  ) +
+  scale_x_continuous(limits = c(0, 100), expand = expansion(c(0, 0.02))) +
+  scale_fill_manual(name = NULL, values = as.character(ekio_pal("full"))[c(1, 3, 2)]) +
+  labs(
+    title = "Direitos e ensino superior formam o piso do índice",
+    subtitle = "Média dos municípios brasileiros em cada componente do IPS",
+    x = NULL,
+    y = NULL,
+    caption = "Fonte: IPS-Brasil (Imazon). Elaboração: EKIO."
+  ) +
+  theme_ekio_site() +
+  theme(
+    legend.position = "top",
+    legend.justification = 0,
+    panel.grid.major.y = element_blank()
+  )
+```
+
+Os doze componentes deixam claro onde está o problema. Moradia é o ponto forte do país. Direitos individuais e acesso à educação superior ficam abaixo de 30 pontos e derrubam sozinhos a média de Oportunidades.
+
+## Desempenho regional
+
+```{r estados}
+#| fig-height: 6.5
+por_uf <- ips |>
+  summarise(media = mean(ips), .by = c(abbrev_state, regiao)) |>
+  mutate(
+    abbrev_state = forcats::fct_reorder(abbrev_state, media),
+    regiao = factor(
+      regiao,
+      c("Norte", "Nordeste", "Centro-Oeste", "Sudeste", "Sul")
+    )
+  )
+
+ggplot(por_uf, aes(x = media, y = abbrev_state, fill = regiao)) +
+  geom_col(width = 0.8) +
+  geom_text(
+    aes(label = n_br(media)),
+    hjust = -0.2,
+    size = 3.2,
+    color = ekio_site$ink_500
+  ) +
+  scale_x_continuous(limits = c(0, 78), expand = expansion(c(0, 0.02))) +
+  scale_fill_manual(
+    name = NULL,
+    values = as.character(ekio_pal("full"))[c(5, 2, 4, 1, 3)]
+  ) +
+  labs(
+    title = "IPS médio por unidade da federação",
+    subtitle = stringr::str_wrap(
+      paste(
+        "Média simples dos municípios de cada estado. O Distrito Federal é um",
+        "município único e não é comparável aos demais."
+      ),
+      90
+    ),
+    x = NULL,
+    y = NULL,
+    caption = "Fonte: IPS-Brasil (Imazon). Elaboração: EKIO."
+  ) +
+  theme_ekio_site() +
+  theme(
+    legend.position = "top",
+    legend.justification = 0,
+    panel.grid.major.y = element_blank()
+  )
+```
+
+O ranking entre regiões segue o esperado. O Sudeste lidera com `r n_br(por_regiao$ips[por_regiao$regiao == "Sudeste"])` pontos e o Norte fecha a lista com `r n_br(por_regiao$ips[por_regiao$regiao == "Norte"])`, uma distância de `r n_br(por_regiao$ips[por_regiao$regiao == "Sudeste"] - por_regiao$ips[por_regiao$regiao == "Norte"])` pontos. São Paulo, Santa Catarina, Paraná e Rio Grande do Sul ocupam as primeiras posições entre os estados; Roraima, Acre, Pará e Amazonas, as últimas.
+
+O ranking se inverte, porém, quando se olha só para Oportunidades. Aí o Nordeste (`r n_br(por_regiao$opo[por_regiao$regiao == "Nordeste"])`) fica acima do Sudeste (`r n_br(por_regiao$opo[por_regiao$regiao == "Sudeste"])`). A inversão vem do componente de inclusão social, que no IPS-Brasil mede paridade de gênero e de raça na câmara municipal, violência contra mulheres, negros e indígenas, e trabalho infantil: os municípios nordestinos marcam `r n_br(inclusao_regiao$inclusao[inclusao_regiao$regiao == "Nordeste"])` contra `r n_br(inclusao_regiao$inclusao[inclusao_regiao$regiao == "Sudeste"])` dos paulistas, mineiros, cariocas e capixabas. Desenvolvimento econômico e inclusão política não caminham juntos.
+
+## Extremos
+
+```{r tabelas-extremos}
+tabela_extremos <- function(dados, titulo, subtitulo) {
+  dados |>
+    select(name_muni, abbrev_state, ips, nhb, fbe, opo) |>
+    gt() |>
+    cols_label(
+      name_muni = "Município",
+      abbrev_state = "UF",
+      ips = "IPS",
+      nhb = "Necessidades",
+      fbe = "Bem-estar",
+      opo = "Oportunidades"
+    ) |>
+    fmt_number(where(is.numeric), decimals = 1, dec_mark = ",") |>
+    tab_header(title = titulo, subtitle = subtitulo) |>
+    tab_source_note("Fonte: IPS-Brasil (Imazon). Elaboração: EKIO.") |>
+    ekiotable::gt_theme_hokusai(stripe = TRUE) |>
+    tab_options(
+      table.width = pct(100),
+      container.overflow.x = "auto",
+      table.font.size = px(13)
+    )
+}
+
+melhores <- slice_max(ips, ips, n = 10)
+piores <- slice_min(ips, ips, n = 10)
+
+tabela_extremos(
+  melhores,
+  "Os dez municípios com maior IPS",
+  "Pontuação geral e por dimensão."
+)
+```
+
+São Paulo domina o topo da lista, com `r sum(melhores$abbrev_state == "SP")` dos dez primeiros colocados. As duas exceções são capitais: Brasília e Goiânia. O primeiro lugar cabe a Gavião Peixoto, no interior paulista, um município de menos de cinco mil habitantes — a lista mistura cidades médias industrializadas com municípios pequenos, onde um número reduzido de habitantes facilita a cobertura de serviços.
+
+```{r tabela-piores}
+tabela_extremos(
+  piores,
+  "Os dez municípios com menor IPS",
+  "Pontuação geral e por dimensão."
+)
+```
+
+Na outra ponta, os dez piores resultados estão todos no Pará e em Roraima. São municípios amazônicos que pontuam mal nas três dimensões ao mesmo tempo, e não apenas em uma delas: nenhum passa de 55 pontos em Necessidades Humanas Básicas, patamar que a mediana nacional supera com folga.
+
+## Dados e referências
+
+- Dados: [IPS-Brasil](https://ipsbrasil.org.br), Imazon.
+- Metodologia: [Social Progress Index](https://www.socialprogress.org/).
+
+{{< include ../../_post-cta.qmd >}}
