@@ -105,7 +105,7 @@ $line-height-base: 1.7;
 
 $link-color: $navy;
 $link-hover-color: $ink;
-$link-decoration: none;
+$link-decoration: underline;
 
 $primary: $navy;
 $secondary: $ink-400;
@@ -471,6 +471,8 @@ p:has(> .package-meta:only-child) {
 
 // The primary call to action in this system is a ruled link, not a filled box.
 .link-rule {
+  // The bottom border already provides a persistent underline.
+  text-decoration: none;
   display: inline-block;
   font-family: $font-cond;
   font-weight: 500;
@@ -484,6 +486,7 @@ p:has(> .package-meta:only-child) {
   transition: color 0.18s, border-color 0.18s;
 
   &:hover {
+    text-decoration: none;
     color: $ink;
     border-bottom-color: $ink;
   }
@@ -950,6 +953,7 @@ h1.hero-title {
 }
 
 .service-link {
+  text-decoration: none;
   font-family: $font-cond;
   font-size: 0.8125rem;
   font-weight: 500;
@@ -960,6 +964,7 @@ h1.hero-title {
   padding-bottom: 4px;
 
   &:hover {
+    text-decoration: none;
     color: $ink;
     border-bottom-color: $ink;
   }

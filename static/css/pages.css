@@ -201,6 +201,7 @@ h1.home-cover-title {
 
 .ins-title a {
     color: inherit;
+    text-decoration: none;
 }
 
 /* Whole card is the click target. */
@@ -364,6 +365,7 @@ h1.home-cover-title {
 
 .work-title a {
     color: inherit;
+    text-decoration: none;
 }
 
 .work-title a:hover {
