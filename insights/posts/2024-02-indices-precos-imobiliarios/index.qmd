@@ -1,6 +1,6 @@
 ---
 title: "Índices de Preços Imobiliários no Brasil"
-date: "2024-02-25"
+date: "2024-06-01"
 categories: ["Imóveis", "Economia", "Brasil"]
 description: "Os três principais índices de preços imobiliários do Brasil divergem desde a pandemia: alta expressiva no IGMI-R, alta tímida no FipeZap e estagnação no IVG-R. O que cada um mede explica a diferença."
 image: "/static/images/art/hokusai-series-2026-09/insight-office-towers.webp"
@@ -23,23 +23,24 @@ source(here::here("insights/posts/_ekio-style.R"))
 ```
 
 ```{r import rppi-sale}
-# Post published 2024-02-25. Source series carry roughly a two-month
+# Post published 2024-06-01. Source series carry roughly a two-month
 # publication lag, so the figures use only what was available at the time.
-data_cutoff <- as.Date("2024-01-01")
+data_cutoff <- as.Date("2024-04-01")
 
 sale <- get_dataset("rppi", table = "sale")
 sale <- subset(sale, date < data_cutoff)
 ```
 
 ```{r import-price-series}
-ipca <- get_series(433, start_date = as.Date("2000-01-01"), as = "ts")
-incc <- get_series(192, start_date = as.Date("2000-12-01"), as = "ts")
+series <- rbcb::get_series(
+  c("ipca" = 433, "incc" = 192),
+  start_date = as.Date("2000-01-01")
+)
 
-mts <- ts.intersect(ipca, incc, dframe = TRUE)
-tbl_prices <- tibble(date = zoo::as.Date.ts(incc), mts)
+tbl_prices <- purrr::reduce(series, inner_join)
 
 tbl_prices <- tbl_prices |>
-  filter(date < data_cutoff) |>
+  filter(date < local(data_cutoff)) |>
   mutate(
     acum_ipca = c(NA, (cumprod(1 + ipca[-1] / 100) - 1) * 100),
     index_ipca = if_else(date == first(date), 100, 100 + acum_ipca),

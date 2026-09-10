@@ -175,14 +175,16 @@ size_chart <- function(
       y = NULL,
       caption = "Fonte: IBGE, Censos 2010 e 2022 • EKIO\nPorte municipal em 2022; população de 2010 compatibilizada pelo IBGE."
     ) +
-    theme_ekio_site() +
-    theme(axis.text.x = element_blank(), panel.grid = element_blank())
+    theme_ekio_site(ticks = "y", grid = "none") +
+    theme(
+      axis.text.x = element_blank()
+    )
 }
 
 plots <- list(
   cities = size_chart(
     "share",
-    "Onde mais cidades ganharam habitantes",
+    "Cidades de médio e grande porte foram as que mais cresceram",
     "Percentual de municípios com crescimento populacional entre 2010 e 2022."
   ),
   growth = size_chart(
@@ -192,7 +194,7 @@ plots <- list(
   ),
   total_growth = size_chart(
     "total_growth",
-    "O ganho populacional das cidades médias",
+    "O ganho populacional das cidades por porte populacional",
     "Aumento total da população entre 2010 e 2022, em milhões de habitantes.",
     divisor = 1e6,
     suffix = " mi",

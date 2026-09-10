@@ -1,6 +1,6 @@
 ---
 title: "A história da inflação brasileira"
-date: "2023-12-05"
+date: "2026-01-05"
 description: "Do fim da década de 1970 ao período pós-Plano Real, dois gráficos mostram como planos econômicos, mudanças institucionais e crises marcaram a trajetória da inflação brasileira."
 categories: ["Economia", "Visualização de Dados", "Brasil"]
 image: "/static/images/art/hokusai-insights-2026-09-07/insight-signal-and-cycle.webp"

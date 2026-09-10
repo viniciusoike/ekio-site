@@ -5,6 +5,7 @@ categories: ["Censo", "Demografia", "Análise Espacial", "Brasil"]
 description: "Algumas das principais regiões metropolitanas do país perderam população ou cresceram pouco entre 2010 e 2022. Os contrastes regionais mostram o dinamismo de Santa Catarina e do Centro-Oeste e a desaceleração de grandes centros."
 image: "/static/images/art/hokusai-insights-2026-09-07/insight-metropolitan-drift.webp"
 image-alt: "Composição abstrata de núcleos urbanos em azul e tons de papel, com blocos que se dispersam pelo território"
+featured: "true"
 ---
 
 ```{r}
