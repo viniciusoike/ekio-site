@@ -1,7 +1,7 @@
 ---
 title: "Preços de Aluguel e de Venda de Imóveis"
 date: "2024-02-21"
-categories: ["Imóveis", "Visualização de Dados", "Brasil"]
+categories: ["Mercado Imobiliário", "Economia", "Aluguel"]
 description: "Os mercados de aluguel e de venda de imóveis são interligados e tendem a um equilíbrio. As séries do FipeZap indicam uma quebra nessa tendência histórica e o começo de um novo ciclo de aluguel."
 image: "/static/images/art/hokusai-series-2026-09/card-positive-correlation.webp"
 image-alt: "Ilustração de dispersão com correlação positiva e uma reta ajustada"
@@ -64,7 +64,7 @@ p1 <- ggplot(fipezap, aes(x = date, y = new_index, color = rent_sale)) +
     subtitle = "Variação dos índices de preços residenciais de aluguel e de venda (anúncios).",
     x = NULL,
     y = "Índice (100 = 2019)",
-    caption = "Fonte: FipeZap"
+    caption = "Fonte: FipeZap • EKIO"
   ) +
   theme_ekio_site()
 
@@ -240,7 +240,7 @@ p_fipe_ivar <- ggplot(indexes, aes(date, index, color = name_series)) +
     y = "Índice (100 = jan/2019)",
     title = "Índices de Aluguel divergem durante a pandemia",
     subtitle = "Variação mensal do FipeZap (aluguel residencial) e IVAR (FGV) desde janeiro de 2019.",
-    caption = "Fonte: FipeZap, FGV"
+    caption = "Fonte: FipeZap, FGV • EKIO"
   ) +
   theme_ekio_site()
 ```

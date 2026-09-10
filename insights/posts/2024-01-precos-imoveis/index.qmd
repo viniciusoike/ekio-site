@@ -1,7 +1,7 @@
 ---
 title: "Preços de Imóveis no Brasil"
 date: "2024-01-28"
-categories: ["Imóveis", "Visualização de Dados", "Brasil"]
+categories: ["Mercado Imobiliário", "Economia", "Preços"]
 description: "Existe uma impressão generalizada de que o preço dos imóveis no Brasil subiu muito. Em termos reais, o preço médio andou de lado e hoje está abaixo do nível de 2010."
 draft: false
 image: "/static/images/art/hokusai-series-2026-09/insight-residential-houses.webp"
@@ -74,7 +74,7 @@ p_bis_geral <- ggplot(rppi_comp, aes(x = date, y = value)) +
       "Índices de preços imobiliários reais (ajustados pela inflação local) indexados aos valores médios de 2010. As definições de Avançados e Emergentes seguem as convenções do BIS.",
       111
     ),
-    caption = "Fonte: BIS. @viniciusoike"
+    caption = "Fonte: BIS • EKIO"
   ) +
   theme_ekio_site()
 ```

@@ -2,11 +2,50 @@
 title: "A distribuição racial do Brasil"
 date: "2025-02-01"
 description: "Em todas as regiões geográficas intermediárias do Brasil, pessoas brancas ou pardas formam o maior grupo racial. O mapa do Censo 2022 revela um contraste claro entre o Norte e o Sul."
-categories: ["Demografia", "Censo", "Mapas", "Brasil"]
+categories: ["Demografia", "Censo", ]
 image: "/static/images/art/hokusai-insights-2026-09-07/insight-demographic-strata.webp"
 image-alt: "Fragmentos arredondados formam camadas horizontais de diferentes tamanhos em azul e linho"
 toc: false
 ---
+
+```{r libs}
+library(ggplot2)
+library(dplyr)
+library(sf)
+library(ggnewscale)
+library(ggtext)
+source(here::here("insights/posts/_ekio-style.R"))
+
+# Cor ou raça por região geográfica intermediária, Censo 2022. Subconjunto
+# vendorizado com geometria simplificada; ver data.R.
+mapa <- readr::read_rds(here::here(
+  "insights/posts/2025-02-distribuicao-racial-brasil/dat_map.rds"
+))
+```
+
+```{r dados}
+resumo <- st_drop_geometry(mapa)
+
+# Participação nacional de cada cor ou raça, ponderada pela população.
+brasil <- resumo |>
+  summarise(across(starts_with("prop_"), ~ weighted.mean(.x, pop_total))) |>
+  tidyr::pivot_longer(everything(), names_to = "race", values_to = "prop") |>
+  mutate(race = sub("^prop_", "", race))
+
+pct <- function(x, casas = 1) {
+  format(round(x * 100, casas), decimal.mark = ",", nsmall = casas)
+}
+
+pct_br <- function(nome, casas = 1) {
+  pct(brasil$prop[brasil$race == nome], casas)
+}
+
+extremos <- resumo |> slice_max(prop, n = 1, by = race)
+extremo <- function(cor) extremos[extremos$race == cor, ]
+
+n_parda <- sum(resumo$race == "parda")
+n_branca <- sum(resumo$race == "branca")
+```
 
 A distribuição racial do Brasil apresenta um contraste regional claro. A
 população parda forma o maior grupo em quase todas as regiões intermediárias do
@@ -15,12 +54,164 @@ predomina no Sul e em parte do Sudeste. As regiões do Rio de Janeiro e de Caic�
 no Rio Grande do Norte, estão entre as exceções a esse padrão norte-sul.
 
 O mapa usa os dados de cor ou raça do Censo Demográfico de 2022. No total do
-país, 45,3% da população se declarou parda e 43,5%, branca. Pessoas pretas
-representavam 10,2% da população; indígenas, 0,6%; e amarelas, 0,4%. Apesar da
+país, `r pct_br("parda")`% da população se declarou parda e `r pct_br("branca")`%,
+branca. Pessoas pretas representavam `r pct_br("preta")`% da população;
+indígenas, `r pct_br("indigena")`%; e amarelas, `r pct_br("amarela")`%. Apesar da
 diversidade nacional, apenas pessoas pardas ou brancas formavam o maior grupo em
-cada região intermediária.
+cada região intermediária: pardas em `r n_parda` delas, brancas nas outras
+`r n_branca`.
 
-[![](censo_mapa_raca.png){fig-align="center" fig-alt="Mapa do Brasil por região geográfica intermediária. Tons de roxo indicam regiões em que pessoas pardas formam o maior grupo racial; tons de verde indicam regiões em que pessoas brancas formam o maior grupo. O roxo predomina no Norte, no Nordeste e no Centro-Oeste, enquanto o verde se concentra no Sul e em parte do Sudeste."}](censo_mapa_raca.png)
+```{r figura}
+quebras <- seq(0.5, 0.8, 0.1)
+limites <- c(0.40, 0.85)
+
+# As duas escalas de preenchimento convivem no mesmo painel via ggnewscale: a
+# roxa para as regiões de maioria parda, a verde para as de maioria branca.
+cores_parda <- RColorBrewer::brewer.pal(9, "Purples")[2:8]
+cores_branca <- RColorBrewer::brewer.pal(9, "Greens")[2:8]
+
+# O contorno do país segura a silhueta: nas regiões perto de 45% o
+# preenchimento mais claro se confunde com o papel da página.
+contorno <- st_union(st_geometry(mapa))
+
+destaques <- mapa |> slice_max(prop, n = 1, by = race)
+centro <- st_coordinates(st_centroid(st_geometry(destaques)))
+rownames(centro) <- destaques$race
+
+anotacoes <- tibble(
+  x = c(-40, -65, -43, -44),
+  y = c(-27, -18, -32, 2),
+  size = c(4, 4, 3, 3),
+  label = c(
+    paste0(
+      "Regiões em <span style='color:", ekio_site$green,
+      "'><b>verde</b></span><br>indicam que<br><b>brancos</b> são maioria"
+    ),
+    paste0(
+      "Regiões em <span style='color:", ekio_site$purple,
+      "'><b>roxo</b></span><br>indicam que<br><b>pardos</b> são maioria"
+    ),
+    "Santa Cruz é a RI<br>com maior percentual<br>de <b>brancos (82%)</b>",
+    "Parintins é a RI<br>com maior percentual<br>de <b>pardos (80%)</b>"
+  )
+)
+
+p_mapa <- ggplot() +
+  geom_sf(
+    data = filter(mapa, race == "parda"),
+    aes(fill = prop),
+    linewidth = 0.08,
+    color = ekio_site$paper
+  ) +
+  scale_fill_gradientn(
+    name = "Pardos",
+    colours = cores_parda,
+    breaks = quebras,
+    labels = scales::label_percent(),
+    limits = limites,
+    guide = guide_colorbar(
+      order = 1,
+      direction = "vertical",
+      title.position = "top",
+      barheight = unit(2.1, "cm"),
+      barwidth = unit(0.35, "cm")
+    )
+  ) +
+  new_scale_fill() +
+  geom_sf(
+    data = filter(mapa, race == "branca"),
+    aes(fill = prop),
+    linewidth = 0.08,
+    color = ekio_site$paper
+  ) +
+  scale_fill_gradientn(
+    name = "Brancos",
+    colours = cores_branca,
+    breaks = quebras,
+    labels = scales::label_percent(),
+    limits = limites,
+    guide = guide_colorbar(
+      order = 2,
+      direction = "vertical",
+      title.position = "top",
+      barheight = unit(2.1, "cm"),
+      barwidth = unit(0.35, "cm")
+    )
+  ) +
+  geom_sf(
+    data = contorno,
+    fill = NA,
+    color = "white",
+    linewidth = 0.1
+  ) +
+  geom_sf(data = destaques, fill = NA, color = ekio_site$ink, linewidth = 0.3) +
+  geom_curve(
+    data = data.frame(x = centro["parda", 1], y = centro["parda", 2]),
+    aes(x = x, y = y, xend = x + 9.2, yend = y + 4.2),
+    linewidth = 0.25,
+    curvature = -0.15,
+    color = ekio_site$ink_500,
+    arrow = arrow(length = unit(3, "pt"), type = "closed")
+  ) +
+  geom_curve(
+    data = data.frame(x = centro["branca", 1], y = centro["branca", 2]),
+    aes(x = x - 0.4, y = y, xend = x - 7, yend = y + 1.2),
+    linewidth = 0.25,
+    curvature = 0.15,
+    color = ekio_site$ink_500,
+    arrow = arrow(length = unit(3, "pt"), type = "closed")
+  ) +
+  geom_richtext(
+    data = anotacoes,
+    aes(x = x, y = y, label = label, size = size),
+    family = "Lato",
+    lineheight = 1.15,
+    color = ekio_site$ink_600,
+    fill = ekio_paper$linen_98,
+    label.color = NA,
+    label.padding = unit(0.25, "lines")
+  ) +
+  scale_size_identity() +
+  coord_sf(xlim = c(-72.2, -35.5)) +
+  labs(
+    title = "A Divisão Racial do Brasil",
+    subtitle = "Percentual do grupo racial majoritário por Região Intermediária* (RI). Em todas as RIs, ou brancos ou pardos são a maioria.\nOs dados são do Censo Demográfico de 2022 do IBGE e mostram um padrão norte-sul no país.\nExceções ao padrão incluem a região do Rio de Janeiro, no Sudeste, e de Caicó, no Nordeste.",
+    caption = "Fonte: IBGE (Censo Demográfico 2022) • EKIO.\n(*) Regiões intermediárias agrupam municípios que compartilham relações econômicas e sociais\nem torno de um mesmo centro urbano principal."
+  ) +
+  theme_ekio_site() +
+  theme(
+    axis.line = element_blank(),
+    axis.line.x.bottom = element_blank(),
+    axis.ticks = element_blank(),
+    axis.ticks.length = unit(0, "pt"),
+    axis.text = element_blank(),
+    axis.title = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    legend.position = "inside",
+    legend.position.inside = c(0.01, 0.01),
+    legend.justification.inside = c(0, 0),
+    legend.box = "horizontal",
+    legend.background = element_rect(fill = ekio_site$paper, color = NA),
+    legend.box.spacing = unit(0.2, "cm"),
+    legend.spacing.x = unit(0.5, "cm"),
+    legend.title = element_text(size = 11),
+    legend.text = element_text(size = 9),
+    plot.title = element_text(size = 22),
+    plot.subtitle = element_text(size = 11.5),
+    plot.margin = margin(10, 10, 5, 10)
+  )
+```
+
+```{r}
+#| label: mapa
+#| fig-alt: "Mapa do Brasil por região geográfica intermediária. Tons de roxo indicam regiões em que pessoas pardas formam o maior grupo racial; tons de verde indicam regiões em que pessoas brancas formam o maior grupo. O roxo predomina no Norte, no Nordeste e no Centro-Oeste, enquanto o verde se concentra no Sul e em parte do Sudeste."
+#| out-width: "100%"
+#| fig-width: 8
+#| fig-height: 9
+#| fig-dpi: 72
+p_mapa
+```
 
 As regiões geográficas intermediárias agrupam regiões imediatas articuladas por
 um mesmo centro urbano. Essa divisão reduz o ruído que apareceria em um mapa
@@ -29,8 +220,11 @@ da cor representa a participação do grupo predominante, não a composição ra
 completa da região.
 
 O contraste aparece com maior força nos extremos. A região intermediária de
-Parintins, no Amazonas, tinha a maior proporção de pessoas pardas, com 80%. A
-região de Santa Cruz do Sul–Lajeado, no Rio Grande do Sul, registrava a maior
-proporção de pessoas brancas, com 82%.
+`r extremo("parda")$name_intermediate`, no Amazonas, tinha a maior proporção de
+pessoas pardas, com `r pct(extremo("parda")$prop, 0)`%. A região de Santa Cruz
+do Sul–Lajeado, no Rio Grande do Sul, registrava a maior proporção de pessoas
+brancas, com `r pct(extremo("branca")$prop, 0)`%.
 
-Fonte: IBGE, Censo Demográfico 2022.
+Dados: IBGE, Censo Demográfico 2022.
+
+{{< include ../../_post-cta.qmd >}}

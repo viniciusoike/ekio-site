@@ -109,7 +109,7 @@ Atendemos empresas e entidades governamentais em questões de mercado, investime
 
 [A renda em São Paulo se concentra no quadrante sudoeste da cidade. O mapa usa dados do projeto Acesso a Oportunidades (IPEA) na grade hexagonal H3, a mesma inteligência espacial que aplicamos em geomarketing e avaliação imobiliária.]{.featured-desc}
 
-[Ler a análise completa](insights/posts/2024-02-renda-sp/index.qmd){.link-rule-light}
+[Ler a análise completa](insights/posts/2026-05-renda-sp/index.qmd){.link-rule-light}
 
 :::
 

@@ -2,10 +2,9 @@
 title: "Casas e Apartamentos"
 date: "2025-03-19"
 description: "Em apenas três das mais de cinco mil cidades brasileiras há mais apartamentos do que casas. Nem o tamanho da população nem a área do município explicam a verticalização."
-draft: true
 image: "/static/images/art/hokusai-series-2026-09/insight-houses-and-apartments.webp"
 image-alt: "Ilustração que contrasta casas baixas com edifícios de apartamentos"
-categories: ["Imóveis", "Censo", "Brasil"]
+categories: ["Mercado Imobiliário", "Censo", "Verticalização"]
 ---
 
 ```{r}
@@ -147,7 +146,7 @@ ggplot(sub, aes(x = log(total_houses), y = Apartamento)) +
     subtitle = "Relação entre o número total de domicílios e o percentual de apartamentos por cidade",
     x = "Número total de Domicílios (escala log)",
     y = "Percentual de Apartamentos",
-    caption = "Fonte: IBGE (CENSO 2022)"
+    caption = "Fonte: IBGE (Censo Demográfico 2022) • EKIO"
   ) +
   theme_ekio_site(grid = "xy", ticks = "xy")
 ```
@@ -220,7 +219,7 @@ ggplot(sub, aes(x = log(area_ha), y = Apartamento)) +
     subtitle = "Relação entre a área total do município e o percentual de apartamentos por cidade",
     x = "Tamanho do Município (hectares, escala log)",
     y = "Percentual de Apartamentos",
-    caption = "Fonte: IBGE (CENSO 2022)"
+    caption = "Fonte: IBGE (Censo Demográfico 2022) • EKIO"
   ) +
   theme_ekio_site(grid = "xy", ticks = "xy")
 ```

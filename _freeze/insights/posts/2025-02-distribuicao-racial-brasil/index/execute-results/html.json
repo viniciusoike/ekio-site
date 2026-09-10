@@ -1,0 +1,17 @@
+{
+  "hash": "392b08c11ce94b00ba6f88885ffe98b4",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"A distribuição racial do Brasil\"\ndate: \"2025-02-01\"\ndescription: \"Em todas as regiões geográficas intermediárias do Brasil, pessoas brancas ou pardas formam o maior grupo racial. O mapa do Censo 2022 revela um contraste claro entre o Norte e o Sul.\"\ncategories: [\"Demografia\", \"Censo\", ]\nimage: \"/static/images/art/hokusai-insights-2026-09-07/insight-demographic-strata.webp\"\nimage-alt: \"Fragmentos arredondados formam camadas horizontais de diferentes tamanhos em azul e linho\"\ntoc: false\n---\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell layout-align=\"center\"}\n\n:::\n\n\nA distribuição racial do Brasil apresenta um contraste regional claro. A\npopulação parda forma o maior grupo em quase todas as regiões intermediárias do\nNorte e em grande parte do Nordeste e do Centro-Oeste. A população branca\npredomina no Sul e em parte do Sudeste. As regiões do Rio de Janeiro e de Caicó,\nno Rio Grande do Norte, estão entre as exceções a esse padrão norte-sul.\n\nO mapa usa os dados de cor ou raça do Censo Demográfico de 2022. No total do\npaís, 45,3% da população se declarou parda e 43,5%,\nbranca. Pessoas pretas representavam 10,2% da população;\nindígenas, 0,6%; e amarelas, 0,4%. Apesar da\ndiversidade nacional, apenas pessoas pardas ou brancas formavam o maior grupo em\ncada região intermediária: pardas em 88 delas, brancas nas outras\n45.\n\n\n::: {.cell layout-align=\"center\"}\n\n:::\n\n\n\n::: {.cell layout-align=\"center\"}\n::: {.cell-output-display}\n![](index_files/figure-html/mapa-1.png){fig-align='center' fig-alt='Mapa do Brasil por região geográfica intermediária. Tons de roxo indicam regiões em que pessoas pardas formam o maior grupo racial; tons de verde indicam regiões em que pessoas brancas formam o maior grupo. O roxo predomina no Norte, no Nordeste e no Centro-Oeste, enquanto o verde se concentra no Sul e em parte do Sudeste.' width=100%}\n:::\n:::\n\n\nAs regiões geográficas intermediárias agrupam regiões imediatas articuladas por\num mesmo centro urbano. Essa divisão reduz o ruído que apareceria em um mapa\nmunicipal e mantém diferenças importantes dentro de cada estado. A intensidade\nda cor representa a participação do grupo predominante, não a composição racial\ncompleta da região.\n\nO contraste aparece com maior força nos extremos. A região intermediária de\nParintins, no Amazonas, tinha a maior proporção de\npessoas pardas, com 80%. A região de Santa Cruz\ndo Sul–Lajeado, no Rio Grande do Sul, registrava a maior proporção de pessoas\nbrancas, com 84%.\n\nDados: IBGE, Censo Demográfico 2022.\n\n::: {.post-cta}\n\n**Ninguém decide só com dados. E ninguém decide bem sem eles.**\n\nA decisão continua sendo sua. Nosso trabalho é diminuir o que ela tem de aposta.\n\n::: {.post-cta-actions}\n[Falar sobre um projeto](/contato.html){.link-rule-sm}\n\n[Conhecer os serviços](/servicos.html){.link-rule-sm}\n:::\n\n:::\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

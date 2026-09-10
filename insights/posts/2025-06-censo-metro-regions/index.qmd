@@ -1,7 +1,7 @@
 ---
 title: "O crescimento das regiões metropolitanas brasileiras"
 date: "2025-06-15"
-categories: ["Censo", "Demografia", "Análise Espacial", "Brasil"]
+categories: ["Demografia", "Censo", "Regiões Metropolitanas"]
 description: "Algumas das principais regiões metropolitanas do país perderam população ou cresceram pouco entre 2010 e 2022. Os contrastes regionais mostram o dinamismo de Santa Catarina e do Centro-Oeste e a desaceleração de grandes centros."
 image: "/static/images/art/hokusai-insights-2026-09-07/insight-metropolitan-drift.webp"
 image-alt: "Composição abstrata de núcleos urbanos em azul e tons de papel, com blocos que se dispersam pelo território"
@@ -42,7 +42,7 @@ gtable_cities
 
 Os dados mostram um cenário de clara desaceleração do crescimento populacional nas principais regiões metropolitanas brasileiras. São Paulo, que manteve taxas de crescimento de `r metro_rate("São Paulo", 2000)` ao ano entre 1991 e 2000, viu este ritmo cair para `r metro_rate("São Paulo", 2010)` entre 2000 e 2010 e apenas `r metro_rate("São Paulo")` entre 2010 e 2022. O Rio de Janeiro apresenta situação ainda mais dramática, com crescimento de `r metro_rate("Rio de Janeiro")` ao ano entre 2010 e 2022, indicando redução populacional.
 
-Como comentado em outros posts, o número de [nascimentos no Brasil está em tendência de queda](https://restateinsight.com/posts/general-posts/2023-10-nascimentos-brasil/); de fato, em 2022, [16% dos municípios registraram mais óbitos do que nascimentos](https://restateinsight.com/posts/general-posts/2024-03-maps-birth-deaths/). Ao mesmo tempo, a [população está envelhecendo](/insights/posts/2024-04-envelhecimento-brasil/), sobretudo no Sul e no Sudeste. Essa mudança demográfica sinaliza um aperto da razão de dependência no longo prazo e maiores dificuldades para manter o crescimento econômico.
+Como comentado em outros posts, o número de [nascimentos no Brasil está em tendência de queda](https://restateinsight.com/posts/general-posts/2023-10-nascimentos-brasil/); de fato, em 2022, [16% dos municípios registraram mais óbitos do que nascimentos](https://restateinsight.com/posts/general-posts/2024-03-maps-birth-deaths/). Ao mesmo tempo, a [população está envelhecendo](/insights/posts/2025-09-envelhecimento-brasil/), sobretudo no Sul e no Sudeste. Essa mudança demográfica sinaliza um aperto da razão de dependência no longo prazo e maiores dificuldades para manter o crescimento econômico.
 
 Ainda que o Brasil siga se urbanizando, o Censo Demográfico de 2022 trouxe um primeiro alerta às cidades brasileiras. Ainda é cedo para entender a motivação das quedas populacionais em alguns centros, mas cabe especular que o custo de vida alto, o baixo crescimento da renda e o aumento da insegurança foram alguns dos principais fatores.
 

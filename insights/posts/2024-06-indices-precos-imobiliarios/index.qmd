@@ -1,7 +1,7 @@
 ---
 title: "Índices de Preços Imobiliários no Brasil"
 date: "2024-06-01"
-categories: ["Imóveis", "Economia", "Brasil"]
+categories: ["Mercado Imobiliário", "Economia", "Preços"]
 description: "Os três principais índices de preços imobiliários do Brasil divergem desde a pandemia: alta expressiva no IGMI-R, alta tímida no FipeZap e estagnação no IVG-R. O que cada um mede explica a diferença."
 image: "/static/images/art/hokusai-series-2026-09/insight-office-towers.webp"
 image-alt: "Ilustração de torres de escritórios com fachadas em grade"
@@ -20,6 +20,13 @@ library(rbcb)
 library(gt)
 library(ekioplot)
 source(here::here("insights/posts/_ekio-style.R"))
+```
+
+```{r captions}
+ek_caption_indices <- "Fonte: IVG-R (BCB), FipeZap (Fipe), IGMI-R (Abecip) • EKIO"
+ek_caption_indices_ipca <- "Fonte: IVG-R (BCB), IPCA (IBGE), FipeZap (Fipe), IGMI-R (Abecip) • EKIO"
+ek_caption_indices_incc <- "Fonte: IVG-R (BCB), INCC (FGV), FipeZap (Fipe), IGMI-R (Abecip) • EKIO"
+ek_caption_indices_bcb <- "Fonte: IVG-R (BCB), INCC (FGV), IPCA (IBGE) • EKIO"
 ```
 
 ```{r import rppi-sale}
@@ -129,7 +136,7 @@ p_rppi_comp <- ggplot(rppi_comp, aes(date, new_index, color = source)) +
     ),
     x = NULL,
     y = "Índice (2019 = 100)",
-    caption = "Fonte: IVG-R (BCB), FipeZap (Fipe), IGMI-R (Abecip)"
+    caption = ek_caption_indices
   ) +
   theme_ekio_site()
 ```
@@ -181,7 +188,7 @@ p_rppi_brasil <- ggplot(
     ),
     x = NULL,
     y = "Índice (jan/14 = 100)",
-    caption = "Fonte: IVG-R (BCB), FipeZap (Fipe), IGMI-R (Abecip)"
+    caption = ek_caption_indices
   ) +
   theme_ekio_site()
 
@@ -202,7 +209,7 @@ p_rppi_ipca <-
     ),
     x = NULL,
     y = "Índice (jan/14 = 100)",
-    caption = "Fonte: IVG-R (BCB), IPCA (IBGE), FipeZap (Fipe), IGMI-R (Abecip)"
+    caption = ek_caption_indices_ipca
   ) +
   theme_ekio_site()
 
@@ -225,7 +232,7 @@ p_rppi_incc <-
     ),
     x = NULL,
     y = "Índice (jan/14 = 100)",
-    caption = "Fonte: IVG-R (BCB), INCC (FGV), FipeZap (Fipe), IGMI-R (Abecip)"
+    caption = ek_caption_indices_incc
   ) +
   theme_ekio_site()
 ```
@@ -254,7 +261,7 @@ p_ivgr_ipca <- ggplot(
     ),
     x = NULL,
     y = "Índice (mar/01 = 100)",
-    caption = "Fonte: IVG-R (BCB), INCC (FGV), IPCA (IBGE)."
+    caption = ek_caption_indices_bcb
   ) +
   theme_ekio_site()
 ```
