@@ -1,7 +1,7 @@
 ---
 title: "A história da inflação brasileira"
 date: "2026-01-05"
-description: "Do fim da década de 1970 ao período pós-Plano Real, dois gráficos mostram como planos econômicos, mudanças institucionais e crises marcaram a trajetória da inflação brasileira."
+description: "Do fim da década de 1970 ao período pós-Plano Real, dois gráficos mostram como planos econômicos, mudanças institucionais e crises marcaram a trajetória da inflação brasileira. O Plano Real foi a maior mudança institucional na histórica econômica do país: este divisor de águas permitiu uma estabilidade monetária que antes parecia impensável"
 categories: ["Economia", "Inflação", "História"]
 image: "/static/images/art/hokusai-insights-2026-09-07/insight-signal-and-cycle.webp"
 image-alt: "Faixas curvas azuis se cruzam com fragmentos angulares sobre fundo de cor linho"
@@ -23,13 +23,13 @@ A visualização foi inspirada no livro
 de Miriam Leitão. A inflação acumulada no período anterior ao Plano Real superou
 13 trilhões por cento. Em julho de 1994, o novo plano estabilizou a economia e
 encerrou décadas de inflação elevada. A mudança foi profunda, mas não tornou o
-país imune à alta de preços: nos quase 30 anos seguintes, a inflação acumulada
-chegou a 560%.
+país imune à alta de preços: entre janeiro de 1995 e novembro de 2025, a
+inflação acumulada chegou a 626%.
 
 O gráfico não mostra com a mesma clareza a sucessão de moedas que marcou esse
 período. Quase todo plano econômico trouxe uma troca de moeda ou algum tipo de
 congelamento de preços e salários. As quedas abruptas da série coincidem com
-esses episódios: a inflação parecia ceder por pouco tempo e logo voltava com
+esses episódios: a inflação parecia ceder por um tempo e logo voltava com
 força.
 
 Até 1986, o país usava o cruzeiro, que passou por diversas reformas para
@@ -38,7 +38,9 @@ Verão criou o cruzado novo. O Plano Collor retomou o nome cruzeiro em 1990. Na
 transição para o real, o cruzeiro virou cruzeiro real e o governo criou a
 Unidade Real de Valor (URV), uma unidade de conta que antecedeu a nova moeda.
 
-[![](inflation_historic.png){fig-align="center" fig-alt="Gráfico da variação mensal do IPCA entre 1979 e 2023, com inflação muito elevada até o Plano Real e taxas menores depois de 1994"}](inflation_historic.png)
+::: {.column-screen-inset}
+[![](inflation_historic.png){fig-align="center" fig-alt="Gráfico da variação mensal do IPCA entre 1980 e novembro de 2025, com inflação muito elevada até o Plano Real e taxas menores depois de 1994"}](inflation_historic.png)
+:::
 
 ## Depois do Plano Real
 
@@ -48,7 +50,9 @@ período posterior ao Plano Real e apresenta a variação do IPCA acumulada em 1
 meses. A série começa em julho de 1995 para evitar que as taxas anteriores à
 estabilização contaminem a comparação.
 
-[![](inflation_historic_post_real.svg){fig-align="center" fig-alt="Gráfico da inflação acumulada em 12 meses de 1995 a 2023, com queda após o Plano Real e picos em 2002, 2015 e 2021"}](inflation_historic_post_real.svg)
+::: {.column-screen-inset}
+[![](inflation_historic_post_real.png){fig-align="center" fig-alt="Gráfico da inflação acumulada em 12 meses de 1995 a novembro de 2025, com queda após o Plano Real e picos em 2002, 2015 e 2022"}](inflation_historic_post_real.png)
+:::
 
 O IPCA caiu de forma contínua nos primeiros anos do Plano Real e chegou ao fim
 da década de 1990 no menor patamar em muitos anos. As crises que começaram na
@@ -77,4 +81,7 @@ de gastos e a reforma da Previdência. A autonomia formal do Banco Central entro
 em vigor em 2021. Depois do choque inflacionário associado à pandemia de
 Covid-19, a autoridade monetária elevou fortemente a taxa básica de juros. Em
 agosto de 2023, com a inflação em queda, o Banco Central iniciou um novo ciclo de
-redução da Selic.
+redução da Selic. Em janeiro de 2025, o país passou a adotar uma meta contínua
+de inflação, avaliada a cada mês com base no IPCA acumulado em 12 meses.
+
+{{< include ../../_post-cta.qmd >}}

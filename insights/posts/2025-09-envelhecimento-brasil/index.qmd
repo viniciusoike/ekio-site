@@ -5,7 +5,7 @@ description: "Em 555 municípios brasileiros os idosos já superam os jovens. O 
 categories: ["Demografia", "Censo", "Envelhecimento"]
 image: "/static/images/art/hokusai-series-2026-09/insight-housing-distribution.webp"
 image-alt: "Ilustração de uma distribuição assimétrica em barras azuis sobre fundo de linho"
-toc: false   # uma seção só; o painel "Nesta página" não ajuda
+toc: false
 ---
 
 ```{r libs}
@@ -17,16 +17,18 @@ source(here::here("insights/posts/_ekio-style.R"))
 
 # Índice de envelhecimento por município, Censos de 1991 a 2022. Subconjunto
 # vendorizado com geometria simplificada; ver data.R.
-cities_age <- readRDS("aging_index_city.rds")
+cities_age <- readr::read_rds(here::here(
+  "insights/posts/2025-09-envelhecimento-brasil/aging_index_city.rds"
+))
 ```
 
 ```{r dados}
 faixas <- c(
-  "Menos de 25",
+  "Menos\nde 25",
   "25 a 50",
   "50 a 75",
   "75 a 100",
-  "100 ou mais"
+  "100 ou\nmais"
 )
 
 cities_age <- cities_age |>
@@ -69,9 +71,10 @@ p_mapa <- ggplot(cities_age) +
     legend.justification = 0.5,
     legend.direction = "horizontal",
     legend.key.size = unit(0.5, "cm"),
-    legend.key.width = unit(1.5, "cm"),
+    legend.key.width = unit(1.75, "cm"),
     legend.text = element_text(size = 12),
-    legend.margin = margin(),
+    legend.text.position = "bottom",
+    legend.margin = margin(0, 0, 0, 0),
     plot.margin = margin(10, 5, 5, 10),
     plot.title = element_text(size = 28, hjust = 0.5),
     plot.subtitle = element_text(size = 13, hjust = 0.5)
@@ -118,14 +121,15 @@ p_serie <- ggplot(indice_brasil, aes(ano, indice)) +
     axis.text.y = element_blank(),
     plot.title = element_text(size = 12),
     plot.subtitle = element_text(size = 10),
-    plot.margin = margin()
+    plot.margin = margin(5, 5, 5, 5),
+    legend.text.position = "bottom"
   )
 
 # O "&" pinta o canvas externo do patchwork sem repaintar o fundo do inset,
 # que fica propositalmente sem fundo sobre o mapa; o dev.args em
 # _ekio-style.R pinta o dispositivo por baixo de tudo.
 p_envelhecimento <- p_mapa +
-  inset_element(p_serie, left = 0, bottom = 0.04, right = 0.42, top = 0.42) &
+  inset_element(p_serie, left = 0, bottom = 0.04, right = 0.375, top = 0.42) &
   theme_sub_plot(background = element_rect(fill = ekio_site$paper, color = NA))
 ```
 
@@ -139,13 +143,18 @@ O mapa abaixo traz o índice nos `r format(nrow(resumo), big.mark = ".")`
 municípios do país, segundo o Censo de 2022. A série no canto inferior
 mostra o índice do Brasil nos quatro Censos mais recentes.
 
+::: {.column-page-inset}
+
 ```{r}
+#| fig-alt: "Mapa do índice de envelhecimento dos municípios brasileiros em 2022: idosos de 65 anos ou mais para cada 100 jovens de até 14 anos. As cores representam faixas do índice. Os maiores valores se concentram no Sul e no Sudeste, sobretudo no Rio Grande do Sul. Um gráfico de linhas inserido no mapa mostra o aumento do índice nacional nos quatro Censos mais recentes."
 #| out-width: "100%"
 #| fig-width: 9
 #| fig-height: 9.5
 #| fig-dpi: 72
 p_envelhecimento
 ```
+
+:::
 
 O futuro demográfico do Brasil, em boa parte, já está escrito. A queda da
 fecundidade e o aumento da expectativa de vida envelhecem a população de forma
