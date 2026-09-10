@@ -100,7 +100,7 @@ stopifnot(
   !any(st_is_empty(racial_intermediate))
 )
 
-saveRDS(
+readr::write_rds(
   racial_intermediate,
   here::here(
     "insights/posts/2025-02-distribuicao-racial-brasil/dat_map.rds"

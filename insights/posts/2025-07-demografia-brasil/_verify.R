@@ -2,7 +2,9 @@ library(dplyr)
 library(sf)
 library(tidyr)
 
-data <- readRDS("demografia_brasil.rds")
+data <- readr::read_rds(here::here(
+  "insights/posts/2025-07-demografia-brasil/demografia_brasil.rds"
+))
 
 states <- data$state_dependency
 pyramids <- data$population_pyramid

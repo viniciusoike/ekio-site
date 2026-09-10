@@ -26,10 +26,10 @@ cities_age <- qs::qread(path.expand(origem)) |>
 
 stopifnot(!any(st_is_empty(cities_age)))
 
-saveRDS(
+readr::write_rds(
   cities_age,
   here::here(
-    "insights/posts/2024-04-envelhecimento-brasil/aging_index_city.rds"
+    "insights/posts/2025-09-envelhecimento-brasil/aging_index_city.rds"
   ),
   compress = "xz"
 )

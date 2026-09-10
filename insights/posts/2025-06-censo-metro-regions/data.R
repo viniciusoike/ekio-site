@@ -88,7 +88,13 @@ stopifnot(nrow(bh) == 50, !any(st_is_empty(bh)))
 write_csv(cities, file.path(post_dir, "city-population.csv"))
 write_csv(metro, file.path(post_dir, "metro-population.csv"))
 write_csv(membership, file.path(post_dir, "metro-membership-2018.csv"))
-saveRDS(bh, file.path(post_dir, "belo-horizonte.rds"), compress = "xz")
+readr::write_rds(
+  bh,
+  here::here(
+    "insights/posts/2025-06-censo-metro-regions/belo-horizonte.rds"
+  ),
+  compress = "xz"
+)
 cli::cli_alert_success(
   "Dados locais preparados para os 81 recortes e 5.570 municípios."
 )

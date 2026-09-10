@@ -27,7 +27,9 @@ library(tidyr)
 
 source(here::here("insights/posts/_ekio-style.R"))
 
-demography <- readRDS("demografia_brasil.rds")
+demography <- readr::read_rds(here::here(
+  "insights/posts/2025-07-demografia-brasil/demografia_brasil.rds"
+))
 state_dependency <- demography$state_dependency
 population_pyramid <- demography$population_pyramid
 projections <- demography$projections
@@ -132,7 +134,7 @@ acessibilidade aumenta.
 :::
 
 ::: {.g-col-12 .g-col-lg-8}
-![Distribuição da população brasileira por idade simples e grupos geracionais. Geração Z e Millennials concentram 49% da população.](images/geracoes-brasil.png){width="100%"}
+![Distribuição da população brasileira por idade simples e grupos geracionais. Geração Z e Millennials concentram 49% da população.](images/geracoes-brasil.png){width="100%" fig-alt="Gráfico de colunas da participação de cada idade na população brasileira, com cores por geração. Geração Z e Millennials concentram 49% da população."}
 :::
 :::::::
 :::
@@ -152,7 +154,7 @@ Essa diversidade limita diagnósticos nacionais muito simples: o desafio de cada
 região depende tanto do nível atual quanto da velocidade da mudança.
 
 ::: column-page-right
-![Mapa municipal do índice de envelhecimento em 2022. Os valores mais altos se concentram no Sul e no Sudeste, enquanto o Norte permanece mais jovem.](images/indice-envelhecimento-brasil.png){width="100%"}
+![Mapa municipal do índice de envelhecimento em 2022. Os valores mais altos se concentram no Sul e no Sudeste, enquanto o Norte permanece mais jovem.](images/indice-envelhecimento-brasil.png){width="100%" fig-alt="Mapa do índice de envelhecimento dos municípios brasileiros em 2022. As cores representam idosos por 100 jovens. Os maiores valores se concentram no Sul e no Sudeste; o Norte apresenta uma população mais jovem."}
 :::
 
 ## A razão de dependência voltou a subir

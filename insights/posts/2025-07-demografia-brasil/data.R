@@ -6,7 +6,6 @@ library(tidyr)
 import::from(cli, cli_alert_success)
 import::from(geobr, read_state)
 import::from(janitor, clean_names)
-import::from(readr, write_rds)
 import::from(sidrar, get_sidra)
 
 # Faixas etárias quinquenais da tabela 9514, incluindo 100 anos ou mais.
@@ -151,13 +150,15 @@ projection_regions <- get_sidra(
 projections <- bind_rows(projection_brazil, projection_regions) |>
   filter(year <= 2060)
 
-write_rds(
+readr::write_rds(
   list(
     state_dependency = state_dependency,
     population_pyramid = population_pyramid,
     projections = projections
   ),
-  "demografia_brasil.rds",
+  here::here(
+    "insights/posts/2025-07-demografia-brasil/demografia_brasil.rds"
+  ),
   compress = "xz"
 )
 

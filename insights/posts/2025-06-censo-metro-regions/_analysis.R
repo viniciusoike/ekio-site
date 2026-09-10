@@ -204,7 +204,9 @@ plots <- list(
 
 # Mapa de Belo Horizonte e colar metropolitano -------------------------------
 
-bh <- readRDS("belo-horizonte.rds") |>
+bh <- readr::read_rds(here::here(
+  "insights/posts/2025-06-censo-metro-regions/belo-horizonte.rds"
+)) |>
   left_join(
     select(cities, code_muni, pop_2010, pop_2022, change, tcg),
     by = "code_muni"

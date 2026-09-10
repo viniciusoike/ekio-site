@@ -18,7 +18,9 @@ membership <- read_csv(
   file.path(post_dir, "metro-membership-2018.csv"),
   show_col_types = FALSE
 )
-bh <- readRDS(file.path(post_dir, "belo-horizonte.rds"))
+bh <- readr::read_rds(here::here(
+  "insights/posts/2025-06-censo-metro-regions/belo-horizonte.rds"
+))
 
 stopifnot(
   nrow(cities) == 5570,
