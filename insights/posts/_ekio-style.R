@@ -138,7 +138,9 @@ ekio_site <- list(
   # $ekio-red; ekioplot red.500
   red = "#B44D47",
   # $ekio-green; ekioplot green.500
-  green = "#448255"
+  green = "#448255",
+  # $ekio-purple; ekioplot purple.500
+  purple = "#8A5CA1"
 )
 
 # Device background ----
