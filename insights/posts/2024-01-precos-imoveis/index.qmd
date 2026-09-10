@@ -3,7 +3,7 @@ title: "Preços de Imóveis no Brasil"
 date: "2024-01-28"
 categories: ["Imóveis", "Visualização de Dados", "Brasil"]
 description: "Existe uma impressão generalizada de que o preço dos imóveis no Brasil subiu muito. Em termos reais, o preço médio andou de lado e hoje está abaixo do nível de 2010."
-draft: true
+draft: false
 image: "/static/images/art/hokusai-series-2026-09/insight-residential-houses.webp"
 image-alt: "Ilustração de casas residenciais em planos geométricos azuis e claros"
 ---
@@ -55,8 +55,7 @@ sel_agg <- c("Brasil", "Avançados", "Emergentes", "Média Mundial")
 rppi_comp <- rppi %>%
   filter(
     name_country %in% sel_agg,
-    date >= as.Date("2010-01-01"),
-    date < as.Date("2023-01-01")
+    date >= as.Date("2010-01-01")
   ) %>%
   mutate(
     name_country = factor(name_country, levels = sel_agg)
@@ -132,11 +131,13 @@ p_bis_rich <-
 ```
 
 
-Existe uma percepção generalizada na população de que os preços dos imóveis no Brasil são muito caros. Isto pode ser resultado tanto de uma ignorância sobre a dinâmica do mercado como do [excesso de notícias sobre recordes de preços que se vê na imprensa](https://g1.globo.com/economia/noticia/2024/01/16/preco-do-aluguel-residencial-sobe-16percent-em-2023-tres-vezes-mais-que-a-inflacao-mostra-fipezap.ghtml). Também não faltam casos de regiões ou mesmo de ruas que, após significativo processo de revitalização, [apresentaram aumentos de preços muito acima da inflação](https://extra.globo.com/economia-e-financas/imoveis-usados-no-rio-precos-explodiram-em-2009-mostra-pesquisa-do-secovi-89071.html). De maneira geral, contudo, os dados apontam que [os preços dos imóveis no Brasil andaram de lado](https://einvestidor.estadao.com.br/investimentos/investir-em-imoveis-vale-a-pena/): em termos reais, isto é, descontando a inflação, o nível atual do preço dos imóveis está praticamente idêntico ao que se observava em 2010.
+Existe uma percepção generalizada na população de que os preços dos imóveis no Brasil são muito caros. Isto pode ser resultado tanto de uma ignorância sobre a dinâmica do mercado como do [excesso de notícias sobre recordes de preços que se vê na imprensa](https://g1.globo.com/economia/noticia/2024/01/16/preco-do-aluguel-residencial-sobe-16percent-em-2023-tres-vezes-mais-que-a-inflacao-mostra-fipezap.ghtml). Também não faltam casos de regiões ou mesmo de ruas que, após significativo processo de revitalização, [apresentaram aumentos de preços muito acima da inflação](https://extra.globo.com/economia-e-financas/imoveis-usados-no-rio-precos-explodiram-em-2009-mostra-pesquisa-do-secovi-89071.html). De maneira geral, contudo, os dados apontam que [os preços dos imóveis no Brasil andaram de lado](https://einvestidor.estadao.com.br/investimentos/investir-em-imoveis-vale-a-pena/): em termos reais, isto é, descontando a inflação, o nível atual dos preços dos imóveis está abaixo do que se observava em 2010.
 
 ## Preços do Brasil x Mundo
 
-Os dados são do Bank for International Settlements (BIS).
+Os dados desta comparação vêm do Bank for International Settlements (BIS), que compila índices de preços de imóveis residenciais para dezenas de países. Os índices são trimestrais e expressos em termos reais, isto é, deflacionados pelo índice de preços ao consumidor de cada país. Para tornar a comparação legível, indexo as séries à média de 2010: valores acima de 100 indicam preços reais superiores aos de 2010; abaixo de 100, inferiores.
+
+O gráfico mostra que o Brasil segue um caminho próprio. Depois de mais de uma década de forte alta — os preços reais mais que dobraram entre o início dos anos 2000 e o pico, no fim de 2013 —, a recessão de 2014 a 2016 derrubou os preços e eles nunca recuperaram o nível anterior. Hoje, o índice do Brasil permanece cerca de 15% abaixo da marca de 2010. As economias avançadas, em contraste, encerram o período quase um terço acima de 2010, mesmo após o recuo que se segue ao aperto monetário global de 2022; as emergentes avançam cerca de 15% e a média mundial, cerca de 20%.
 
 ```{r}
 p_bis_geral
@@ -148,10 +149,18 @@ p_bis_geral
 p_bis_rich
 ```
 
+A divergência fica mais clara na comparação com países desenvolvidos. Selecionei Estados Unidos, Canadá, Nova Zelândia e Israel, mercados grandes e de renda alta. Nos quatro, os preços reais acumulam ganhos de 55% a 80% sobre 2010 no fim do período, herança dos anos de juros baixos e do ciclo de alta da pandemia. O aperto monetário de 2022 derrubou os índices dessas máximas, mas nenhum deles devolve parte relevante do ganho acumulado. O Brasil, isolado na parte de baixo do gráfico, é o único da seleção com preços reais abaixo do nível de 2010.
+
 ## Preços do Brasil x Países LATAM
 
 ```{r}
 p_bis_latam
 ```
+
+Se a diferença diante dos países ricos já chama atenção, a comparação latino-americana é mais dura. Chile, México, Colômbia e Peru enfrentaram no período ciclos semelhantes aos do Brasil — câmbio volátil, recessões próprias, pandemia — e ainda assim terminam acima de 2010. O Chile é o caso mais notável: os preços reais quase dobraram desde 2010. México e Colômbia acumulam ganhos de 30% a 40% e o Peru, de 10%, mesmo após a queda do seu pico de 2014. O Brasil é o único país do grupo com preços reais abaixo da marca de 2010.
+
+## Considerações finais
+
+O que explica esta trajetória não é óbvio e merece um post próprio. A recessão de 2014 a 2016 e a recuperação lenta que se seguiu certamente pesam. Também pode ajudar a explicar o quadro a enorme oferta de imóveis novos colocada no mercado durante o ciclo de expansão dos anos 2010, cuja absorção levou anos. E a inflação alta do período recente erodiu ganhos nominais expressivos, como os registrados em 2023. Deixo estas hipóteses como gancho para um próximo texto.
 
 {{< include ../../_post-cta.qmd >}}

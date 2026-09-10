@@ -1,0 +1,17 @@
+{
+  "hash": "3a47cdb4853d9f2c1bf0951f4db1f923",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Distribuição de Renda em São Paulo\"\ndate: \"2026-05-07\"\ncategories: [\"São Paulo\", \"Mapas\", \"Análise Espacial\"]\ndescription: \"A renda em São Paulo se concentra no quadrante sudoeste da cidade. O mapa usa dados do projeto Acesso a Oportunidades (IPEA) na grade hexagonal H3.\"\nimage: \"/static/images/art/hokusai-series-2026-09/insight-old-and-new.webp\"\nimage-alt: \"Ilustração de arquitetura histórica em contraste com arranha-céus\"\ntoc: false\n---\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell layout-align=\"center\"}\n\n:::\n\n\n\nO mapa abaixo mostra o rendimento domiciliar em grupos de decis em São Paulo. Divide-se toda a população, do mais pobre ao mais rico, em dez grupos de igual tamanho; assim, os hexágonos em azul estão no top 10% da distribuição de renda (10% mais ricos); já os hexágonos em vermelho estão no bottom 10% da distribuição (10% mais pobres).\n\nO grid hexagonal segue o padrão H3, em resolução 9. Os dados de renda provêm do Censo Demográfico de 2010 do IBGE, em nível de setor censitário. Uma técnica de interpolação espacial converte os dados para o padrão hexagonal.\n\nOs dados brutos do Censo estão defasados e não representam o nível atual da renda. Ainda assim, a estrutura espacial da cidade costuma mudar devagar. Grosso modo, as maiores rendas se concentram no Centro Expandido e no Quadrante Sudoeste. As duas exceções são a região de Santana-Tucuruvi e o eixo Tatuapé–Jardim Anália Franco.\n\n\n::: {.cell layout-align=\"center\"}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-3-1.png){fig-align='center' width=100%}\n:::\n:::\n\n\n-   Dados: IPEA ([Acesso a Oportunidades](https://www.ipea.gov.br/acessooportunidades/)) acessado via [`aopdata`](https://github.com/ipeaGIT/aopdata)\n\n\n::: {.post-cta}\n\n**Ninguém decide só com dados. E ninguém decide bem sem eles.**\n\nA decisão continua sendo sua. Nosso trabalho é diminuir o que ela tem de aposta.\n\n::: {.post-cta-actions}\n[Falar sobre um projeto](/contato.html){.link-rule-sm}\n\n[Conhecer os serviços](/servicos.html){.link-rule-sm}\n:::\n\n:::\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
