@@ -207,11 +207,15 @@ h1.home-cover-title {
     flex-direction: column;
 }
 
-.ins-meta {
-    font-size: 0.6875rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
+/* Card paragraphs carry the #quarto-document-content prefix, as on the home
+   cards: the body-copy rule in custom.scss is ID-scoped, so a bare class
+   loses to it and the meta and excerpt fall back to the 19px prose scale. */
+#quarto-document-content .ins-meta {
+    font-size: 0.75rem;
+    line-height: 1.5;
+    /* text-transform: uppercase; */
     color: var(--ekio-ink-300);
+    max-width: none;
     margin: 0 0 0.75rem;
 }
 
@@ -240,10 +244,11 @@ h1.home-cover-title {
     z-index: 1;
 }
 
-.ins-excerpt {
+#quarto-document-content .ins-excerpt {
     font-size: 0.9375rem;
     line-height: 1.7;
     color: var(--ekio-ink-500);
+    max-width: none;
     margin: 0;
 }
 
@@ -261,15 +266,15 @@ h1.home-cover-title {
 }
 
 .ins-row--2 .ins-title {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
 }
 
 .ins-row--3 .ins-title {
-    font-size: 1.375rem;
+    font-size: 1.25rem;
 }
 
 .ins-row--4 .ins-title {
-    font-size: 1.1875rem;
+    font-size: 1.125rem;
 }
 
 /* Clamp the denser rows so uneven description lengths don't leave the row
@@ -282,7 +287,7 @@ h1.home-cover-title {
     overflow: hidden;
 }
 
-.ins-row--4 .ins-excerpt {
+#quarto-document-content .ins-row--4 .ins-excerpt {
     font-size: 0.875rem;
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -306,11 +311,11 @@ h1.home-cover-title {
 }
 
 .ins-card--wide .ins-title {
-    font-size: 2rem;
+    font-size: 1.75rem;
     max-width: 24ch;
 }
 
-.ins-card--wide .ins-excerpt {
+#quarto-document-content .ins-card--wide .ins-excerpt {
     max-width: 54ch;
 }
 
@@ -328,12 +333,12 @@ h1.home-cover-title {
 }
 
 .ins-card--feature .ins-title {
-    font-size: clamp(1.9rem, 3.5vw, 2.85rem);
+    font-size: clamp(1.75rem, 2.8vw, 2.375rem);
     line-height: 1.15;
     margin-bottom: 1rem;
 }
 
-.ins-card--feature .ins-excerpt {
+#quarto-document-content .ins-card--feature .ins-excerpt {
     font-size: 1rem;
     line-height: 1.75;
     color: var(--ekio-ink-600);
@@ -390,7 +395,6 @@ h1.home-cover-title {
    text falls back to the 19px prose scale. */
 #quarto-document-content .work-cat {
     font-size: 0.75rem;
-    /*letter-spacing: 0.06em;*/
     color: var(--ekio-ink-300);
     max-width: none;
     margin: 0 0 0.5rem;
@@ -466,8 +470,7 @@ h1.home-cover-title {
     display: block;
     font-size: 0.6875rem;
     font-weight: 400;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     color: var(--ekio-ink-300);
     margin-bottom: 0.5rem;
 }
@@ -485,8 +488,7 @@ h1.home-cover-title {
     display: block;
     font-size: 0.8125rem;
     font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     color: var(--ekio-ink-400);
     margin-bottom: 0.5rem;
 }
@@ -565,8 +567,7 @@ h1.home-cover-title {
     font-family: var(--font-sans);
     font-style: normal;
     font-size: 0.75rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     color: var(--ekio-ink-300);
     margin-top: 1rem;
 }
@@ -606,8 +607,7 @@ h1.home-cover-title {
 .case-category {
     font-size: 0.6875rem;
     font-weight: 400;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     color: var(--ekio-navy);
     margin-bottom: 0.75rem;
 }
@@ -645,8 +645,7 @@ h1.home-cover-title {
 
 .case-metric-label {
     font-size: 0.6875rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     color: var(--ekio-ink-300);
 }
 
@@ -718,7 +717,7 @@ h1.home-cover-title {
 
     .ins-row--3 .ins-title,
     .ins-row--4 .ins-title {
-        font-size: 1.25rem;
+        font-size: 1.1875rem;
     }
 
     .ins-card--wide {
@@ -734,7 +733,7 @@ h1.home-cover-title {
     }
 
     .ins-card--wide .ins-title {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
     }
 
     .contact-grid,
@@ -767,7 +766,7 @@ h1.home-cover-title {
     .ins-row--3 .ins-title,
     .ins-row--4 .ins-title,
     .ins-card--wide .ins-title {
-        font-size: 1.375rem;
+        font-size: 1.25rem;
     }
 }
 
@@ -781,12 +780,6 @@ h1.home-cover-title {
     width: 100%;
     height: auto;
     border-radius: 0;
-}
-
-.art-strip.art-strip-data {
-    height: auto;
-    aspect-ratio: 3 / 1;
-    background-size: contain;
 }
 
 @media (max-width: 991px) {

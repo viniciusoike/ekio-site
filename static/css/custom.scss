@@ -43,6 +43,9 @@ $linen-old-2: #F2EDE2; // Soft Linen 2; ink-400 4.10
 $paper-inume: #F3EEE2; // L*94.2
 $paper-suwa: #DDD5BA; // L*85.3
 
+// The Serviços banner's paper, sampled as rendered so its header can match.
+$paper-banner: #E0D8C1;
+
 // ── 3. The switch ──
 // These two lines set every surface on the site. Keep them in step with
 // ekio_surface in insights/posts/_ekio-style.R so figures match the page.
@@ -305,7 +308,6 @@ p:has(> .package-meta:only-child) {
     font-family: $font-cond;
     font-size: 0.9rem;
     font-weight: 400;
-    --letter-spacing: 0.12em;
     text-transform: none;
     color: $ink-700 !important;
     padding: 0 0 3px !important;
@@ -378,9 +380,8 @@ p:has(> .package-meta:only-child) {
 .nav-footer {
   background: $ink !important;
   border-top: none;
-  padding: 2.125rem 0;
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
+  padding: 0.9rem 0;
+  font-size: 0.9rem;
   color: $ink-inverse-muted;
 
   // Quarto aligns the three footer columns on a baseline. The left column now
@@ -434,8 +435,7 @@ p:has(> .package-meta:only-child) {
 
   .nav-link {
     padding: 0 !important;
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
+    font-size: 1rem;
   }
 }
 
@@ -443,7 +443,7 @@ p:has(> .package-meta:only-child) {
 // mark's third approved pairing. The plate is vertical, so it needs more
 // height than the wordmark did to keep the glyphs legible.
 .footer-mark {
-  height: 52px;
+  height: 112px;
   width: auto;
   margin-right: 1.25rem;
   flex-shrink: 0;
@@ -451,8 +451,7 @@ p:has(> .package-meta:only-child) {
 
 .footer-brand {
   font-size: 0.75rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   color: $ink-inverse-muted;
 }
 
@@ -461,13 +460,11 @@ p:has(> .package-meta:only-child) {
   font-family: $font-sans;
   font-size: 0.75rem;
   font-weight: 500;
-  letter-spacing: 0.16em;
   color: $ink-inverse-muted;
 }
 
 .footer-sub {
   font-size: 0.75rem;
-  letter-spacing: 0.1em;
   color: $ink-inverse-muted;
 }
 
@@ -483,8 +480,7 @@ p:has(> .package-meta:only-child) {
   font-family: $font-cond;
   font-weight: 500;
   font-size: 0.9375rem;
-  --letter-spacing: 0.16em;
-  --text-transform: uppercase;
+  /* --text-transform: uppercase; */
   color: $navy;
   border-bottom: 1px solid $navy;
   padding-bottom: 5px;
@@ -501,7 +497,6 @@ p:has(> .package-meta:only-child) {
 .link-rule-sm {
   @extend .link-rule;
   font-size: 0.8125rem;
-  --letter-spacing: 0.14em;
 }
 
 .link-rule-light {
@@ -521,8 +516,7 @@ p:has(> .package-meta:only-child) {
   font-family: $font-cond;
   font-size: 0.875rem;
   font-weight: 500;
-  letter-spacing: 0.14em;
-  --text-transform: uppercase;
+  /* --text-transform: uppercase; */
   padding: 0.9rem 1.9rem;
   border-radius: 0;
   border: 1px solid transparent;
@@ -621,8 +615,7 @@ p:has(> .package-meta:only-child) {
   font-family: $font-sans;
   font-size: 0.6875rem;
   font-weight: 400;
-  letter-spacing: 0.22em;
-  --text-transform: uppercase;
+  /* --text-transform: uppercase; */
   color: $ink-300;
   margin-bottom: 2.25rem;
 }
@@ -642,8 +635,7 @@ p:has(> .package-meta:only-child) {
     font-family: $font-cond;
     font-weight: 600;
     font-size: 1rem;
-    letter-spacing: 0.14em;
-    --text-transform: uppercase;
+    /* --text-transform: uppercase; */
     color: $navy;
   }
 
@@ -721,17 +713,18 @@ h2.section-heading-light {
   }
 }
 
-.page-header:has(.page-header-lead) {
-  padding: 4.5rem 0 3.5rem;
+// Title and a link, nothing else (Serviços). The title is a full sentence, so
+// it runs smaller and wider than the default to stay within two lines.
+.page-header.page-header-compact {
+  padding: 4rem 0 3.25rem;
 
-  // A lead header can carry a full sentence as its title (Serviços); 15ch
-  // stacks it four lines deep.
   h1.page-header-title {
-    max-width: 20ch;
+    font-size: clamp(2.25rem, 3.6vw, 3.25rem);
+    max-width: 26ch;
   }
 
-  .section-label {
-    margin-bottom: 1.5rem;
+  .page-header-actions {
+    margin-top: 1.75rem;
   }
 }
 
@@ -774,15 +767,83 @@ h1.page-header-title {
 // Deck under the title, for headers that carry the page's line instead of
 // pushing it into the aside. Sits between the display size and body text.
 .page-header-lead {
+  font-family: $font-host-grotesk;
   font-size: clamp(1.25rem, 2vw, 1.5rem);
   line-height: 1.55;
   color: $ink-600;
-  margin: 1.75rem 0 0;
+  margin: 0.5rem 0 0;
   max-width: 34ch;
 }
 
 .page-header-actions {
   margin-top: 2.25rem;
+}
+
+// Header with art filling its right side (Insights, Serviços). The copy keeps
+// the left 55% and the art the right 45%, cropped from the bottom-right so the
+// blocks stay in view. The art's left edge fades into --art-ground, which each
+// variant sets to its own background so the seam vanishes.
+.page-header:has(.page-header-art) {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  margin-top: 1rem;
+  padding: 2rem 0 2.75rem;
+  border-bottom: none;
+
+  .page-header-main {
+    max-width: 55%;
+  }
+}
+
+// Linen, for art drawn on paper (Serviços).
+.page-header.page-header-linen {
+  --art-ground: #{$paper-banner};
+  background: $paper-banner;
+}
+
+.page-header.page-header-dark {
+  --art-ground: #{$navy};
+  background: $navy;
+
+  h1.page-header-title {
+    color: $paper;
+  }
+
+  .section-label {
+    color: rgba($paper, 0.6);
+  }
+
+  // One line where the header is wide enough; balanced where it has to wrap.
+  .page-header-lead {
+    color: rgba($paper, 0.86);
+    max-width: none;
+    text-wrap: balance;
+  }
+}
+
+.page-header-art {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-position: right bottom;
+
+  // Starts 1px outside the art and solid, so the image's edge column never
+  // shows through at fractional widths.
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0 0 0 -1px;
+    background: linear-gradient(90deg,
+        var(--art-ground) 0%,
+        var(--art-ground) 3%,
+        color-mix(in srgb, var(--art-ground) 55%, transparent) 22%,
+        transparent 50%);
+  }
 }
 
 // ═══════════════════════════════════════════════════════════════
@@ -807,8 +868,7 @@ h1.page-header-title {
   display: block;
   font-size: 0.6875rem;
   font-weight: 400;
-  letter-spacing: 0.22em;
-  --text-transform: uppercase;
+  /* --text-transform: uppercase; */
   color: $ink-300;
   margin-bottom: 2.75rem;
 }
@@ -843,7 +903,6 @@ h1.hero-title {
 .hero-note {
   display: block;
   font-size: 0.75rem;
-  letter-spacing: 0.06em;
   color: $ink-300;
   margin-top: 1.25rem;
 }
@@ -900,8 +959,7 @@ h1.hero-title {
 .hero-stat-label {
   display: block;
   font-size: 0.75rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   color: $ink-400;
   margin-top: 0.65rem;
 }
@@ -963,7 +1021,6 @@ h1.hero-title {
 .service-num {
   font-family: $font-mono;
   font-size: 0.6875rem;
-  letter-spacing: 0.1em;
   color: $navy;
   margin-bottom: 1.625rem;
 }
@@ -978,8 +1035,7 @@ h1.hero-title {
   font-family: $font-cond;
   font-size: 0.8125rem;
   font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   color: $navy;
   border-bottom: 1px solid $navy;
   padding-bottom: 4px;
@@ -1000,7 +1056,6 @@ h1.hero-title {
   font-family: $font-sans;
   font-size: 0.75rem;
   font-weight: 400;
-  letter-spacing: 0.08em;
   color: $ink-700;
   border: 1px solid $rule-strong;
   padding: 0.5rem 0.875rem;
@@ -1021,7 +1076,7 @@ h1.hero-title {
 .band-cta {
   background: $navy;
   color: $paper;
-  padding: 6.5rem 0;
+  padding: 4.5rem 0;
   border-bottom: none;
   text-align: left;
 }
@@ -1081,7 +1136,6 @@ h2.cta-heading {
 .service-detail-num {
   font-family: $font-mono;
   font-size: 0.75rem;
-  letter-spacing: 0.1em;
   color: $navy;
 }
 
@@ -1264,7 +1318,6 @@ h2.service-detail-title {
   display: block;
   font-family: $font-mono;
   font-size: 0.75rem;
-  letter-spacing: 0.1em;
   color: $navy;
   margin-bottom: 1rem;
 }
@@ -1318,8 +1371,7 @@ h3.package-title {
   font-family: $font-cond;
   font-size: 0.8125rem;
   font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   color: $navy;
   margin-bottom: 1.25rem;
 }
@@ -1334,7 +1386,6 @@ h3.package-title {
 .package-meta {
   font-family: $font-mono;
   font-size: 0.75rem;
-  letter-spacing: 0.04em;
   color: $ink-300;
   padding-top: 1.125rem;
   border-top: 1px solid $rule;
@@ -1343,6 +1394,16 @@ h3.package-title {
 // ═══════════════════════════════════════════════════════════════
 // Featured block (image + text, home)
 // ═══════════════════════════════════════════════════════════════
+
+// Tighter than a regular band: much less air above and below the map, a
+// little less at the sides.
+.band-featured {
+  padding: 3.5rem 0;
+
+  .container {
+    padding: 0 3rem;
+  }
+}
 
 .featured-insight {
   display: grid;
@@ -1421,8 +1482,7 @@ h2.about-name {
   font-family: $font-cond;
   font-size: 0.9375rem;
   font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  /* --text-transform: uppercase; */
   color: $ink-400;
   margin-bottom: 2.5rem;
 }
@@ -1501,8 +1561,7 @@ h3.about-partner-name {
   display: block;
   font-size: 0.6875rem;
   font-weight: 400;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   color: $ink-300;
   margin-bottom: 0.5rem;
 }
@@ -1596,8 +1655,31 @@ h3.about-partner-name {
 
   // Single-column headers take their spacing from .page-header itself.
   .page-header,
-  .page-header:has(.page-header-lead) {
+  .page-header.page-header-compact {
     padding: 4rem 0 3rem;
+  }
+
+  // Too narrow to sit beside the copy, so the art drops below it as a strip
+  // and closes the header itself.
+  .page-header:has(.page-header-art) {
+    padding: 2.5rem 0 0;
+
+    .page-header-main {
+      max-width: none;
+    }
+  }
+
+  .page-header-art {
+    position: relative;
+    width: auto;
+    height: 180px;
+    margin-top: 2.5rem;
+
+    &::after {
+      background: linear-gradient(180deg,
+          var(--art-ground) 0%,
+          transparent 45%);
+    }
   }
 
   .band {
@@ -1632,6 +1714,14 @@ h3.about-partner-name {
     gap: 2.5rem;
   }
 
+  .band-featured {
+    padding: 3rem 0;
+
+    .container {
+      padding: 0 2rem;
+    }
+  }
+
   // One column: photo, then the name and bio, then the reference material.
   .about-body {
     grid-column: 1;
@@ -1652,6 +1742,10 @@ h3.about-partner-name {
     max-width: 320px;
   }
 
+  .band-cta {
+    padding: 3.5rem 0;
+  }
+
   .cta-row {
     grid-template-columns: 1fr;
     gap: 2.5rem;
@@ -1670,7 +1764,7 @@ h3.about-partner-name {
   // Long words ("Inteligência", "empreendimento", "desenvolvimento") in
   // display type outgrow a phone column. Smaller type and padding fit them
   // at 360px; below that, hyphenation takes over.
-  .page-header:has(.page-header-lead) h1.page-header-title {
+  .page-header.page-header-compact h1.page-header-title {
     font-size: clamp(1.875rem, 9vw, 2.6rem);
   }
 
@@ -1692,6 +1786,7 @@ h3.about-partner-name {
 // ═══════════════════════════════════════════════════════════════
 
 .quarto-title-block {
+
   // Quarto puts the title and the source-code button in one flex row. The
   // button has no shrink room, so on narrow screens it drops to its own line
   // instead of pushing past the edge.
@@ -1710,8 +1805,7 @@ h3.about-partner-name {
   .quarto-categories .quarto-category {
     font-family: $font-sans;
     font-size: 0.6875rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     border: 1px solid $rule-strong;
     border-radius: 0;
     background: transparent;
@@ -1725,6 +1819,7 @@ h3.about-partner-name {
 // G1, Economist) e da McKinsey. A medida trava abaixo da coluna: o texto
 // para em ~80 caracteres e as figuras seguem com os 760px do grid.
 #quarto-document-content {
+
   p,
   ul,
   ol,
@@ -1755,8 +1850,7 @@ h3.about-partner-name {
     font-family: $font-cond;
     font-size: 0.75rem;
     font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     color: $ink-400;
   }
 
@@ -1813,7 +1907,6 @@ h3.about-partner-name {
     font-family: $font-cond;
     font-size: 0.75rem;
     font-weight: 400;
-    letter-spacing: 0.04em;
     line-height: 1.5;
     color: $ink-400;
     text-align: left;
@@ -1904,7 +1997,8 @@ h3.about-partner-name {
 // Full-bleed strip. Sits between bands and carries no text.
 .art-strip {
   width: 100%;
-  height: clamp(200px, 23vw, 340px);
+  margin-top: 1rem;
+  height: clamp(220px, 25vw, 360px);
   background-color: $paper-sunk;
   background-position: center;
   background-size: cover;
@@ -1914,7 +2008,7 @@ h3.about-partner-name {
 
 // Shorter variant for page headers, where the art trails the title block.
 .art-strip-sm {
-  height: clamp(150px, 15vw, 220px);
+  height: clamp(165px, 16.5vw, 240px);
 }
 
 // Variante servida por <img srcset>, para o navegador escolher a largura de
@@ -1961,11 +2055,11 @@ h3.about-partner-name {
 
 @media (max-width: 991px) {
   .art-strip {
-    height: 190px;
+    height: 205px;
   }
 
   .art-strip-sm {
-    height: 140px;
+    height: 160px;
   }
 
   // Narrow viewports crop the art too hard to read; drop back to flat navy.
