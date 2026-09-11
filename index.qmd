@@ -109,12 +109,14 @@ Atendemos empresas e entidades governamentais em questões de mercado, investime
 :::
 
 <!-- ============ Insight em destaque ============ -->
-::: {.band .band-dark}
+<!-- Oculto até existir um relatório para destacar. Para exibir, apague estas
+duas linhas e o fechamento do comentário no fim da seção.
+::: {.band .band-dark .band-featured}
 ::: {.container}
 ::: {.featured-insight}
 
 ::: {.featured-chart}
-![Gráfico do crescimento populacional por porte municipal, elaborado pela EKIO](static/images/insights/censo-crescimento-porte.png){fig-alt="Gráfico de barras do crescimento populacional acumulado entre 2010 e 2022 por porte municipal; as cidades de 100 a 500 mil habitantes lideram, com 14,3%, e as de mais de um milhão crescem 1,1%."}
+![Mapa do crescimento populacional na Região Metropolitana de Belo Horizonte e em seu colar metropolitano](static/images/insights/censo-crescimento-mapa-bh.png){fig-alt="Mapa dos municípios da Região Metropolitana de Belo Horizonte e de seu colar metropolitano, coloridos pela taxa anual de crescimento populacional entre 2010 e 2022."}
 :::
 
 ::: {.featured-text}
@@ -132,13 +134,14 @@ Atendemos empresas e entidades governamentais em questões de mercado, investime
 :::
 :::
 :::
+-->
 
-<!-- ============ Publicações ============ -->
+<!-- ============ Insights ============ -->
 ::: {.band .band-light}
 ::: {.container}
 
 ::: {.section-head-row}
-## Publicações {.section-heading}
+## Insights {.section-heading}
 
 [Ver todos os insights](insights/index.qmd){.link-rule-sm}
 :::

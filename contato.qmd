@@ -6,22 +6,6 @@ page-layout: full
 toc: false
 ---
 
-::: {.page-header}
-::: {.container}
-
-::: {.page-header-main}
-[Iniciar uma conversa]{.section-label}
-
-# Contato {.page-header-title}
-:::
-
-::: {.page-header-aside}
-[Conte sobre o seu desafio. Nós desenhamos a solução.]{.page-header-desc}
-:::
-
-:::
-:::
-
 ::: {.art-strip .art-strip-sm style="background-image: url(/static/images/art/hokusai-series-2026-09/card-vertical-city.webp);" role="img" aria-label="Ilustração de torres e arcadas do centro de São Paulo em vista isométrica, em azul e linho"}
 :::
 

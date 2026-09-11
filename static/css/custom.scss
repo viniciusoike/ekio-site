@@ -43,6 +43,9 @@ $linen-old-2: #F2EDE2; // Soft Linen 2; ink-400 4.10
 $paper-inume: #F3EEE2; // L*94.2
 $paper-suwa: #DDD5BA; // L*85.3
 
+// The Serviços banner's paper, sampled as rendered so its header can match.
+$paper-banner: #E0D8C1;
+
 // ── 3. The switch ──
 // These two lines set every surface on the site. Keep them in step with
 // ekio_surface in insights/posts/_ekio-style.R so figures match the page.
@@ -713,17 +716,18 @@ h2.section-heading-light {
   }
 }
 
-.page-header:has(.page-header-lead) {
-  padding: 4.5rem 0 3.5rem;
+// Title and a link, nothing else (Serviços). The title is a full sentence, so
+// it runs smaller and wider than the default to stay within two lines.
+.page-header.page-header-compact {
+  padding: 4rem 0 3.25rem;
 
-  // A lead header can carry a full sentence as its title (Serviços); 15ch
-  // stacks it four lines deep.
   h1.page-header-title {
-    max-width: 20ch;
+    font-size: clamp(2.25rem, 3.6vw, 3.25rem);
+    max-width: 26ch;
   }
 
-  .section-label {
-    margin-bottom: 1.5rem;
+  .page-header-actions {
+    margin-top: 1.75rem;
   }
 }
 
@@ -766,15 +770,83 @@ h1.page-header-title {
 // Deck under the title, for headers that carry the page's line instead of
 // pushing it into the aside. Sits between the display size and body text.
 .page-header-lead {
+  font-family: $font-host-grotesk;
   font-size: clamp(1.25rem, 2vw, 1.5rem);
   line-height: 1.55;
   color: $ink-600;
-  margin: 1.75rem 0 0;
+  margin: 0.5rem 0 0;
   max-width: 34ch;
 }
 
 .page-header-actions {
   margin-top: 2.25rem;
+}
+
+// Header with art filling its right side (Insights, Serviços). The copy keeps
+// the left 55% and the art the right 45%, cropped from the bottom-right so the
+// blocks stay in view. The art's left edge fades into --art-ground, which each
+// variant sets to its own background so the seam vanishes.
+.page-header:has(.page-header-art) {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  margin-top: 1rem;
+  padding: 2rem 0 2.75rem;
+  border-bottom: none;
+
+  .page-header-main {
+    max-width: 55%;
+  }
+}
+
+// Linen, for art drawn on paper (Serviços).
+.page-header.page-header-linen {
+  --art-ground: #{$paper-banner};
+  background: $paper-banner;
+}
+
+.page-header.page-header-dark {
+  --art-ground: #{$navy};
+  background: $navy;
+
+  h1.page-header-title {
+    color: $paper;
+  }
+
+  .section-label {
+    color: rgba($paper, 0.6);
+  }
+
+  // One line where the header is wide enough; balanced where it has to wrap.
+  .page-header-lead {
+    color: rgba($paper, 0.86);
+    max-width: none;
+    text-wrap: balance;
+  }
+}
+
+.page-header-art {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-position: right bottom;
+
+  // Starts 1px outside the art and solid, so the image's edge column never
+  // shows through at fractional widths.
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0 0 0 -1px;
+    background: linear-gradient(90deg,
+        var(--art-ground) 0%,
+        var(--art-ground) 3%,
+        color-mix(in srgb, var(--art-ground) 55%, transparent) 22%,
+        transparent 50%);
+  }
 }
 
 // ═══════════════════════════════════════════════════════════════
@@ -799,8 +871,7 @@ h1.page-header-title {
   display: block;
   font-size: 0.6875rem;
   font-weight: 400;
-  letter-spacing: 0.22em;
-  --text-transform: uppercase;
+  /* --text-transform: uppercase; */
   color: $ink-300;
   margin-bottom: 2.75rem;
 }
@@ -1577,8 +1648,31 @@ h3.about-partner-name {
 
   // Single-column headers take their spacing from .page-header itself.
   .page-header,
-  .page-header:has(.page-header-lead) {
+  .page-header.page-header-compact {
     padding: 4rem 0 3rem;
+  }
+
+  // Too narrow to sit beside the copy, so the art drops below it as a strip
+  // and closes the header itself.
+  .page-header:has(.page-header-art) {
+    padding: 2.5rem 0 0;
+
+    .page-header-main {
+      max-width: none;
+    }
+  }
+
+  .page-header-art {
+    position: relative;
+    width: auto;
+    height: 180px;
+    margin-top: 2.5rem;
+
+    &::after {
+      background: linear-gradient(180deg,
+          var(--art-ground) 0%,
+          transparent 45%);
+    }
   }
 
   .band {
@@ -1651,7 +1745,7 @@ h3.about-partner-name {
   // Long words ("Inteligência", "empreendimento", "desenvolvimento") in
   // display type outgrow a phone column. Smaller type and padding fit them
   // at 360px; below that, hyphenation takes over.
-  .page-header:has(.page-header-lead) h1.page-header-title {
+  .page-header.page-header-compact h1.page-header-title {
     font-size: clamp(1.875rem, 9vw, 2.6rem);
   }
 
@@ -1884,7 +1978,8 @@ h3.about-partner-name {
 // Full-bleed strip. Sits between bands and carries no text.
 .art-strip {
   width: 100%;
-  height: clamp(200px, 23vw, 340px);
+  margin-top: 1rem;
+  height: clamp(220px, 25vw, 360px);
   background-color: $paper-sunk;
   background-position: center;
   background-size: cover;
@@ -1894,7 +1989,7 @@ h3.about-partner-name {
 
 // Shorter variant for page headers, where the art trails the title block.
 .art-strip-sm {
-  height: clamp(150px, 15vw, 220px);
+  height: clamp(165px, 16.5vw, 240px);
 }
 
 // Variante servida por <img srcset>, para o navegador escolher a largura de
@@ -1941,11 +2036,11 @@ h3.about-partner-name {
 
 @media (max-width: 991px) {
   .art-strip {
-    height: 190px;
+    height: 205px;
   }
 
   .art-strip-sm {
-    height: 140px;
+    height: 160px;
   }
 
   // Narrow viewports crop the art too hard to read; drop back to flat navy.

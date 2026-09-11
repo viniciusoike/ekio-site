@@ -12,6 +12,7 @@ project:
     - static/images/art/*.webp
     - static/images/art/finished/
     - static/images/art/hokusai-series-2026-09/*.webp
+    - static/images/art/hokusai-insights-2026-09-07/*.webp
     # Fallback card for a post that ships without its own figure. Referenced
     # only from post front matter, so Quarto cannot discover it either.
     - static/images/insight-placeholder.svg
@@ -33,7 +34,7 @@ website:
     pinned: true
     logo: static/images/brand/lockup-navy.svg
     logo-alt: "EKIO"
-    logo-href: index.qmd
+    logo-href: /index.qmd
     # custom.scss overrides this with $paper; the value here only paints the
     # bar before the stylesheet loads. Keep it equal to $paper.
     background: "#F9F8F3"
@@ -44,10 +45,10 @@ website:
     right:
       - text: "Serviços"
         href: servicos.qmd
-      - text: "Sobre"
-        href: sobre.qmd
       - text: "Insights"
         href: insights/index.qmd
+      - text: "Sobre"
+        href: sobre.qmd
       - text: "Contato"
         href: contato.qmd
 

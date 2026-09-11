@@ -6,25 +6,17 @@ page-layout: full
 toc: false
 ---
 
-::: {.page-header}
+::: {.page-header .page-header-compact .page-header-linen}
 ::: {.container}
 
 ::: {.page-header-main}
-[Áreas de atuação]{.section-label}
-
 # Inteligência para decisões de mercado e investimento {.page-header-title}
-
-[A EKIO combina economia, dados e análise espacial para avaliar projetos imobiliários, priorizar mercados e transformar informações em ferramentas de decisão.]{.page-header-lead}
-
-::: {.page-header-actions}
-[Converse sobre seu projeto](contato.qmd){.link-rule}
-:::
 :::
 
 :::
-:::
 
-::: {.art-strip .art-strip-data style="background-image: url(/static/images/art/hokusai-series-2026-09/banner-urban-data.webp);" role="img" aria-label="Ilustração de colunas e uma série crescente, com formas arquitetônicas em azul e linho"}
+::: {.page-header-art style="background-image: url(/static/images/art/hokusai-series-2026-09/banner-urban-data.webp);" aria-hidden="true"}
+:::
 :::
 
 <!-- ============ Ofertas ============ -->
