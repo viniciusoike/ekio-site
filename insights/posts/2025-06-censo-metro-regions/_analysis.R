@@ -8,14 +8,24 @@ library(leaflet)
 library(sf)
 source(here::here("insights/posts/_ekio-style.R"))
 
-metro <- readr::read_csv("metro-population.csv", show_col_types = FALSE) |>
+metro <- readr::read_csv(
+  here::here("insights/posts/2025-06-censo-metro-regions/metro-population.csv"),
+  show_col_types = FALSE
+)
+
+metro <- metro |>
   arrange(name_metro, year) |>
   mutate(
     tcg = (total / lag(total))^(1 / (year - lag(year))) - 1,
     .by = name_metro
   )
 
-cities <- readr::read_csv("city-population.csv", show_col_types = FALSE) |>
+cities <- readr::read_csv(
+  here::here("insights/posts/2025-06-censo-metro-regions/city-population.csv"),
+  show_col_types = FALSE
+)
+
+cities <- cities |>
   mutate(
     change = pop_2022 - pop_2010,
     growth = pop_2022 / pop_2010 - 1,
@@ -23,7 +33,13 @@ cities <- readr::read_csv("city-population.csv", show_col_types = FALSE) |>
   )
 
 fmt_number_pt <- function(x, digits = 0) {
-  formatC(x, format = "f", digits = digits, big.mark = ".", decimal.mark = ",")
+  return(formatC(
+    x,
+    format = "f",
+    digits = digits,
+    big.mark = ".",
+    decimal.mark = ","
+  ))
 }
 
 metro_rate <- function(name, year_value = 2022) {
@@ -31,25 +47,29 @@ metro_rate <- function(name, year_value = 2022) {
     filter(name_metro == name, year == year_value) |>
     pull(tcg)
   stopifnot(length(value) == 1L)
-  paste0(fmt_number_pt(value * 100, 2), "%")
+  return(paste0(fmt_number_pt(value * 100, 2), "%"))
 }
 
 city_rate <- function(name) {
   value <- cities |> filter(name_muni == name, state == "MG") |> pull(tcg)
   stopifnot(length(value) == 1L)
-  paste0(fmt_number_pt(value * 100, 2), "%")
+  return(paste0(fmt_number_pt(value * 100, 2), "%"))
 }
 
 # Tabelas -------------------------------------------------------------------
 
 metro_wide <- metro |>
-  select(name_metro, code_state, year, total, tcg) |>
-  pivot_wider(names_from = year, values_from = c(total, tcg)) |>
+  select(name_metro, code_state, year, total, tcg)
+
+metro_wide <- metro_wide |>
+  pivot_wider(names_from = year, values_from = c(total, tcg))
+
+metro_wide <- metro_wide |>
   arrange(desc(total_2022))
 
-metro_table <- function(data, national = FALSE) {
+metro_table <- function(dat, national = FALSE) {
   if (national) {
-    data <- data |>
+    dat <- dat |>
       select(
         name_metro,
         total_2000,
@@ -60,9 +80,10 @@ metro_table <- function(data, national = FALSE) {
         tcg_2022
       )
   } else {
-    data <- data |> select(name_metro, total_2022, tcg_2000, tcg_2010, tcg_2022)
+    dat <- dat |> select(name_metro, total_2022, tcg_2000, tcg_2010, tcg_2022)
   }
-  data <- data |>
+
+  dat <- dat |>
     mutate(
       name_metro = recode(
         trimws(name_metro),
@@ -71,7 +92,8 @@ metro_table <- function(data, national = FALSE) {
       ),
       across(starts_with("total"), ~ .x / 1000)
     )
-  table <- gt(data) |>
+
+  gt_table <- gt(dat) |>
     cols_label(
       name_metro = "Recorte metropolitano",
       total_2022 = "2022",
@@ -96,21 +118,27 @@ metro_table <- function(data, national = FALSE) {
     tab_source_note(
       "Fonte: IBGE, Censos Demográficos. Recortes de 2018, incluindo áreas associadas. Elaboração: EKIO."
     ) |>
-    ekiotable::gt_theme_hokusai(stripe = TRUE, reversed = TRUE, font_body = "host_grotesk", font_title = "lora") |>
+    ekiotable::gt_theme_hokusai(
+      stripe = TRUE,
+      reversed = TRUE,
+      font_body = "host_grotesk",
+      font_title = "lora"
+    ) |>
     tab_options(
       table.width = pct(100),
       container.overflow.x = "auto",
       table.font.size = px(13)
     )
   if (national) {
-    table <- table |>
+    gt_table <- gt_table |>
       cols_label(total_2000 = "2000", total_2010 = "2010") |>
       tab_header(
         title = "Crescimento demográfico nas regiões metropolitanas",
         subtitle = "Recortes com mais de um milhão de habitantes em 2022."
       )
   }
-  table
+
+  return(gt_table)
 }
 
 gtable_cities <- metro_table(
@@ -136,13 +164,17 @@ size_labels <- c(
 city_summary <- cities |>
   mutate(
     size = findInterval(pop_2022, c(20000, 50000, 100000, 500000, 1000000))
-  ) |>
+  )
+
+city_summary <- city_summary |>
   summarise(
     share = mean(change > 0) * 100,
     total_growth = sum(change),
     average_growth = weighted.mean(growth, pop_2022) * 100,
     .by = size
-  ) |>
+  )
+
+city_summary <- city_summary |>
   arrange(size) |>
   mutate(label = factor(size_labels[size + 1], levels = rev(size_labels)))
 
@@ -154,12 +186,13 @@ size_chart <- function(
   suffix = "%",
   digits = 1
 ) {
-  data <- city_summary |>
+  chart_data <- city_summary |>
     mutate(
       value = .data[[variable]] / divisor,
       value_label = paste0(fmt_number_pt(value, digits), suffix)
     )
-  ggplot(data, aes(value, label)) +
+
+  chart <- ggplot(chart_data, aes(value, label)) +
     geom_col(fill = ekio_site$navy, width = 0.7) +
     geom_text(
       aes(label = value_label),
@@ -179,6 +212,8 @@ size_chart <- function(
     theme(
       axis.text.x = element_blank()
     )
+
+  return(chart)
 }
 
 plots <- list(
@@ -204,29 +239,25 @@ plots <- list(
 
 # Mapa de Belo Horizonte e colar metropolitano -------------------------------
 
-bh <- readr::read_rds(here::here(
-  "insights/posts/2025-06-censo-metro-regions/belo-horizonte.rds"
-)) |>
-  left_join(
-    select(cities, code_muni, pop_2010, pop_2022, change, tcg),
-    by = "code_muni"
-  ) |>
+bh <- readr::read_rds(
+  here::here("insights/posts/2025-06-censo-metro-regions/belo-horizonte.rds")
+)
+
+city_population <- cities |>
+  select(code_muni, pop_2010, pop_2022, change, tcg)
+
+bh <- left_join(bh, city_population, by = "code_muni")
+
+bh <- bh |>
   mutate(
     annual_rate = tcg * 100,
-    popup = paste0(
-      "<strong>",
-      name_muni,
-      "</strong><br>",
-      subdivision,
-      "<br>População em 2010: ",
-      fmt_number_pt(pop_2010),
-      "<br>População em 2022: ",
-      fmt_number_pt(pop_2022),
-      "<br>Saldo: ",
-      fmt_number_pt(change),
-      "<br>Crescimento anual: ",
-      fmt_number_pt(annual_rate, 2),
-      "%"
+    popup = stringr::str_glue(
+      "<strong>{name_muni}</strong><br>",
+      "{subdivision}<br>",
+      "População em 2010: {fmt_number_pt(pop_2010)}<br>",
+      "População em 2022: {fmt_number_pt(pop_2022)}<br>",
+      "Saldo: {fmt_number_pt(change)}<br>",
+      "Crescimento anual: {fmt_number_pt(annual_rate, 2)}%"
     )
   )
 
@@ -236,13 +267,33 @@ map_palette <- colorBin(
   bins = c(-Inf, -0.25, 0, 0.75, 1.5, 2.5, Inf)
 )
 
+carto_basemap_key <- Sys.getenv("CARTO_BASEMAP_KEY")
+
+if (!nzchar(carto_basemap_key)) {
+  cli::cli_abort("{.envvar CARTO_BASEMAP_KEY} must be configured.")
+}
+
+carto_basemap_url <- sprintf(
+  "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png?key=%s",
+  utils::URLencode(carto_basemap_key, reserved = TRUE)
+)
+
+carto_basemap_attribution <- paste(
+  '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>,',
+  '&copy; <a href="https://carto.com/attributions">CARTO</a>'
+)
+
 map <- leaflet(
   bh,
   width = "100%",
   height = 520,
   options = leafletOptions(scrollWheelZoom = FALSE)
 ) |>
-  addTiles() |>
+  addTiles(
+    urlTemplate = carto_basemap_url,
+    attribution = carto_basemap_attribution,
+    options = tileOptions(subdomains = "abcd", maxZoom = 20)
+  ) |>
   addPolygons(
     layerId = ~code_muni,
     fillColor = ~ map_palette(annual_rate),

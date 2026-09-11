@@ -10,7 +10,7 @@ featured: "true"
 
 ```{r}
 #| label: setup
-source("_analysis.R")
+source(here::here("insights/posts/2025-06-censo-metro-regions/_analysis.R"))
 ```
 
 Os resultados do Censo 2022 trouxeram à tona um fenômeno que tem gerado intensos debates sobre o futuro demográfico do Brasil: pela primeira vez em décadas, algumas das principais regiões metropolitanas do país registraram redução populacional ou crescimento próximo de zero. Para compreender melhor esta transformação, vale analisar os dados em uma perspectiva histórica e regional.
