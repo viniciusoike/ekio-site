@@ -31,22 +31,20 @@ listing:
 
 ::: {.about-body}
 
-## Vinicius Oike Reginatto {.about-name}
+## Vinicius Reginatto {.about-name}
 
-[Fundador]{.about-role}
+<br>
 
-[Fundei a EKIO para trabalhar na interseção entre economia, ciência de dados e análise espacial, um cruzamento que o mercado brasileiro raramente cobre.]{.about-bio}
+[Fundei a EKIO para trabalhar na interseção entre economia, ciência de dados e análise espacial, uma combinação que o mercado brasileiro raramente oferece. A EKIO combina análise de dados propositiva com refino visual para que os dados comuniquem claramente.]{.about-bio}
 
-[Começo todo projeto entendendo o problema antes de escolher a ferramenta. Faço perguntas difíceis antes de escrever a primeira linha de código.]{.about-bio}
-
-[Os resultados vão para uma sala de diretoria ou para uma equipe de planejamento municipal, e o formato muda conforme o público.]{.about-bio}
+[O método ou a base de dados não costumam ser o gargalo; o desafio é ter clareza sobre o problema]{.about-bio}
 
 ::: {.about-partner}
-[Parceria]{.credential-label}
+[Parceiros]{.credential-label}
 
 ### Urbit {.about-partner-name}
 
-[A Urbit mantém uma plataforma de inteligência territorial para o mercado imobiliário brasileiro, com dados de zoneamento, infraestrutura e ofertas. Em projeto conjunto, a base de dados vem da Urbit e a modelagem econométrica vem da EKIO.]{.about-partner-desc}
+[A Urbit mantém a maior plataforma de inteligência territorial para o mercado imobiliário brasileiro, com dados de zoneamento, infraestrutura e ofertas.]{.about-partner-desc}
 
 [urbit.com.br](https://urbit.com.br){.link-rule-sm}
 :::
@@ -58,13 +56,7 @@ listing:
 ::: {.credential}
 [Formação]{.credential-label}
 
-[Mestrado em Economia, USP]{.credential-value}
-:::
-
-::: {.credential}
-[Experiência]{.credential-label}
-
-[Mais de 8 anos em consultoria]{.credential-value}
+[MsC Economia, USP]{.credential-value}
 :::
 
 ::: {.credential}

@@ -1,4 +1,6 @@
 ---
+# Without a title, Quarto promotes the header's H1 to the (hidden) title block.
+title: "Serviços"
 pagetitle: "Estudos de Mercado, Real Estate e Dados"
 description: "Estudos de viabilidade imobiliária, expansão, desenvolvimento urbano e produtos de dados para decisões de mercado e investimento."
 image: /static/images/og-card.png
@@ -24,9 +26,10 @@ toc: false
 ::: {.container}
 
 ::: {.services-intro}
-## Decisões diferentes exigem análises diferentes {.section-heading}
+#### Decisões diferentes exigem análises diferentes {.section-heading}
 
-[Cada projeto começa com uma decisão concreta: aprovar um lançamento, entrar em um novo mercado, escolher onde expandir ou acompanhar um setor de forma contínua. A EKIO define o escopo, reúne as evidências e compara cenários antes de apresentar uma recomendação independente.]{.section-desc}
+[A EKIO combina economia, dados e análise espacial para avaliar projetos imobiliários, priorizar mercados e transformar informações em ferramentas de decisão.]{.section-desc}
+
 :::
 
 <!--
@@ -45,11 +48,11 @@ esta ordem.
 ::: {.service-detail-body}
 ## Estudos de mercado e viabilidade imobiliária {.service-detail-title}
 
-[Existe demanda para este projeto — e qual posicionamento faz sentido?]{.service-detail-question}
+[Existe demanda para este projeto?]{.service-detail-question}
 
 [Antes de aprovar um lançamento ou entrar em um novo segmento, avaliamos a demanda, a concorrência, os preços e a capacidade de absorção do mercado. O estudo termina com cenários comparáveis e uma recomendação clara.]{.service-detail-desc}
 
-[Entregas possíveis]{.service-detail-label}
+[Entregas]{.service-detail-label}
 
 ::: {.service-offerings}
 - Dimensionamento e segmentação da demanda
@@ -64,21 +67,6 @@ esta ordem.
 - Validação de teses de investimento
 :::
 
-[A recomendação pode ser lançar, adiar, reformular a tese ou não seguir com o projeto.]{.service-detail-callout}
-
-::: {.service-detail-more}
-[Ver a revisão pós-lançamento](#pos-lancamento){.link-rule-sm}
-:::
-
-[Métodos]{.service-detail-label}
-
-::: {.methodology-tags}
-[Econometria]{.method-tag}
-[Demografia]{.method-tag}
-[Análise de preços]{.method-tag}
-[Cenários]{.method-tag}
-[Real estate]{.method-tag}
-:::
 :::
 
 ::: {.service-detail-visual}
