@@ -17,6 +17,9 @@ grid:
 
 # Authoring defaults
 author: "Vinicius Oike Reginatto"
+# The site defaults to plain math (_quarto.yml); posts with formulas need
+# MathJax enabled.
+html-math-method: mathjax
 freeze: true   # posts are static once published; override per-post if needed
 
 # Figures

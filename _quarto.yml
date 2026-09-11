@@ -92,6 +92,9 @@ filters:
 # Format
 format:
   html:
+    # Projects run plain by default; posts opt back into MathJax via
+    # insights/posts/_metadata.yml.
+    html-math-method: plain
     theme:
       - cosmo
       - static/css/custom.scss
