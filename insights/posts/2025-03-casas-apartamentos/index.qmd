@@ -101,7 +101,7 @@ tab_geral |>
 
 ## Tamanho do Município
 
-Pode-se imaginar que cidades maiores são mais verticalizadas, na média, do que cidades menores. Isto não parece ser o caso no Brasil. O gráfico abaixo mostra a relação entre o número total de domicílios e o share de apartamentos nas maiores cidades brasileiras. Considerou-se somente cidades com pelo menos 50 mil domicílios (grosso modo, 150 mil habitantes).
+Pode-se imaginar que cidades maiores são mais verticalizadas, na média, do que cidades menores. Isto não parece ser o caso no Brasil. O gráfico abaixo mostra a relação entre o número total de domicílios e o share de apartamentos nas maiores cidades brasileiras. Consideraram-se somente cidades com pelo menos 50 mil domicílios (grosso modo, 150 mil habitantes).
 
 Os dados apresentam uma correlação muito fraca e grande variabilidade. De fato, não parece haver relação alguma entre os dados.
 

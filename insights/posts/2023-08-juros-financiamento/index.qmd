@@ -418,7 +418,7 @@ p_rmn_adj <- afford |>
   theme_ekio_site()
 ```
 
-Entre maio de 2021 e abril de 2023, a taxa média do financiamento habitacional passou de `r pct(rate_min$rate)`% para `r pct(rate_last$rate)`% ao ano. Esta aumento acompanhou a alta da SELIC, que saltou de 3,5% para 13,75%.
+Entre maio de 2021 e abril de 2023, a taxa média do financiamento habitacional passou de `r pct(rate_min$rate)`% para `r pct(rate_last$rate)`% ao ano. Este aumento acompanhou a alta da SELIC, que saltou de 3,5% para 13,75%.
 
 O aumento dos juros tem enorme peso sobre o mercado imobiliário: além de encarecer o produto, diminui a capacidade de financiamento do comprador. Um apartamento de R\$450 mil exigia renda de R\$`r brl(renda_piso)`; hoje, exige R\$`r brl(renda_topo)`. Ou seja, o aumento de 10 p.p. na SELIC se traduziu em aumento de `r round(renda_alta)`% da renda exigida para financiar o imóvel.
 

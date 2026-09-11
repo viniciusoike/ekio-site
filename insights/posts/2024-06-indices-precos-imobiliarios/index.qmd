@@ -351,7 +351,7 @@ O preço de bens heterogêneos reflete diferenças de qualidade. No caso de imó
 
 Para entender como isto dificulta a estimação de um índice, considere o caso de um imóvel abandonado que passa por uma significativa reforma. Naturalmente, o preço de venda deste imóvel aumenta várias vezes. Um índice de preços que identifica isto como um movimento dos preços em geral será enviesado.
 
-Uma maneira de contornar isto é usando a modelagem hedônica. A modelagem ou precificação hedônica decompõe o preço de um imóvel em função de duas características observáveis. Assim, atribui-se um "preço" para cada uma das características do imóvel. Isto permite que se atribua corretamente qual parte do movimento dos preços é, de fato, um movimento de mercado.
+Uma maneira de contornar isto é usando a modelagem hedônica. A modelagem ou precificação hedônica decompõe o preço de um imóvel em função de suas características observáveis. Assim, atribui-se um "preço" para cada uma das características do imóvel. Isto permite que se atribua corretamente qual parte do movimento dos preços é, de fato, um movimento de mercado.
 
 ### Imóveis não transacionam com frequência
 
@@ -425,7 +425,7 @@ plot_rppi("FipeZap")
 
 O Índice Geral do Mercado Imobiliário Residencial é o primeiro índice de preços imobiliários hedônico do Brasil. A base de dados do índice é similar à do IVG-R, mas o seu tratamento é mais sofisticado. Mais de 40 variáveis são utilizadas no modelo hedônico que ajuda a decompor o preço dos imóveis.
 
-O IGMI-R foi desenvolvido pelo economista Paulo Pichetti, numa [parceria entre a FGV e a Abecip](https://www.abecip.org.br/igmi-r-abecip/caracteristicas-do-indice). Alguns detalhes sobre a metodologia do índice podem ser vistos nesta [apresentação institucional](https://www.abecip.org.br/igmi-r-abecip/apresentacao-igmi-r-abecip). Atualmente, o IGMI-R é o índice mais preciso sobre o mercado de vendas no Brasil.
+O IGMI-R foi desenvolvido pelo economista Paulo Picchetti, numa [parceria entre a FGV e a Abecip](https://www.abecip.org.br/igmi-r-abecip/caracteristicas-do-indice). Alguns detalhes sobre a metodologia do índice podem ser vistos nesta [apresentação institucional](https://www.abecip.org.br/igmi-r-abecip/apresentacao-igmi-r-abecip). Atualmente, o IGMI-R é o índice mais preciso sobre o mercado de vendas no Brasil.
 
 A principal fragilidade do IGMI-R é o seu histórico curto. Além disso, o *timing* de criação do índice foi bastante infortuito, pois a série inicia em 2014. Nos seus breves 10 anos de história, o IGMI-R passou pela maior recessão econômica da história recente do país, uma pandemia global, dois ciclos de alta de juros e a menor taxa de juros da história.
 

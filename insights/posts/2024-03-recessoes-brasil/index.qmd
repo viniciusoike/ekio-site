@@ -279,7 +279,7 @@ p2 <- ggplot(data = cycles, aes(x = period, y = new_index * 100)) +
 
 Ciclos econômicos são flutuações recorrentes observadas empiricamente na atividade econômica de países. Estes ciclos são caracterizados por variações numa série de índices de atividade, emprego, investimento, etc. Estas flutuações geralmente seguem um padrão de expansão seguido por contração/recessão, formando o que é conhecido como um ciclo. Os ciclos econômicos são influenciados por uma variedade de fatores, incluindo mudanças na demanda do consumidor, políticas governamentais, inovações tecnológicas e choques externos (e.g. quebra de safra, pandemia, etc.).
 
-No Brasil, a datação dos ciclos econômicos é feita pela CODACE[^1]. Desde 1996, houve 6 recessões. A maioria das recessões foi relativamente curta, durando de 2 a 5 trimestres. A recessão mais longa foi a da Crise Econômica no segundo governo Dilma; oficialmente, a recessão começou no segundo trimestre de 2014 e foi até o quarto trimestre de 2016.
+No Brasil, a datação dos ciclos econômicos é feita pelo CODACE[^1]. Desde 1996, houve 6 recessões. A maioria das recessões foi relativamente curta, durando de 2 a 5 trimestres. A recessão mais longa foi a da Crise Econômica no segundo governo Dilma; oficialmente, a recessão começou no segundo trimestre de 2014 e foi até o quarto trimestre de 2016.
 
 [^1]: O Comitê de Datação de Ciclos Econômicos (CODACE) organizado pela Fundação Getúlio Vargas (FGV) se reúne periodicamente para datar os ciclos econômicos brasileiros. Para mais informações, veja o [site](https://portalibre.fgv.br/codace).
 
