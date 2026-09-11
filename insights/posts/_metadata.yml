@@ -5,15 +5,20 @@
 # Layout
 page-layout: article
 toc: true
-toc-location: right
+toc-location: left
 title-block-style: default
+# Adds the "← Insights" link above the title.
+template-partials:
+  - ../../static/partials/title-block.html
+# Lets custom.scss mark "Insights" as active in the navbar.
+body-classes: insight-post
 art-cover: true
 section-divs: true
 anchor-sections: true
 grid:
   body-width: 760px
   margin-width: 200px
-  sidebar-width: 0px
+  sidebar-width: 220px
 
 # Authoring defaults
 author: "Vinicius Oike Reginatto"

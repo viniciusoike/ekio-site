@@ -174,6 +174,12 @@ h4 {
   padding-bottom: 0;
 }
 
+// A step below Bootstrap's h2 (calc(1.29rem + 0.48vw), capped at 1.65rem ≈
+// 28px); class-based headings set their own sizes and are unaffected.
+h2 {
+  font-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.4375rem);
+}
+
 p {
   text-wrap: pretty;
 }
@@ -320,7 +326,11 @@ p:has(> .package-meta:only-child) {
       border-bottom-color: $navy;
     }
 
-    &.active {
+    // Quarto marks a link active only on its own page; posts belong to
+    // Insights too. Quarto's JS trims the href to ".../insights/" after load,
+    // so match the directory, not the file.
+    &.active,
+    body.insight-post &[href*="insights/"] {
       color: $navy !important;
       border-bottom-color: $navy;
     }
@@ -375,97 +385,121 @@ p:has(> .package-meta:only-child) {
 // Footer
 // ═══════════════════════════════════════════════════════════════
 
-.footer,
-#quarto-footer,
-.nav-footer {
-  background: $ink !important;
-  border-top: none;
-  padding: 0.9rem 0;
-  font-size: 0.9rem;
+footer.footer {
+  background: $ink;
   color: $ink-inverse-muted;
 
-  // Quarto aligns the three footer columns on a baseline. The left column now
-  // leads with the wordmark, which has no baseline to share with the links.
-  align-items: center;
-
-  .nav-footer-left,
-  .nav-footer-center,
-  .nav-footer-right {
-    align-items: center;
-    flex-wrap: wrap;
+  .nav-footer {
+    display: block;
+    padding: 0;
+    border-top: 0;
+    background: transparent;
   }
 
-  .nav-footer-right {
-    justify-content: flex-end;
-  }
-
-  // Quarto wraps the mark and the line beside it in one <p>; centring the
-  // boxes reads truer than aligning them on a baseline the mark does not have.
-  .nav-footer-left>p {
-    display: flex;
-    align-items: center;
-  }
-
-  // Footer links come through as a <ul>; that is the real flex container.
-  .footer-items {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
+  .nav-footer-center {
+    width: 100%;
+    min-height: 0;
     margin: 0;
     padding: 0;
+    text-align: left;
   }
 
-  .nav-item {
-    margin: 0;
-  }
-
-  // Quarto wraps each footer label in a <p>.
-  p {
-    margin: 0;
+  .nav-footer-left,
+  .nav-footer-right {
+    display: none;
   }
 
   a {
     color: $ink-inverse-muted;
-    transition: color 0.18s;
+    text-decoration: none;
 
     &:hover {
       color: $paper;
     }
-  }
 
-  .nav-link {
-    padding: 0 !important;
-    font-size: 1rem;
+    &:focus-visible {
+      outline: 2px solid $paper;
+      outline-offset: 6px;
+    }
   }
 }
 
-// The katakana banner on the near-black footer, white plate on black — the
-// mark's third approved pairing. The plate is vertical, so it needs more
-// height than the wordmark did to keep the glyphs legible.
+.ekio-footer {
+  max-width: 1440px;
+  margin-inline: auto;
+  padding: 3rem 4rem 1.5rem;
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 8rem 8rem;
+  gap: 3rem;
+  align-items: start;
+}
+
+.footer-identity {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  width: fit-content;
+}
+
 .footer-mark {
-  height: 112px;
+  display: block;
+  height: 96px;
   width: auto;
-  margin-right: 1.25rem;
   flex-shrink: 0;
 }
 
 .footer-brand {
-  font-size: 0.75rem;
-  /* text-transform: uppercase; */
-  color: $ink-inverse-muted;
-}
-
-// Legacy footer classes.
-.footer-logo-text {
+  padding-top: 0.2rem;
   font-family: $font-sans;
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: $ink-inverse-muted;
+  font-size: 0.9375rem;
+  line-height: 1.6;
 }
 
-.footer-sub {
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.625rem;
+  font-family: $font-cond;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.footer-bottom {
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba($ink-inverse-muted, 0.25);
   font-size: 0.75rem;
-  color: $ink-inverse-muted;
+  line-height: 1.5;
+}
+
+@media (max-width: 767px) {
+  .ekio-footer {
+    padding: 2rem 1.5rem 1.25rem;
+  }
+
+  .footer-main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem 1.5rem;
+  }
+
+  .footer-identity {
+    grid-column: 1 / -1;
+    gap: 1.25rem;
+  }
+
+  .footer-links {
+    gap: 0;
+
+    a {
+      display: flex;
+      align-items: center;
+      min-height: 44px;
+    }
+  }
 }
 
 // ═══════════════════════════════════════════════════════════════
@@ -1792,6 +1826,20 @@ h3.about-partner-name {
   // instead of pushing past the edge.
   >div {
     flex-wrap: wrap;
+  }
+
+  .post-back {
+    display: inline-block;
+    margin-bottom: 1rem;
+    font-family: $font-cond;
+    font-size: 0.8125rem;
+    color: $ink-500;
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+      color: $navy;
+    }
   }
 
   .quarto-title h1.title {
