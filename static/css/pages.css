@@ -483,9 +483,9 @@ h1.home-cover-title {
 
 .form-label {
     display: block;
-    font-size: 0.6875rem;
-    font-weight: 400;
-    letter-spacing: 0.16em;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--ekio-ink-400);
     margin-bottom: 0.5rem;
@@ -500,7 +500,7 @@ h1.home-cover-title {
     border-bottom: 1px solid var(--ekio-rule-strong);
     border-radius: 0;
     font-family: var(--font-sans);
-    font-size: 0.9375rem;
+    font-size: max(1rem, 16px);
     color: var(--ekio-ink);
     background: transparent;
     transition: border-color 0.2s;

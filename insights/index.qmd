@@ -1,6 +1,7 @@
 ---
 pagetitle: "Insights"
 description: "Análises de economia, mercado imobiliário e dados."
+image: /static/images/og-card.png
 page-layout: full
 toc: false
 listing:
@@ -79,7 +80,7 @@ format:
 :::
 
 ::: {.cta-actions}
-[contact@ekio.io](mailto:contact@ekio.io?subject=Insights%20-%20EKIO){.link-rule-light}
+[contato@ekio.io](mailto:contato@ekio.io?subject=Insights%20-%20EKIO){.link-rule-light}
 [Formulário de contato](../contato.qmd){.link-rule-light}
 :::
 

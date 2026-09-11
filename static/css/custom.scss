@@ -183,6 +183,8 @@ p:has(> .hero-label:only-child),
 p:has(> .hero-note:only-child),
 p:has(> .service-num:only-child),
 p:has(> .service-detail-num:only-child),
+p:has(> .service-detail-label:only-child),
+p:has(> .step-num:only-child),
 p:has(> .package-disciplines:only-child),
 p:has(> .about-role:only-child),
 p:has(> .credential-label:only-child),
@@ -203,6 +205,10 @@ p:has(> .package-meta:only-child) {
 .featured-desc,
 .service-desc,
 .service-detail-desc,
+.service-detail-question,
+.service-detail-callout,
+.service-detail-note,
+.service-detail-audience,
 .package-desc,
 .about-bio,
 .about-partner-desc,
@@ -718,6 +724,12 @@ h2.section-heading-light {
 .page-header:has(.page-header-lead) {
   padding: 4.5rem 0 3.5rem;
 
+  // A lead header can carry a full sentence as its title (Serviços); 15ch
+  // stacks it four lines deep.
+  h1.page-header-title {
+    max-width: 20ch;
+  }
+
   .section-label {
     margin-bottom: 1.5rem;
   }
@@ -767,6 +779,10 @@ h1.page-header-title {
   color: $ink-600;
   margin: 1.75rem 0 0;
   max-width: 34ch;
+}
+
+.page-header-actions {
+  margin-top: 2.25rem;
 }
 
 // ═══════════════════════════════════════════════════════════════
@@ -901,6 +917,11 @@ h1.hero-title {
   background: $rule;
   border-top: 1px solid $rule;
   border-bottom: 1px solid $rule;
+}
+
+// Four cards on the home: two rows of two keep the titles to two lines.
+.services-grid-2 {
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .service-card {
@@ -1050,8 +1071,10 @@ h2.cta-heading {
   border-bottom: 1px solid $rule;
   align-items: start;
 
+  // The band already pads its foot.
   &:last-child {
     border-bottom: none;
+    padding-bottom: 0;
   }
 }
 
@@ -1068,7 +1091,17 @@ h2.service-detail-title {
   font-weight: 400;
   line-height: 1.15;
   color: $ink;
-  margin: 0 0 1.375rem;
+  margin: 0 0 1rem;
+}
+
+// The client's question, between the offer name and its description.
+.service-detail-question {
+  font-family: $font-display;
+  font-size: clamp(1.25rem, 1.8vw, 1.4375rem);
+  line-height: 1.45;
+  color: $ink-600;
+  margin: 0 0 1.5rem;
+  max-width: 40ch;
 }
 
 .service-detail-desc {
@@ -1077,6 +1110,93 @@ h2.service-detail-title {
   color: $ink-600;
   margin: 0 0 2.125rem;
   max-width: 56ch;
+}
+
+// A closing paragraph after the deliverables list.
+.service-offerings+p>.service-detail-desc {
+  margin: 1.75rem 0 0;
+}
+
+// "Entregas possíveis", "Para quem", "Métodos".
+.service-detail-label {
+  @extend .credential-label;
+  margin-top: 2.25rem;
+}
+
+.service-detail-body .methodology-tags {
+  margin-top: 0.75rem;
+}
+
+// A callout and a scope note are one component, a ruled paragraph after the
+// deliverables. Only the voice changes.
+.service-detail-callout,
+.service-detail-note {
+  margin: 1.75rem 0 0;
+  padding-left: 1.25rem;
+  border-left: 2px solid $rule-strong;
+  max-width: 56ch;
+}
+
+.service-detail-callout {
+  font-family: $font-display;
+  font-size: 1.1875rem;
+  line-height: 1.5;
+  color: $ink;
+  border-left-color: $navy;
+}
+
+// $ink-500, not $ink-400: the note also sits on the muted band.
+.service-detail-note {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: $ink-500;
+}
+
+.service-detail-audience {
+  font-family: $font-display;
+  font-size: 1.1875rem;
+  line-height: 1.4;
+  color: $ink;
+}
+
+.service-detail-more {
+  margin-top: 1.5rem;
+}
+
+// Heading and lede above the rows; the rule closes it off from row 01.
+.services-intro {
+  padding-bottom: 4rem;
+  border-bottom: 1px solid $rule;
+
+  .section-desc {
+    margin-bottom: 0;
+  }
+}
+
+// Post-launch review: head, two-cell grid, closing note.
+.review-head .service-detail-question {
+  margin-bottom: 1.25rem;
+}
+
+.review-foot {
+  margin-top: 2.5rem;
+
+  .service-detail-desc {
+    margin-bottom: 0;
+  }
+}
+
+// Heading on the left, a paragraph on the right, for slim bands.
+.split-row {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 4rem;
+  align-items: baseline;
+
+  .section-heading,
+  .section-desc {
+    margin: 0;
+  }
 }
 
 .service-detail-visual {
@@ -1127,6 +1247,26 @@ h2.service-detail-title {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 3.5rem;
+}
+
+// Four steps (Como trabalhamos, servicos.qmd).
+.principles-grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem;
+  margin-top: 3.5rem;
+
+  .principle h3 {
+    font-size: 1.5rem;
+  }
+}
+
+.step-num {
+  display: block;
+  font-family: $font-mono;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: $navy;
+  margin-bottom: 1rem;
 }
 
 .principle {
@@ -1385,6 +1525,11 @@ h3.about-partner-name {
     grid-template-columns: 80px 1fr 300px;
     gap: 2.5rem;
   }
+
+  .principles-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem 2.5rem;
+  }
 }
 
 @media (max-width: 991px) {
@@ -1462,7 +1607,7 @@ h3.about-partner-name {
   .services-grid,
   .packages-grid,
   .principles-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
 
@@ -1470,6 +1615,15 @@ h3.about-partner-name {
     grid-template-columns: 1fr;
     gap: 1.75rem;
     padding: 3.5rem 0;
+  }
+
+  .services-intro {
+    padding-bottom: 3rem;
+  }
+
+  .split-row {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
 
   .about-grid,
@@ -1511,6 +1665,25 @@ h3.about-partner-name {
 
   .section-head-row {
     margin-bottom: 2.5rem;
+  }
+
+  // Long words ("Inteligência", "empreendimento", "desenvolvimento") in
+  // display type outgrow a phone column. Smaller type and padding fit them
+  // at 360px; below that, hyphenation takes over.
+  .page-header:has(.page-header-lead) h1.page-header-title {
+    font-size: clamp(1.875rem, 9vw, 2.6rem);
+  }
+
+  .service-card,
+  .package-card {
+    padding: 1.75rem 1.25rem 2rem;
+  }
+
+  .service-card h3,
+  h3.package-title {
+    font-size: 1.3125rem;
+    hyphens: auto;
+    overflow-wrap: break-word;
   }
 }
 

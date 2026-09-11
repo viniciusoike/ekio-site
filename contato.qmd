@@ -1,6 +1,7 @@
 ---
 pagetitle: "Contato"
 description: "Fale com a EKIO sobre um projeto de economia, ciência de dados ou inteligência espacial."
+image: /static/images/og-card.png
 page-layout: full
 toc: false
 ---
@@ -34,7 +35,7 @@ toc: false
 ::: {.contact-info-item}
 [Email]{.contact-info-label}
 
-[[contact@ekio.io](mailto:contact@ekio.io?subject=Contato%20-%20EKIO)]{.contact-info-value}
+[[contato@ekio.io](mailto:contato@ekio.io?subject=Contato%20-%20EKIO)]{.contact-info-value}
 :::
 
 ::: {.contact-info-item}
@@ -78,10 +79,13 @@ toc: false
 <label class="form-label" for="contato-area">Área de interesse</label>
 <select class="form-select" id="contato-area" name="service">
 <option value="">Selecione uma área</option>
-<!-- Mesma ordem de servicos.qmd (01, 02, 03). -->
-<option value="Imóveis e inteligência espacial">Imóveis e inteligência espacial</option>
-<option value="Economia e estratégia">Economia e estratégia</option>
-<option value="Dados e analytics">Dados e analytics</option>
+<!-- Mesma ordem de servicos.qmd: as quatro ofertas, a revisão pós-lançamento e o suporte a consultorias. -->
+<option value="Mercado e viabilidade imobiliária">Mercado e viabilidade imobiliária</option>
+<option value="Expansão e inteligência locacional">Expansão e inteligência locacional</option>
+<option value="Produto de dados sob medida">Produto de dados sob medida</option>
+<option value="Estudo econômico e urbano">Estudo econômico e urbano</option>
+<option value="Revisão de mercado pós-lançamento">Revisão de mercado pós-lançamento</option>
+<option value="Suporte para consultoria">Suporte para consultoria</option>
 <option value="Mais de uma área">Mais de uma área</option>
 <option value="Ainda não sei">Ainda não sei</option>
 </select>

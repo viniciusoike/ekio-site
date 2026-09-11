@@ -1,6 +1,7 @@
 ---
 pagetitle: "Sobre"
 description: "A EKIO é a consultoria de Vinicius Oike Reginatto, mestre em Economia pela USP, e atua na interseção entre econometria, ciência de dados e análise espacial."
+image: /static/images/og-card.png
 page-layout: full
 toc: false
 listing:
@@ -97,7 +98,7 @@ format:
 ::: {.about-links}
 [LinkedIn](https://linkedin.com/in/viniciusoike){.link-rule-sm}
 [GitHub](https://github.com/viniciusoike){.link-rule-sm}
-[contact@ekio.io](mailto:contact@ekio.io?subject=Contato%20-%20EKIO){.link-rule-sm}
+[contato@ekio.io](mailto:contato@ekio.io?subject=Contato%20-%20EKIO){.link-rule-sm}
 :::
 
 :::
@@ -134,7 +135,7 @@ format:
 :::
 
 ::: {.cta-actions}
-[contact@ekio.io](mailto:contact@ekio.io?subject=Contato%20-%20EKIO){.link-rule-light}
+[contato@ekio.io](mailto:contato@ekio.io?subject=Contato%20-%20EKIO){.link-rule-light}
 [Formulário de contato](contato.qmd){.link-rule-light}
 :::
 

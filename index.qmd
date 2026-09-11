@@ -48,7 +48,7 @@ Consultoria em Economia e Dados
 ::: {.home-intro}
 Atendemos empresas e entidades governamentais em questões de mercado, investimento e localização.
 
-[Fale conosco](mailto:contact@ekio.io?subject=Consulta%20inicial%20-%20EKIO){.link-rule}
+[Fale conosco](mailto:contato@ekio.io?subject=Consulta%20inicial%20-%20EKIO){.link-rule}
 :::
 
 <!-- ============ O que fazemos ============ -->
@@ -61,36 +61,47 @@ Atendemos empresas e entidades governamentais em questões de mercado, investime
 [Ver todos os serviços](servicos.qmd){.link-rule-sm}
 :::
 
-::: {.services-grid}
+<!-- Mesma ordem das ofertas em servicos.qmd. -->
+::: {.services-grid .services-grid-2}
 
 ::: {.service-card}
 [01]{.service-num}
 
-### Imóveis e inteligência espacial {.service-title}
+### Estudos de mercado e viabilidade imobiliária {.service-title}
 
-[Avaliação imobiliária, geomarketing, seleção de pontos e análise de mercado com GIS e econometria espacial.]{.service-desc}
+[Demanda, concorrência, preços e absorção antes de aprovar um lançamento.]{.service-desc}
 
-[Saiba mais](servicos.qmd#spatial){.service-link}
+[Saiba mais](servicos.qmd#viabilidade){.service-link}
 :::
 
 ::: {.service-card}
 [02]{.service-num}
 
-### Economia e estratégia {.service-title}
+### Estratégia de expansão e inteligência locacional {.service-title}
 
-[Dimensionamento de mercado, previsão econômica e business cases.]{.service-desc}
+[Priorização de cidades, mercados e localidades.]{.service-desc}
 
-[Saiba mais](servicos.qmd#economics){.service-link}
+[Saiba mais](servicos.qmd#expansao){.service-link}
 :::
 
 ::: {.service-card}
 [03]{.service-num}
 
-### Dados e analytics {.service-title}
+### Produtos de dados sob medida {.service-title}
 
-[Do Excel a relatórios automatizados, dashboards interativos e modelos preditivos.]{.service-desc}
+[Dashboards, índices e monitoramento feitos para rotinas de decisão.]{.service-desc}
 
-[Saiba mais](servicos.qmd#datascience){.service-link}
+[Saiba mais](servicos.qmd#produtos-de-dados){.service-link}
+:::
+
+::: {.service-card}
+[04]{.service-num}
+
+### Estudos econômicos e desenvolvimento urbano {.service-title}
+
+[Efeitos econômicos e urbanos de políticas, projetos e investimentos.]{.service-desc}
+
+[Saiba mais](servicos.qmd#desenvolvimento-urbano){.service-link}
 :::
 
 :::
@@ -122,12 +133,12 @@ Atendemos empresas e entidades governamentais em questões de mercado, investime
 :::
 :::
 
-<!-- ============ Publicações recentes ============ -->
+<!-- ============ Publicações ============ -->
 ::: {.band .band-light}
 ::: {.container}
 
 ::: {.section-head-row}
-## Publicações recentes {.section-heading}
+## Publicações {.section-heading}
 
 [Ver todos os insights](insights/index.qmd){.link-rule-sm}
 :::
@@ -150,7 +161,7 @@ Atendemos empresas e entidades governamentais em questões de mercado, investime
 :::
 
 ::: {.cta-actions}
-[contact@ekio.io](mailto:contact@ekio.io?subject=Consulta%20inicial%20-%20EKIO){.link-rule-light}
+[contato@ekio.io](mailto:contato@ekio.io?subject=Consulta%20inicial%20-%20EKIO){.link-rule-light}
 [Formulário de contato](contato.qmd){.link-rule-light}
 :::
 

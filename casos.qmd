@@ -131,7 +131,7 @@ toc: false
 
 [Cada projeto começa com a compreensão do seu contexto específico. Vamos explorar como podemos ajudar.]{.cta-desc}
 
-[Enviar um Email](mailto:contact@ekio.io?subject=Projeto%20-%20EKIO){.btn .btn-primary-ekio .btn-lg}
+[Enviar um Email](mailto:contato@ekio.io?subject=Projeto%20-%20EKIO){.btn .btn-primary-ekio .btn-lg}
 [Formulário de Contato](contato.qmd){.btn .btn-ghost-light .btn-lg}
 
 :::

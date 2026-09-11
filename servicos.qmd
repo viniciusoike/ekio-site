@@ -1,6 +1,7 @@
 ---
-pagetitle: "Serviços"
-description: "Avaliação imobiliária, geomarketing, dimensionamento de mercado, previsão econômica, dashboards e modelagem preditiva."
+pagetitle: "Estudos de Mercado, Real Estate e Dados"
+description: "Estudos de viabilidade imobiliária, expansão, desenvolvimento urbano e produtos de dados para decisões de mercado e investimento."
+image: /static/images/og-card.png
 page-layout: full
 toc: false
 ---
@@ -11,7 +12,13 @@ toc: false
 ::: {.page-header-main}
 [Áreas de atuação]{.section-label}
 
-# Serviços {.page-header-title}
+# Inteligência para decisões de mercado e investimento {.page-header-title}
+
+[A EKIO combina economia, dados e análise espacial para avaliar projetos imobiliários, priorizar mercados e transformar informações em ferramentas de decisão.]{.page-header-lead}
+
+::: {.page-header-actions}
+[Converse sobre seu projeto](contato.qmd){.link-rule}
+:::
 :::
 
 :::
@@ -20,63 +27,65 @@ toc: false
 ::: {.art-strip .art-strip-data style="background-image: url(/static/images/art/hokusai-series-2026-09/banner-urban-data.webp);" role="img" aria-label="Ilustração de colunas e uma série crescente, com formas arquitetônicas em azul e linho"}
 :::
 
-<!-- ============ Detalhamento dos serviços ============ -->
-::: {.band .band-light .band-flush}
+<!-- ============ Ofertas ============ -->
+::: {.band .band-light}
 ::: {.container}
 
-::: {.service-detail #spatial}
+::: {.services-intro}
+## Decisões diferentes exigem análises diferentes {.section-heading}
+
+[Cada projeto começa com uma decisão concreta: aprovar um lançamento, entrar em um novo mercado, escolher onde expandir ou acompanhar um setor de forma contínua. A EKIO define o escopo, reúne as evidências e compara cenários antes de apresentar uma recomendação independente.]{.section-desc}
+:::
+
+<!--
+As quatro ofertas têm o mesmo desenho; a ordem é que marca a prioridade.
+01 é a porta de entrada comercial e a oferta que a revisão pós-lançamento
+estende. 02 atende os mesmos compradores. 03 transforma um estudo pontual em
+ferramenta recorrente. 04 tem o público mais restrito, por isso só ela traz
+"Para quem". Os cards da home e as opções do formulário em contato.qmd seguem
+esta ordem.
+-->
+
+::: {.service-detail #viabilidade}
 
 [01]{.service-detail-num}
 
 ::: {.service-detail-body}
-## Imóveis e inteligência espacial {.service-detail-title}
+## Estudos de mercado e viabilidade imobiliária {.service-detail-title}
 
-[Localização determina boa parte do valor de um negócio e costuma ser a variável menos analisada. Combinamos GIS, econometria espacial e modelagem demográfica para responder onde investir, onde construir e onde expandir.]{.service-detail-desc}
+[Existe demanda para este projeto — e qual posicionamento faz sentido?]{.service-detail-question}
 
-::: {.service-offerings}
-- Avaliação imobiliária e modelos de preços hedônicos
-- Análise de mercado imobiliário e viabilidade
-- Seleção de pontos e inteligência locacional
-- Geomarketing e estudos de área de influência
-- Economia urbana e análise de uso do solo
-:::
+[Antes de aprovar um lançamento ou entrar em um novo segmento, avaliamos a demanda, a concorrência, os preços e a capacidade de absorção do mercado. O estudo termina com cenários comparáveis e uma recomendação clara.]{.service-detail-desc}
 
-::: {.methodology-tags}
-[GIS / QGIS]{.method-tag}
-[Preços hedônicos]{.method-tag}
-[Regressão espacial]{.method-tag}
-[Modelagem demográfica]{.method-tag}
-:::
-:::
-
-::: {.service-detail-visual}
-![](static/images/art/hokusai-servicos-2026-09-07/servico-imoveis.webp){fig-alt="Edifícios residenciais com fachadas curvas e volumes escalonados em azul e linho, com textura de xilogravura."}
-:::
-
-:::
-
-::: {.service-detail #economics}
-
-[02]{.service-detail-num}
-
-::: {.service-detail-body}
-## Economia e estratégia {.service-detail-title}
-
-[Do dimensionamento de mercado aos estudos de viabilidade, usamos econometria e análise de cenários para quantificar a incerteza e medir o risco de uma decisão antes que ela seja tomada.]{.service-detail-desc}
+[Entregas possíveis]{.service-detail-label}
 
 ::: {.service-offerings}
-- Dimensionamento de mercado e previsão de demanda
-- Previsão econômica e análise de conjuntura
-- Business cases e estudos de viabilidade
-- Análise de cenários e testes de estresse
-- Avaliação de impacto de políticas públicas
+- Dimensionamento e segmentação da demanda
+- Definição do público-alvo
+- Análise da oferta e da concorrência
+- Recomendação de faixa de preço
+- Análise de acessibilidade econômica
+- Avaliação de tipologias em alto nível
+- Estimativa de absorção e velocidade de vendas
+- Posicionamento de mercado
+- Comparação de cenários
+- Validação de teses de investimento
 :::
+
+[A recomendação pode ser lançar, adiar, reformular a tese ou não seguir com o projeto.]{.service-detail-callout}
+
+::: {.service-detail-more}
+[Ver a revisão pós-lançamento](#pos-lancamento){.link-rule-sm}
+:::
+
+[Métodos]{.service-detail-label}
 
 ::: {.methodology-tags}
 [Econometria]{.method-tag}
-[Séries temporais]{.method-tag}
-[Análise de cenários]{.method-tag}
-[VPL / TIR]{.method-tag}
+[Demografia]{.method-tag}
+[Análise de preços]{.method-tag}
+[Cenários]{.method-tag}
+[Real estate]{.method-tag}
 :::
 :::
 
@@ -86,32 +95,252 @@ toc: false
 
 :::
 
-::: {.service-detail #datascience}
+::: {.service-detail #expansao}
+
+[02]{.service-detail-num}
+
+::: {.service-detail-body}
+## Estratégia de expansão e inteligência locacional {.service-detail-title}
+
+[Quais cidades, mercados e localidades devem ser priorizados?]{.service-detail-question}
+
+[Comparamos alternativas geográficas para identificar onde existe maior potencial de demanda, menor pressão competitiva e melhor aderência à estratégia da organização.]{.service-detail-desc}
+
+[Entregas possíveis]{.service-detail-label}
+
+::: {.service-offerings}
+- Priorização de cidades e novas praças
+- Comparação de mercados, regiões e bairros
+- Mapeamento da demanda e da concorrência
+- Análise demográfica e socioeconômica
+- Estudos de acessibilidade e área de influência
+- Rankings de atratividade
+- Cenários de expansão
+- Avaliação de localizações apresentadas pelo cliente
+:::
+
+[A EKIO avalia e compara mercados ou localizações. A oferta não inclui prospecção imobiliária nem intermediação na compra de terrenos.]{.service-detail-note}
+
+[Métodos]{.service-detail-label}
+
+::: {.methodology-tags}
+[GIS]{.method-tag}
+[Econometria espacial]{.method-tag}
+[Geomarketing]{.method-tag}
+[Demografia]{.method-tag}
+[Análise multicritério]{.method-tag}
+:::
+:::
+
+::: {.service-detail-visual}
+![](static/images/art/hokusai-servicos-2026-09-07/servico-imoveis.webp){fig-alt="Edifícios residenciais com fachadas curvas e volumes escalonados em azul e linho, com textura de xilogravura."}
+:::
+
+:::
+
+::: {.service-detail #produtos-de-dados}
 
 [03]{.service-detail-num}
 
 ::: {.service-detail-body}
-## Dados e analytics {.service-detail-title}
+## Produtos de dados sob medida {.service-detail-title}
 
-[Ajudamos empresas presas em rotinas manuais de Excel a modernizar seus fluxos de análise. Relatórios manuais viram pipelines reproduzíveis, planilhas viram dashboards interativos e o que hoje é refeito toda semana passa a rodar sozinho.]{.service-detail-desc}
+[Como transformar dados recorrentes em uma ferramenta de decisão?]{.service-detail-question}
+
+[Desenvolvemos dashboards, índices e sistemas de monitoramento adaptados às decisões e aos fluxos de trabalho de cada organização.]{.service-detail-desc}
+
+[Entregas possíveis]{.service-detail-label}
 
 ::: {.service-offerings}
-- Modernização de fluxos analíticos, do Excel a relatórios automatizados
-- Dashboards e visualização de dados
-- Modelagem preditiva e machine learning
-- Análise estatística e testes de hipóteses
+- Dashboards e plataformas analíticas
+- Índices e indicadores proprietários
+- Sistemas automatizados de monitoramento
+- Integração e estruturação de bases
+- Relatórios recorrentes
+- Ferramentas internas de análise
+- Pipelines reproduzíveis
 :::
 
+[Cada produto parte de uma pergunta ou rotina concreta. A tecnologia é definida em função do uso, dos dados disponíveis e da capacidade de manutenção da organização.]{.service-detail-desc}
+
+[Métodos]{.service-detail-label}
+
 ::: {.methodology-tags}
-[R / Python]{.method-tag}
-[Quarto / Shiny]{.method-tag}
-[Machine learning]{.method-tag}
-[Detecção de anomalias]{.method-tag}
+[R]{.method-tag}
+[Python]{.method-tag}
+[Quarto]{.method-tag}
+[Shiny]{.method-tag}
+[Visualização de dados]{.method-tag}
+[Automação]{.method-tag}
 :::
 :::
 
 ::: {.service-detail-visual}
 ![](static/images/art/hokusai-servicos-2026-09-07/servico-dados.webp){fig-alt="Marcas dispersas se organizam em uma grade e barras sobre planos arquitetônicos em azul e linho."}
+:::
+
+:::
+
+::: {.service-detail #desenvolvimento-urbano}
+
+[04]{.service-detail-num}
+
+::: {.service-detail-body}
+## Estudos econômicos e desenvolvimento urbano {.service-detail-title}
+
+[Quais são os efeitos econômicos e urbanos de uma grande iniciativa?]{.service-detail-question}
+
+[Combinamos análise econômica, demográfica, espacial e imobiliária para avaliar políticas públicas, projetos urbanos e investimentos de longo prazo.]{.service-detail-desc}
+
+[Entregas possíveis]{.service-detail-label}
+
+::: {.service-offerings}
+- Diagnósticos econômicos e territoriais
+- Estudos demográficos e de mercado de trabalho
+- Avaliação de projetos e equipamentos urbanos
+- Estudos para polos, distritos e centralidades
+- Cenários de desenvolvimento de longo prazo
+- Avaliação de impacto
+- Indicadores e sistemas de acompanhamento
+:::
+
+[Para quem]{.service-detail-label}
+
+[Governos, associações setoriais e organismos multilaterais.]{.service-detail-audience}
+
+[Métodos]{.service-detail-label}
+
+::: {.methodology-tags}
+[Economia urbana]{.method-tag}
+[Econometria]{.method-tag}
+[Demografia]{.method-tag}
+[GIS]{.method-tag}
+[Avaliação de impacto]{.method-tag}
+:::
+:::
+
+::: {.service-detail-visual}
+![](static/images/art/hokusai-series-2026-09/insight-adaptive-reuse.webp){fig-alt="Galpão industrial de tijolos com telhado em shed ao lado de um edifício novo de vidro e concreto, em azul e linho, com textura de xilogravura."}
+:::
+
+:::
+
+:::
+:::
+
+<!-- ============ Revisão pós-lançamento (extensão da oferta 01) ============ -->
+::: {.band .band-muted #pos-lancamento}
+::: {.container}
+
+::: {.review-head}
+[Revisão de mercado pós-lançamento]{.section-label}
+
+## Do estudo ao desempenho no mercado {.section-heading}
+
+[Os primeiros resultados confirmam a tese?]{.service-detail-question}
+
+[Quando houver dados suficientes, a EKIO pode reavaliar a tese após o lançamento. Comparamos o cenário esperado com a evolução do mercado e, quando o cliente compartilha seus dados, com o desempenho do próprio empreendimento.]{.section-desc}
+:::
+
+::: {.packages-grid}
+
+::: {.package-card}
+### Desempenho do mercado {.package-title}
+
+[Dados externos]{.package-disciplines}
+
+[Usamos dados externos para avaliar:]{.package-desc}
+
+::: {.service-offerings}
+- Evolução da oferta e da demanda
+- Novos lançamentos e concorrentes
+- Mudanças de preços e tipologias
+- Absorção do mercado
+- Validade das premissas originais
+:::
+:::
+
+::: {.package-card}
+### Desempenho do empreendimento {.package-title}
+
+[Dados internos do cliente]{.package-disciplines}
+
+[Com dados internos do cliente, também avaliamos:]{.package-desc}
+
+::: {.service-offerings}
+- Velocidade de vendas
+- Desempenho por tipologia
+- Preços efetivamente praticados
+- Perfil dos compradores
+- Descontos, estoque e distratos
+- Diferenças entre os cenários e os resultados
+:::
+:::
+
+:::
+
+::: {.review-foot}
+[O acompanhamento termina com uma nova recomendação: manter o posicionamento, ajustar a estratégia, adiar decisões ou reformular a tese.]{.service-detail-desc}
+
+[O escopo depende da cobertura, da qualidade e da disponibilidade dos dados.]{.service-detail-note}
+:::
+
+:::
+:::
+
+<!-- ============ Consultorias ============ -->
+::: {.band .band-light .band-tight}
+::: {.container}
+::: {.split-row}
+
+## Para consultorias e equipes de projeto {.section-heading}
+
+[A EKIO também atua como especialista dentro de projetos conduzidos por consultorias e equipes multidisciplinares. Contribuímos com experiência em economia, mercado imobiliário, econometria, análise espacial e ciência de dados.]{.section-desc}
+
+:::
+:::
+:::
+
+<!-- ============ Como trabalhamos ============ -->
+::: {.band .band-muted}
+::: {.container}
+
+[Como trabalhamos]{.section-label}
+
+## Começamos pela decisão, não pela técnica {.section-heading}
+
+::: {.principles-grid .principles-grid-4}
+
+::: {.principle}
+[1]{.step-num}
+
+### Definimos a pergunta
+
+Delimitamos a decisão, as alternativas relevantes e o que o estudo precisa esclarecer.
+:::
+
+::: {.principle}
+[2]{.step-num}
+
+### Avaliamos os dados
+
+Combinamos dados públicos, fontes de mercado, bases de parceiros e informações do cliente. A disponibilidade local determina o nível de detalhe possível.
+:::
+
+::: {.principle}
+[3]{.step-num}
+
+### Comparamos cenários
+
+Testamos hipóteses e explicitamos os riscos, as limitações e as condições necessárias para cada alternativa.
+:::
+
+::: {.principle}
+[4]{.step-num}
+
+### Apresentamos uma recomendação
+
+Traduzimos os resultados em uma orientação independente, inclusive quando as evidências indicam adiar, reformular ou não seguir com o projeto.
 :::
 
 :::
@@ -125,14 +354,14 @@ toc: false
 ::: {.cta-row}
 
 ::: {.cta-text}
-## Qual desses resolve o seu problema? {.cta-heading}
+## Tem uma decisão de mercado pela frente? {.cta-heading}
 
-[Boa parte dos projetos combina mais de uma área. Descreva o caso e conversamos sobre o escopo.]{.cta-desc}
+[Conte o contexto, a decisão que precisa tomar e os dados que já possui. A partir disso, definimos o estudo ou produto mais adequado.]{.cta-desc}
 :::
 
 ::: {.cta-actions}
-[contact@ekio.io](mailto:contact@ekio.io?subject=Projeto%20-%20Servicos%20EKIO){.link-rule-light}
-[Formulário de contato](contato.qmd){.link-rule-light}
+[Conversar sobre um projeto](contato.qmd){.link-rule-light}
+[contato@ekio.io](mailto:contato@ekio.io?subject=Projeto%20-%20Servicos%20EKIO){.link-rule-light}
 :::
 
 :::

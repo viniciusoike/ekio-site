@@ -1,5 +1,6 @@
 ---
 pagetitle: "Mensagem enviada"
+image: /static/images/og-card.png
 page-layout: full
 toc: false
 ---
