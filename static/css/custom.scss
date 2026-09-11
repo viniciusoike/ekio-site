@@ -380,9 +380,8 @@ p:has(> .package-meta:only-child) {
 .nav-footer {
   background: $ink !important;
   border-top: none;
-  padding: 2.125rem 0;
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
+  padding: 0.9rem 0;
+  font-size: 0.9rem;
   color: $ink-inverse-muted;
 
   // Quarto aligns the three footer columns on a baseline. The left column now
@@ -436,8 +435,7 @@ p:has(> .package-meta:only-child) {
 
   .nav-link {
     padding: 0 !important;
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
+    font-size: 1rem;
   }
 }
 
@@ -445,7 +443,7 @@ p:has(> .package-meta:only-child) {
 // mark's third approved pairing. The plate is vertical, so it needs more
 // height than the wordmark did to keep the glyphs legible.
 .footer-mark {
-  height: 52px;
+  height: 112px;
   width: auto;
   margin-right: 1.25rem;
   flex-shrink: 0;
@@ -453,8 +451,7 @@ p:has(> .package-meta:only-child) {
 
 .footer-brand {
   font-size: 0.75rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   color: $ink-inverse-muted;
 }
 

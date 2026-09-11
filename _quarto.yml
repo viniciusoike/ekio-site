@@ -60,7 +60,7 @@ website:
     foreground: "#AEB1B5"
     left: |
       <img class="footer-mark" src="/static/images/brand/banner-light.svg" alt="EKIO">
-      <span class="footer-brand">Consultoria em Economia e Dados</span>
+      <span class="footer-brand">Consultoria econômica especializada em dados</span>
     right:
       - text: "Serviços"
         href: servicos.qmd
