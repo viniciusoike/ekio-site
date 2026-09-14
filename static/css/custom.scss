@@ -42,14 +42,18 @@ $linen-old-2: #F2EDE2; // Soft Linen 2; ink-400 4.10
 // Paper as measured, before lifting. Reference only.
 $paper-inume: #F3EEE2; // L*94.2
 $paper-suwa: #DDD5BA; // L*85.3
-
+$paper-u-no-hana-iro: #fbfbf6;
+$paper-kinari-iro: #fbfaf3;
+$paper-gofun-iro: #fffffc;
+$paper-offwhite: #f6f7f8;
 // The Serviços banner's paper, sampled as rendered so its header can match.
 $paper-banner: #E0D8C1;
 
 // ── 3. The switch ──
 // These two lines set every surface on the site. Keep them in step with
 // ekio_surface in insights/posts/_ekio-style.R so figures match the page.
-$paper: $linen-97-warm; // page
+//$paper: $linen-97-warm; // page
+$paper: $paper-gofun-iro;
 $paper-sunk: $linen-94; // recessed band
 
 // ── 4. Derived surfaces ──
@@ -104,7 +108,7 @@ $headings-color: $ink;
 $headings-font-weight: 400;
 
 $font-size-base: 1rem;
-$line-height-base: 1.7;
+$line-height-base: 1.68;
 
 $link-color: $navy;
 $link-hover-color: $ink;
@@ -1927,7 +1931,7 @@ h3.about-partner-name {
 
 #quarto-document-content {
   .cell-output-display {
-    margin: 2.25rem 0;
+    margin: 1.25rem 0;
 
     >img,
     >svg,
@@ -1943,11 +1947,22 @@ h3.about-partner-name {
   // Figures carry their own canvas, so a border would double the edge.
   // A hairline above and below seats them in the column instead.
   figure.figure {
-    margin: 2.5rem 0;
+    margin: 0.25rem 0;
     border-top: 1px solid $rule;
     border-bottom: 1px solid $rule;
-    padding: 1.25rem 0;
+    padding: 0rem 0;
     background: $paper;
+  }
+
+  // Tabset panes: .tab-content already frames and pads the pane (Quarto's
+  // Bootstrap build), so the figure spacing stacks on top of it there.
+  // Trim both so the chart sits close under the tab strip.
+  .tab-content {
+    padding-top: 0.5rem;
+  }
+
+  .tab-content figure.figure {
+    margin-top: 0.5rem;
   }
 
   figcaption,
