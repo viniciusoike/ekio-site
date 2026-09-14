@@ -27,9 +27,9 @@ knitr::opts_chunk$set(
   dpi = 96,
   fig.retina = 2,
   fig.width = 8,
-  fig.height = 5,
+  fig.height = 4.4,
   fig.align = "center",
-  out.width = "90%"
+  out.width = "100%"
 )
 
 # Pigments ----
@@ -55,6 +55,8 @@ ekio_pigment <- list(
 # needs 4.5:1. The ramp crosses that line between L*97 and L*96, so the
 # darker rungs belong to bands and panels, not to the page.
 ekio_paper <- list(
+  gofun_iro = "#fffffc",
+  u_no_hana_iro = "#fbfbf6",
   # L*98.5; ink-400 4.63
   linen_98 = "#FCFBF8",
   # L*97.5; ink-400 4.50 — the floor for body text
@@ -84,8 +86,8 @@ ekio_paper_measured <- list(
 # Change these two lines to reswatch the figures; mirror them in
 # static/css/custom.scss, which carries the same switch for the pages.
 ekio_surface <- list(
-  paper = ekio_paper$linen_97_warm,
-  sunk = ekio_paper$linen_94
+  paper = ekio_paper$gofun_iro,
+  sunk = ekio_paper$linen_96
 )
 
 # Site tokens ----
@@ -155,7 +157,7 @@ knitr::opts_chunk$set(dev.args = list(background = ekio_site$paper))
 # theme_ekio() with the page's paper as canvas color, so a figure sits on
 # the page without a seam.
 theme_ekio_site <- function(...) {
-  theme_ekio(...) +
+  theme_ekio(base_size = 12, ...) +
     theme_sub_plot(
       background = element_rect(fill = ekio_site$paper, color = NA),
       title = element_text(size = 18),
@@ -164,6 +166,9 @@ theme_ekio_site <- function(...) {
     ) +
     theme_sub_panel(
       background = element_rect(fill = ekio_site$paper, color = NA)
+    ) +
+    theme_sub_axis(
+      text = element_text(size = rel(0.95))
     )
 }
 
