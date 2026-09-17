@@ -48,9 +48,7 @@ esta ordem.
 ::: {.service-detail-body}
 ## Estudos de mercado e viabilidade imobiliária {.service-detail-title}
 
-[Existe demanda para este projeto?]{.service-detail-question}
-
-[Antes de aprovar um lançamento ou entrar em um novo segmento, avaliamos a demanda, a concorrência, os preços e a capacidade de absorção do mercado. O estudo termina com cenários comparáveis e uma recomendação clara.]{.service-detail-desc}
+[Avaliamos demanda, concorrência, preços e absorção para orientar lançamentos e decisões de investimento.]{.service-detail-desc}
 
 [Entregas]{.service-detail-label}
 
@@ -76,9 +74,7 @@ esta ordem.
 ::: {.service-detail-body}
 ## Estratégia de expansão e inteligência locacional {.service-detail-title}
 
-[Quais cidades, mercados e localidades devem ser priorizados?]{.service-detail-question}
-
-[Comparamos alternativas geográficas para identificar onde existe maior potencial de demanda, menor pressão competitiva e melhor aderência à estratégia da organização.]{.service-detail-desc}
+[Comparamos mercados e localizações para orientar a expansão, considerando demanda, concorrência e aderência à estratégia da organização.]{.service-detail-desc}
 
 [Entregas]{.service-detail-label}
 
@@ -115,9 +111,7 @@ esta ordem.
 ::: {.service-detail-body}
 ## Produtos de dados sob medida {.service-detail-title}
 
-[Como transformar dados recorrentes em uma ferramenta de decisão?]{.service-detail-question}
-
-[Desenvolvemos dashboards, índices e sistemas de monitoramento adaptados às decisões e aos fluxos de trabalho de cada organização.]{.service-detail-desc}
+[Transformamos dados recorrentes em dashboards, índices e sistemas de monitoramento adaptados ao uso de cada organização.]{.service-detail-desc}
 
 [Entregas]{.service-detail-label}
 
@@ -155,9 +149,7 @@ esta ordem.
 ::: {.service-detail-body}
 ## Estudos econômicos e desenvolvimento urbano {.service-detail-title}
 
-[Quais são os efeitos econômicos e urbanos de uma grande iniciativa?]{.service-detail-question}
-
-[Combinamos análise econômica, demográfica, espacial e imobiliária para avaliar políticas públicas, projetos urbanos e investimentos de longo prazo.]{.service-detail-desc}
+[Avaliamos políticas públicas, projetos urbanos e investimentos de longo prazo com análise econômica, demográfica, espacial e imobiliária.]{.service-detail-desc}
 
 [Entregas]{.service-detail-label}
 
