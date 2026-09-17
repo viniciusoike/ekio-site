@@ -197,7 +197,6 @@ p:has(> .hero-note:only-child),
 p:has(> .service-num:only-child),
 p:has(> .service-detail-num:only-child),
 p:has(> .service-detail-label:only-child),
-p:has(> .step-num:only-child),
 p:has(> .package-disciplines:only-child),
 p:has(> .about-role:only-child),
 p:has(> .credential-label:only-child),
@@ -1332,54 +1331,8 @@ h2.service-detail-title {
 
 
 // ═══════════════════════════════════════════════════════════════
-// Principles / packages
+// Packages
 // ═══════════════════════════════════════════════════════════════
-
-.principles-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3.5rem;
-}
-
-// Four steps (Como trabalhamos, servicos.qmd).
-.principles-grid-4 {
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2.5rem;
-  margin-top: 3.5rem;
-
-  .principle h3 {
-    font-size: 1.5rem;
-  }
-}
-
-.step-num {
-  display: block;
-  font-family: $font-mono;
-  font-size: 0.75rem;
-  color: $navy;
-  margin-bottom: 1rem;
-}
-
-.principle {
-  border-top: 1px solid $navy;
-  padding-top: 1.625rem;
-
-  h3 {
-    font-family: $font-display;
-    font-size: 1.75rem;
-    font-weight: 400;
-    line-height: 1.25;
-    color: $ink;
-    margin: 0 0 0.875rem;
-  }
-
-  p {
-    font-size: 0.9375rem;
-    line-height: 1.75;
-    color: $ink-500;
-    margin: 0;
-  }
-}
 
 .packages-grid {
   display: grid;
@@ -1623,10 +1576,6 @@ h3.about-partner-name {
     gap: 2.5rem;
   }
 
-  .principles-grid-4 {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 3rem 2.5rem;
-  }
 }
 
 @media (max-width: 991px) {
@@ -1725,8 +1674,7 @@ h3.about-partner-name {
   }
 
   .services-grid,
-  .packages-grid,
-  .principles-grid {
+  .packages-grid {
     grid-template-columns: minmax(0, 1fr);
   }
 

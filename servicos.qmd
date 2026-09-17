@@ -257,53 +257,6 @@ esta ordem.
 :::
 :::
 
-<!-- ============ Como trabalhamos ============ -->
-::: {.band .band-muted}
-::: {.container}
-
-[Como trabalhamos]{.section-label}
-
-## Começamos pela decisão, não pela técnica {.section-heading}
-
-::: {.principles-grid .principles-grid-4}
-
-::: {.principle}
-[1]{.step-num}
-
-### Definimos a pergunta
-
-Delimitamos a decisão, as alternativas relevantes e o que o estudo precisa esclarecer.
-:::
-
-::: {.principle}
-[2]{.step-num}
-
-### Avaliamos os dados
-
-Combinamos dados públicos, fontes de mercado, bases de parceiros e informações do cliente. A disponibilidade local determina o nível de detalhe possível.
-:::
-
-::: {.principle}
-[3]{.step-num}
-
-### Comparamos cenários
-
-Testamos hipóteses e explicitamos os riscos, as limitações e as condições necessárias para cada alternativa.
-:::
-
-::: {.principle}
-[4]{.step-num}
-
-### Apresentamos uma recomendação
-
-Traduzimos os resultados em uma orientação independente, inclusive quando as evidências indicam adiar, reformular ou não seguir com o projeto.
-:::
-
-:::
-
-:::
-:::
-
 <!-- ============ CTA ============ -->
 ::: {.band .band-cta}
 ::: {.container}
