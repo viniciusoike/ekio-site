@@ -55,16 +55,10 @@ esta ordem.
 [Entregas]{.service-detail-label}
 
 ::: {.service-offerings}
-- Dimensionamento e segmentação da demanda
-- Definição do público-alvo
-- Análise da oferta e da concorrência
-- Recomendação de faixa de preço
-- Análise de acessibilidade econômica
-- Avaliação de tipologias em alto nível
-- Estimativa de absorção e velocidade de vendas
-- Posicionamento de mercado
-- Comparação de cenários
-- Validação de teses de investimento
+- Dimensionamento da demanda e definição do público-alvo
+- Análise da oferta, da concorrência e do posicionamento
+- Preços, acessibilidade e tipologias
+- Absorção, cenários comparáveis e validação da tese
 :::
 
 :::
@@ -86,17 +80,13 @@ esta ordem.
 
 [Comparamos alternativas geográficas para identificar onde existe maior potencial de demanda, menor pressão competitiva e melhor aderência à estratégia da organização.]{.service-detail-desc}
 
-[Entregas possíveis]{.service-detail-label}
+[Entregas]{.service-detail-label}
 
 ::: {.service-offerings}
-- Priorização de cidades e novas praças
-- Comparação de mercados, regiões e bairros
-- Mapeamento da demanda e da concorrência
-- Análise demográfica e socioeconômica
-- Estudos de acessibilidade e área de influência
-- Rankings de atratividade
-- Cenários de expansão
-- Avaliação de localizações apresentadas pelo cliente
+- Priorização de cidades, mercados e novas praças
+- Análise de demanda, concorrência e perfil socioeconômico
+- Acessibilidade, área de influência e atratividade
+- Cenários de expansão e avaliação de localizações
 :::
 
 [A EKIO avalia e compara mercados ou localizações. A oferta não inclui prospecção imobiliária nem intermediação na compra de terrenos.]{.service-detail-note}
@@ -129,16 +119,13 @@ esta ordem.
 
 [Desenvolvemos dashboards, índices e sistemas de monitoramento adaptados às decisões e aos fluxos de trabalho de cada organização.]{.service-detail-desc}
 
-[Entregas possíveis]{.service-detail-label}
+[Entregas]{.service-detail-label}
 
 ::: {.service-offerings}
 - Dashboards e plataformas analíticas
 - Índices e indicadores proprietários
-- Sistemas automatizados de monitoramento
-- Integração e estruturação de bases
-- Relatórios recorrentes
-- Ferramentas internas de análise
-- Pipelines reproduzíveis
+- Monitoramento e relatórios recorrentes
+- Integração de bases, automação e pipelines reproduzíveis
 :::
 
 [Cada produto parte de uma pergunta ou rotina concreta. A tecnologia é definida em função do uso, dos dados disponíveis e da capacidade de manutenção da organização.]{.service-detail-desc}
@@ -172,16 +159,13 @@ esta ordem.
 
 [Combinamos análise econômica, demográfica, espacial e imobiliária para avaliar políticas públicas, projetos urbanos e investimentos de longo prazo.]{.service-detail-desc}
 
-[Entregas possíveis]{.service-detail-label}
+[Entregas]{.service-detail-label}
 
 ::: {.service-offerings}
 - Diagnósticos econômicos e territoriais
 - Estudos demográficos e de mercado de trabalho
-- Avaliação de projetos e equipamentos urbanos
-- Estudos para polos, distritos e centralidades
-- Cenários de desenvolvimento de longo prazo
-- Avaliação de impacto
-- Indicadores e sistemas de acompanhamento
+- Avaliação de projetos, equipamentos, polos e centralidades
+- Cenários de desenvolvimento, impactos e indicadores
 :::
 
 [Para quem]{.service-detail-label}
